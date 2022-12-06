@@ -9,6 +9,8 @@ using DG.Tweening;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject _creditsPanel;
+    [SerializeField] private GameObject _optionsPanel;
+    [SerializeField] private GameObject _audioPanel;
 
     public void MissionButton()
     {
@@ -16,15 +18,29 @@ public class MainMenu : MonoBehaviour
     }
     public void OptionsButton()
     {
-        
+        _optionsPanel.SetActive(true);
     }
     public void CreditsButton()
     {
         _creditsPanel.gameObject.SetActive(true);
     }
+    public void AudioButton()
+    {
+        _audioPanel.gameObject.SetActive(true);
+    }
 
     public void CloseCredits()
     {
         _creditsPanel.gameObject.SetActive(false);
+    }
+
+    public void BackToOptions()
+    {
+        _audioPanel.SetActive(false);
+    }
+    
+    public void BackToGame()
+    {
+        _optionsPanel.SetActive(false);
     }
 }
