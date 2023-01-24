@@ -1,10 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ArcadeCar : MonoBehaviour
 {
+    public bool CanHeal;
+    public bool OnHealingMenu;
     public float speed = 10.0f;
+    public float CurrentSpeed = 0;
     public float turnSpeed = 10.0f;
     public float suspensionHeight = 0.2f;
 
@@ -12,30 +13,70 @@ public class ArcadeCar : MonoBehaviour
     private float inputX;
     private float inputZ;
 
+    public Camp CurrentCamp;
     void Start()
     {
         rb = GetComponentInParent<Rigidbody>();
+        CurrentSpeed = speed;
     }
 
+    public void ResetSpeed()
+    {
+        CurrentSpeed = speed;
+    }
+    
     void Update()
     {
         inputX = Input.GetAxis("Horizontal");
         inputZ = Input.GetAxis("Vertical");
-
-        // Empêcher le véhicule de tourner si il ne bouge pas
-        if(inputZ <= 0)
+        
+        if(inputZ < 0)
+        {
+            inputX = -inputX;
+        }
+        else if (inputZ == 0)
         {
             inputX = 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (CanHeal)
+            {
+                CurrentCamp.StartHealing();
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if (OnHealingMenu)
+            {
+                OnHealingMenu = false;
+                CurrentCamp.HealingPanel.SetActive(false);
+
+                ResetSpeed();
+            }
+        }
+
+        if (OnHealingMenu)
+        {
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                CurrentCamp.SelectedSoldier++;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                CurrentCamp.SelectedSoldier--;
+            }
         }
     }
 
     void FixedUpdate()
     {
-        // Appliquer la vitesse et la rotation en fonction des entrées
-        rb.velocity = transform.forward * inputZ * speed;
+        rb.velocity = transform.forward * inputZ * CurrentSpeed;
         rb.angularVelocity = transform.up * inputX * turnSpeed;
 
-        // Appliquer la suspension en faisant rebondir la voiture lorsque la distance entre le centre de la voiture et le sol est inférieure à la hauteur de suspension
         RaycastHit hit;
         if (Physics.Raycast(transform.position, -transform.up, out hit, suspensionHeight))
         {
