@@ -19,6 +19,7 @@ public class ArcadeCar : MonoBehaviour
     {
         rb = GetComponentInParent<Rigidbody>();
         CurrentSpeed = speed;
+        CurrentTurnSpeed = turnSpeed;
     }
 
     public void ResetSpeed()
@@ -43,7 +44,7 @@ public class ArcadeCar : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            if (CanHeal)
+            if (CanHeal && CurrentCamp.SoldierInPlace != 0)
             {
                 CurrentCamp.StartHealing();
             }
@@ -54,8 +55,11 @@ public class ArcadeCar : MonoBehaviour
             if (OnHealingMenu)
             {
                 OnHealingMenu = false;
+                for (int i = 0; i < CurrentCamp.SoldierInPlace; i++)
+                {
+                    CurrentCamp._soldierCard[i].gameObject.SetActive(false);
+                }
                 CurrentCamp.HealingPanel.SetActive(false);
-
                 ResetSpeed();
             }
         }

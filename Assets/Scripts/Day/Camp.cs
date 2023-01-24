@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Camp : MonoBehaviour
@@ -11,9 +12,9 @@ public class Camp : MonoBehaviour
     [SerializeField] LayerMask TargetLayer;
 
     [SerializeField] private ArcadeCar _arcadeCar;
+    public int SoldierInPlace;
     public GameObject HealingPanel;
     public int SelectedSoldier;
-
     public List<SoldierCard> _soldierCard;
     private void OnTriggerEnter(Collider other)
     {
@@ -35,11 +36,16 @@ public class Camp : MonoBehaviour
 
     private void Update()
     {
-        if (SelectedSoldier > 8)
+        if (SelectedSoldier > SoldierInPlace)
             SelectedSoldier = 1;
         if (SelectedSoldier < 1)
-            SelectedSoldier = 8;
+            SelectedSoldier = SoldierInPlace;
 
+        for (int i = 0; i < SoldierInPlace; i++)
+        {
+            _soldierCard[i].gameObject.SetActive(true);
+        }
+        
         foreach (var soldierCard in _soldierCard)
         {
             if (soldierCard.index != SelectedSoldier)

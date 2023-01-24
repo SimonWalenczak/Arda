@@ -1,10 +1,12 @@
 using DG.Tweening;
 using UnityEngine;
+using TMPro;
 
 public class SoldierCard : MonoBehaviour
 {
     public bool isSelected;
     public int index;
+    
     
     private void Update()
     {
