@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Camp : MonoBehaviour
@@ -13,6 +14,7 @@ public class Camp : MonoBehaviour
     public GameObject HealingPanel;
     public int SelectedSoldier;
 
+    public List<SoldierCard> _soldierCard;
     private void OnTriggerEnter(Collider other)
     {
         if (Contains(TargetLayer, other.gameObject.layer))
@@ -37,6 +39,18 @@ public class Camp : MonoBehaviour
             SelectedSoldier = 1;
         if (SelectedSoldier < 1)
             SelectedSoldier = 8;
+
+        foreach (var soldierCard in _soldierCard)
+        {
+            if (soldierCard.index != SelectedSoldier)
+            {
+                soldierCard.isSelected = false;
+            }
+            else
+            {
+                soldierCard.isSelected = true;
+            }
+        }
     }
 
     public void StartHealing()
@@ -44,7 +58,7 @@ public class Camp : MonoBehaviour
         _arcadeCar.OnHealingMenu = true;
         HealingPanel.SetActive(true);
         _arcadeCar.CurrentSpeed = 0;
-
+        _arcadeCar.CurrentTurnSpeed = 0;
         SelectedSoldier = 1;
     }
 }

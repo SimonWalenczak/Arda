@@ -7,6 +7,7 @@ public class ArcadeCar : MonoBehaviour
     public float speed = 10.0f;
     public float CurrentSpeed = 0;
     public float turnSpeed = 10.0f;
+    public float CurrentTurnSpeed;
     public float suspensionHeight = 0.2f;
 
     private Rigidbody rb;
@@ -23,6 +24,7 @@ public class ArcadeCar : MonoBehaviour
     public void ResetSpeed()
     {
         CurrentSpeed = speed;
+        CurrentTurnSpeed = turnSpeed;
     }
     
     void Update()
@@ -75,7 +77,7 @@ public class ArcadeCar : MonoBehaviour
     void FixedUpdate()
     {
         rb.velocity = transform.forward * inputZ * CurrentSpeed;
-        rb.angularVelocity = transform.up * inputX * turnSpeed;
+        rb.angularVelocity = transform.up * inputX * CurrentTurnSpeed;
 
         RaycastHit hit;
         if (Physics.Raycast(transform.position, -transform.up, out hit, suspensionHeight))
