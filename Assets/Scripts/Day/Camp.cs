@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Camp : MonoBehaviour
@@ -16,6 +17,18 @@ public class Camp : MonoBehaviour
     public GameObject HealingPanel;
     public int SelectedSoldier;
     public List<SoldierCard> _soldierCard;
+
+
+    [Header("\n------Generator Soldier------\n")] 
+    [SerializeField] private float _timer = 5f;
+    [SerializeField] private float _timerReset;
+    [SerializeField] private GenerateSoldier _generateSoldier;
+
+    private void Start()
+    {
+        _generateSoldier = GetComponent<GenerateSoldier>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (Contains(TargetLayer, other.gameObject.layer))
@@ -24,7 +37,7 @@ public class Camp : MonoBehaviour
             _arcadeCar.CurrentCamp = this;
         }
     }
-    
+
     private void OnTriggerExit(Collider other)
     {
         if (Contains(TargetLayer, other.gameObject.layer))
@@ -36,6 +49,18 @@ public class Camp : MonoBehaviour
 
     private void Update()
     {
+        _timer -= Time.deltaTime;
+        if (_timer <= 0)
+        {
+            _timer = _timerReset;
+            _generateSoldier.GeneratorSoldier();
+        }
+        ActiveSoldierCard();
+        CheckSelectSoldier();
+    }
+    
+    private void ActiveSoldierCard()
+    {
         if (SelectedSoldier > SoldierInPlace)
             SelectedSoldier = 1;
         if (SelectedSoldier < 1)
@@ -45,7 +70,10 @@ public class Camp : MonoBehaviour
         {
             _soldierCard[i].gameObject.SetActive(true);
         }
-        
+    }
+
+    private void CheckSelectSoldier()
+    {
         foreach (var soldierCard in _soldierCard)
         {
             if (soldierCard.index != SelectedSoldier)
