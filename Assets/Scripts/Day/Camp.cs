@@ -27,6 +27,7 @@ public class Camp : MonoBehaviour
     private void Start()
     {
         _generateSoldier = GetComponent<GenerateSoldier>();
+        SelectedSoldier = 1;
     }
 
     private void OnTriggerEnter(Collider other)
