@@ -28,7 +28,6 @@ public class Camp : MonoBehaviour
     private void Start()
     {
         _generateSoldier = GetComponent<GenerateSoldier>();
-        // SelectedSoldier = 1;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -59,37 +58,8 @@ public class Camp : MonoBehaviour
         }
         ActiveSoldierCard();
         CheckSelectSoldier();
-
-        foreach (var soldier in SoldierCards)
-        {
-            switch (soldier.InjuryType)
-            {
-                case 1:
-                    soldier.InjurySprite.color = Color.green;
-                    break;
-            
-                case 2:
-                    soldier.InjurySprite.color = Color.yellow;
-                    break;
-            
-                case 3:
-                    soldier.InjurySprite.color = Color.red;
-                    break;
-            
-                case 4:
-                    soldier.isOccuped = false;
-                    break;
-            }
-
-            if (soldier.InjuryType <= 3)
-            {
-                soldier.InjuryTime[soldier.InjuryType - 1] -= Time.deltaTime;
-                if (soldier.InjuryTime[soldier.InjuryType - 1] <= 0)
-                {
-                    soldier.InjuryType++;
-                }
-            }
-        }
+        UpdateSoldier();
+        HealSoldier();
     }
     
     private void ActiveSoldierCard()
@@ -132,12 +102,60 @@ public class Camp : MonoBehaviour
         }
     }
 
-    public void StartHealing()
+    private void UpdateSoldier()
+    {
+        foreach (var soldier in SoldierCards)
+        {
+            switch (soldier.InjuryType)
+            {
+                case 1:
+                    soldier.InjurySprite.color = Color.green;
+                    break;
+            
+                case 2:
+                    soldier.InjurySprite.color = Color.yellow;
+                    break;
+            
+                case 3:
+                    soldier.InjurySprite.color = Color.red;
+                    break;
+            
+                case 4:
+                    soldier.isOccuped = false;
+                    break;
+            }
+
+            if (soldier.InjuryType <= 3)
+            {
+                soldier.InjuryTime[soldier.InjuryType - 1] -= Time.deltaTime;
+                if (soldier.InjuryTime[soldier.InjuryType - 1] <= 0)
+                {
+                    soldier.InjuryType++;
+                }
+            }
+        }
+    }
+
+    public void OpenHealingPanel()
     {
         _arcadeCar.OnHealingMenu = true;
         HealingPanel.SetActive(true);
         _arcadeCar.CurrentSpeed = 0;
         _arcadeCar.CurrentTurnSpeed = 0;
         SelectedSoldier = 1;
+    }
+
+    public void HealSoldier()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            foreach (var soldier in _soldierCard)
+            {
+                if (soldier.isSelected == true)
+                {
+                    soldier.Heal();
+                }
+            }
+        }
     }
 }

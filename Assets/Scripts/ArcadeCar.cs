@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ArcadeCar : MonoBehaviour
@@ -15,6 +16,8 @@ public class ArcadeCar : MonoBehaviour
     private float inputZ;
 
     public Camp CurrentCamp;
+    public List<SoldierCard> SoldierCards;
+    
     void Start()
     {
         rb = GetComponentInParent<Rigidbody>();
@@ -46,7 +49,7 @@ public class ArcadeCar : MonoBehaviour
         {
             if (CanHeal && CurrentCamp.SoldierInPlace != 0)
             {
-                CurrentCamp.StartHealing();
+                CurrentCamp.OpenHealingPanel();
             }
         }
 
