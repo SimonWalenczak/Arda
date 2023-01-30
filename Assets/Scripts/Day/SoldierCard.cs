@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class SoldierCard : MonoBehaviour
 {
+    public bool isOccuped;
     public bool isSelected;
     public int index;
 
@@ -48,7 +49,7 @@ public class SoldierCard : MonoBehaviour
                 break;
             
             case 4:
-                Destroy(gameObject);
+                gameObject.SetActive(!gameObject.activeSelf);
                 break;
         }
 
