@@ -87,7 +87,12 @@ public class Camp : MonoBehaviour
             }
             else
             {
-                soldierCard.isSelected = true;
+                if(soldierCard.isOccuped == true)
+                    soldierCard.isSelected = true;
+                else
+                {
+                    _arcadeCar.CurrentCamp.SelectedSoldier++;
+                }
             }
         }
     }
