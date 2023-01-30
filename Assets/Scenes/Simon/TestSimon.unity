@@ -234,15 +234,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5693935781965719187, guid: f617ac03aea9e794695d547fa3e9c6fa, type: 3}
       propertyPath: InjuryTime.Array.data[0]
-      value: 120
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5693935781965719187, guid: f617ac03aea9e794695d547fa3e9c6fa, type: 3}
       propertyPath: InjuryTime.Array.data[1]
-      value: 80
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5693935781965719187, guid: f617ac03aea9e794695d547fa3e9c6fa, type: 3}
       propertyPath: InjuryTime.Array.data[2]
-      value: 50
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5693935781965719188, guid: f617ac03aea9e794695d547fa3e9c6fa, type: 3}
       propertyPath: m_Pivot.x
@@ -748,15 +748,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5693935781965719187, guid: f617ac03aea9e794695d547fa3e9c6fa, type: 3}
       propertyPath: InjuryTime.Array.data[0]
-      value: 120
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5693935781965719187, guid: f617ac03aea9e794695d547fa3e9c6fa, type: 3}
       propertyPath: InjuryTime.Array.data[1]
-      value: 80
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5693935781965719187, guid: f617ac03aea9e794695d547fa3e9c6fa, type: 3}
       propertyPath: InjuryTime.Array.data[2]
-      value: 50
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5693935781965719188, guid: f617ac03aea9e794695d547fa3e9c6fa, type: 3}
       propertyPath: m_Pivot.x
@@ -1207,15 +1207,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5693935781965719187, guid: f617ac03aea9e794695d547fa3e9c6fa, type: 3}
       propertyPath: InjuryTime.Array.data[0]
-      value: 120
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5693935781965719187, guid: f617ac03aea9e794695d547fa3e9c6fa, type: 3}
       propertyPath: InjuryTime.Array.data[1]
-      value: 80
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5693935781965719187, guid: f617ac03aea9e794695d547fa3e9c6fa, type: 3}
       propertyPath: InjuryTime.Array.data[2]
-      value: 50
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5693935781965719188, guid: f617ac03aea9e794695d547fa3e9c6fa, type: 3}
       propertyPath: m_Pivot.x
@@ -1811,7 +1811,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fader: {fileID: 1727391817}
-  _timeMultiplier: 2000
+  _timeMultiplier: 1
   _sunLight: {fileID: 328718928}
   _startHour: 7
   _sunriseHour: 7
@@ -1892,6 +1892,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1499905421087518, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4949961344128988, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1939,6 +1943,22 @@ PrefabInstance:
     - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: _appearingChance
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: InjuryTime.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: InjuryTime.Array.data[0]
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: InjuryTime.Array.data[1]
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: InjuryTime.Array.data[2]
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
@@ -2136,15 +2156,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5693935781965719187, guid: f617ac03aea9e794695d547fa3e9c6fa, type: 3}
       propertyPath: InjuryTime.Array.data[0]
-      value: 120
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5693935781965719187, guid: f617ac03aea9e794695d547fa3e9c6fa, type: 3}
       propertyPath: InjuryTime.Array.data[1]
-      value: 80
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5693935781965719187, guid: f617ac03aea9e794695d547fa3e9c6fa, type: 3}
       propertyPath: InjuryTime.Array.data[2]
-      value: 50
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5693935781965719188, guid: f617ac03aea9e794695d547fa3e9c6fa, type: 3}
       propertyPath: m_Pivot.x
@@ -2504,15 +2524,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5693935781965719187, guid: f617ac03aea9e794695d547fa3e9c6fa, type: 3}
       propertyPath: InjuryTime.Array.data[0]
-      value: 120
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5693935781965719187, guid: f617ac03aea9e794695d547fa3e9c6fa, type: 3}
       propertyPath: InjuryTime.Array.data[1]
-      value: 80
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5693935781965719187, guid: f617ac03aea9e794695d547fa3e9c6fa, type: 3}
       propertyPath: InjuryTime.Array.data[2]
-      value: 50
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5693935781965719188, guid: f617ac03aea9e794695d547fa3e9c6fa, type: 3}
       propertyPath: m_Pivot.x
@@ -2724,7 +2744,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1536063756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2896,15 +2916,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5693935781965719187, guid: f617ac03aea9e794695d547fa3e9c6fa, type: 3}
       propertyPath: InjuryTime.Array.data[0]
-      value: 120
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5693935781965719187, guid: f617ac03aea9e794695d547fa3e9c6fa, type: 3}
       propertyPath: InjuryTime.Array.data[1]
-      value: 80
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5693935781965719187, guid: f617ac03aea9e794695d547fa3e9c6fa, type: 3}
       propertyPath: InjuryTime.Array.data[2]
-      value: 50
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5693935781965719188, guid: f617ac03aea9e794695d547fa3e9c6fa, type: 3}
       propertyPath: m_Pivot.x
@@ -3592,15 +3612,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5693935781965719187, guid: f617ac03aea9e794695d547fa3e9c6fa, type: 3}
       propertyPath: InjuryTime.Array.data[0]
-      value: 120
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5693935781965719187, guid: f617ac03aea9e794695d547fa3e9c6fa, type: 3}
       propertyPath: InjuryTime.Array.data[1]
-      value: 80
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5693935781965719187, guid: f617ac03aea9e794695d547fa3e9c6fa, type: 3}
       propertyPath: InjuryTime.Array.data[2]
-      value: 50
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5693935781965719188, guid: f617ac03aea9e794695d547fa3e9c6fa, type: 3}
       propertyPath: m_Pivot.x
@@ -3875,8 +3895,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 193935292}
     - target: {fileID: 1382992809, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: HealTime.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382992809, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: InjuryTime.Array.size
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382992809, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: HealTime.Array.data[0]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382992809, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: HealTime.Array.data[1]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382992809, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: HealTime.Array.data[2]
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1382992809, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: SoldierCards.Array.size
@@ -3884,15 +3920,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1382992809, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: InjuryTime.Array.data[0]
-      value: 3
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1382992809, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: InjuryTime.Array.data[1]
-      value: 3
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1382992809, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: InjuryTime.Array.data[2]
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1382992809, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: SoldierCards.Array.data[0]
@@ -3976,7 +4012,47 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: _appearingChance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: _hardInjuryChance
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: _mediumInjuryChance
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: InjuryTime.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: InjuryTimer.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: InjuryTime.Array.data[0]
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: InjuryTime.Array.data[1]
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: InjuryTime.Array.data[2]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: InjuryTimer.Array.data[0]
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: InjuryTimer.Array.data[1]
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: InjuryTimer.Array.data[2]
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
@@ -3989,15 +4065,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5693935781965719187, guid: f617ac03aea9e794695d547fa3e9c6fa, type: 3}
       propertyPath: InjuryTime.Array.data[0]
-      value: 120
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5693935781965719187, guid: f617ac03aea9e794695d547fa3e9c6fa, type: 3}
       propertyPath: InjuryTime.Array.data[1]
-      value: 80
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5693935781965719187, guid: f617ac03aea9e794695d547fa3e9c6fa, type: 3}
       propertyPath: InjuryTime.Array.data[2]
-      value: 50
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5693935781965719188, guid: f617ac03aea9e794695d547fa3e9c6fa, type: 3}
       propertyPath: m_Pivot.x
@@ -4114,15 +4190,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6915247407307922317, guid: 2327fc9e11ecf134bbb464df9a988775, type: 3}
       propertyPath: HealTime.Array.data[0]
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6915247407307922317, guid: 2327fc9e11ecf134bbb464df9a988775, type: 3}
       propertyPath: HealTime.Array.data[1]
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6915247407307922317, guid: 2327fc9e11ecf134bbb464df9a988775, type: 3}
       propertyPath: HealTime.Array.data[2]
-      value: 30
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6915247407307922317, guid: 2327fc9e11ecf134bbb464df9a988775, type: 3}
       propertyPath: SoldierCards.Array.size
@@ -4166,7 +4242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6915247407307922319, guid: 2327fc9e11ecf134bbb464df9a988775, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -63.9
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 6915247407307922319, guid: 2327fc9e11ecf134bbb464df9a988775, type: 3}
       propertyPath: m_LocalPosition.y

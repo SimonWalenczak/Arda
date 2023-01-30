@@ -20,7 +20,8 @@ public class GenerateSoldier : MonoBehaviour
     [Space(10), Header("InjuryState")]
     [SerializeField] private float _hardInjuryChance = 10;
     [SerializeField] private float _mediumInjuryChance = 35;
-
+    public List<float> InjuryTimer;
+    
     private Camp _camp;
     private void Start()
     {
@@ -61,14 +62,17 @@ public class GenerateSoldier : MonoBehaviour
             if (_injuryChance <= _hardInjuryChance)
             {
                 _camp._soldierCard[_camp.SoldierInPlace - 1].InjuryType = 3;
+                _camp._soldierCard[_camp.SoldierInPlace - 1].InjuryTime = InjuryTimer[2];
             }
             else if (_injuryChance <= _mediumInjuryChance)
             {
                 _camp._soldierCard[_camp.SoldierInPlace - 1].InjuryType = 2;
+                _camp._soldierCard[_camp.SoldierInPlace - 1].InjuryTime = InjuryTimer[1];
             }
             else
             {
                 _camp._soldierCard[_camp.SoldierInPlace - 1].InjuryType = 1;
+                _camp._soldierCard[_camp.SoldierInPlace - 1].InjuryTime = InjuryTimer[0];
             }
             
             _camp._soldierCard[_camp.SoldierInPlace - 1].FirstNameText.SetText(firstName);

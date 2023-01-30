@@ -19,10 +19,7 @@ public class SoldierCard : MonoBehaviour
     public Image InjurySprite;
     public int InjuryType;
 
-    public List<float> InjuryTime;
-
-    private float _resetInjuryTime;
-    
+    public float InjuryTime;
 
     private void Update()
     {

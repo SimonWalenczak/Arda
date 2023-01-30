@@ -7,6 +7,7 @@ public class Camp : MonoBehaviour
     {
         return mask == (mask | (1 << layer));
     }
+
     [SerializeField] LayerMask TargetLayer;
 
     [SerializeField] private ArcadeCar _arcadeCar;
@@ -16,14 +17,15 @@ public class Camp : MonoBehaviour
     public List<SoldierCard> _soldierCard;
 
 
-    [Space(10), Header("Generator Soldier")] 
-    [SerializeField] private float _timer = 5f;
+    [Space(10), Header("Generator Soldier")] [SerializeField]
+    private float _timer = 5f;
+
     [SerializeField] private float _timerReset;
     [SerializeField] private GenerateSoldier _generateSoldier;
 
     [Space(10), Header("Soldier In Place")]
     public List<SoldierCard> SoldierCards;
-    
+
 
     private void Start()
     {
@@ -56,12 +58,13 @@ public class Camp : MonoBehaviour
             _timer = _timerReset;
             _generateSoldier.GeneratorSoldier();
         }
+
         ActiveSoldierCard();
         CheckSelectSoldier();
         UpdateSoldier();
         HealSoldier();
     }
-    
+
     private void ActiveSoldierCard()
     {
         if (SelectedSoldier > SoldierInPlace)
@@ -92,9 +95,9 @@ public class Camp : MonoBehaviour
             }
             else
             {
-                if(soldierCard.isOccuped == true)
+                if (soldierCard.isOccuped == true)
                     soldierCard.isSelected = true;
-                else if(_arcadeCar.CurrentCamp != null)
+                else if (_arcadeCar.CurrentCamp != null)
                 {
                     _arcadeCar.CurrentCamp.SelectedSoldier++;
                 }
@@ -106,32 +109,33 @@ public class Camp : MonoBehaviour
     {
         foreach (var soldier in SoldierCards)
         {
+            if (soldier.InjuryTime <= _generateSoldier.InjuryTimer[2])
+                soldier.InjuryType = 3;
+            else if (soldier.InjuryTime <= _generateSoldier.InjuryTimer[1])
+                soldier.InjuryType = 2;
+            else
+                soldier.InjuryType = 1;
+
+
             switch (soldier.InjuryType)
             {
                 case 1:
                     soldier.InjurySprite.color = Color.green;
                     break;
-            
+
                 case 2:
                     soldier.InjurySprite.color = Color.yellow;
                     break;
-            
+
                 case 3:
                     soldier.InjurySprite.color = Color.red;
                     break;
-            
-                case 4:
-                    soldier.isOccuped = false;
-                    break;
             }
 
-            if (soldier.InjuryType <= 3)
+            soldier.InjuryTime -= Time.deltaTime;
+            if (soldier.InjuryTime <= 0)
             {
-                soldier.InjuryTime[soldier.InjuryType - 1] -= Time.deltaTime;
-                if (soldier.InjuryTime[soldier.InjuryType - 1] <= 0)
-                {
-                    soldier.InjuryType++;
-                }
+                soldier.isOccuped = false;
             }
         }
     }
@@ -156,7 +160,7 @@ public class Camp : MonoBehaviour
                     soldier.Heal();
                     foreach (var soldierCard in _arcadeCar.SoldierCards)
                     {
-                        soldierCard.InjuryTime[soldier.InjuryType] -= _arcadeCar.HealTime[soldier.InjuryType - 1];
+                        soldierCard.InjuryTime -= _arcadeCar.HealTime[soldier.InjuryType - 1];
                     }
                 }
             }
