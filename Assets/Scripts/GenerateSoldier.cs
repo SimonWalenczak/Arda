@@ -13,11 +13,11 @@ public class GenerateSoldier : MonoBehaviour
 
     [SerializeField] private float _appearingChance;
     
-    [Header("\nMilitaryClass\n")]
+    [Space(10), Header("MilitaryClass")]
     [SerializeField] private float _captainClassChance = 10;
     [SerializeField] private float _majorClassChance = 35;
     
-    [Header("\nInjuryState\n")]
+    [Space(10), Header("InjuryState")]
     [SerializeField] private float _hardInjuryChance = 10;
     [SerializeField] private float _mediumInjuryChance = 35;
 

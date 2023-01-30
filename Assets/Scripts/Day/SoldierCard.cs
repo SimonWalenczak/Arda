@@ -33,33 +33,5 @@ public class SoldierCard : MonoBehaviour
         {
             transform.DOScale(1, 0.2f);
         }
-
-        switch (InjuryType)
-        {
-            case 1:
-                InjurySprite.color = Color.green;
-                break;
-            
-            case 2:
-                InjurySprite.color = Color.yellow;
-                break;
-            
-            case 3:
-                InjurySprite.color = Color.red;
-                break;
-            
-            case 4:
-                isOccuped = false;
-                break;
-        }
-
-        if (InjuryType <= 3)
-        {
-            InjuryTime[InjuryType - 1] -= Time.deltaTime;
-            if (InjuryTime[InjuryType - 1] <= 0)
-            {
-                InjuryType++;
-            }
-        }
     }
 }

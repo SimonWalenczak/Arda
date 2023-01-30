@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 33195343837565470}
   - component: {fileID: 23124397720621922}
   - component: {fileID: 1382992807}
-  - component: {fileID: 1382992808}
+  - component: {fileID: 1382992813}
   m_Layer: 0
   m_Name: SM_Bld_Tent_Medical_01
   m_TagString: Untagged
@@ -31,8 +31,8 @@ Transform:
   m_GameObject: {fileID: 1499905421087518}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.8, y: 1.8, z: 1.8}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -53,7 +53,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   _arcadeCar: {fileID: 0}
-  SoldierInPlace: 5
+  SoldierInPlace: 0
   HealingPanel: {fileID: 0}
   SelectedSoldier: 0
   _soldierCard:
@@ -61,12 +61,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  _timer: 5
-  _timerReset: 0
+  _timer: 1.5
+  _timerReset: 1.5
   _generateSoldier: {fileID: 0}
 --- !u!114 &5008239869698625998
 MonoBehaviour:
@@ -80,11 +76,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bca51688146e2342bdca462c1f2e2f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LastName: []
-  FirstName: []
-  Age: 
-  Situation: []
-  _appearingChance: 0
+  LastName:
+  - Dumont
+  - Lemaire
+  - Roussel
+  - Fournier
+  - Guilbert
+  - Moreau
+  - Mercier
+  - Duhamel
+  - Duriez
+  - Lesage
+  - Lambert
+  - Delcourt
+  - Fievet
+  - Lagache
+  - Duquesne
+  - Duhaut
+  FirstName:
+  - Jean
+  - Pierre
+  - Louis
+  - "Andr\xE9"
+  - Henri
+  - Joseph
+  - Georges
+  - Maurice
+  - Robert
+  - Raymond
+  - Emile
+  - "Eug\xE8ne"
+  - Michel
+  - Adrien
+  - Edouard
+  - Francis
+  - Etienne
+  - Antoine
+  - Claude
+  Situation:
+  - A perdu ses parents
+  - Est le dernier membre de sa fratrie
+  - "Est p\xE8re de famille"
+  - "Est fianc\xE9"
+  - "S\u2019occupe de sa m\xE8re malade"
+  - A perdu ses parents, est responsable de sa petite soeur
+  MilitaryRank:
+  - Soldat
+  - Sergent
+  - Capitaine
+  _appearingChance: 20
+  _captainClassChance: 10
+  _majorClassChance: 35
+  _hardInjuryChance: 10
+  _mediumInjuryChance: 35
 --- !u!33 &33195343837565470
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -148,8 +192,8 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 19.999996, y: 2, z: 13.011722}
   m_Center: {x: 0, y: 0, z: 9.5}
---- !u!65 &1382992808
-BoxCollider:
+--- !u!64 &1382992813
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -158,6 +202,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 9.000719, y: 4.0177402, z: 8.513111}
-  m_Center: {x: 0, y: 1.9428931, z: -0.0000009536745}
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0e417e524db3a904e8b28cb677ea0222, type: 3}

@@ -16,15 +16,19 @@ public class Camp : MonoBehaviour
     public List<SoldierCard> _soldierCard;
 
 
-    [Header("\n------Generator Soldier------\n")] 
+    [Space(10), Header("Generator Soldier")] 
     [SerializeField] private float _timer = 5f;
     [SerializeField] private float _timerReset;
     [SerializeField] private GenerateSoldier _generateSoldier;
 
+    [Space(10), Header("Soldier In Place")]
+    public List<SoldierCard> SoldierCards;
+    
+
     private void Start()
     {
         _generateSoldier = GetComponent<GenerateSoldier>();
-        SelectedSoldier = 1;
+        // SelectedSoldier = 1;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -55,6 +59,37 @@ public class Camp : MonoBehaviour
         }
         ActiveSoldierCard();
         CheckSelectSoldier();
+
+        foreach (var soldier in SoldierCards)
+        {
+            switch (soldier.InjuryType)
+            {
+                case 1:
+                    soldier.InjurySprite.color = Color.green;
+                    break;
+            
+                case 2:
+                    soldier.InjurySprite.color = Color.yellow;
+                    break;
+            
+                case 3:
+                    soldier.InjurySprite.color = Color.red;
+                    break;
+            
+                case 4:
+                    soldier.isOccuped = false;
+                    break;
+            }
+
+            if (soldier.InjuryType <= 3)
+            {
+                soldier.InjuryTime[soldier.InjuryType - 1] -= Time.deltaTime;
+                if (soldier.InjuryTime[soldier.InjuryType - 1] <= 0)
+                {
+                    soldier.InjuryType++;
+                }
+            }
+        }
     }
     
     private void ActiveSoldierCard()
@@ -89,7 +124,7 @@ public class Camp : MonoBehaviour
             {
                 if(soldierCard.isOccuped == true)
                     soldierCard.isSelected = true;
-                else
+                else if(_arcadeCar.CurrentCamp != null)
                 {
                     _arcadeCar.CurrentCamp.SelectedSoldier++;
                 }
