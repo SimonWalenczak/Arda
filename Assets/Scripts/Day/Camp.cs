@@ -66,7 +66,14 @@ public class Camp : MonoBehaviour
 
         for (int i = 0; i < SoldierInPlace; i++)
         {
-            _soldierCard[i].gameObject.SetActive(true);
+            if (_soldierCard[i].isOccuped == true)
+            {
+                _soldierCard[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                _soldierCard[i].gameObject.SetActive(false);
+            }
         }
     }
 

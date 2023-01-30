@@ -32,6 +32,7 @@ public class GenerateSoldier : MonoBehaviour
         int _appearingChanceAppear = Random.Range(0, 101);
         if (_camp.SoldierInPlace < 4 && _appearingChanceAppear <= _appearingChance)
         {
+            _camp._soldierCard[_camp.SoldierInPlace].isOccuped = true;
             _camp.SoldierInPlace++;
             string firstName = FirstName[Random.Range(0, FirstName.Count)];
             string lastName = LastName[Random.Range(0, LastName.Count)];

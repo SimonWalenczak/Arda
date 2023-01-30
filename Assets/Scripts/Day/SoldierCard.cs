@@ -49,7 +49,7 @@ public class SoldierCard : MonoBehaviour
                 break;
             
             case 4:
-                gameObject.SetActive(!gameObject.activeSelf);
+                isOccuped = false;
                 break;
         }
 
