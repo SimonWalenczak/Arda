@@ -1805,7 +1805,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 978978322}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a6746f61c166050418f0065df36baa99, type: 3}
   m_Name: 
@@ -1894,7 +1894,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1499905421087518, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4949961344128988, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: m_RootOrder
@@ -1945,7 +1945,19 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: _hardInjuryChance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: _mediumInjuryChance
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: InjuryTime.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: InjuryTimer.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
@@ -1959,6 +1971,18 @@ PrefabInstance:
     - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: InjuryTime.Array.data[2]
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: InjuryTimer.Array.data[0]
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: InjuryTimer.Array.data[1]
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: InjuryTimer.Array.data[2]
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
@@ -4012,15 +4036,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: _appearingChance
-      value: 100
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: _hardInjuryChance
-      value: 35
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: _mediumInjuryChance
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: InjuryTime.Array.size
@@ -4165,7 +4189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5693935781965719189, guid: f617ac03aea9e794695d547fa3e9c6fa, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f617ac03aea9e794695d547fa3e9c6fa, type: 3}

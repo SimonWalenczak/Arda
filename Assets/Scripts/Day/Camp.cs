@@ -151,7 +151,7 @@ public class Camp : MonoBehaviour
 
     public void HealSoldier()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) && _arcadeCar.CurrentCamp == this && _arcadeCar.OnHealingMenu == true)
         {
             foreach (var soldier in _soldierCard)
             {

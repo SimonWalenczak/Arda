@@ -45,7 +45,7 @@ public class ArcadeCar : MonoBehaviour
             inputX = 0;
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             if (CanHeal && CurrentCamp.SoldierInPlace != 0)
             {
