@@ -1,9 +1,9 @@
-using System;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class SoldierCard : MonoBehaviour
 {
@@ -33,5 +33,26 @@ public class SoldierCard : MonoBehaviour
         {
             transform.DOScale(1, 0.2f);
         }
+    }
+
+    public void Heal()
+    {
+        if (InjuryType < 3)
+        {
+            print($"Soldier {LastNameText} {FirstNameText} is safe.");
+        }
+        else
+        {
+            int _deadChance = Random.Range(0, 101);
+            if (_deadChance <= 10)
+            {
+                print($"Soldier {LastNameText} {FirstNameText} is dead.");
+            }
+            else
+            {
+                print($"Soldier {LastNameText} {FirstNameText} is safe.");
+            }
+        }
+        isOccuped = false;
     }
 }
