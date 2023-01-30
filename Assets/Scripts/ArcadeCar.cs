@@ -17,7 +17,7 @@ public class ArcadeCar : MonoBehaviour
 
     public Camp CurrentCamp;
     public List<SoldierCard> SoldierCards;
-    
+    public List<float> HealTime;
     void Start()
     {
         rb = GetComponentInParent<Rigidbody>();

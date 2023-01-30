@@ -20,6 +20,7 @@ public class SoldierCard : MonoBehaviour
     public int InjuryType;
 
     public List<float> InjuryTime;
+
     private float _resetInjuryTime;
     
 
@@ -39,18 +40,18 @@ public class SoldierCard : MonoBehaviour
     {
         if (InjuryType < 3)
         {
-            print($"Soldier {LastNameText} {FirstNameText} is safe.");
+            print($"Soldier {LastNameText.text} {FirstNameText.text} is safe.");
         }
         else
         {
             int _deadChance = Random.Range(0, 101);
             if (_deadChance <= 10)
             {
-                print($"Soldier {LastNameText} {FirstNameText} is dead.");
+                print($"Soldier {LastNameText.text} {FirstNameText.text} is dead.");
             }
             else
             {
-                print($"Soldier {LastNameText} {FirstNameText} is safe.");
+                print($"Soldier {LastNameText.text} {FirstNameText.text} is safe.");
             }
         }
         isOccuped = false;

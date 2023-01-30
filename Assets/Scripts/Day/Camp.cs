@@ -154,6 +154,10 @@ public class Camp : MonoBehaviour
                 if (soldier.isSelected == true)
                 {
                     soldier.Heal();
+                    foreach (var soldierCard in _arcadeCar.SoldierCards)
+                    {
+                        soldierCard.InjuryTime[soldier.InjuryType] -= _arcadeCar.HealTime[soldier.InjuryType - 1];
+                    }
                 }
             }
         }
