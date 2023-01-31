@@ -18,6 +18,7 @@ public class ArcadeCar : MonoBehaviour
     public Camp CurrentCamp;
     public List<SoldierCard> SoldierCards;
     public List<float> HealTime;
+    
     void Start()
     {
         rb = GetComponentInParent<Rigidbody>();
@@ -85,7 +86,7 @@ public class ArcadeCar : MonoBehaviour
     {
         rb.velocity = transform.forward * inputZ * CurrentSpeed;
         rb.angularVelocity = transform.up * inputX * CurrentTurnSpeed;
-
+    
         RaycastHit hit;
         if (Physics.Raycast(transform.position, -transform.up, out hit, suspensionHeight))
         {
