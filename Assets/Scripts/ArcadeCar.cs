@@ -9,11 +9,11 @@ public class ArcadeCar : MonoBehaviour
     public float CurrentSpeed = 0;
     public float turnSpeed = 10.0f;
     public float CurrentTurnSpeed;
-    public float suspensionHeight = 0.2f;
+    // public float suspensionHeight = 0.2f;
 
-    private Rigidbody rb;
-    private float inputX;
-    private float inputZ;
+    // private Rigidbody rb;
+    // private float inputX;
+    // private float inputZ;
 
     public Camp CurrentCamp;
     public List<SoldierCard> SoldierCards;
@@ -21,7 +21,7 @@ public class ArcadeCar : MonoBehaviour
     
     void Start()
     {
-        rb = GetComponentInParent<Rigidbody>();
+        // rb = GetComponentInParent<Rigidbody>();
         CurrentSpeed = speed;
         CurrentTurnSpeed = turnSpeed;
     }
@@ -34,18 +34,25 @@ public class ArcadeCar : MonoBehaviour
     
     void Update()
     {
-        inputX = Input.GetAxis("Horizontal");
-        inputZ = Input.GetAxis("Vertical");
-        
-        if(inputZ < 0)
-        {
-            inputX = -inputX;
-        }
-        else if (inputZ == 0)
-        {
-            inputX = 0;
-        }
+        // inputX = Input.GetAxis("Horizontal");
+        // inputZ = Input.GetAxis("Vertical");
+        //
+        // if(inputZ < 0)
+        // {
+        //     inputX = -inputX;
+        // }
+        // else if (inputZ == 0)
+        // {
+        //     inputX = 0;
+        // }
 
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        transform.position += transform.forward * vertical * CurrentSpeed * Time.deltaTime;
+        transform.Rotate(Vector3.up, horizontal * CurrentTurnSpeed * Time.deltaTime);
+        
+        
         if (Input.GetKeyDown(KeyCode.F))
         {
             if (CanHeal && CurrentCamp.SoldierInPlace != 0)
@@ -84,13 +91,13 @@ public class ArcadeCar : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.velocity = transform.forward * inputZ * CurrentSpeed;
-        rb.angularVelocity = transform.up * inputX * CurrentTurnSpeed;
-    
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, -transform.up, out hit, suspensionHeight))
-        {
-            rb.AddForceAtPosition(transform.up * (suspensionHeight - hit.distance) * 800.0f, hit.point);
-        }
+        // rb.velocity = transform.forward * inputZ * CurrentSpeed;
+        // rb.angularVelocity = transform.up * inputX * CurrentTurnSpeed;
+        //
+        // RaycastHit hit;
+        // if (Physics.Raycast(transform.position, -transform.up, out hit, suspensionHeight))
+        // {
+        //     rb.AddForceAtPosition(transform.up * (suspensionHeight - hit.distance) * 800.0f, hit.point);
+        // }
     }
 }

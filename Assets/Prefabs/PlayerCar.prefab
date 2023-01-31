@@ -188,7 +188,6 @@ GameObject:
   - component: {fileID: 6915247407307922319}
   - component: {fileID: 6915247407307922316}
   - component: {fileID: 6915247407307922317}
-  - component: {fileID: 1383734111}
   m_Layer: 7
   m_Name: PlayerCar
   m_TagString: Untagged
@@ -246,35 +245,9 @@ MonoBehaviour:
   CurrentSpeed: 0
   turnSpeed: 3
   CurrentTurnSpeed: 0
-  suspensionHeight: 0
   CurrentCamp: {fileID: 0}
---- !u!114 &1383734111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6915247407307922314}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ebe40085b71cfc409f34d2210d8f05f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 10
-  MaxSpeed: 13
-  TurnSpeed: 3
-  BoingForce: 0
-  MaxBoingForce: 0
-  MinBoingForce: 0
-  camTurnSpeed: 0
-  Cam: {fileID: 571422046}
-  WhatIsGround:
-    serializedVersion: 2
-    m_Bits: 64
-  groundCheckForward: {fileID: 8169131353571725146}
-  groundCheckBack: {fileID: 7394177016299865640}
-  raycaster: {fileID: 5073864995815777020}
-  CarMesh: {fileID: 5996135195959664742}
+  SoldierCards: []
+  HealTime: []
 --- !u!1001 &6915247407742164279
 PrefabInstance:
   m_ObjectHideFlags: 0

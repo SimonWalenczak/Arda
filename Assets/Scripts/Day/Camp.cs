@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Camp : MonoBehaviour
 {
@@ -22,9 +23,6 @@ public class Camp : MonoBehaviour
 
     [SerializeField] private float _timerReset;
     [SerializeField] private GenerateSoldier _generateSoldier;
-
-    [Space(10), Header("Soldier In Place")]
-    public List<SoldierCard> SoldierCards;
 
 
     private void Start()
@@ -107,7 +105,7 @@ public class Camp : MonoBehaviour
 
     private void UpdateSoldier()
     {
-        foreach (var soldier in SoldierCards)
+        foreach (var soldier in _soldierCard)
         {
             if (soldier.InjuryTime <= _generateSoldier.InjuryTimer[2])
                 soldier.InjuryType = 3;

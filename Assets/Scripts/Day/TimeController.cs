@@ -84,9 +84,9 @@ public class TimeController : MonoBehaviour
 
     IEnumerator Waiting()
     {
-        yield return new WaitForSeconds(23);
+        yield return new WaitForSeconds(((_sunsetHour - _sunriseHour) * 3600) / _timeMultiplier);
         _fader.SetActive(true);
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(2);
         SceneManager.LoadScene(2);
     }
 }
