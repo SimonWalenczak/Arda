@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class NightManager : MonoBehaviour
@@ -105,7 +106,7 @@ public class NightManager : MonoBehaviour
                 index++;
                 if (index == 1)
                 {
-                    _generalTextVisual.SetText("Général Cruchot : " + _totalSoldierLost + _generalText[index]);
+                    _generalTextVisual.SetText("Colonel Reboul: " + _totalSoldierLost + _generalText[index]);
                 }
                 else if (index == 3)
                 {
@@ -250,5 +251,10 @@ public class NightManager : MonoBehaviour
             directionSystemType = 0;
         if (directionSystemType < 0)
             directionSystemType = 2;
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            SceneManager.LoadScene(1);
+        }
     }
 }

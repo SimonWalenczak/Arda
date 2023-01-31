@@ -18,6 +18,9 @@ public class ArcadeCar : MonoBehaviour
     public Camp CurrentCamp;
     public List<SoldierCard> SoldierCards;
     public List<float> HealTime;
+
+    public GameObject SoldierDebugPanel;
+    public GameObject Map;
     
     void Start()
     {
@@ -51,7 +54,16 @@ public class ArcadeCar : MonoBehaviour
 
         transform.position += transform.forward * vertical * CurrentSpeed * Time.deltaTime;
         transform.Rotate(Vector3.up, horizontal * CurrentTurnSpeed * Time.deltaTime);
-        
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SoldierDebugPanel.SetActive(!SoldierDebugPanel.activeSelf);
+        }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            Map.SetActive(!Map.activeSelf);
+        }
         
         if (Input.GetKeyDown(KeyCode.F))
         {

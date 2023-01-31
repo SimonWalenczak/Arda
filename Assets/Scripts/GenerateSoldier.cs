@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -23,9 +24,13 @@ public class GenerateSoldier : MonoBehaviour
     public List<float> InjuryTimer;
     
     private Camp _camp;
+
+    public TextMeshProUGUI SoldierDebugText;
+    
     private void Start()
     {
         _camp = GetComponent<Camp>();
+        SoldierDebugText.text = "";
     }
 
     public void GeneratorSoldier()
@@ -79,6 +84,8 @@ public class GenerateSoldier : MonoBehaviour
             _camp._soldierCard[_camp.SoldierInPlace - 1].LastNameText.SetText(lastName);
             _camp._soldierCard[_camp.SoldierInPlace - 1].AgeText.SetText(age.ToString());
             _camp._soldierCard[_camp.SoldierInPlace - 1].SituationText.SetText(situation);
+
+            SoldierDebugText.text += $"{gameObject.name} : {firstName} {lastName}.\n";
             
             Debug.Log("Génération de soldat\nPrénom : " + firstName + "\nNom : " + lastName + "\nAge : " + age + "\nSituation : " + situation);
         }
