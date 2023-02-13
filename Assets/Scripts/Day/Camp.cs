@@ -94,7 +94,7 @@ public class Camp : MonoBehaviour
 
     private void CheckSelectSoldier()
     {
-        SoldierCard soldierCard = _arcadeCar.SoldierCardPanel.GetComponent<SoldierCard>();
+        SoldierCard soldierCard = null;
         
         foreach (var soldier in _soldiers)
         {
@@ -109,26 +109,35 @@ public class Camp : MonoBehaviour
                     soldier.isSelected = true;
                     SoldierCursor.transform.position = new Vector3(soldier.transform.position.x, soldier.transform.position.y + 1.5f, soldier.transform.position.z);
                     SoldierCursor.transform.LookAt(cam.transform);
-                    
-                    soldierCard.LastNameText.SetText(soldier.LastName);
-                    soldierCard.FirstNameText.SetText(soldier.FirstName);
-                    soldierCard.AgeText.SetText(soldier.Age);
-                    soldierCard.SituationText.SetText(soldier.Situation);
-                    soldierCard.MilitaryRankText.SetText(soldier.MilitaryRank);
 
-                    switch (soldier.InjuryType)
+                    if (_arcadeCar.CurrentCamp == this)
                     {
-                        case 1:
-                            soldierCard.InjurySprite.color = Color.green;
-                            break;
-                    
-                        case 2:
-                            soldierCard.InjurySprite.color = Color.yellow;
-                            break;
-                    
-                        case 3:
-                            soldierCard.InjurySprite.color = Color.red;
-                            break;
+                        soldierCard = _arcadeCar.SoldierCardPanel.GetComponent<SoldierCard>();
+
+                        soldierCard.LastNameText.SetText(soldier.LastName);
+                        soldierCard.FirstNameText.SetText(soldier.FirstName);
+                        soldierCard.AgeText.SetText(soldier.Age);
+                        soldierCard.SituationText.SetText(soldier.Situation);
+                        soldierCard.MilitaryRankText.SetText(soldier.MilitaryRank);
+    
+                        switch (soldier.InjuryType)
+                        {
+                            case 1:
+                                soldierCard.InjurySprite.color = Color.green;
+                                break;
+                        
+                            case 2:
+                                soldierCard.InjurySprite.color = Color.yellow;
+                                break;
+                        
+                            case 3:
+                                soldierCard.InjurySprite.color = Color.red;
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        soldierCard = null;
                     }
                 }
                 
