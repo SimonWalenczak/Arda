@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class Camp : MonoBehaviour
 {
@@ -13,10 +12,10 @@ public class Camp : MonoBehaviour
 
     [SerializeField] private ArcadeCar _arcadeCar;
     public int SoldierInPlace;
-    public GameObject HealingPanel;
     public int SelectedSoldier;
-    public List<SoldierCard> _soldierCard;
+    public List<Soldier> _soldiers;
 
+    public Camera cam;
 
     [Space(10), Header("Generator Soldier")] [SerializeField]
     private float _timer = 5f;
@@ -72,20 +71,20 @@ public class Camp : MonoBehaviour
 
         for (int i = 0; i < SoldierInPlace; i++)
         {
-            if (_soldierCard[i].isOccuped == true)
+            if (_soldiers[i].isOccuped == true)
             {
-                _soldierCard[i].gameObject.SetActive(true);
+                _soldiers[i].gameObject.SetActive(true);
             }
             else
             {
-                _soldierCard[i].gameObject.SetActive(false);
+                _soldiers[i].gameObject.SetActive(false);
             }
         }
     }
 
     private void CheckSelectSoldier()
     {
-        foreach (var soldierCard in _soldierCard)
+        foreach (var soldierCard in _soldiers)
         {
             if (soldierCard.index != SelectedSoldier)
             {
@@ -105,7 +104,7 @@ public class Camp : MonoBehaviour
 
     private void UpdateSoldier()
     {
-        foreach (var soldier in _soldierCard)
+        foreach (var soldier in _soldiers)
         {
             if (soldier.InjuryTime <= _generateSoldier.InjuryTimer[2])
                 soldier.InjuryType = 3;
@@ -115,20 +114,20 @@ public class Camp : MonoBehaviour
                 soldier.InjuryType = 1;
 
 
-            switch (soldier.InjuryType)
-            {
-                case 1:
-                    soldier.InjurySprite.color = Color.green;
-                    break;
-
-                case 2:
-                    soldier.InjurySprite.color = Color.yellow;
-                    break;
-
-                case 3:
-                    soldier.InjurySprite.color = Color.red;
-                    break;
-            }
+            // switch (soldier.InjuryType)
+            // {
+            //     case 1:
+            //         soldier.InjurySprite.color = Color.green;
+            //         break;
+            //
+            //     case 2:
+            //         soldier.InjurySprite.color = Color.yellow;
+            //         break;
+            //
+            //     case 3:
+            //         soldier.InjurySprite.color = Color.red;
+            //         break;
+            // }
 
             soldier.InjuryTime -= Time.deltaTime;
             if (soldier.InjuryTime <= 0)
@@ -138,10 +137,10 @@ public class Camp : MonoBehaviour
         }
     }
 
-    public void OpenHealingPanel()
+    public void StartHeal()
     {
-        _arcadeCar.OnHealingMenu = true;
-        HealingPanel.SetActive(true);
+        cam.gameObject.SetActive(true);
+        _arcadeCar.Healing = true;
         _arcadeCar.CurrentSpeed = 0;
         _arcadeCar.CurrentTurnSpeed = 0;
         SelectedSoldier = 1;
@@ -149,14 +148,14 @@ public class Camp : MonoBehaviour
 
     public void HealSoldier()
     {
-        if (Input.GetKeyDown(KeyCode.F) && _arcadeCar.CurrentCamp == this && _arcadeCar.OnHealingMenu == true)
+        if (Input.GetKeyDown(KeyCode.F) && _arcadeCar.CurrentCamp == this && _arcadeCar.Healing == true)
         {
-            foreach (var soldier in _soldierCard)
+            foreach (var soldier in _soldiers)
             {
                 if (soldier.isSelected == true)
                 {
                     soldier.Heal();
-                    foreach (var soldierCard in _arcadeCar.SoldierCards)
+                    foreach (var soldierCard in _arcadeCar.soldiers)
                     {
                         soldierCard.InjuryTime -= _arcadeCar.HealTime[soldier.InjuryType - 1];
                     }

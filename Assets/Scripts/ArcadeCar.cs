@@ -4,10 +4,11 @@ using UnityEngine;
 public class ArcadeCar : MonoBehaviour
 {
     public bool CanHeal;
-    public bool OnHealingMenu;
+    public bool Healing;
     public float speed = 10.0f;
     public float CurrentSpeed = 0;
     public float turnSpeed = 10.0f;
+
     public float CurrentTurnSpeed;
     // public float suspensionHeight = 0.2f;
 
@@ -16,12 +17,12 @@ public class ArcadeCar : MonoBehaviour
     // private float inputZ;
 
     public Camp CurrentCamp;
-    public List<SoldierCard> SoldierCards;
+    public List<Soldier> soldiers;
     public List<float> HealTime;
 
     public GameObject SoldierDebugPanel;
     public GameObject Map;
-    
+
     void Start()
     {
         // rb = GetComponentInParent<Rigidbody>();
@@ -34,7 +35,7 @@ public class ArcadeCar : MonoBehaviour
         CurrentSpeed = speed;
         CurrentTurnSpeed = turnSpeed;
     }
-    
+
     void Update()
     {
         // inputX = Input.GetAxis("Horizontal");
@@ -64,30 +65,31 @@ public class ArcadeCar : MonoBehaviour
         {
             Map.SetActive(!Map.activeSelf);
         }
-        
+
         if (Input.GetKeyDown(KeyCode.F))
         {
             if (CanHeal && CurrentCamp.SoldierInPlace != 0)
             {
-                CurrentCamp.OpenHealingPanel();
+                CurrentCamp.StartHeal();
             }
         }
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            if (OnHealingMenu)
+            if (Healing)
             {
-                OnHealingMenu = false;
-                for (int i = 0; i < CurrentCamp.SoldierInPlace; i++)
-                {
-                    CurrentCamp._soldierCard[i].gameObject.SetActive(false);
-                }
-                CurrentCamp.HealingPanel.SetActive(false);
+                Healing = false;
+                CurrentCamp.cam.gameObject.SetActive(false);
+                // for (int i = 0; i < CurrentCamp.SoldierInPlace; i++)
+                // {
+                //     CurrentCamp._soldiers[i].gameObject.SetActive(false);
+                // }
+
                 ResetSpeed();
             }
         }
 
-        if (OnHealingMenu)
+        if (Healing)
         {
             if (Input.GetKeyDown(KeyCode.D))
             {

@@ -5,17 +5,17 @@ using TMPro;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-public class SoldierCard : MonoBehaviour
+public class Soldier : MonoBehaviour
 {
     public bool isOccuped;
     public bool isSelected;
     public int index;
 
-    public TextMeshProUGUI LastNameText;
-    public TextMeshProUGUI FirstNameText;
-    public TextMeshProUGUI AgeText;
-    public TextMeshProUGUI SituationText;
-    public TextMeshProUGUI MilitaryRankText;
+    public string LastName;
+    public string FirstName;
+    public string Age;
+    public string Situation;
+    public string MilitaryRank;
     public Image InjurySprite;
     public int InjuryType;
 
@@ -37,18 +37,18 @@ public class SoldierCard : MonoBehaviour
     {
         if (InjuryType < 3)
         {
-            print($"Soldier {LastNameText.text} {FirstNameText.text} is safe.");
+            print($"Soldier {LastName} {FirstName} is safe.");
         }
         else
         {
             int _deadChance = Random.Range(0, 101);
             if (_deadChance <= 10)
             {
-                print($"Soldier {LastNameText.text} {FirstNameText.text} is dead.");
+                print($"Soldier {LastName} {FirstName} is dead.");
             }
             else
             {
-                print($"Soldier {LastNameText.text} {FirstNameText.text} is safe.");
+                print($"Soldier {LastName} {FirstName} is safe.");
             }
         }
         isOccuped = false;

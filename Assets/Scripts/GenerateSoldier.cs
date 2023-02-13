@@ -38,7 +38,7 @@ public class GenerateSoldier : MonoBehaviour
         int _appearingChanceAppear = Random.Range(0, 101);
         if (_camp.SoldierInPlace < 4 && _appearingChanceAppear <= _appearingChance)
         {
-            _camp._soldierCard[_camp.SoldierInPlace].isOccuped = true;
+            _camp._soldiers[_camp.SoldierInPlace].isOccuped = true;
             _camp.SoldierInPlace++;
             string firstName = FirstName[Random.Range(0, FirstName.Count)];
             string lastName = LastName[Random.Range(0, LastName.Count)];
@@ -48,17 +48,17 @@ public class GenerateSoldier : MonoBehaviour
             int _militaryRankChance = Random.Range(0, 101);
             if (_militaryRankChance <= _captainClassChance)
             {
-                _camp._soldierCard[_camp.SoldierInPlace - 1].MilitaryRankText.SetText("Rank : " + MilitaryRank[2]);
+                _camp._soldiers[_camp.SoldierInPlace - 1].MilitaryRank = "Rank : " + MilitaryRank[2];
                 age = Random.Range(30, 36);
             }
             else if (_militaryRankChance <= _majorClassChance)
             {
-                _camp._soldierCard[_camp.SoldierInPlace - 1].MilitaryRankText.SetText("Rank : " + MilitaryRank[1]);
+                _camp._soldiers[_camp.SoldierInPlace - 1].MilitaryRank = "Rank : " + MilitaryRank[1];
                 age = Random.Range(25, 36);
             }
             else
             {
-                _camp._soldierCard[_camp.SoldierInPlace - 1].MilitaryRankText.SetText("Rank : " + MilitaryRank[0]);
+                _camp._soldiers[_camp.SoldierInPlace - 1].MilitaryRank = "Rank : " + MilitaryRank[0];
                 age = Random.Range(18, 36);
             }
 
@@ -66,24 +66,24 @@ public class GenerateSoldier : MonoBehaviour
             int _injuryChance = Random.Range(0, 101);
             if (_injuryChance <= _hardInjuryChance)
             {
-                _camp._soldierCard[_camp.SoldierInPlace - 1].InjuryType = 3;
-                _camp._soldierCard[_camp.SoldierInPlace - 1].InjuryTime = InjuryTimer[2];
+                _camp._soldiers[_camp.SoldierInPlace - 1].InjuryType = 3;
+                _camp._soldiers[_camp.SoldierInPlace - 1].InjuryTime = InjuryTimer[2];
             }
             else if (_injuryChance <= _mediumInjuryChance)
             {
-                _camp._soldierCard[_camp.SoldierInPlace - 1].InjuryType = 2;
-                _camp._soldierCard[_camp.SoldierInPlace - 1].InjuryTime = InjuryTimer[1];
+                _camp._soldiers[_camp.SoldierInPlace - 1].InjuryType = 2;
+                _camp._soldiers[_camp.SoldierInPlace - 1].InjuryTime = InjuryTimer[1];
             }
             else
             {
-                _camp._soldierCard[_camp.SoldierInPlace - 1].InjuryType = 1;
-                _camp._soldierCard[_camp.SoldierInPlace - 1].InjuryTime = InjuryTimer[0];
+                _camp._soldiers[_camp.SoldierInPlace - 1].InjuryType = 1;
+                _camp._soldiers[_camp.SoldierInPlace - 1].InjuryTime = InjuryTimer[0];
             }
             
-            _camp._soldierCard[_camp.SoldierInPlace - 1].FirstNameText.SetText(firstName);
-            _camp._soldierCard[_camp.SoldierInPlace - 1].LastNameText.SetText(lastName);
-            _camp._soldierCard[_camp.SoldierInPlace - 1].AgeText.SetText(age.ToString());
-            _camp._soldierCard[_camp.SoldierInPlace - 1].SituationText.SetText(situation);
+            _camp._soldiers[_camp.SoldierInPlace - 1].FirstName = firstName;
+            _camp._soldiers[_camp.SoldierInPlace - 1].LastName = lastName;
+            _camp._soldiers[_camp.SoldierInPlace - 1].Age = age.ToString();
+            _camp._soldiers[_camp.SoldierInPlace - 1].Situation = situation;
 
             SoldierDebugText.text += $"{gameObject.name} : {firstName} {lastName}.\n";
             
