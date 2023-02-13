@@ -24,7 +24,10 @@ public class ArcadeCar : MonoBehaviour
     public GameObject CamPlayer;
 
     public GameObject SoldierDebugPanel;
-    public GameObject Map;
+
+    public bool _mapOpened;
+    public GameObject mapCam;
+    public GameObject CompassUI;
 
     void Start()
     {
@@ -66,7 +69,23 @@ public class ArcadeCar : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.M))
         {
-            Map.SetActive(!Map.activeSelf);
+            if (!_mapOpened)
+            {
+                mapCam.SetActive(true);
+                CamPlayer.SetActive(false);
+                CompassUI.SetActive(false);
+                _mapOpened = true;
+                CurrentSpeed = 0;
+                CurrentTurnSpeed = 0;
+            }
+            else
+            {
+                mapCam.SetActive(false);
+                CamPlayer.SetActive(true);
+                CompassUI.SetActive(true);
+                _mapOpened = false;
+                ResetSpeed();
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.F))
