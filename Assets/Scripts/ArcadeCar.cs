@@ -20,6 +20,9 @@ public class ArcadeCar : MonoBehaviour
     public List<Soldier> soldiers;
     public List<float> HealTime;
 
+    public GameObject SoldierCardPanel;
+    public GameObject CamPlayer;
+
     public GameObject SoldierDebugPanel;
     public GameObject Map;
 
@@ -71,6 +74,8 @@ public class ArcadeCar : MonoBehaviour
             if (CanHeal && CurrentCamp.SoldierInPlace != 0)
             {
                 CurrentCamp.StartHeal();
+                SoldierCardPanel.SetActive(true);
+                CamPlayer.SetActive(false);
             }
         }
 
@@ -80,6 +85,8 @@ public class ArcadeCar : MonoBehaviour
             {
                 Healing = false;
                 CurrentCamp.cam.gameObject.SetActive(false);
+                SoldierCardPanel.SetActive(false);
+                CamPlayer.SetActive(true);
                 // for (int i = 0; i < CurrentCamp.SoldierInPlace; i++)
                 // {
                 //     CurrentCamp._soldiers[i].gameObject.SetActive(false);

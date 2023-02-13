@@ -16,7 +16,8 @@ public class Camp : MonoBehaviour
     public List<Soldier> _soldiers;
 
     public Camera cam;
-
+    public GameObject SoldierCursor;
+    
     [Space(10), Header("Generator Soldier")] [SerializeField]
     private float _timer = 5f;
 
@@ -56,6 +57,15 @@ public class Camp : MonoBehaviour
             _generateSoldier.GeneratorSoldier();
         }
 
+        if (SoldierInPlace != 0)
+        {
+            SoldierCursor.SetActive(true);
+        }
+        else
+        {
+            SoldierCursor.SetActive(false);
+        }
+        
         ActiveSoldierCard();
         CheckSelectSoldier();
         UpdateSoldier();
@@ -84,16 +94,44 @@ public class Camp : MonoBehaviour
 
     private void CheckSelectSoldier()
     {
-        foreach (var soldierCard in _soldiers)
+        SoldierCard soldierCard = _arcadeCar.SoldierCardPanel.GetComponent<SoldierCard>();
+        
+        foreach (var soldier in _soldiers)
         {
-            if (soldierCard.index != SelectedSoldier)
+            if (soldier.index != SelectedSoldier)
             {
-                soldierCard.isSelected = false;
+                soldier.isSelected = false;
             }
             else
             {
-                if (soldierCard.isOccuped == true)
-                    soldierCard.isSelected = true;
+                if (soldier.isOccuped == true)
+                {
+                    soldier.isSelected = true;
+                    SoldierCursor.transform.position = new Vector3(soldier.transform.position.x, soldier.transform.position.y + 1.5f, soldier.transform.position.z);
+                    SoldierCursor.transform.LookAt(cam.transform);
+                    
+                    soldierCard.LastNameText.SetText(soldier.LastName);
+                    soldierCard.FirstNameText.SetText(soldier.FirstName);
+                    soldierCard.AgeText.SetText(soldier.Age);
+                    soldierCard.SituationText.SetText(soldier.Situation);
+                    soldierCard.MilitaryRankText.SetText(soldier.MilitaryRank);
+
+                    switch (soldier.InjuryType)
+                    {
+                        case 1:
+                            soldierCard.InjurySprite.color = Color.green;
+                            break;
+                    
+                        case 2:
+                            soldierCard.InjurySprite.color = Color.yellow;
+                            break;
+                    
+                        case 3:
+                            soldierCard.InjurySprite.color = Color.red;
+                            break;
+                    }
+                }
+                
                 else if (_arcadeCar.CurrentCamp != null)
                 {
                     _arcadeCar.CurrentCamp.SelectedSoldier++;
@@ -114,20 +152,7 @@ public class Camp : MonoBehaviour
                 soldier.InjuryType = 1;
 
 
-            // switch (soldier.InjuryType)
-            // {
-            //     case 1:
-            //         soldier.InjurySprite.color = Color.green;
-            //         break;
-            //
-            //     case 2:
-            //         soldier.InjurySprite.color = Color.yellow;
-            //         break;
-            //
-            //     case 3:
-            //         soldier.InjurySprite.color = Color.red;
-            //         break;
-            // }
+
 
             soldier.InjuryTime -= Time.deltaTime;
             if (soldier.InjuryTime <= 0)

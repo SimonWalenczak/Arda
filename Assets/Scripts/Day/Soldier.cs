@@ -16,7 +16,6 @@ public class Soldier : MonoBehaviour
     public string Age;
     public string Situation;
     public string MilitaryRank;
-    public Image InjurySprite;
     public int InjuryType;
 
     public float InjuryTime;
