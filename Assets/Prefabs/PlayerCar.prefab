@@ -63,16 +63,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CanHeal: 0
-  OnHealingMenu: 0
+  Healing: 0
   speed: 10
   CurrentSpeed: 0
   turnSpeed: 3
   CurrentTurnSpeed: 0
   CurrentCamp: {fileID: 0}
-  SoldierCards: []
+  soldiers: []
   HealTime: []
+  SoldierCardPanel: {fileID: 0}
+  CamPlayer: {fileID: 0}
   SoldierDebugPanel: {fileID: 0}
-  Map: {fileID: 0}
+  _mapOpened: 0
+  mapCam: {fileID: 0}
+  CompassUI: {fileID: 0}
 --- !u!1001 &6915247407742164279
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CursorPlayer : MonoBehaviour
@@ -10,5 +7,7 @@ public class CursorPlayer : MonoBehaviour
     private void Update()
     {
         transform.position = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
+        Vector3 rotation = transform.rotation.eulerAngles;
+        transform.rotation = Quaternion.Euler(rotation.x, playerTransform.rotation.eulerAngles.y, rotation.z);
     }
 }
