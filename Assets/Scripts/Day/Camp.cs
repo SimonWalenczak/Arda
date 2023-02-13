@@ -160,9 +160,6 @@ public class Camp : MonoBehaviour
             else
                 soldier.InjuryType = 1;
 
-
-
-
             soldier.InjuryTime -= Time.deltaTime;
             if (soldier.InjuryTime <= 0)
             {

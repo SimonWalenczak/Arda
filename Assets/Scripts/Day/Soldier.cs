@@ -19,19 +19,8 @@ public class Soldier : MonoBehaviour
     public int InjuryType;
 
     public float InjuryTime;
-
-    private void Update()
-    {
-        if (isSelected)
-        {
-            transform.DOScale(1.2f,0.2f);
-        }
-        else
-        {
-            transform.DOScale(1, 0.2f);
-        }
-    }
-
+    
+    
     public void Heal()
     {
         if (InjuryType < 3)
