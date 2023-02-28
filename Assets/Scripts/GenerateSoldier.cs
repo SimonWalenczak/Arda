@@ -36,7 +36,7 @@ public class GenerateSoldier : MonoBehaviour
     public void GeneratorSoldier()
     {
         int _appearingChanceAppear = Random.Range(0, 101);
-        if (_camp.SoldierInPlace < 4 && _appearingChanceAppear <= _appearingChance)
+        if (_camp.SoldierInPlace < _camp.SoldierInPlaceMax && _appearingChanceAppear <= _appearingChance)
         {
             _camp._soldiers[_camp.SoldierInPlace].isOccuped = true;
             _camp.SoldierInPlace++;

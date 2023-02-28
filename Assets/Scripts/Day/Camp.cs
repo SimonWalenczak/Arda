@@ -11,6 +11,7 @@ public class Camp : MonoBehaviour
     [SerializeField] LayerMask TargetLayer;
 
     [SerializeField] private ArcadeCar _arcadeCar;
+    public int SoldierInPlaceMax;
     public int SoldierInPlace;
     public int SelectedSoldier;
     public List<Soldier> _soldiers;

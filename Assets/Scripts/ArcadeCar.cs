@@ -10,9 +10,11 @@ public class ArcadeCar : MonoBehaviour
     public float turnSpeed = 10.0f;
 
     public float CurrentTurnSpeed;
+
+    [SerializeField] private float centerOfMass;
     // public float suspensionHeight = 0.2f;
 
-    // private Rigidbody rb;
+    private Rigidbody rb;
     // private float inputX;
     // private float inputZ;
 
@@ -31,7 +33,8 @@ public class ArcadeCar : MonoBehaviour
 
     void Start()
     {
-        // rb = GetComponentInParent<Rigidbody>();
+        rb = GetComponentInParent<Rigidbody>();
+        rb.centerOfMass = new Vector3(0, centerOfMass, 0);
         CurrentSpeed = speed;
         CurrentTurnSpeed = turnSpeed;
     }
