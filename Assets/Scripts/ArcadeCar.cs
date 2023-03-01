@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class ArcadeCar : MonoBehaviour
@@ -55,11 +56,26 @@ public class ArcadeCar : MonoBehaviour
             if (vertical >= 0.1f)
             {
                 transform.Rotate(Vector3.up, horizontal * CurrentTurnSpeed * Time.deltaTime);
+
+                backWheels.transform.Rotate(1.0f, 0.0f, 0.0f, Space.Self);
+                if (horizontal < 0.1f)
+                {
+                    foreach (var frontWheel in frontWheels)
+                        frontWheel.transform.Rotate(1.0f, frontWheel.transform.rotation.y, 0.0f, Space.Self);
+
+                }
             }
 
             if (vertical <= -0.1f)
             {
                 transform.Rotate(Vector3.up, -horizontal * CurrentTurnSpeed * Time.deltaTime);
+
+                backWheels.transform.Rotate(-1.0f, 0.0f, 0.0f, Space.Self);
+                if (horizontal < 0.1f)
+                {
+                    foreach (var frontWheel in frontWheels)
+                        frontWheel.transform.Rotate(-1.0f, frontWheel.transform.rotation.y, 0.0f, Space.Self);
+                }
             }
         }
 
