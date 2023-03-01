@@ -6,17 +6,14 @@ public class ArcadeCar : MonoBehaviour
     public bool CanHeal;
     public bool Healing;
     public float speed = 10.0f;
-    public float CurrentSpeed = 0;
+    public float CurrentSpeed;
     public float turnSpeed = 10.0f;
-
     public float CurrentTurnSpeed;
 
-    [SerializeField] private float centerOfMass;
-    // public float suspensionHeight = 0.2f;
-
     private Rigidbody rb;
-    // private float inputX;
-    // private float inputZ;
+    [SerializeField] private float centerOfMass;
+    [SerializeField] private GameObject backWheels;
+    [SerializeField] private List<GameObject> frontWheels;
 
     public Camp CurrentCamp;
     public List<Soldier> soldiers;
@@ -47,23 +44,24 @@ public class ArcadeCar : MonoBehaviour
 
     void Update()
     {
-        // inputX = Input.GetAxis("Horizontal");
-        // inputZ = Input.GetAxis("Vertical");
-        //
-        // if(inputZ < 0)
-        // {
-        //     inputX = -inputX;
-        // }
-        // else if (inputZ == 0)
-        // {
-        //     inputX = 0;
-        // }
-
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        transform.position += transform.forward * vertical * CurrentSpeed * Time.deltaTime;
-        transform.Rotate(Vector3.up, horizontal * CurrentTurnSpeed * Time.deltaTime);
+
+        if (vertical != 0)
+        {
+            transform.position += transform.forward * vertical * CurrentSpeed * Time.deltaTime;
+
+            if (vertical >= 0.1f)
+            {
+                transform.Rotate(Vector3.up, horizontal * CurrentTurnSpeed * Time.deltaTime);
+            }
+
+            if (vertical <= -0.1f)
+            {
+                transform.Rotate(Vector3.up, -horizontal * CurrentTurnSpeed * Time.deltaTime);
+            }
+        }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -109,11 +107,6 @@ public class ArcadeCar : MonoBehaviour
                 CurrentCamp.cam.gameObject.SetActive(false);
                 SoldierCardPanel.SetActive(false);
                 CamPlayer.SetActive(true);
-                // for (int i = 0; i < CurrentCamp.SoldierInPlace; i++)
-                // {
-                //     CurrentCamp._soldiers[i].gameObject.SetActive(false);
-                // }
-
                 ResetSpeed();
             }
         }
@@ -130,17 +123,5 @@ public class ArcadeCar : MonoBehaviour
                 CurrentCamp.SelectedSoldier--;
             }
         }
-    }
-
-    void FixedUpdate()
-    {
-        // rb.velocity = transform.forward * inputZ * CurrentSpeed;
-        // rb.angularVelocity = transform.up * inputX * CurrentTurnSpeed;
-        //
-        // RaycastHit hit;
-        // if (Physics.Raycast(transform.position, -transform.up, out hit, suspensionHeight))
-        // {
-        //     rb.AddForceAtPosition(transform.up * (suspensionHeight - hit.distance) * 800.0f, hit.point);
-        // }
     }
 }
