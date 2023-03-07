@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Tente
-  m_Shader: {fileID: -6465566751694194690, guid: 490ab7255c7237445bb054b71e64fd59, type: 3}
+  m_Name: Sandbag
+  m_Shader: {fileID: -6465566751694194690, guid: 0515fec6924a5754c927de24acc88308, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -38,7 +38,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture:
-        m_Texture: {fileID: 2800000, guid: 6bab0f2a93b700f4c8b7f90fc8a3515e, type: 3}
+        m_Texture: {fileID: 2800000, guid: a24d7bf87953dac43ac59fea1d62d488, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -55,17 +55,17 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AmbiantStrengh: 0.86
-    - _FalloffAmount: 0.21
-    - _Float: 0
-    - _FresnelSize: 0.01
-    - _LightingCutoff: 0.12
+    - _AmbiantStrengh: 0.84
+    - _FalloffAmount: 0.49
+    - _Float: 5.85
+    - _FresnelSize: 0.24
+    - _LightingCutoff: 0.2
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Smoothness: 1000
+    - _Smoothness: 792.95
     m_Colors:
     - _ColorTest: {r: 1, g: 1, b: 1, a: 0}
-    - _DifuseColor: {r: 0.43867922, g: 0.7188054, b: 1, a: 0}
-    - _FresnelColor: {r: 0.05660379, g: 0.05660379, b: 0.05660379, a: 0}
-    - _SpecularColor: {r: 1, g: 1, b: 1, a: 0}
+    - _DifuseColor: {r: 0.41509432, g: 0.36766294, b: 0.27607688, a: 0}
+    - _FresnelColor: {r: 0.14150941, g: 0.14150941, b: 0.14150941, a: 0}
+    - _SpecularColor: {r: 0.009433985, g: 0.009433985, b: 0.009433985, a: 0}
   m_BuildTextureStacks: []
