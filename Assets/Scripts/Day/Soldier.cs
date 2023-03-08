@@ -4,7 +4,6 @@ using Random = UnityEngine.Random;
 public class Soldier : MonoBehaviour
 {
     public bool isOccuped;
-    public bool isCounted;
     public bool isSelected;
     public int index;
 
@@ -37,6 +36,5 @@ public class Soldier : MonoBehaviour
             }
         }
         isOccuped = false;
-        isCounted = false;
     }
 }
