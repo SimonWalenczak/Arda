@@ -9,9 +9,9 @@ public class ArcadeCar : MonoBehaviour
     public float CurrentSpeed;
     public float turnSpeed = 10.0f;
     public float CurrentTurnSpeed;
+    [SerializeField] private Vector3 _centerOfMass;
 
     private Rigidbody rb;
-    [SerializeField] private float centerOfMass;
     [SerializeField] private GameObject backWheels;
     [SerializeField] private List<GameObject> frontWheels;
 
@@ -31,7 +31,7 @@ public class ArcadeCar : MonoBehaviour
     void Start()
     {
         rb = GetComponentInParent<Rigidbody>();
-        rb.centerOfMass = new Vector3(0, centerOfMass, 0);
+        rb.centerOfMass = _centerOfMass;
         CurrentSpeed = speed;
         CurrentTurnSpeed = turnSpeed;
     }
