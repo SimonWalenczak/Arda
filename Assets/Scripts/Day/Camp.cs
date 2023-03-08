@@ -163,6 +163,11 @@ public class Camp : MonoBehaviour
             {
                 soldier.isOccuped = false;
                 soldier.InjuryTime = 0;
+                if (soldier.isCounted)
+                {
+                    soldier.isCounted = false;
+                    SoldierInPlace--;
+                }
             }
         }
     }
@@ -182,7 +187,7 @@ public class Camp : MonoBehaviour
         {
             foreach (var soldier in _soldiers)
             {
-                if (soldier.isSelected == true)
+                if (soldier.isSelected == true && soldier.isCounted == true)
                 {
                     soldier.Heal();
                     SoldierInPlace--;
