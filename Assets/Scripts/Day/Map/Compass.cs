@@ -14,11 +14,21 @@ public class Compass : MonoBehaviour
     [SerializeField] private RectTransform _markerLayer;
 
     [SerializeField] private Transform _markerPlace;
-    
+
     private void Update()
     {
+        if (_player.gameObject.GetComponent<PlayerController>()._mapMarker != null)
+        {
+            _markerPlace = _player.gameObject.GetComponent<PlayerController>()._mapMarker.transform;
+            _markerLayer.gameObject.SetActive(true);
+            ChangeMarkerDirection();
+        }
+        else
+        {
+            _markerLayer.gameObject.SetActive(false);
+        }
+
         ChangeCompassDirection();
-        ChangeMarkerDirection();
     }
 
     private void ChangeCompassDirection()
@@ -26,7 +36,7 @@ public class Compass : MonoBehaviour
         NorthDirection.z = _player.eulerAngles.y;
         _compassLayer.localEulerAngles = NorthDirection;
     }
-    
+
     private void ChangeMarkerDirection()
     {
         Vector3 dir = _player.position - _markerPlace.position;
