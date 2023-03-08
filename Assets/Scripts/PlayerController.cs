@@ -29,7 +29,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Camera mapCam;
     [SerializeField] GameObject CompassUI;
     [SerializeField] GameObject _mapMarkerPrefab;
-    public GameObject _mapMarker;
+    public GameObject _mapMarkerObject;
+    [SerializeField] private GameObject _mapMarker;
 
     void Start()
     {
@@ -49,13 +50,13 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
             SoldierDebug();
-        
+
         if (Input.GetKeyDown(KeyCode.M))
             MapManager();
-        
+
         if (Input.GetKeyDown(KeyCode.F))
             AButton();
-        
+
         if (Input.GetKeyDown(KeyCode.R))
             BButton();
     }
@@ -65,6 +66,7 @@ public class PlayerController : MonoBehaviour
         CurrentSpeed = speed;
         CurrentTurnSpeed = turnSpeed;
     }
+
     private void Heal()
     {
         if (Healing)
@@ -80,6 +82,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
     private void AButton()
     {
         if (CanHeal && CurrentCamp.SoldierInPlace != 0 && !_mapOpened)
@@ -89,14 +92,18 @@ public class PlayerController : MonoBehaviour
             CamPlayer.enabled = false;
         }
 
-        if (_mapOpened && _mapMarker == null)
+        if (_mapOpened && _mapMarkerObject == null)
         {
             Vector3 mousePos = Input.mousePosition;
             Vector3 objectPos = mapCam.ScreenToWorldPoint(mousePos);
             GameObject actualMarker = Instantiate(_mapMarkerPrefab, objectPos, Quaternion.identity);
-            _mapMarker = actualMarker;
+            _mapMarkerObject = actualMarker;
+            _mapMarker.SetActive(true);
+            _mapMarker.transform.position = new Vector3(_mapMarkerObject.transform.position.x, 270,
+                _mapMarkerObject.transform.position.z);
         }
     }
+
     private void BButton()
     {
         if (Healing)
@@ -108,11 +115,13 @@ public class PlayerController : MonoBehaviour
             ResetSpeed();
         }
 
-        if (_mapOpened && _mapMarker != null)
+        if (_mapOpened && _mapMarkerObject != null)
         {
-            Destroy(_mapMarker);
+            Destroy(_mapMarkerObject);
+            _mapMarker.SetActive(false);
         }
     }
+
     private void Move()
     {
         float horizontal = Input.GetAxis("Horizontal");
@@ -143,6 +152,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
     private void MapManager()
     {
         if (!_mapOpened)
@@ -163,6 +173,7 @@ public class PlayerController : MonoBehaviour
             ResetSpeed();
         }
     }
+
     private void SoldierDebug()
     {
         SoldierDebugPanel.SetActive(!SoldierDebugPanel.activeSelf);

@@ -17,9 +17,9 @@ public class Compass : MonoBehaviour
 
     private void Update()
     {
-        if (_player.gameObject.GetComponent<PlayerController>()._mapMarker != null)
+        if (_player.gameObject.GetComponent<PlayerController>()._mapMarkerObject != null)
         {
-            _markerPlace = _player.gameObject.GetComponent<PlayerController>()._mapMarker.transform;
+            _markerPlace = _player.gameObject.GetComponent<PlayerController>()._mapMarkerObject.transform;
             _markerLayer.gameObject.SetActive(true);
             ChangeMarkerDirection();
         }
