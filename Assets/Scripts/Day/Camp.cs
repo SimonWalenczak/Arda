@@ -10,7 +10,7 @@ public class Camp : MonoBehaviour
 
     [SerializeField] LayerMask TargetLayer;
 
-    [SerializeField] private PlayerController _arcadeCar;
+    public PlayerController _playerController;
     public int SoldierInPlaceMax;
     public int SoldierInPlace;
     public int SelectedSoldier;
@@ -35,8 +35,8 @@ public class Camp : MonoBehaviour
     {
         if (Contains(TargetLayer, other.gameObject.layer))
         {
-            _arcadeCar.CanHeal = true;
-            _arcadeCar.CurrentCamp = this;
+            _playerController.CanHeal = true;
+            _playerController.CurrentCamp = this;
         }
     }
 
@@ -44,8 +44,8 @@ public class Camp : MonoBehaviour
     {
         if (Contains(TargetLayer, other.gameObject.layer))
         {
-            _arcadeCar.CanHeal = false;
-            _arcadeCar.CurrentCamp = null;
+            _playerController.CanHeal = false;
+            _playerController.CurrentCamp = null;
         }
     }
 
@@ -59,13 +59,10 @@ public class Camp : MonoBehaviour
         }
 
         if (SoldierInPlace != 0)
-        {
             SoldierCursor.SetActive(true);
-        }
         else
-        {
             SoldierCursor.SetActive(false);
-        }
+        
         
         ActiveSoldierCard();
         CheckSelectSoldier();
@@ -111,9 +108,9 @@ public class Camp : MonoBehaviour
                     SoldierCursor.transform.position = new Vector3(soldier.transform.position.x, soldier.transform.position.y + 1.5f, soldier.transform.position.z);
                     SoldierCursor.transform.LookAt(cam.transform);
 
-                    if (_arcadeCar.CurrentCamp == this)
+                    if (_playerController.CurrentCamp == this)
                     {
-                        soldierCard = _arcadeCar.SoldierCardPanel.GetComponent<SoldierCard>();
+                        soldierCard = _playerController.SoldierCardPanel.GetComponent<SoldierCard>();
 
                         soldierCard.LastNameText.SetText(soldier.LastName);
                         soldierCard.FirstNameText.SetText(soldier.FirstName);
@@ -142,9 +139,9 @@ public class Camp : MonoBehaviour
                     }
                 }
                 
-                else if (_arcadeCar.CurrentCamp != null)
+                else if (_playerController.CurrentCamp != null)
                 {
-                    _arcadeCar.CurrentCamp.SelectedSoldier++;
+                    _playerController.CurrentCamp.SelectedSoldier++;
                 }
             }
         }
@@ -165,6 +162,7 @@ public class Camp : MonoBehaviour
             if (soldier.InjuryTime <= 0)
             {
                 soldier.isOccuped = false;
+                soldier.InjuryTime = 0;
             }
         }
     }
@@ -172,24 +170,25 @@ public class Camp : MonoBehaviour
     public void StartHeal()
     {
         cam.gameObject.SetActive(true);
-        _arcadeCar.Healing = true;
-        _arcadeCar.CurrentSpeed = 0;
-        _arcadeCar.CurrentTurnSpeed = 0;
+        _playerController.Healing = true;
+        _playerController.CurrentSpeed = 0;
+        _playerController.CurrentTurnSpeed = 0;
         SelectedSoldier = 1;
     }
 
     public void HealSoldier()
     {
-        if (Input.GetKeyDown(KeyCode.F) && _arcadeCar.CurrentCamp == this && _arcadeCar.Healing == true)
+        if (Input.GetKeyDown(KeyCode.F) && _playerController.CurrentCamp == this && _playerController.Healing == true)
         {
             foreach (var soldier in _soldiers)
             {
                 if (soldier.isSelected == true)
                 {
                     soldier.Heal();
-                    foreach (var soldierCard in _arcadeCar.soldiers)
+                    SoldierInPlace--;
+                    foreach (var soldierCard in _playerController.soldiers)
                     {
-                        soldierCard.InjuryTime -= _arcadeCar.HealTime[soldier.InjuryType - 1];
+                        soldierCard.InjuryTime -= _playerController.HealTime[soldier.InjuryType - 1];
                     }
                 }
             }
