@@ -10,15 +10,15 @@ public class Camp : MonoBehaviour
 
     [SerializeField] LayerMask TargetLayer;
 
-    [SerializeField] private PlayerController _arcadeCar;
-    public int SoldierInPlaceMax;
+    public PlayerController _arcadeCar;
+    public int SoldierGenerateMax;
     public int SoldierInPlace;
     public int SelectedSoldier;
     public List<Soldier> _soldiers;
 
     public Camera cam;
     public GameObject SoldierCursor;
-    
+
     [Space(10), Header("Generator Soldier")] [SerializeField]
     private float _timer = 5f;
 
@@ -66,29 +66,39 @@ public class Camp : MonoBehaviour
         {
             SoldierCursor.SetActive(false);
         }
-        
+
         ActiveSoldierCard();
         CheckSelectSoldier();
         UpdateSoldier();
         HealSoldier();
     }
 
+    public void CheckSoldierInPlace()
+    {
+        SoldierInPlace = 0;
+        foreach (var soldier in _soldiers)
+        {
+            if (soldier.gameObject.activeInHierarchy)
+                SoldierInPlace++;
+        }
+    }
+
     private void ActiveSoldierCard()
     {
-        if (SelectedSoldier > SoldierInPlace)
+        if (SelectedSoldier > SoldierGenerateMax)
             SelectedSoldier = 1;
         if (SelectedSoldier < 1)
             SelectedSoldier = SoldierInPlace;
 
-        for (int i = 0; i < SoldierInPlace; i++)
+        foreach (var soldier in _soldiers)
         {
-            if (_soldiers[i].isOccuped == true)
+            if (soldier.isOccuped == true)
             {
-                _soldiers[i].gameObject.SetActive(true);
+                soldier.gameObject.SetActive(true);
             }
             else
             {
-                _soldiers[i].gameObject.SetActive(false);
+                soldier.gameObject.SetActive(false);
             }
         }
     }
@@ -96,7 +106,7 @@ public class Camp : MonoBehaviour
     private void CheckSelectSoldier()
     {
         SoldierCard soldierCard = null;
-        
+
         foreach (var soldier in _soldiers)
         {
             if (soldier.index != SelectedSoldier)
@@ -108,7 +118,8 @@ public class Camp : MonoBehaviour
                 if (soldier.isOccuped == true)
                 {
                     soldier.isSelected = true;
-                    SoldierCursor.transform.position = new Vector3(soldier.transform.position.x, soldier.transform.position.y + 1.5f, soldier.transform.position.z);
+                    SoldierCursor.transform.position = new Vector3(soldier.transform.position.x,
+                        soldier.transform.position.y + 1.5f, soldier.transform.position.z);
                     SoldierCursor.transform.LookAt(cam.transform);
 
                     if (_arcadeCar.CurrentCamp == this)
@@ -120,17 +131,17 @@ public class Camp : MonoBehaviour
                         soldierCard.AgeText.SetText(soldier.Age);
                         soldierCard.SituationText.SetText(soldier.Situation);
                         soldierCard.MilitaryRankText.SetText(soldier.MilitaryRank);
-    
+
                         switch (soldier.InjuryType)
                         {
                             case 1:
                                 soldierCard.InjurySprite.color = Color.green;
                                 break;
-                        
+
                             case 2:
                                 soldierCard.InjurySprite.color = Color.yellow;
                                 break;
-                        
+
                             case 3:
                                 soldierCard.InjurySprite.color = Color.red;
                                 break;
@@ -141,7 +152,7 @@ public class Camp : MonoBehaviour
                         soldierCard = null;
                     }
                 }
-                
+
                 else if (_arcadeCar.CurrentCamp != null)
                 {
                     _arcadeCar.CurrentCamp.SelectedSoldier++;
@@ -161,10 +172,19 @@ public class Camp : MonoBehaviour
             else
                 soldier.InjuryType = 1;
 
-            soldier.InjuryTime -= Time.deltaTime;
+            if (soldier.isOccuped)
+            {
+                soldier.InjuryTime -= Time.deltaTime;
+            }
+            else
+            {
+                soldier.InjuryTime = 150;
+            }
             if (soldier.InjuryTime <= 0)
             {
+                _arcadeCar.GetComponent<PlayerController>().soldiers.Remove(soldier);
                 soldier.isOccuped = false;
+                SoldierInPlace--;
             }
         }
     }
@@ -184,8 +204,10 @@ public class Camp : MonoBehaviour
         {
             foreach (var soldier in _soldiers)
             {
-                if (soldier.isSelected == true)
+                if (soldier.isSelected == true && soldier.isOccuped == true)
                 {
+                    _arcadeCar.GetComponent<PlayerController>().soldiers.Remove(soldier);
+                    SoldierInPlace--;
                     soldier.Heal();
                     foreach (var soldierCard in _arcadeCar.soldiers)
                     {

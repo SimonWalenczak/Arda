@@ -79,6 +79,11 @@ public class PlayerController : MonoBehaviour
             {
                 CurrentCamp.SelectedSoldier--;
             }
+            
+            if (CurrentCamp.SoldierInPlace == 0)
+                SoldierCardPanel.SetActive(false);
+            else
+                SoldierCardPanel.SetActive(true);
         }
     }
 
