@@ -1,4 +1,8 @@
+using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class Soldier : MonoBehaviour
@@ -26,7 +30,7 @@ public class Soldier : MonoBehaviour
         else
         {
             int _deadChance = Random.Range(0, 101);
-            if (_deadChance <= 30)
+            if (_deadChance <= 10)
             {
                 print($"Soldier {LastName} {FirstName} is dead.");
             }
