@@ -58,6 +58,11 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
             BButton();
+        
+        if(Healing)
+            CompassUI.SetActive(false);
+        else
+            CompassUI.SetActive(true);
     }
 
     public void ResetSpeed()

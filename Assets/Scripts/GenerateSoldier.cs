@@ -72,19 +72,19 @@ public class GenerateSoldier : MonoBehaviour
                 if (_injuryChance <= _hardInjuryChance)
                 {
                     soldier.InjuryType = 3;
-                    soldier.InjuryTime = InjuryTimer[2];
                 }
                 else if (_injuryChance <= _mediumInjuryChance)
                 {
                     soldier.InjuryType = 2;
-                    soldier.InjuryTime = InjuryTimer[1];
                 }
                 else
                 {
                     soldier.InjuryType = 1;
-                    soldier.InjuryTime = InjuryTimer[0];
                 }
 
+                soldier.InjuryTime = InjuryTimer[0];
+                soldier.InjuryTypeOrigin = soldier.InjuryType;
+                
                 soldier.FirstName = firstName;
                 soldier.LastName = lastName;
                 soldier.Age = age.ToString();

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
@@ -16,11 +17,22 @@ public class Soldier : MonoBehaviour
     public string Age;
     public string Situation;
     public string MilitaryRank;
+    public int InjuryTypeOrigin;
     public int InjuryType;
 
     public float InjuryTime;
-    
-    
+
+    public GameObject LifeBarParent;
+    public GameObject LifeBar;
+    public Camera cam;
+
+
+    private void Update()
+    {
+        if (!isOccuped)
+            LifeBarParent.SetActive(false);
+    }
+
     public void Heal()
     {
         if (InjuryType < 3)

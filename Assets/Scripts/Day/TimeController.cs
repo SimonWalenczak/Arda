@@ -6,20 +6,22 @@ using UnityEngine.SceneManagement;
 
 public class TimeController : MonoBehaviour
 {
-    //Transotion
+    //Transition
     [SerializeField] private GameObject _fader;
+
     //Reference
+    [SerializeField] private PlayerController _playerController;
     [SerializeField] private float _timeMultiplier;
     [SerializeField] private Light _sunLight;
     [SerializeField] private float _startHour;
-    
+
     //Lever-Coucher
     [SerializeField] private float _sunriseHour;
     [SerializeField] private float _sunsetHour;
-    
+
     //Affichage
     [SerializeField] private TextMeshProUGUI textTime;
-    
+
     private DateTime _currentTime;
     TimeSpan _sunriseTime;
     TimeSpan _sunsetTime;
@@ -34,8 +36,11 @@ public class TimeController : MonoBehaviour
 
     private void Update()
     {
-        UpdateTimeOfDay();
-        RotateSun();
+        if (!_playerController.Healing)
+        {
+            UpdateTimeOfDay();
+            RotateSun();
+        }
     }
 
     void UpdateTimeOfDay()
@@ -54,8 +59,8 @@ public class TimeController : MonoBehaviour
             TimeSpan TimeSinceSunrise = CalculateTimeDifference(_sunriseTime, _currentTime.TimeOfDay);
 
             double percentage = TimeSinceSunrise.TotalMinutes / sunriseToSunsetDuration.TotalMinutes;
-            
-            sunLightRotation = Mathf.Lerp(0, 180, (float)percentage);
+
+            sunLightRotation = Mathf.Lerp(0, 180, (float) percentage);
         }
         else
         {
@@ -63,8 +68,8 @@ public class TimeController : MonoBehaviour
             TimeSpan TimeSinceSunset = CalculateTimeDifference(_sunsetTime, _currentTime.TimeOfDay);
 
             double percentage = TimeSinceSunset.TotalMinutes / sunsetToSunsetDuration.TotalMinutes;
-            
-            sunLightRotation = Mathf.Lerp(180, 360, (float)percentage);
+
+            sunLightRotation = Mathf.Lerp(180, 360, (float) percentage);
         }
 
         _sunLight.transform.rotation = Quaternion.AngleAxis(sunLightRotation, Vector3.right);
@@ -78,6 +83,7 @@ public class TimeController : MonoBehaviour
         {
             difference += TimeSpan.FromHours(24);
         }
+
         return difference;
     }
 

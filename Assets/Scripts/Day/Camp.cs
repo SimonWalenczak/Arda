@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Camp : MonoBehaviour
 {
@@ -29,6 +30,11 @@ public class Camp : MonoBehaviour
     private void Start()
     {
         _generateSoldier = GetComponent<GenerateSoldier>();
+
+        foreach (var soldier in _soldiers)
+        {
+            soldier.cam = cam;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -73,16 +79,6 @@ public class Camp : MonoBehaviour
         HealSoldier();
     }
 
-    public void CheckSoldierInPlace()
-    {
-        SoldierInPlace = 0;
-        foreach (var soldier in _soldiers)
-        {
-            if (soldier.gameObject.activeInHierarchy)
-                SoldierInPlace++;
-        }
-    }
-
     private void ActiveSoldierCard()
     {
         if (SelectedSoldier > SoldierGenerateMax)
@@ -95,6 +91,10 @@ public class Camp : MonoBehaviour
             if (soldier.isOccuped == true)
             {
                 soldier.gameObject.SetActive(true);
+                if (_arcadeCar.Healing)
+                    soldier.LifeBarParent.SetActive(true);
+                else
+                    soldier.LifeBarParent.SetActive(false);
             }
             else
             {
@@ -124,28 +124,31 @@ public class Camp : MonoBehaviour
 
                     if (_arcadeCar.CurrentCamp == this)
                     {
+                        //Set SoldierCard
                         soldierCard = _arcadeCar.SoldierCardPanel.GetComponent<SoldierCard>();
+                        switch (soldier.InjuryTypeOrigin)
+                        {
+                            case 1:
+                                soldierCard.InjurySprite.color = Color.green;
+                                soldierCard.InjuryText.SetText("1");
+                                break;
+
+                            case 2:
+                                soldierCard.InjurySprite.color = Color.yellow;
+                                soldierCard.InjuryText.SetText("2");
+                                break;
+
+                            case 3:
+                                soldierCard.InjurySprite.color = Color.red;
+                                soldierCard.InjuryText.SetText("3");
+                                break;
+                        }
 
                         soldierCard.LastNameText.SetText(soldier.LastName);
                         soldierCard.FirstNameText.SetText(soldier.FirstName);
                         soldierCard.AgeText.SetText(soldier.Age);
                         soldierCard.SituationText.SetText(soldier.Situation);
                         soldierCard.MilitaryRankText.SetText(soldier.MilitaryRank);
-
-                        switch (soldier.InjuryType)
-                        {
-                            case 1:
-                                soldierCard.InjurySprite.color = Color.green;
-                                break;
-
-                            case 2:
-                                soldierCard.InjurySprite.color = Color.yellow;
-                                break;
-
-                            case 3:
-                                soldierCard.InjurySprite.color = Color.red;
-                                break;
-                        }
                     }
                     else
                     {
@@ -165,12 +168,29 @@ public class Camp : MonoBehaviour
     {
         foreach (var soldier in _soldiers)
         {
+            //Update injury type
             if (soldier.InjuryTime <= _generateSoldier.InjuryTimer[2])
                 soldier.InjuryType = 3;
             else if (soldier.InjuryTime <= _generateSoldier.InjuryTimer[1])
                 soldier.InjuryType = 2;
             else
                 soldier.InjuryType = 1;
+
+            //Change color of lifebar
+            switch (soldier.InjuryType)
+            {
+                case 1:
+                    soldier.LifeBar.GetComponent<Image>().color = Color.green;
+                    break;
+
+                case 2:
+                    soldier.LifeBar.GetComponent<Image>().color = Color.yellow;
+                    break;
+
+                case 3:
+                    soldier.LifeBar.GetComponent<Image>().color = Color.red;
+                    break;
+            }
 
             if (soldier.isOccuped)
             {
@@ -180,6 +200,7 @@ public class Camp : MonoBehaviour
             {
                 soldier.InjuryTime = 150;
             }
+
             if (soldier.InjuryTime <= 0)
             {
                 _arcadeCar.GetComponent<PlayerController>().soldiers.Remove(soldier);
