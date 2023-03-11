@@ -65,17 +65,17 @@ public class GenerateSoldier : MonoBehaviour
                 int _militaryRankChance = Random.Range(0, 101);
                 if (_militaryRankChance <= _captainClassChance)
                 {
-                    soldier.MilitaryRank = "Rank : " + MilitaryRank[2];
+                    soldier.MilitaryRank = MilitaryRank[2];
                     age = Random.Range(30, 36);
                 }
                 else if (_militaryRankChance <= _majorClassChance)
                 {
-                    soldier.MilitaryRank = "Rank : " + MilitaryRank[1];
+                    soldier.MilitaryRank = MilitaryRank[1];
                     age = Random.Range(25, 36);
                 }
                 else
                 {
-                    soldier.MilitaryRank = "Rank : " + MilitaryRank[0];
+                    soldier.MilitaryRank = MilitaryRank[0];
                     age = Random.Range(18, 36);
                 }
 
