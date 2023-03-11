@@ -23,6 +23,7 @@ public class GenerateSoldier : MonoBehaviour
     private float _hardInjuryChance = 10;
 
     [SerializeField] private float _mediumInjuryChance = 35;
+    public int InjuryTimerMax;
     public List<float> InjuryTimer;
 
     private Camp _camp;
@@ -33,6 +34,9 @@ public class GenerateSoldier : MonoBehaviour
     {
         _camp = GetComponent<Camp>();
         SoldierDebugText.text = "";
+        InjuryTimer[0] = InjuryTimerMax;
+        InjuryTimer[1] = InjuryTimerMax * 0.7f;
+        InjuryTimer[2] = InjuryTimerMax * 0.4f;
     }
 
     public void GeneratorSoldier()
@@ -83,6 +87,8 @@ public class GenerateSoldier : MonoBehaviour
                 }
 
                 soldier.InjuryTime = InjuryTimer[0];
+                soldier.LifeTimeStep = soldier.InjuryTime;
+                print(soldier.LifeTimeStep);
                 soldier.lifeUnit = (int) (soldier.InjuryTime / (soldier.InjuryTime / 10));
                 soldier.InjuryTypeOrigin = soldier.InjuryType;
                 

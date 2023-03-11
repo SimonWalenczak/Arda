@@ -23,18 +23,16 @@ public class Soldier : MonoBehaviour
     public float InjuryTime;
 
     public GameObject LifeBarParent;
-    public GameObject LifeBar;
+    public Image LifeBar;
     public Camera cam;
 
     public int lifeUnit;
-    
+    public float LifeTimeStep;
 
     private void Update()
     {
         if (!isOccuped)
             LifeBarParent.SetActive(false);
-        
-        
     }
 
     public void Heal()

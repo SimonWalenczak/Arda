@@ -195,10 +195,17 @@ public class Camp : MonoBehaviour
             if (soldier.isOccuped)
             {
                 soldier.InjuryTime -= Time.deltaTime;
+
+                if (soldier.InjuryTime <= (soldier.LifeTimeStep - (_generateSoldier.InjuryTimer[0] / 10)))
+                {
+                    soldier.LifeBar.fillAmount -= 0.1f;
+                    soldier.LifeTimeStep -= _generateSoldier.InjuryTimer[0] / 10;
+                }
             }
             else
             {
                 soldier.InjuryTime = 150;
+                soldier.LifeBar.fillAmount = 1;
             }
 
             if (soldier.InjuryTime <= 0)
