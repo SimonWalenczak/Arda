@@ -27,7 +27,7 @@ public class Camp : MonoBehaviour
     [SerializeField] private float _timerReset;
     [SerializeField] private GenerateSoldier _generateSoldier;
 
-    [SerializeField] private int _waitingForSpawn;
+    [SerializeField] private float _waitingForSpawn;
 
 
     private void Start()
@@ -162,6 +162,15 @@ public class Camp : MonoBehaviour
                                 break;
                         }
 
+                        if (soldier.isDiagnosed)
+                        {
+                            soldierCard.DiagnosticParent.SetActive(false);
+                        }
+                        else
+                        {
+                            soldierCard.DiagnosticParent.SetActive(true);
+                        }
+
                         soldierCard.LastNameText.SetText(soldier.LastName);
                         soldierCard.FirstNameText.SetText(soldier.FirstName);
                         soldierCard.AgeText.SetText(soldier.Age);
@@ -229,6 +238,7 @@ public class Camp : MonoBehaviour
             if (soldier.InjuryTime <= 0)
             {
                 _arcadeCar.GetComponent<PlayerController>().soldiers.Remove(soldier);
+                soldier.isDiagnosed = false;
                 soldier.isOccuped = false;
                 SoldierInPlace--;
             }
@@ -241,7 +251,12 @@ public class Camp : MonoBehaviour
         _arcadeCar.Healing = true;
         _arcadeCar.CurrentSpeed = 0;
         _arcadeCar.CurrentTurnSpeed = 0;
-        SelectedSoldier = 1;
+        foreach (var soldier in _soldiers)
+        {
+            if (soldier.isOccuped && soldier.isSelected)
+                SelectedSoldier = soldier.index;
+            break;
+        }
     }
 
     public void HealSoldier()
@@ -252,12 +267,24 @@ public class Camp : MonoBehaviour
             {
                 if (soldier.isSelected == true && soldier.isOccuped == true)
                 {
-                    _arcadeCar.GetComponent<PlayerController>().soldiers.Remove(soldier);
-                    SoldierInPlace--;
-                    soldier.Heal();
-                    foreach (var soldierCard in _arcadeCar.soldiers)
+                    if (soldier.isDiagnosed)
                     {
-                        soldierCard.InjuryTime -= soldier.UnitToSec * _arcadeCar.HealTime[soldier.InjuryTypeOrigin - 1];
+                        _arcadeCar.GetComponent<PlayerController>().soldiers.Remove(soldier);
+                        SoldierInPlace--;
+                        soldier.Heal();
+                        foreach (var soldierCard in _arcadeCar.soldiers)
+                        {
+                            soldierCard.InjuryTime -=
+                                soldier.UnitToSec * _arcadeCar.HealTime[soldier.InjuryTypeOrigin - 1];
+                        }
+                    }
+                    else
+                    {
+                        soldier.isDiagnosed = true;
+                        foreach (var soldierCard in _arcadeCar.soldiers)
+                        {
+                            soldierCard.InjuryTime -= soldier.UnitToSec;
+                        }
                     }
                 }
             }

@@ -11,4 +11,5 @@ public class SoldierCard : MonoBehaviour
     public TMP_Text MilitaryRankText;
     public Image InjurySprite;
     public TMP_Text InjuryText;
+    public GameObject DiagnosticParent;
 }

@@ -92,7 +92,8 @@ public class GenerateSoldier : MonoBehaviour
                 soldier.LifeTimeStep = soldier.InjuryTime;
                 soldier.InjuryTimeUnit = soldier.InjuryTime / 10;
                 soldier.InjuryTypeOrigin = soldier.InjuryType;
-
+                soldier.isDiagnosed = false;
+                
                 soldier.FirstName = firstName;
                 soldier.LastName = lastName;
                 soldier.Age = age.ToString();

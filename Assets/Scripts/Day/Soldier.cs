@@ -11,6 +11,7 @@ public class Soldier : MonoBehaviour
 {
     public bool isOccuped;
     public bool isSelected;
+    public bool isDiagnosed;
     public int index;
 
     public string LastName;
@@ -70,6 +71,8 @@ public class Soldier : MonoBehaviour
                 print($"Soldier {LastName} {FirstName} is safe.");
             }
         }
+
+        isDiagnosed = false;
         isOccuped = false;
     }
 }
