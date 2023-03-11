@@ -26,11 +26,15 @@ public class Soldier : MonoBehaviour
     public GameObject LifeBar;
     public Camera cam;
 
+    public int lifeUnit;
+    
 
     private void Update()
     {
         if (!isOccuped)
             LifeBarParent.SetActive(false);
+        
+        
     }
 
     public void Heal()

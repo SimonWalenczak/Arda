@@ -83,6 +83,7 @@ public class GenerateSoldier : MonoBehaviour
                 }
 
                 soldier.InjuryTime = InjuryTimer[0];
+                soldier.lifeUnit = (int) (soldier.InjuryTime / (soldier.InjuryTime / 10));
                 soldier.InjuryTypeOrigin = soldier.InjuryType;
                 
                 soldier.FirstName = firstName;
