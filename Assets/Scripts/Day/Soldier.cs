@@ -19,6 +19,9 @@ public class Soldier : MonoBehaviour
     public string Age;
     public string Situation;
     public string MilitaryRank;
+    public Sprite Face;
+    public Sprite BodyHair;
+    public Color BodyHairColor;
     public int InjuryTypeOrigin;
     public int InjuryType;
 

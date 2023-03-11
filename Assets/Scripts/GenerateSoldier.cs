@@ -10,8 +10,11 @@ public class GenerateSoldier : MonoBehaviour
     public List<String> LastName;
     public List<String> FirstName;
     public List<String> Situation;
-
     public List<String> MilitaryRank;
+
+    public List<Sprite> FaceSprites;
+    public List<Sprite> BodyHairSprites;
+    public List<Color> BodyHairColor;
 
     [SerializeField] private float _appearingChance;
 
@@ -55,6 +58,9 @@ public class GenerateSoldier : MonoBehaviour
                 string lastName = LastName[Random.Range(0, LastName.Count)];
                 string situation = Situation[Random.Range(0, Situation.Count)];
                 int age = 0;
+                Color bodyHairColor = BodyHairColor[Random.Range(0, BodyHairColor.Count)];
+                Sprite face = FaceSprites[Random.Range(0, FaceSprites.Count)];
+                Sprite bodyHair = BodyHairSprites[Random.Range(0, BodyHairSprites.Count)];
 
                 int _militaryRankChance = Random.Range(0, 101);
                 if (_militaryRankChance <= _captainClassChance)
@@ -98,7 +104,11 @@ public class GenerateSoldier : MonoBehaviour
                 soldier.LastName = lastName;
                 soldier.Age = age.ToString();
                 soldier.Situation = situation;
-
+                soldier.Face = face;
+                soldier.BodyHair = bodyHair;
+                soldier.BodyHairColor = bodyHairColor;
+                
+                
                 SoldierDebugText.text += $"{gameObject.name} : {firstName} {lastName}.\n";
 
                 Debug.Log("Génération de soldat\nPrénom : " + firstName + "\nNom : " + lastName + "\nAge : " + age +

@@ -176,6 +176,11 @@ public class Camp : MonoBehaviour
                         soldierCard.AgeText.SetText(soldier.Age);
                         soldierCard.SituationText.SetText(soldier.Situation);
                         soldierCard.MilitaryRankText.SetText(soldier.MilitaryRank);
+                        
+                        soldierCard.BodyHairColor = soldier.BodyHairColor;
+                        soldierCard.FaceSprite.sprite = soldier.Face;
+                        soldierCard.BodyHairSprite.sprite = soldier.BodyHair;
+                        soldierCard.BodyHairSprite.color = soldier.BodyHairColor;
                     }
                     else
                     {
