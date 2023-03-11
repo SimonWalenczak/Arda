@@ -61,7 +61,10 @@ public class Camp : MonoBehaviour
         if (_timer <= 0)
         {
             _timer = _timerReset;
-            _generateSoldier.GeneratorSoldier();
+            if (_arcadeCar.Healing == false)
+            {
+                _generateSoldier.GeneratorSoldier();
+            }
         }
 
         if (SoldierInPlace != 0)
@@ -140,7 +143,7 @@ public class Camp : MonoBehaviour
 
                             case 3:
                                 soldierCard.InjurySprite.color = Color.red;
-                                soldierCard.InjuryText.SetText("3");
+                                soldierCard.InjuryText.SetText("4");
                                 break;
                         }
 
