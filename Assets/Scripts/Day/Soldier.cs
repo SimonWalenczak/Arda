@@ -23,7 +23,7 @@ public class Soldier : MonoBehaviour
 
     public float InjuryTime;
     public float InjuryTimeUnit;
-    public int UnitToSec = 30;
+    public int UnitToSec;
     
     public GameObject LifeBarParent;
     public Image LifeBar;
@@ -32,7 +32,7 @@ public class Soldier : MonoBehaviour
     public float LifeTimeStep;
 
     public bool _isDying;
-    
+
     private void Update()
     {
         if (!isOccuped)

@@ -176,6 +176,8 @@ public class Camp : MonoBehaviour
             else
                 soldier.InjuryType = 1;
 
+            //Set Injury Time
+            soldier.UnitToSec = _generateSoldier.InjuryTimerMax / 10;
             //Change color of lifebar
             switch (soldier.InjuryType)
             {
