@@ -194,8 +194,6 @@ public class Camp : MonoBehaviour
 
             if (soldier.isOccuped)
             {
-                soldier.InjuryTime -= Time.deltaTime;
-
                 if (soldier.InjuryTime <= (soldier.LifeTimeStep - (_generateSoldier.InjuryTimer[0] / 10)))
                 {
                     soldier.LifeBar.fillAmount -= 0.1f;
@@ -239,7 +237,7 @@ public class Camp : MonoBehaviour
                     soldier.Heal();
                     foreach (var soldierCard in _arcadeCar.soldiers)
                     {
-                        soldierCard.InjuryTime -= _arcadeCar.HealTime[soldier.InjuryType - 1];
+                        soldierCard.InjuryTime -= soldier.UnitToSec * _arcadeCar.HealTime[soldier.InjuryTypeOrigin - 1];
                     }
                 }
             }

@@ -88,10 +88,9 @@ public class GenerateSoldier : MonoBehaviour
 
                 soldier.InjuryTime = InjuryTimer[0];
                 soldier.LifeTimeStep = soldier.InjuryTime;
-                print(soldier.LifeTimeStep);
-                soldier.lifeUnit = (int) (soldier.InjuryTime / (soldier.InjuryTime / 10));
+                soldier.InjuryTimeUnit = soldier.InjuryTime / 10;
                 soldier.InjuryTypeOrigin = soldier.InjuryType;
-                
+
                 soldier.FirstName = firstName;
                 soldier.LastName = lastName;
                 soldier.Age = age.ToString();
@@ -101,8 +100,8 @@ public class GenerateSoldier : MonoBehaviour
 
                 Debug.Log("Génération de soldat\nPrénom : " + firstName + "\nNom : " + lastName + "\nAge : " + age +
                           "\nSituation : " + situation);
-                
-                
+
+
                 _camp._arcadeCar.GetComponent<PlayerController>().soldiers.Add(soldier);
                 break;
             }

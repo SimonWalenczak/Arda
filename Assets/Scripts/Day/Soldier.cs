@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
@@ -21,20 +22,36 @@ public class Soldier : MonoBehaviour
     public int InjuryType;
 
     public float InjuryTime;
-
+    public float InjuryTimeUnit;
+    public int UnitToSec = 30;
+    
     public GameObject LifeBarParent;
     public Image LifeBar;
     public Camera cam;
 
-    public int lifeUnit;
     public float LifeTimeStep;
 
+    public bool _isDying;
+    
     private void Update()
     {
         if (!isOccuped)
             LifeBarParent.SetActive(false);
+
+        if (isOccuped && !_isDying)
+        {
+            StartCoroutine(Dying());
+        }
     }
 
+    IEnumerator Dying()
+    {
+        _isDying = true;
+        yield return new WaitForSeconds(UnitToSec);
+        InjuryTime -= InjuryTimeUnit;
+        _isDying = false;
+    }
+    
     public void Heal()
     {
         if (InjuryType < 3)
