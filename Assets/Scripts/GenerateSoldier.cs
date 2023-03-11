@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 
 public class GenerateSoldier : MonoBehaviour
 {
+    public bool CanSpawn;
     public List<String> LastName;
     public List<String> FirstName;
     public List<String> Situation;
@@ -33,6 +34,7 @@ public class GenerateSoldier : MonoBehaviour
     private void Start()
     {
         _camp = GetComponent<Camp>();
+        CanSpawn = true;
         SoldierDebugText.text = "";
         InjuryTimer[0] = InjuryTimerMax;
         InjuryTimer[1] = InjuryTimerMax * 0.7f;

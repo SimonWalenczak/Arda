@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,6 +26,8 @@ public class Camp : MonoBehaviour
 
     [SerializeField] private float _timerReset;
     [SerializeField] private GenerateSoldier _generateSoldier;
+
+    [SerializeField] private int _waitingForSpawn;
 
 
     private void Start()
@@ -61,7 +64,7 @@ public class Camp : MonoBehaviour
         if (_timer <= 0)
         {
             _timer = _timerReset;
-            if (_arcadeCar.Healing == false)
+            if (_arcadeCar.Healing == false && _generateSoldier.CanSpawn)
             {
                 _generateSoldier.GeneratorSoldier();
             }
@@ -80,6 +83,18 @@ public class Camp : MonoBehaviour
         CheckSelectSoldier();
         UpdateSoldier();
         HealSoldier();
+    }
+
+    public void WaitingForSpawn()
+    {
+        _generateSoldier.CanSpawn = false;
+        StartCoroutine(WaintingSpawn());
+    }
+
+    IEnumerator WaintingSpawn()
+    {
+        yield return new WaitForSeconds(_waitingForSpawn);
+        _generateSoldier.CanSpawn = true;
     }
 
     private void ActiveSoldierCard()

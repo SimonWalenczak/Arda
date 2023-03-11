@@ -121,6 +121,7 @@ public class PlayerController : MonoBehaviour
             CurrentCamp.cam.gameObject.SetActive(false);
             SoldierCardPanel.SetActive(false);
             CamPlayer.enabled = true;
+            CurrentCamp.WaitingForSpawn();
             ResetSpeed();
         }
 
