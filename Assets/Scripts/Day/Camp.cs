@@ -204,7 +204,7 @@ public class Camp : MonoBehaviour
             }
             else
             {
-                soldier.InjuryTime = 150;
+                soldier.InjuryTime = 1000;
                 soldier.LifeBar.fillAmount = 1;
             }
 
