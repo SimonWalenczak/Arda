@@ -248,6 +248,7 @@ public class Camp : MonoBehaviour
                 _playerController.GetComponent<PlayerController>().soldiers.Remove(soldier);
                 soldier.isDiagnosed = false;
                 soldier.isOccuped = false;
+                soldier._isDying = false;
                 SoldierInPlace--;
                 _zoneManager.TotalDead++;
                 switch (soldier.MilitaryRank)
@@ -294,8 +295,8 @@ public class Camp : MonoBehaviour
                     {
                         _playerController.GetComponent<PlayerController>().soldiers.Remove(soldier);
                         SoldierInPlace--;
-                        
-                        
+                        soldier._isDying = false;
+
                         if (soldier.InjuryType < 3)
                         {
                             print($"Soldier {soldier.LastName} {soldier.FirstName} is safe.");
