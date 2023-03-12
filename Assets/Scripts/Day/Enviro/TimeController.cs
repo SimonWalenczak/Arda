@@ -8,6 +8,7 @@ public class TimeController : MonoBehaviour
 {
     //Transition
     [SerializeField] private GameObject _fader;
+    private bool _isTimeToNight;
 
     //Reference
     [SerializeField] private PlayerController _playerController;
@@ -31,11 +32,16 @@ public class TimeController : MonoBehaviour
         _currentTime = DateTime.Now.Date + TimeSpan.FromHours(_startHour);
         _sunriseTime = TimeSpan.FromHours(_sunriseHour);
         _sunsetTime = TimeSpan.FromHours(_sunsetHour);
-        StartCoroutine(Waiting());
     }
 
     private void Update()
     {
+        if (_currentTime >= DateTime.Now.Date + TimeSpan.FromHours(_sunsetHour) && _isTimeToNight == false)
+        {
+            _isTimeToNight = true;
+            StartCoroutine(WaitingForSunSet());
+        }
+
         if (!_playerController.Healing)
         {
             UpdateTimeOfDay();
@@ -88,11 +94,10 @@ public class TimeController : MonoBehaviour
     }
 
 
-    IEnumerator Waiting()
+    IEnumerator WaitingForSunSet()
     {
-        yield return new WaitForSeconds(((_sunsetHour - _sunriseHour) * 3600) / _timeMultiplier);
         _fader.SetActive(true);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(3);
         SceneManager.LoadScene(2);
     }
 }
