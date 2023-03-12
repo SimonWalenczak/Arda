@@ -13,6 +13,8 @@ public class Bomb : MonoBehaviour
     int xBase = 0;
     int yBase = 0;
 
+    bool hasExploded = false;
+
     private void Awake()
     {
         terrainData = terrain.terrainData;
@@ -21,16 +23,26 @@ public class Bomb : MonoBehaviour
     [System.Obsolete]
     private void Start()
     {
-        EditTerrain();
+        //EditTerrain();
+    }
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(2))
+        {
+            hasExploded = false;
+        }
     }
 
     [System.Obsolete]
-    void EditTerrain()
+    void EditTerrain(int xBase, int yBase)
     {
         int xRes = 4; //terrainData.heightmapWidth;
-        int yRes = 4; // terrainData.heightmapHeight;
+        int yRes = 4; //terrainData.heightmapHeight;
 
-        float [,] Heights = terrainData.GetHeights(50, 50, xRes, yRes);
+        //tests made with value of 50, 50 for base values
+
+        float [,] Heights = terrainData.GetHeights(xBase, yBase, xRes, yRes);
 
         for (int y = 0; y < yRes; y++)
         {
@@ -40,13 +52,15 @@ public class Bomb : MonoBehaviour
                 float sin = -Mathf.Sin(y);
                 //Debug.Log(cos - sin);
 
-                Heights[x, y] = (cos - sin) / 250;
+                //Heights[x, y] = (cos - sin) / 250;
+                Heights[x, y] = 1;
             }
         }
 
-        terrainData.SetHeights(50, 50, Heights);
+        terrainData.SetHeights(xBase, yBase, Heights);
     }
 
+    [System.Obsolete]
     void FixedUpdate()
     {
 
@@ -62,6 +76,14 @@ public class Bomb : MonoBehaviour
         {
             //print("There is something in front of the object!");
 
+            int xPos = TerrainUtils.GetTerrainCoordsFromWorldPosition(terrain, hit.point).y;
+            int yPos = TerrainUtils.GetTerrainCoordsFromWorldPosition(terrain, hit.point).x;
+
+            if (!hasExploded)
+            { 
+                EditTerrain(xPos, yPos);
+                hasExploded = true;
+            }
         }
 
     }
