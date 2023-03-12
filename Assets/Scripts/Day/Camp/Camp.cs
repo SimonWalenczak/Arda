@@ -11,13 +11,14 @@ public class Camp : MonoBehaviour
     }
 
     [SerializeField] LayerMask TargetLayer;
-
+    
+    [SerializeField] private ZoneManager _zoneManager;
     public PlayerController _playerController;
     public int SoldierGenerateMax;
     public int SoldierInPlace;
     public int SelectedSoldier;
     public List<Soldier> _soldiers;
-
+    public int DeadChance;
     public Camera cam;
     public GameObject SoldierCursor;
 
@@ -33,7 +34,8 @@ public class Camp : MonoBehaviour
     private void Start()
     {
         _generateSoldier = GetComponent<GenerateSoldier>();
-
+        _zoneManager = GetComponent<ZoneManager>();
+        
         foreach (var soldier in _soldiers)
         {
             soldier.cam = cam;
@@ -247,6 +249,21 @@ public class Camp : MonoBehaviour
                 soldier.isDiagnosed = false;
                 soldier.isOccuped = false;
                 SoldierInPlace--;
+                _zoneManager.TotalDead++;
+                switch (soldier.MilitaryRank)
+                {
+                    case "Soldat":
+                        _zoneManager.TotalFirstClassDead++;
+                        break;
+                    
+                    case "Elite":
+                        _zoneManager.TotalElitDead++;
+                        break;
+                    
+                    case "Officier":
+                        _zoneManager.TotalOfficierSaved++;
+                        break;
+                }
             }
         }
     }
@@ -277,7 +294,70 @@ public class Camp : MonoBehaviour
                     {
                         _playerController.GetComponent<PlayerController>().soldiers.Remove(soldier);
                         SoldierInPlace--;
-                        soldier.Heal();
+                        
+                        
+                        if (soldier.InjuryType < 3)
+                        {
+                            print($"Soldier {soldier.LastName} {soldier.FirstName} is safe.");
+                            switch (soldier.MilitaryRank)
+                            {
+                                case "Soldat":
+                                    _zoneManager.TotalFirstClassSaved++;
+                                    break;
+                    
+                                case "Elite":
+                                    _zoneManager.TotalElitSaved++;
+                                    break;
+                    
+                                case "Officier":
+                                    _zoneManager.TotalOfficierSaved++;
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            int _deadChance = Random.Range(0, 101);
+                            if (_deadChance <= DeadChance)
+                            {
+                                print($"Soldier {soldier.LastName} {soldier.FirstName} is dead.");
+                                switch (soldier.MilitaryRank)
+                                {
+                                    case "Soldat":
+                                        _zoneManager.TotalFirstClassDead++;
+                                        break;
+                    
+                                    case "Elite":
+                                        _zoneManager.TotalElitDead++;
+                                        break;
+                    
+                                    case "Officier":
+                                        _zoneManager.TotalOfficierDead++;
+                                        break;
+                                }
+                            }
+                            else
+                            {
+                                print($"Soldier {soldier.LastName} {soldier.FirstName} is safe.");
+                                switch (soldier.MilitaryRank)
+                                {
+                                    case "Soldat":
+                                        _zoneManager.TotalFirstClassSaved++;
+                                        break;
+                    
+                                    case "Elite":
+                                        _zoneManager.TotalElitSaved++;
+                                        break;
+                    
+                                    case "Officier":
+                                        _zoneManager.TotalOfficierSaved++;
+                                        break;
+                                }
+                            }
+                        }
+                        soldier.isDiagnosed = false;
+                        soldier.isOccuped = false;
+                        
+                        
                         foreach (var soldierCard in _playerController.soldiers)
                         {
                             soldierCard.InjuryTime -=
@@ -295,5 +375,10 @@ public class Camp : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void CheckHeal()
+    {
+        
     }
 }

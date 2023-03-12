@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4949961344128988}
   - component: {fileID: 1382992809}
   - component: {fileID: 5008239869698625998}
+  - component: {fileID: 6758212860467391881}
   - component: {fileID: 33195343837565470}
   - component: {fileID: 23124397720621922}
   - component: {fileID: 1382992807}
@@ -52,18 +53,17 @@ MonoBehaviour:
   TargetLayer:
     serializedVersion: 2
     m_Bits: 128
-  _arcadeCar: {fileID: 0}
+  _playerController: {fileID: 0}
+  SoldierGenerateMax: 0
   SoldierInPlace: 0
-  HealingPanel: {fileID: 0}
   SelectedSoldier: 0
-  _soldierCard:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  _soldiers: []
+  cam: {fileID: 0}
+  SoldierCursor: {fileID: 0}
   _timer: 1.5
   _timerReset: 1.5
   _generateSoldier: {fileID: 0}
+  _waitingForSpawn: 0
 --- !u!114 &5008239869698625998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bca51688146e2342bdca462c1f2e2f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CanSpawn: 0
   LastName:
   - Dumont
   - Lemaire
@@ -124,11 +125,29 @@ MonoBehaviour:
   - Soldat
   - Sergent
   - Capitaine
+  FaceSprites: []
+  BodyHairSprites: []
+  BodyHairColor: []
   _appearingChance: 20
   _captainClassChance: 10
   _majorClassChance: 35
   _hardInjuryChance: 10
   _mediumInjuryChance: 35
+  InjuryTimerMax: 0
+  InjuryTimer: []
+  SoldierDebugText: {fileID: 0}
+--- !u!114 &6758212860467391881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499905421087518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95e764f4031ab9146b2b1948884208f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &33195343837565470
 MeshFilter:
   m_ObjectHideFlags: 0

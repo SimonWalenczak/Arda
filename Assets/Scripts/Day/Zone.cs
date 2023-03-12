@@ -11,11 +11,11 @@ public class Zone : MonoBehaviour
     }
 
     public Enum events;
-    
+
+    public string Name;
     public int Index;
-    public int SoldierAlived;
+    public int SoldierSaved = 0;
     public int SoldierLost = 0;
-    private int _soldierSaved;
 
     private void Start()
     {

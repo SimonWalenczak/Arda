@@ -52,27 +52,4 @@ public class Soldier : MonoBehaviour
         InjuryTime -= InjuryTimeUnit;
         _isDying = false;
     }
-    
-    public void Heal()
-    {
-        if (InjuryType < 3)
-        {
-            print($"Soldier {LastName} {FirstName} is safe.");
-        }
-        else
-        {
-            int _deadChance = Random.Range(0, 101);
-            if (_deadChance <= 10)
-            {
-                print($"Soldier {LastName} {FirstName} is dead.");
-            }
-            else
-            {
-                print($"Soldier {LastName} {FirstName} is safe.");
-            }
-        }
-
-        isDiagnosed = false;
-        isOccuped = false;
-    }
 }

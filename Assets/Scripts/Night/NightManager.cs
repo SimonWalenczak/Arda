@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -8,39 +7,46 @@ using Random = UnityEngine.Random;
 public class NightManager : MonoBehaviour
 {
     #region Init Variables
-    [Header("\n------ Previous Upgrade -------\n")]
-    [SerializeField] private bool _canUpgrade;
+
+    [Header("\n------ Previous Upgrade -------\n")] [SerializeField]
+    private bool _canUpgrade;
+
     [SerializeField] private GameObject _generalAnnounce;
     [SerializeField] private TextMeshProUGUI _generalTextVisual;
     [SerializeField] private List<string> _generalText;
     private int index = 0;
-    private int _totalSoldierLost;
+    private int _totalSoldierDead;
+    private int _totalSoldierSaved;
 
-    [Header("\n----------- Upgrade -----------\n")]
-    [SerializeField] private GameObject _upgradePanel;
+    [Header("\n----------- Upgrade -----------\n")] [SerializeField]
+    private GameObject _upgradePanel;
+
     public int wheelsType = 1;
     public int bodyCarType = 1;
     public int directionSystemType = 1;
 
-    [Header("\n------------ Zones ------------\n")]
-    [SerializeField] private List<Zone> _zones;
-    
-    [Header("\nChance of rain\n")]
-    [SerializeField] private int _rainChance = 15;
-    
-    [Header("\nChance of hard or soft fight (by range)\n")]
-    [SerializeField] private int hardFightChance = 20;
+    [Header("\n------------ Zones ------------\n")] [SerializeField]
+    private List<Zone> _zones;
+
+    [Header("\nChance of rain\n")] [SerializeField]
+    private int _rainChance = 15;
+
+    [Header("\nChance of hard or soft fight (by range)\n")] [SerializeField]
+    private int hardFightChance = 20;
+
     [SerializeField] private int softFightChance = 10;
 
-    [Header("\nChance of special event\n")]
-    [SerializeField] private int _eventChance = 5;
-    
-    [Header("\nChance of special event (by range)\n")]
-    [SerializeField] private int _bombingChance = 66;
+    [Header("\nChance of special event\n")] [SerializeField]
+    private int _eventChance = 5;
+
+    [Header("\nChance of special event (by range)\n")] [SerializeField]
+    private int _bombingChance = 66;
+
     [SerializeField] private int _underminedInfiltrationChance = 33;
     [SerializeField] private int _infantryChargeChance = 0;
+
     #endregion
-    
+
     public void RainingChance()
     {
         int _rainChanceAppear = Random.Range(0, 101);
@@ -55,6 +61,7 @@ public class NightManager : MonoBehaviour
             print("sun");
         }
     }
+
     public void HardSoftFightChance()
     {
         int hardFightChanceAppear = Random.Range(0, 101);
@@ -69,6 +76,7 @@ public class NightManager : MonoBehaviour
             print("hard fight");
         }
     }
+
     public void SpecialEventChance()
     {
         foreach (var zone in _zones)
@@ -92,6 +100,7 @@ public class NightManager : MonoBehaviour
                     zone.events = Zone.Event.InfantryCharge;
                     GameData.InfantryChargeNb++;
                 }
+
                 print($"zone {zone.Index} : {zone.events}");
             }
         }
@@ -101,86 +110,85 @@ public class NightManager : MonoBehaviour
     {
         _generalAnnounce.SetActive(true);
 
-            if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            index++;
+            if (index == 1)
             {
-                index++;
-                if (index == 1)
+                _generalTextVisual.SetText("Colonel Reboul: " + GameData.TotalSoldierDead + _generalText[index]);
+            }
+            else if (index == 3)
+            {
+                if (GameData.IsSunning)
                 {
-                    _generalTextVisual.SetText("Colonel Reboul: " + _totalSoldierLost + _generalText[index]);
-                }
-                else if (index == 3)
-                {
-                    if (GameData.IsSunning)
-                    {
-                        _generalTextVisual.SetText(_generalText[index] +
-                                                   " bon. Vous allez pouvoir rouler sans risque de glissade.");
-                    }
-                    else
-                    {
-                        _generalTextVisual.SetText(_generalText[index] +
-                                                   " mauvais... Vous allez devoir vous équiper correctement pour éviter les glissades.");
-                    }
-                }
-                else if (index == 4)
-                {
-                    string bombText =
-                        "\n- Qu'il y aura, ne sachant où et quand, un ou des bombardements aujourd'hui alors prenez garde !";
-                    string underminedText = "\n- Que l'ennemi a miné une ou plusieurs de nos zones !";
-                    string infantryChargeText =
-                        "\n- Qu'un assaut ennemi sera effectué dans certaines zones de la carte !";
-
-                    if (GameData.BombingNb + GameData.UnderminedInfiltrationNb + GameData.InfantryChargeNb == 0)
-                    {
-                        _generalText[index] +=
-                            "\n- Qu'il n'y aura pas d'actions de l'ennemi aujourd'hui. Profitez-en, ce n'est que pour la journée !";
-                    }
-
-                    if (GameData.BombingNb > 0)
-                    {
-                        _generalText[index] += bombText;
-                    }
-
-                    if (GameData.UnderminedInfiltrationNb > 0)
-                    {
-                        _generalText[index] += underminedText;
-                    }
-
-                    if (GameData.InfantryChargeNb > 0)
-                    {
-                        _generalText[index] += infantryChargeText;
-                    }
-
-                    _generalTextVisual.SetText(_generalText[index]);
-                }
-                else if (index == 5)
-                {
-                    string softFightText = "une journée courte de combat ! Vous serez plus vite rentré chez vous !";
-                    string hardFightText = "une longue journée de combat ! Attention, ça risque d'être long !";
-                    string normalFightText = "une durée moyenne des combats, comme toujours...";
-
-                    if (GameData.SoftFight)
-                        _generalText[index] += softFightText;
-                    else if (GameData.HardFight)
-                        _generalText[index] += hardFightText;
-                    else
-                        _generalText[index] += normalFightText;
-
-                    _generalTextVisual.SetText(_generalText[index]);
-                }
-                else if (index >= 7)
-                {
-                    _canUpgrade = true;
-                    _upgradePanel.SetActive(true);
-                    _generalAnnounce.SetActive(false);
+                    _generalTextVisual.SetText(_generalText[index] +
+                                               " bon. Vous allez pouvoir rouler sans risque de glissade.");
                 }
                 else
                 {
-                    _generalTextVisual.SetText(_generalText[index]);
+                    _generalTextVisual.SetText(_generalText[index] +
+                                               " mauvais... Vous allez devoir vous équiper correctement pour éviter les glissades.");
                 }
             }
-        
+            else if (index == 4)
+            {
+                string bombText =
+                    "\n- Qu'il y aura, ne sachant où et quand, un ou des bombardements aujourd'hui alors prenez garde !";
+                string underminedText = "\n- Que l'ennemi a miné une ou plusieurs de nos zones !";
+                string infantryChargeText =
+                    "\n- Qu'un assaut ennemi sera effectué dans certaines zones de la carte !";
+
+                if (GameData.BombingNb + GameData.UnderminedInfiltrationNb + GameData.InfantryChargeNb == 0)
+                {
+                    _generalText[index] +=
+                        "\n- Qu'il n'y aura pas d'actions de l'ennemi aujourd'hui. Profitez-en, ce n'est que pour la journée !";
+                }
+
+                if (GameData.BombingNb > 0)
+                {
+                    _generalText[index] += bombText;
+                }
+
+                if (GameData.UnderminedInfiltrationNb > 0)
+                {
+                    _generalText[index] += underminedText;
+                }
+
+                if (GameData.InfantryChargeNb > 0)
+                {
+                    _generalText[index] += infantryChargeText;
+                }
+
+                _generalTextVisual.SetText(_generalText[index]);
+            }
+            else if (index == 5)
+            {
+                string softFightText = "une journée courte de combat ! Vous serez plus vite rentré chez vous !";
+                string hardFightText = "une longue journée de combat ! Attention, ça risque d'être long !";
+                string normalFightText = "une durée moyenne des combats, comme toujours...";
+
+                if (GameData.SoftFight)
+                    _generalText[index] += softFightText;
+                else if (GameData.HardFight)
+                    _generalText[index] += hardFightText;
+                else
+                    _generalText[index] += normalFightText;
+
+                _generalTextVisual.SetText(_generalText[index]);
+            }
+            else if (index >= 7)
+            {
+                _canUpgrade = true;
+                _upgradePanel.SetActive(true);
+                _generalAnnounce.SetActive(false);
+            }
+            else
+            {
+                _generalTextVisual.SetText(_generalText[index]);
+            }
+        }
     }
-    
+
     private void Start()
     {
         //Reset Global Variables
@@ -196,30 +204,47 @@ public class NightManager : MonoBehaviour
         GameData.WheelsType = 0;
 
         //Total soldiers alived
-        foreach (var zone in _zones)
-        {
-            GameData.TotalSoldier -= zone.SoldierLost;
-            _totalSoldierLost += zone.SoldierLost;
-        }
-        
+
+
         //Events
         if (GameData.NumberDays >= 3)
         {
             //Chance of rain for next day
             RainingChance();
-            
+
             //Chance of hard or soft fight for next day
             HardSoftFightChance();
-            
+
             //Chance of special event for next day per zones
             SpecialEventChance();
         }
-        
+
         //Visual
         _generalTextVisual.SetText(_generalText[index]);
     }
 
     private void Update()
+    {
+        Atraite();
+
+        CalculGameDataTotal();
+    }
+
+    void CalculGameDataTotal()
+    {
+        GameData.TotalSoldierAmputated = GameData.Zone1SoldierAmputated + GameData.Zone2SoldierAmputated +
+                                         GameData.Zone3SoldierAmputated + GameData.Zone4SoldierAmputated +
+                                         GameData.Zone5SoldierAmputated;
+
+        GameData.TotalSoldierDead = GameData.Zone1SoldierDead + GameData.Zone2SoldierDead + GameData.Zone3SoldierDead +
+                                    GameData.Zone4SoldierDead + GameData.Zone5SoldierDead;
+
+        GameData.TotalSoldierSaved = GameData.Zone1SoldierSaved + GameData.Zone2SoldierSaved +
+                                     GameData.Zone3SoldierSaved + GameData.Zone4SoldierSaved +
+                                     GameData.Zone5SoldierSaved;
+    }
+
+    void Atraite()
     {
         if (!_canUpgrade && GameData.CanPlay)
             GeneralAnnounce();
@@ -228,12 +253,12 @@ public class NightManager : MonoBehaviour
             wheelsType--;
         if (Input.GetKeyDown(KeyCode.E))
             wheelsType++;
-        
+
         if (wheelsType > 2)
             wheelsType = 0;
         if (wheelsType < 0)
             wheelsType = 2;
-        
+
         if (Input.GetKeyDown(KeyCode.Q))
             bodyCarType--;
         if (Input.GetKeyDown(KeyCode.D))
@@ -242,7 +267,7 @@ public class NightManager : MonoBehaviour
             bodyCarType = 0;
         if (bodyCarType < 0)
             bodyCarType = 2;
-        
+
         if (Input.GetKeyDown(KeyCode.W))
             directionSystemType--;
         if (Input.GetKeyDown(KeyCode.C))
