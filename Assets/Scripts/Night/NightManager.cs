@@ -48,7 +48,6 @@ public class NightManager : MonoBehaviour
     private void ResetGlobalVariables()
     {
         //Reset Global Variables
-        Cursor.visible = true;
         GameData.CanPlay = true;
         GameData.IsRainning = false;
         GameData.IsSunning = false;
@@ -57,7 +56,6 @@ public class NightManager : MonoBehaviour
         GameData.BombingNb = 0;
         GameData.UnderminedInfiltrationNb = 0;
         GameData.InfantryChargeNb = 0;
-        GameData.WheelsType = 0;
     }
 
     private void Start()

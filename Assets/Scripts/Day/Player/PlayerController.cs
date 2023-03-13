@@ -35,9 +35,11 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponentInParent<Rigidbody>();
         rb.centerOfMass = _centerOfMass;
+        speed = GameData.speed;
+        turnSpeed = GameData.turnSpeed;
         CurrentSpeed = speed;
         CurrentTurnSpeed = turnSpeed;
-
+        Cursor.visible = false;
         mapCam.enabled = false;
         CamPlayer.enabled = true;
     }
@@ -167,6 +169,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!_mapOpened)
         {
+            Cursor.visible = true;
             mapCam.enabled = true;
             CamPlayer.enabled = false;
             CompassUI.SetActive(false);
@@ -176,6 +179,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            Cursor.visible = false;
             mapCam.enabled = false;
             CamPlayer.enabled = true;
             CompassUI.SetActive(true);

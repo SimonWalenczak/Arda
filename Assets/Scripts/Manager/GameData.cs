@@ -8,7 +8,10 @@ public class GameData
     
     
     //Player
-    public static int WheelsType;
+    public static float speed = 20;
+    public static float turnSpeed = 60;
+
+    public static int healTimeReduc = 0;
 
     
     //Soldier
