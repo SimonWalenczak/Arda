@@ -38,6 +38,16 @@ public class NightManager : MonoBehaviour
 
     [SerializeField] private List<Item> Items;
     [SerializeField] private int index;
+
+    [SerializeField] GameObject UpgradePopup;
+    [SerializeField] TMP_Text UpgradePopupText;
+
+    [SerializeField] private int nbUpgradeapplicated;
+    public List<GameObject> UpgradeApplicated;
+    [SerializeField] private float offsetX;
+    [SerializeField] private GameObject FadeOut;
+
+
     //[Header("\n------------ Zones ------------\n")] 
     //[SerializeField] private List<Zone> _zones;
 
@@ -60,8 +70,13 @@ public class NightManager : MonoBehaviour
 
     private void Start()
     {
+        Cursor.visible = false;
         _generalDialog = GetComponent<GeneralDialog>();
         index = 1;
+        for (int i = 0; i < UpgradeApplicated.Count; i++)
+        {
+            UpgradeApplicated[i].SetActive(false);
+        }
         ResetGlobalVariables();
         CalculGameDataTotal();
         SetValueForBilan();
@@ -188,6 +203,12 @@ public class NightManager : MonoBehaviour
         }
     }
 
+    IEnumerator GoToDayScene()
+    {
+        FadeOut.SetActive(true);
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("SceneProg");
+    }
     void UpgradeCar()
     {
         _generalAnnounce.SetActive(false);
@@ -197,7 +218,10 @@ public class NightManager : MonoBehaviour
             index--;
         if (Input.GetKeyDown(KeyCode.D))
             index++;
-        
+
+        if (Input.GetKeyDown(KeyCode.R))
+            StartCoroutine(GoToDayScene());
+
         if (index > Items.Count)
             index = 1;
         if (index < 1)
@@ -214,14 +238,33 @@ public class NightManager : MonoBehaviour
             {
                 print(item.index);
                 item.transform.DOScale(new Vector3(1.7f, 1.7f, 1.7f), 1);
+                UpgradePopup.transform.position = new Vector3(item.transform.position.x + 3.5f, item.transform.position.y + 1f,  item.transform.position.z - 1);
+                UpgradePopupText.SetText(item.previewEffect);
+
+                if (Input.GetKeyDown(KeyCode.F) && item.isPicked == false)
+                {
+                    item.isPicked = true;
+                    item.Excute();
+                    nbUpgradeapplicated++;
+                    
+                    for (int i = 0; i < nbUpgradeapplicated; i++)
+                    {
+                        UpgradeApplicated[i].SetActive(true);
+                    }
+
+                    UpgradeApplicated[nbUpgradeapplicated - 1].transform.DOMoveX(UpgradeApplicated[nbUpgradeapplicated - 1].transform.position.x + offsetX, 1);
+                    UpgradeApplicated[nbUpgradeapplicated-1].GetComponentInChildren<TMP_Text>().SetText(item.effect);
+                    
+                    print(item.itemName);
+                }
             }
             else
             {
                 item.transform.DOScale(new Vector3(1.5f, 1.5f, 1.5f), 1);
             }
         }
-            
-            
+
+
         // if (Input.GetKeyDown(KeyCode.Return))
         // {
         //     SceneManager.LoadScene(1);
