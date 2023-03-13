@@ -77,7 +77,7 @@ public class GeneralDialog : MonoBehaviour
                 BGLettre.SetActive(false);
                 LetterDisappearing(RequestLetter1);
                 break;
-            case 11:
+            case 13:
                 CanUpgrade = true;
                 break;
         }
