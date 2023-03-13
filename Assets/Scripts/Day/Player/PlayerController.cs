@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -30,9 +31,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject _mapMarkerPrefab;
     public GameObject _mapMarkerObject;
     [SerializeField] private GameObject _mapMarker;
-
+    
+    
     void Start()
     {
+        if (GameData.NumberDays == 1 && GameData.Started == false)
+        {
+            GameData.Started = true;
+            GameData.speed = 20;
+            GameData.turnSpeed = 60;
+        }
+        else
+        {
+            GameData.Started = false;
+        }
+        
         rb = GetComponentInParent<Rigidbody>();
         rb.centerOfMass = _centerOfMass;
         speed = GameData.speed;

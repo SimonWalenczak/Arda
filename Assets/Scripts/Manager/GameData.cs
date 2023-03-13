@@ -4,9 +4,10 @@ public class GameData
 {
     //Game
     public static bool CanPlay;
-    public static int NumberDays = 3;
-    
-    
+    public static bool Started = false;
+    public static int NumberDays = 1;
+
+
     //Player
     public static float speed = 20;
     public static float turnSpeed = 60;

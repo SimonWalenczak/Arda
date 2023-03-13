@@ -206,8 +206,9 @@ public class NightManager : MonoBehaviour
     IEnumerator GoToDayScene()
     {
         FadeOut.SetActive(true);
+        GameData.NumberDays++;
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene("SceneProg");
+        SceneManager.LoadScene("LD_Reboot");
     }
     void UpgradeCar()
     {

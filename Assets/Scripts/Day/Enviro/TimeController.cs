@@ -102,6 +102,6 @@ public class TimeController : MonoBehaviour
     {
         _fader.SetActive(true);
         yield return new WaitForSeconds(3);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("Night");
     }
 }
