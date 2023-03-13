@@ -11,7 +11,7 @@ public class Camp : MonoBehaviour
     }
 
     [SerializeField] LayerMask TargetLayer;
-    
+
     [SerializeField] private ZoneManager _zoneManager;
     public PlayerController _playerController;
     public int SoldierGenerateMax;
@@ -35,7 +35,7 @@ public class Camp : MonoBehaviour
     {
         _generateSoldier = GetComponent<GenerateSoldier>();
         _zoneManager = GetComponent<ZoneManager>();
-        
+
         foreach (var soldier in _soldiers)
         {
             soldier.cam = cam;
@@ -104,7 +104,7 @@ public class Camp : MonoBehaviour
         if (SelectedSoldier > SoldierGenerateMax)
             SelectedSoldier = 1;
         if (SelectedSoldier < 1)
-            SelectedSoldier = SoldierInPlace;
+            SelectedSoldier = SoldierGenerateMax;
 
         foreach (var soldier in _soldiers)
         {
@@ -136,12 +136,16 @@ public class Camp : MonoBehaviour
             }
             else
             {
+                SoldierCursor.transform.position = new Vector3(soldier.transform.position.x,
+                    soldier.transform.position.y + 1.5f, soldier.transform.position.z);
+                SoldierCursor.transform.LookAt(cam.transform);
+
                 if (soldier.isOccuped == true)
                 {
                     soldier.isSelected = true;
-                    SoldierCursor.transform.position = new Vector3(soldier.transform.position.x,
-                        soldier.transform.position.y + 1.5f, soldier.transform.position.z);
-                    SoldierCursor.transform.LookAt(cam.transform);
+                    // SoldierCursor.transform.position = new Vector3(soldier.transform.position.x,
+                    //     soldier.transform.position.y + 1.5f, soldier.transform.position.z);
+                    // SoldierCursor.transform.LookAt(cam.transform);
 
                     if (_playerController.CurrentCamp == this)
                     {
@@ -179,7 +183,7 @@ public class Camp : MonoBehaviour
                         soldierCard.AgeText.SetText(soldier.Age);
                         soldierCard.SituationText.SetText(soldier.Situation);
                         soldierCard.MilitaryRankText.SetText(soldier.MilitaryRank);
-                        
+
                         soldierCard.BodyHairColor = soldier.BodyHairColor;
                         soldierCard.FaceSprite.sprite = soldier.Face;
                         soldierCard.BodyHairSprite.sprite = soldier.BodyHair;
@@ -191,10 +195,10 @@ public class Camp : MonoBehaviour
                     }
                 }
 
-                else if (_playerController.CurrentCamp != null)
-                {
-                    _playerController.CurrentCamp.SelectedSoldier++;
-                }
+                // else if (_playerController.CurrentCamp != null)
+                // {
+                //     _playerController.CurrentCamp.SelectedSoldier++;
+                // }
             }
         }
     }
@@ -256,13 +260,13 @@ public class Camp : MonoBehaviour
                     case "Soldat":
                         _zoneManager.TotalFirstClassDead++;
                         break;
-                    
-                    case "Génie":
+
+                    case "Genie":
                         _zoneManager.TotalElitDead++;
                         break;
-                    
+
                     case "Capitaine":
-                        _zoneManager.TotalOfficierSaved++;
+                        _zoneManager.TotalOfficierDead++;
                         break;
                 }
             }
@@ -275,12 +279,12 @@ public class Camp : MonoBehaviour
         _playerController.Healing = true;
         _playerController.CurrentSpeed = 0;
         _playerController.CurrentTurnSpeed = 0;
-        foreach (var soldier in _soldiers)
-        {
-            if (soldier.isOccuped && soldier.isSelected)
-                SelectedSoldier = soldier.index;
-            break;
-        }
+        // foreach (var soldier in _soldiers)
+        // {
+        //     if (soldier.isOccuped && soldier.isSelected)
+        //         SelectedSoldier = soldier.index;
+        //     break;
+        // }
     }
 
     public void HealSoldier()
@@ -289,54 +293,19 @@ public class Camp : MonoBehaviour
         {
             foreach (var soldier in _soldiers)
             {
-                if (soldier.isSelected == true && soldier.isOccuped == true)
+                if (soldier.isOccuped == true)
                 {
-                    if (soldier.isDiagnosed)
-                    {
-                        _playerController.GetComponent<PlayerController>().soldiers.Remove(soldier);
-                        SoldierInPlace--;
-                        soldier._isDying = false;
+                    SelectedSoldier = soldier.index;
 
-                        if (soldier.InjuryType < 3)
+                    if (soldier.isSelected == true)
+                    {
+                        if (soldier.isDiagnosed)
                         {
-                            print($"Soldier {soldier.LastName} {soldier.FirstName} is safe.");
-                            switch (soldier.MilitaryRank)
-                            {
-                                case "Soldat":
-                                    _zoneManager.TotalFirstClassSaved++;
-                                    break;
-                    
-                                case "Génie":
-                                    _zoneManager.TotalElitSaved++;
-                                    break;
-                    
-                                case "Capitaine":
-                                    _zoneManager.TotalOfficierSaved++;
-                                    break;
-                            }
-                        }
-                        else
-                        {
-                            int _deadChance = Random.Range(0, 101);
-                            if (_deadChance <= DeadChance)
-                            {
-                                print($"Soldier {soldier.LastName} {soldier.FirstName} is dead.");
-                                switch (soldier.MilitaryRank)
-                                {
-                                    case "Soldat":
-                                        _zoneManager.TotalFirstClassDead++;
-                                        break;
-                    
-                                    case "Génie":
-                                        _zoneManager.TotalElitDead++;
-                                        break;
-                    
-                                    case "Capitaine":
-                                        _zoneManager.TotalOfficierDead++;
-                                        break;
-                                }
-                            }
-                            else
+                            _playerController.GetComponent<PlayerController>().soldiers.Remove(soldier);
+                            SoldierInPlace--;
+                            soldier._isDying = false;
+
+                            if (soldier.InjuryType < 3)
                             {
                                 print($"Soldier {soldier.LastName} {soldier.FirstName} is safe.");
                                 switch (soldier.MilitaryRank)
@@ -344,42 +313,78 @@ public class Camp : MonoBehaviour
                                     case "Soldat":
                                         _zoneManager.TotalFirstClassSaved++;
                                         break;
-                    
-                                    case "Génie":
+
+                                    case "Genie":
                                         _zoneManager.TotalElitSaved++;
                                         break;
-                    
+
                                     case "Capitaine":
                                         _zoneManager.TotalOfficierSaved++;
                                         break;
                                 }
                             }
+                            else
+                            {
+                                int _deadChance = Random.Range(0, 101);
+                                if (_deadChance <= DeadChance)
+                                {
+                                    print($"Soldier {soldier.LastName} {soldier.FirstName} is dead.");
+                                    switch (soldier.MilitaryRank)
+                                    {
+                                        case "Soldat":
+                                            _zoneManager.TotalFirstClassDead++;
+                                            break;
+
+                                        case "Genie":
+                                            _zoneManager.TotalElitDead++;
+                                            break;
+
+                                        case "Capitaine":
+                                            _zoneManager.TotalOfficierDead++;
+                                            break;
+                                    }
+                                }
+                                else
+                                {
+                                    print($"Soldier {soldier.LastName} {soldier.FirstName} is safe.");
+                                    switch (soldier.MilitaryRank)
+                                    {
+                                        case "Soldat":
+                                            _zoneManager.TotalFirstClassSaved++;
+                                            break;
+
+                                        case "Genie":
+                                            _zoneManager.TotalElitSaved++;
+                                            break;
+
+                                        case "Capitaine":
+                                            _zoneManager.TotalOfficierSaved++;
+                                            break;
+                                    }
+                                }
+                            }
+
+                            soldier.isDiagnosed = false;
+                            soldier.isOccuped = false;
+
+
+                            foreach (var soldierCard in _playerController.soldiers)
+                            {
+                                soldierCard.InjuryTime -=
+                                    soldier.UnitToSec * _playerController.HealTime[soldier.InjuryTypeOrigin - 1];
+                            }
                         }
-                        soldier.isDiagnosed = false;
-                        soldier.isOccuped = false;
-                        
-                        
-                        foreach (var soldierCard in _playerController.soldiers)
+                        else
                         {
-                            soldierCard.InjuryTime -=
-                                soldier.UnitToSec * _playerController.HealTime[soldier.InjuryTypeOrigin - 1];
-                        }
-                    }
-                    else
-                    {
-                        soldier.isDiagnosed = true;
-                        foreach (var soldierCard in _playerController.soldiers)
-                        {
-                            soldierCard.InjuryTime -= soldier.UnitToSec;
+                            soldier.isDiagnosed = true;
+                            foreach (var soldierCard in _playerController.soldiers)
+                            {
+                                soldierCard.InjuryTime -= soldier.UnitToSec;
+                            }
                         }
                     }
                 }
             }
         }
-    }
-
-    public void CheckHeal()
-    {
-        
     }
 }
