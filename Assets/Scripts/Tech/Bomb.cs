@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bomb : MonoBehaviour
 {
     [SerializeField] Terrain terrain;
+    [SerializeField] GameObject explosionVfx;
     private TerrainData terrainData;
 
     [SerializeField] float DetectionDist;
@@ -26,14 +27,6 @@ public class Bomb : MonoBehaviour
         //EditTerrain();
     }
 
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(2))
-        {
-            hasExploded = false;
-        }
-    }
-
     [System.Obsolete]
     void EditTerrain(int xBase, int yBase)
     {
@@ -52,8 +45,8 @@ public class Bomb : MonoBehaviour
                 float sin = -Mathf.Sin(y);
                 //Debug.Log(cos - sin);
 
-                //Heights[x, y] = (cos - sin) / 250;
-                Heights[x, y] = 1;
+                Heights[x, y] = (cos - sin) / 350;
+                //Heights[x, y] = 1;
             }
         }
 
@@ -80,9 +73,11 @@ public class Bomb : MonoBehaviour
             int yPos = TerrainUtils.GetTerrainCoordsFromWorldPosition(terrain, hit.point).x;
 
             if (!hasExploded)
-            { 
+            {
+                Instantiate(explosionVfx, transform.position, transform.rotation);
                 EditTerrain(xPos, yPos);
                 hasExploded = true;
+                Destroy(gameObject);
             }
         }
 
