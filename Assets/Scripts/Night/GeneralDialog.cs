@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -17,6 +18,13 @@ public class GeneralDialog : MonoBehaviour
     [SerializeField] private GameObject BilanPerte;
     [SerializeField] private GameObject BilanSauve;
 
+    [SerializeField] private GameObject BGLettre;
+    [SerializeField] private GameObject RelativeLetter1;
+    [SerializeField] private GameObject RelativeLetter2;
+    [SerializeField] private GameObject RequestLetter1;
+    [SerializeField] private GameObject ThanksLetter1;
+
+    
     private void Update()
     {
         if (CanTalk)
@@ -35,22 +43,48 @@ public class GeneralDialog : MonoBehaviour
                 BilanPerte.SetActive(false);
                 BilanSauve.SetActive(false);
                 break;
-            
             case 2:
                 BilanPerte.SetActive(true);
                 break;
-            
             case 3:
                 BilanPerte.SetActive(false);
                 break;
-            
             case 4:
                 BilanSauve.SetActive(true);
-                break;  
-            
+                break;
             case 5:
                 BilanSauve.SetActive(false);
                 break;
+            case 6:
+                BGLettre.SetActive(true);
+                LetterAppearing(RelativeLetter1.gameObject);
+                break;
+            case 7:
+                LetterDisappearing(RelativeLetter1);
+                LetterAppearing(RelativeLetter2);
+                break;
+            case 8:
+                BGLettre.SetActive(false);
+                LetterDisappearing(RelativeLetter2);
+                break;
+            case 9:
+                BGLettre.SetActive(true);
+                LetterAppearing(RequestLetter1);
+                break;
+            case 10:
+                BGLettre.SetActive(false);
+                LetterDisappearing(RequestLetter1);
+                break;
         }
+    }
+
+    private void LetterAppearing(GameObject letter)
+    {
+        StartCoroutine(letter.GetComponent<Letter>().Appearing());
+    }
+    private void LetterDisappearing(GameObject letter)
+    {
+        StartCoroutine(letter.GetComponent<Letter>().Disappearing());
+
     }
 }
