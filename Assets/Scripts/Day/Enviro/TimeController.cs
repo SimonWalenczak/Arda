@@ -27,11 +27,15 @@ public class TimeController : MonoBehaviour
     TimeSpan _sunriseTime;
     TimeSpan _sunsetTime;
 
+    public float LongTimeDay;
+
     private void Start()
     {
         _currentTime = DateTime.Now.Date + TimeSpan.FromHours(_startHour);
         _sunriseTime = TimeSpan.FromHours(_sunriseHour);
         _sunsetTime = TimeSpan.FromHours(_sunsetHour);
+        LongTimeDay = ((((_sunsetHour - _sunriseHour) * 3600) / _timeMultiplier) / 60);
+
     }
 
     private void Update()
