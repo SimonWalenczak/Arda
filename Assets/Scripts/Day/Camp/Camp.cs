@@ -257,11 +257,11 @@ public class Camp : MonoBehaviour
                         _zoneManager.TotalFirstClassDead++;
                         break;
                     
-                    case "Elite":
+                    case "Génie":
                         _zoneManager.TotalElitDead++;
                         break;
                     
-                    case "Officier":
+                    case "Capitaine":
                         _zoneManager.TotalOfficierSaved++;
                         break;
                 }
@@ -306,11 +306,11 @@ public class Camp : MonoBehaviour
                                     _zoneManager.TotalFirstClassSaved++;
                                     break;
                     
-                                case "Elite":
+                                case "Génie":
                                     _zoneManager.TotalElitSaved++;
                                     break;
                     
-                                case "Officier":
+                                case "Capitaine":
                                     _zoneManager.TotalOfficierSaved++;
                                     break;
                             }
@@ -327,11 +327,11 @@ public class Camp : MonoBehaviour
                                         _zoneManager.TotalFirstClassDead++;
                                         break;
                     
-                                    case "Elite":
+                                    case "Génie":
                                         _zoneManager.TotalElitDead++;
                                         break;
                     
-                                    case "Officier":
+                                    case "Capitaine":
                                         _zoneManager.TotalOfficierDead++;
                                         break;
                                 }
@@ -345,11 +345,11 @@ public class Camp : MonoBehaviour
                                         _zoneManager.TotalFirstClassSaved++;
                                         break;
                     
-                                    case "Elite":
+                                    case "Génie":
                                         _zoneManager.TotalElitSaved++;
                                         break;
                     
-                                    case "Officier":
+                                    case "Capitaine":
                                         _zoneManager.TotalOfficierSaved++;
                                         break;
                                 }
