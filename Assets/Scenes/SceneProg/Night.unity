@@ -2157,8 +2157,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 11
   DialogText: "Tout d'abord la m\xE9t\xE9o : vous aurez une bonne visibilit\xE9 sur
-    le champ de bataille, les tests barom\xE9triques n'indiquent aucune pr\xE9vision
-    d'averses."
+    le champ de bataille, n\xE9anmoins les tests barom\xE9triques indiquent qu'il
+    y aura probablement des averses."
 --- !u!1 &676244870
 GameObject:
   m_ObjectHideFlags: 0
@@ -3841,7 +3841,7 @@ MonoBehaviour:
   FirstClassSavedText: {fileID: 1370296382}
   EliteSavedText: {fileID: 1376550802}
   OfficierSavedText: {fileID: 578000252}
-  _rainChance: 25
+  _rainChance: 100
   hardFightChance: 20
   softFightChance: 10
   _upgradePanel: {fileID: 1391830008}

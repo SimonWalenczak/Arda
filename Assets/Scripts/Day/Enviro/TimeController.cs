@@ -29,12 +29,19 @@ public class TimeController : MonoBehaviour
 
     public float LongTimeDay;
 
+    [SerializeField] private GameObject Rain;
     private void Start()
     {
         _currentTime = DateTime.Now.Date + TimeSpan.FromHours(_startHour);
         _sunriseTime = TimeSpan.FromHours(_sunriseHour);
         _sunsetTime = TimeSpan.FromHours(_sunsetHour);
         LongTimeDay = ((((_sunsetHour - _sunriseHour) * 3600) / _timeMultiplier) / 60);
+
+
+        print(GameData.IsRainning);
+        
+        if (GameData.IsRainning)
+            Rain.SetActive(true);
 
     }
 

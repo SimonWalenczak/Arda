@@ -17,6 +17,15 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         GameData.NumberDays = 1;
+        GameData.IsRainning = false;
+        GameData.IsSunning = false;
+        GameData.SoftFight = false;
+        GameData.HardFight = false;
+        GameData.BombingNb = 0;
+        GameData.UnderminedInfiltrationNb = 0;
+        GameData.InfantryChargeNb = 0;
+        
+        print(GameData.IsRainning);
     }
 
     IEnumerator FadeOut()
