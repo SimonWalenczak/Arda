@@ -11,12 +11,18 @@ public class NightManager : MonoBehaviour
     #region Init Variables
 
     [Header("\n------ Dialog -------\n")] public GeneralDialog _generalDialog;
-
-
-    [Header("\n------ Previous Upgrade -------\n")] [SerializeField]
-    private bool _canUpgrade;
-
     [SerializeField] private GameObject _generalAnnounce;
+
+    [SerializeField] private TMP_Text FirstClassAmputatedText;
+    [SerializeField] private TMP_Text FirstClassDeadText;
+    [SerializeField] private TMP_Text EliteAmputatedText;
+    [SerializeField] private TMP_Text EliteDeadText;
+    [SerializeField] private TMP_Text OfficerAmputatedText;
+    [SerializeField] private TMP_Text OfficierDeadText;
+
+    [SerializeField] private TMP_Text FirstClassSavedText;
+    [SerializeField] private TMP_Text EliteSavedText;
+    [SerializeField] private TMP_Text OfficierSavedText;
 
 
     [Header("\n----------- Upgrade -----------\n")] [SerializeField]
@@ -37,17 +43,122 @@ public class NightManager : MonoBehaviour
 
     [SerializeField] private int softFightChance = 10;
 
-    [Header("\nChance of special event\n")] [SerializeField]
-    private int _eventChance = 5;
-
-    [Header("\nChance of special event (by range)\n")] [SerializeField]
-    private int _bombingChance = 66;
-
-    [SerializeField] private int _underminedInfiltrationChance = 33;
-    [SerializeField] private int _infantryChargeChance = 0;
-
     #endregion
 
+    private void ResetGlobalVariables()
+    {
+        //Reset Global Variables
+        Cursor.visible = true;
+        GameData.CanPlay = true;
+        GameData.IsRainning = false;
+        GameData.IsSunning = false;
+        GameData.SoftFight = false;
+        GameData.HardFight = false;
+        GameData.BombingNb = 0;
+        GameData.UnderminedInfiltrationNb = 0;
+        GameData.InfantryChargeNb = 0;
+        GameData.WheelsType = 0;
+    }
+
+    private void Start()
+    {
+        _generalDialog = GetComponent<GeneralDialog>();
+
+        ResetGlobalVariables();
+        CalculGameDataTotal();
+        SetValueForBilan();
+        StartEvents();
+        StartCoroutine(WaitingForAppearing());
+    }
+
+    private void Update()
+    {
+        if (_generalDialog.CanUpgrade)
+            UpgradeCar();
+    }
+
+    private void StartEvents()
+    {
+        if (GameData.NumberDays >= 0)
+        {
+            RainingChance();
+            HardSoftFightChance();
+        }
+    }
+
+    private void CalculGameDataTotal()
+    {
+        //First Class
+        GameData.TotalFirstClassAmputated = GameData.Zone1FirstClassAmputated + GameData.Zone2FirstClassAmputated +
+                                            GameData.Zone3FirstClassAmputated + GameData.Zone4FirstClassAmputated +
+                                            GameData.Zone5FirstClassAmputated;
+
+        GameData.TotalFirstClassDead = GameData.Zone1FirstClassDead + GameData.Zone2FirstClassDead +
+                                       GameData.Zone3FirstClassDead + GameData.Zone4FirstClassDead +
+                                       GameData.Zone5FirstClassDead;
+        
+        GameData.TotalFirstClassSaved = GameData.Zone1FirstClassSaved + GameData.Zone2FirstClassSaved +
+                                       GameData.Zone3FirstClassSaved + GameData.Zone4FirstClassSaved +
+                                       GameData.Zone5FirstClassSaved;
+        
+        //Elit Class
+        GameData.TotalElitAmputated = GameData.Zone1ElitClassAmputated + GameData.Zone2ElitClassAmputated +
+                                      GameData.Zone3ElitClassAmputated + GameData.Zone4ElitClassAmputated +
+                                      GameData.Zone5ElitClassAmputated;
+        
+        GameData.TotalElitDead = GameData.Zone1ElitClassDead + GameData.Zone2ElitClassDead +
+                                 GameData.Zone3ElitClassDead + GameData.Zone4ElitClassDead +
+                                 GameData.Zone5ElitClassDead;
+
+        GameData.TotalElitClassSaved = GameData.Zone1ElitClassSaved + GameData.Zone2ElitClassSaved +
+                                  GameData.Zone3ElitClassSaved + GameData.Zone4ElitClassSaved +
+                                  GameData.Zone5ElitClassSaved;
+        
+        //Officier Class
+        GameData.TotalOfficierAmputated = GameData.Zone1OfficierClassAmputated + GameData.Zone2OfficierClassAmputated +
+                                          GameData.Zone3OfficierClassAmputated + GameData.Zone4OfficierClassAmputated +
+                                          GameData.Zone5OfficierClassAmputated;
+        
+        GameData.TotalOfficierDead = GameData.Zone1OfficierClassDead + GameData.Zone2OfficierClassDead +
+                                     GameData.Zone3OfficierClassDead + GameData.Zone4OfficierClassDead +
+                                     GameData.Zone5OfficierClassDead;
+        
+        GameData.TotalOfficierSaved = GameData.Zone1OfficierClassSaved + GameData.Zone2OfficierClassSaved +
+                                      GameData.Zone3OfficierClassSaved + GameData.Zone4OfficierClassSaved +
+                                      GameData.Zone5OfficierClassSaved;
+
+        //Total
+        GameData.TotalSoldierAmputated = GameData.TotalFirstClassAmputated + GameData.TotalElitAmputated +
+                                         GameData.TotalOfficierAmputated;
+
+        GameData.TotalSoldierDead = GameData.TotalFirstClassAmputated + GameData.TotalElitAmputated +
+                                    GameData.TotalOfficierAmputated;
+
+        GameData.TotalSoldierSaved = GameData.TotalFirstClassSaved + GameData.TotalElitClassSaved +
+                                     GameData.TotalOfficierSaved;
+    }
+
+    private void SetValueForBilan()
+    {
+        FirstClassAmputatedText.SetText(GameData.TotalFirstClassAmputated.ToString());
+        FirstClassDeadText.SetText(GameData.TotalFirstClassDead.ToString());
+        
+        EliteAmputatedText.SetText(GameData.TotalElitAmputated.ToString());
+        EliteDeadText.SetText(GameData.TotalElitDead.ToString());
+        
+        OfficerAmputatedText.SetText(GameData.TotalOfficierAmputated.ToString());
+        OfficierDeadText.SetText(GameData.TotalOfficierDead.ToString());
+        
+        FirstClassSavedText.SetText(GameData.TotalFirstClassSaved.ToString());
+        EliteSavedText.SetText(GameData.TotalElitClassSaved.ToString());
+        OfficierSavedText.SetText(GameData.TotalOfficierSaved.ToString());
+
+    }    
+    IEnumerator WaitingForAppearing()
+    {
+        yield return new WaitForSeconds(3);
+        _generalDialog.CanTalk = true;
+    }
 
     public void RainingChance()
     {
@@ -79,124 +190,8 @@ public class NightManager : MonoBehaviour
         }
     }
 
-    public void SpecialEventChance()
-    {
-        foreach (var zone in _zones)
-        {
-            int _eventChanceAppear = Random.Range(0, 101);
-            if (_eventChanceAppear < _eventChance)
-            {
-                int specialEventChanceAppear = Random.Range(0, 101);
-                if (specialEventChanceAppear >= _bombingChance)
-                {
-                    zone.events = Zone.Event.Bombing;
-                    GameData.BombingNb++;
-                }
-                else if (specialEventChanceAppear >= _underminedInfiltrationChance)
-                {
-                    zone.events = Zone.Event.UnderminedInfiltration;
-                    GameData.UnderminedInfiltrationNb++;
-                }
-                else if (specialEventChanceAppear >= _infantryChargeChance)
-                {
-                    zone.events = Zone.Event.InfantryCharge;
-                    GameData.InfantryChargeNb++;
-                }
-
-                print($"zone {zone.Index} : {zone.events}");
-            }
-        }
-    }
-
-    IEnumerator WaitingForAppearing()
-    {
-        yield return new WaitForSeconds(3);
-        _generalDialog.CanTalk = true;
-    }
-
-    private void GeneralSpitch()
-    {
-    }
-
-    public void GeneralAnnounce()
-    {
-        _generalAnnounce.SetActive(true);
-
-        StartCoroutine(WaitingForAppearing());
-        if (_generalDialog.CanTalk)
-        {
-            GeneralSpitch();
-        }
-    }
-
-    private void StartEvents()
-    {
-        //Events
-        if (GameData.NumberDays >= 3)
-        {
-            //Chance of rain for next day
-            RainingChance();
-
-            //Chance of hard or soft fight for next day
-            HardSoftFightChance();
-
-            //Chance of special event for next day per zones
-            SpecialEventChance();
-        }
-    }
-
-    private void ResetGlobalVariables()
-    {
-        //Reset Global Variables
-        Cursor.visible = true;
-        GameData.CanPlay = true;
-        GameData.IsRainning = false;
-        GameData.IsSunning = false;
-        GameData.SoftFight = false;
-        GameData.HardFight = false;
-        GameData.BombingNb = 0;
-        GameData.UnderminedInfiltrationNb = 0;
-        GameData.InfantryChargeNb = 0;
-        GameData.WheelsType = 0;
-    }
-
-    private void Start()
-    {
-        _generalDialog = GetComponent<GeneralDialog>();
-
-        ResetGlobalVariables();
-        StartEvents();
-    }
-
-    private void Update()
-    {
-        if (_generalDialog.IsFinish)
-        {
-            UpgradeCar();
-        }
-
-        CalculGameDataTotal();
-    }
-
-    void CalculGameDataTotal()
-    {
-        GameData.TotalSoldierAmputated = GameData.Zone1SoldierAmputated + GameData.Zone2SoldierAmputated +
-                                         GameData.Zone3SoldierAmputated + GameData.Zone4SoldierAmputated +
-                                         GameData.Zone5SoldierAmputated;
-
-        GameData.TotalSoldierDead = GameData.Zone1SoldierDead + GameData.Zone2SoldierDead + GameData.Zone3SoldierDead +
-                                    GameData.Zone4SoldierDead + GameData.Zone5SoldierDead;
-
-        GameData.TotalSoldierSaved = GameData.Zone1SoldierSaved + GameData.Zone2SoldierSaved +
-                                     GameData.Zone3SoldierSaved + GameData.Zone4SoldierSaved +
-                                     GameData.Zone5SoldierSaved;
-    }
-
     void UpgradeCar()
     {
-        if (!_canUpgrade && GameData.CanPlay)
-            GeneralAnnounce();
-
         if (Input.GetKeyDown(KeyCode.A))
             wheelsType--;
         if (Input.GetKeyDown(KeyCode.E))

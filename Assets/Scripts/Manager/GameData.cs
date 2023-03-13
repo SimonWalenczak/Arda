@@ -15,7 +15,19 @@ public class GameData
     public static int TotalSoldierAmputated;
     public static int TotalSoldierDead;
     public static int TotalSoldierSaved;
-    
+
+    public static int TotalFirstClassAmputated;
+    public static int TotalFirstClassDead;
+    public static int TotalFirstClassSaved;
+
+    public static int TotalElitAmputated;
+    public static int TotalElitDead;  
+    public static int TotalElitClassSaved;
+
+    public static int TotalOfficierAmputated;
+    public static int TotalOfficierDead;
+    public static int TotalOfficierSaved;
+
     
     //Zones
     public static bool IsRainning;
