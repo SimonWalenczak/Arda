@@ -5,16 +5,29 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using Unity.VisualScripting;
 
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject _creditsPanel;
     [SerializeField] private GameObject _optionsPanel;
     [SerializeField] private GameObject _audioPanel;
+    [SerializeField] private GameObject fadeOut;
+    
+    private void Start()
+    {
+        GameData.NumberDays = 1;
+    }
 
+    IEnumerator FadeOut()
+    {
+        fadeOut.SetActive(true);
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("LD_Reboot");
+    }
     public void MissionButton()
     {
-        SceneManager.LoadScene(1);
+        StartCoroutine(FadeOut());
     }
     public void OptionsButton()
     {
