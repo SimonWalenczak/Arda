@@ -192,6 +192,9 @@ public class NightManager : MonoBehaviour
 
     void UpgradeCar()
     {
+        _generalAnnounce.SetActive(false);
+        _upgradePanel.SetActive(true);
+        
         if (Input.GetKeyDown(KeyCode.A))
             wheelsType--;
         if (Input.GetKeyDown(KeyCode.E))

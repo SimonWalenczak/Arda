@@ -12,8 +12,6 @@ public class GeneralDialog : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _generalTextVisual;
     [SerializeField] private List<Dialog> _generalText;
     private int index = 0;
-    private int _totalSoldierDead;
-    private int _totalSoldierSaved;
 
     [SerializeField] private GameObject BilanPerte;
     [SerializeField] private GameObject BilanSauve;
@@ -44,20 +42,24 @@ public class GeneralDialog : MonoBehaviour
                 BilanSauve.SetActive(false);
                 break;
             case 2:
-                BilanPerte.SetActive(true);
+                BGLettre.SetActive(true);
+                LetterAppearing(BilanPerte);
                 break;
             case 3:
-                BilanPerte.SetActive(false);
+                BGLettre.SetActive(false);
+                LetterDisappearing(BilanPerte);
                 break;
             case 4:
-                BilanSauve.SetActive(true);
+                BGLettre.SetActive(true);
+                LetterAppearing(BilanSauve);
                 break;
             case 5:
-                BilanSauve.SetActive(false);
+                BGLettre.SetActive(false);
+                LetterDisappearing(BilanSauve);
                 break;
             case 6:
                 BGLettre.SetActive(true);
-                LetterAppearing(RelativeLetter1.gameObject);
+                LetterAppearing(RelativeLetter1);
                 break;
             case 7:
                 LetterDisappearing(RelativeLetter1);
@@ -74,6 +76,9 @@ public class GeneralDialog : MonoBehaviour
             case 10:
                 BGLettre.SetActive(false);
                 LetterDisappearing(RequestLetter1);
+                break;
+            case 11:
+                CanUpgrade = true;
                 break;
         }
     }
