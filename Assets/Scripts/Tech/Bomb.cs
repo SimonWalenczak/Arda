@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-    public Terrain terrain;
+    [HideInInspector] public Terrain terrain;
     [SerializeField] GameObject explosionVfx;
     private TerrainData terrainData;
 
     [SerializeField] float DetectionDist;
     [SerializeField] int GroundLayerNb = 6;
 
-    int xBase = 0;
-    int yBase = 0;
+    //int xBase = 0;
+    //int yBase = 0;
 
     bool hasExploded = false;
 
@@ -69,6 +69,8 @@ public class Bomb : MonoBehaviour
         if (Physics.Raycast(transform.position, fwd, out hit, DetectionDist, layerMask))
         {
             //print("There is something in front of the object!");
+
+            terrain = hit.collider.GetComponent<Terrain>();
 
             int xPos = TerrainUtils.GetTerrainCoordsFromWorldPosition(terrain, hit.point).y;
             int yPos = TerrainUtils.GetTerrainCoordsFromWorldPosition(terrain, hit.point).x;

@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 86717784527407034}
+  - component: {fileID: 86717784527407038}
   - component: {fileID: 86717784527407035}
   - component: {fileID: 86717784527407036}
   - component: {fileID: 86717784527407037}
-  - component: {fileID: 86717784527407038}
   - component: {fileID: -5564400302233476556}
   m_Layer: 0
   m_Name: Bombazo
@@ -36,6 +36,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &86717784527407038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86717784527407039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0795611aa8f7a8448b40058b410de9ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  terrain: {fileID: 0}
+  explosionVfx: {fileID: 1431530912211830, guid: 1b0dca3e2e1dabc468148aad222be955, type: 3}
+  DetectionDist: 1
+  GroundLayerNb: 6
 --- !u!33 &86717784527407035
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -99,22 +115,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &86717784527407038
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 86717784527407039}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0795611aa8f7a8448b40058b410de9ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  terrain: {fileID: 0}
-  explosionVfx: {fileID: 1431530912211830, guid: 1b0dca3e2e1dabc468148aad222be955, type: 3}
-  DetectionDist: 1
-  GroundLayerNb: 6
 --- !u!54 &-5564400302233476556
 Rigidbody:
   m_ObjectHideFlags: 0
