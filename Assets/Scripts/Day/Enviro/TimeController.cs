@@ -18,12 +18,12 @@ public class TimeController : MonoBehaviour
 
     //Lever-Coucher
     [SerializeField] private float _sunriseHour;
-    [SerializeField] private float _sunsetHour;
+    [SerializeField] public float _sunsetHour;
 
     //Affichage
     [SerializeField] private TextMeshProUGUI textTime;
 
-    private DateTime _currentTime;
+    public DateTime _currentTime;
     TimeSpan _sunriseTime;
     TimeSpan _sunsetTime;
 
@@ -35,11 +35,8 @@ public class TimeController : MonoBehaviour
         _currentTime = DateTime.Now.Date + TimeSpan.FromHours(_startHour);
         _sunriseTime = TimeSpan.FromHours(_sunriseHour);
         _sunsetTime = TimeSpan.FromHours(_sunsetHour);
-        LongTimeDay = ((((_sunsetHour - _sunriseHour) * 3600) / _timeMultiplier) / 60);
+        LongTimeDay = (((_sunsetHour - _sunriseHour) * 3600) / _timeMultiplier) / 60;
 
-
-        print(GameData.IsRainning);
-        
         if (GameData.IsRainning)
             Rain.SetActive(true);
 

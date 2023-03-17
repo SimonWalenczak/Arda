@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-    [SerializeField] Terrain terrain;
+    public Terrain terrain;
     [SerializeField] GameObject explosionVfx;
     private TerrainData terrainData;
 
@@ -18,12 +18,13 @@ public class Bomb : MonoBehaviour
 
     private void Awake()
     {
-        terrainData = terrain.terrainData;
+        
     }
 
     [System.Obsolete]
     private void Start()
     {
+        terrainData = terrain.terrainData;
         //EditTerrain();
     }
 
