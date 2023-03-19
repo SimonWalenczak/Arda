@@ -1,9 +1,8 @@
 using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.SocialPlatforms;
 using Random = UnityEngine.Random;
 
-public class SpecialEvent : MonoBehaviour
+public class BombingZone : MonoBehaviour
 {
     #region Init. Variables
 
@@ -20,11 +19,12 @@ public class SpecialEvent : MonoBehaviour
     [SerializeField] int minY;
     [SerializeField] int maxY;
     [SerializeField] GameObject bomb;
-    public int nbBomb;
+    private int nbBomb;
+    [SerializeField] private float ratioBomb;
     [SerializeField] private Terrain _terrain;
     [SerializeField] private Color color;
 
-    [Header("Debug")] public GameObject pointsCheck;
+    // [Header("Debug")] public GameObject pointsCheck;
 
     #endregion
 
@@ -57,21 +57,21 @@ public class SpecialEvent : MonoBehaviour
         print(Area);
 
 
-        var i = Instantiate(pointsCheck, new Vector3(minXPoint, 1, minZPoint), quaternion.identity);
-        i.name = "a";
-        i = Instantiate(pointsCheck, new Vector3(maxXPoint, 1, maxZPoint), quaternion.identity);
-        i.name = "b";
-        i = Instantiate(pointsCheck, new Vector3(minXPoint, 1, maxZPoint), quaternion.identity);
-        i.name = "c";
-        i = Instantiate(pointsCheck, new Vector3(maxXPoint, 1, minZPoint), quaternion.identity);
-        i.name = "d";
+        // var i = Instantiate(pointsCheck, new Vector3(minXPoint, 1, minZPoint), quaternion.identity);
+        // i.name = "a";
+        // i = Instantiate(pointsCheck, new Vector3(maxXPoint, 1, maxZPoint), quaternion.identity);
+        // i.name = "b";
+        // i = Instantiate(pointsCheck, new Vector3(minXPoint, 1, maxZPoint), quaternion.identity);
+        // i.name = "c";
+        // i = Instantiate(pointsCheck, new Vector3(maxXPoint, 1, minZPoint), quaternion.identity);
+        // i.name = "d";
 
         // currentTimer = timerReset;
     }
 
     private void Update()
     {
-        if (nbBomb < Area / 100)
+        if (nbBomb < Area / (ratioBomb * 100))
                 StartBombing();
     }
 
