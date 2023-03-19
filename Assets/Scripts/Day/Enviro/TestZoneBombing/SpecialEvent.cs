@@ -1,13 +1,12 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.ProBuilder.Shapes;
+using UnityEngine.SocialPlatforms;
 using Random = UnityEngine.Random;
 
 public class SpecialEvent : MonoBehaviour
 {
+    #region Init. Variables
+
     private MeshCollider _meshCollider;
 
     private float minXPoint;
@@ -18,18 +17,21 @@ public class SpecialEvent : MonoBehaviour
 
     private int Area;
 
-    public GameObject pointsCheck;
-    
-    public int nbBomb;
-
+    [SerializeField] int minY;
+    [SerializeField] int maxY;
     [SerializeField] GameObject bomb;
-    [SerializeField] float timerReset;
+    public int nbBomb;
+    [SerializeField] private Terrain _terrain;
+    [SerializeField] private Color color;
 
-    [SerializeField] float currentTimer = 0;
+    [Header("Debug")] public GameObject pointsCheck;
+
+    #endregion
 
     private void Start()
     {
         _meshCollider = GetComponent<MeshCollider>();
+        GetComponent<MeshRenderer>().material.color = color;
         Initialize();
     }
 
@@ -50,7 +52,7 @@ public class SpecialEvent : MonoBehaviour
         float distZ = math.abs(minZPoint - maxZPoint);
 
         nbBomb = 0;
-        int Area = (int) (distX * distZ);
+        Area = (int) (distX * distZ);
 
         print(Area);
 
@@ -64,41 +66,33 @@ public class SpecialEvent : MonoBehaviour
         i = Instantiate(pointsCheck, new Vector3(maxXPoint, 1, minZPoint), quaternion.identity);
         i.name = "d";
 
-        currentTimer = timerReset;
+        // currentTimer = timerReset;
     }
 
     private void Update()
     {
-        currentTimer -= Time.deltaTime;
-        StartBombing();
+        if (nbBomb < Area / 100)
+                StartBombing();
     }
-
-    public LayerMask layerMask;
 
     void StartBombing()
     {
-        if (currentTimer <= 0)
+        float xPos = Random.Range(minXPoint, maxXPoint);
+        float zPos = Random.Range(minZPoint, maxZPoint);
+        float yPos = Random.Range(minY, maxY);
+
+        Vector3 spawnPos = new Vector3(xPos, transform.position.y + yPos, zPos);
+
+        RaycastHit hit;
+        if (Physics.Raycast(spawnPos, -Vector3.up, out hit))
         {
-            float xPos = Random.Range(minXPoint, maxXPoint);
-            float zPos = Random.Range(minZPoint, maxZPoint);
-            float yPos = Random.Range(2, 5);
+            Debug.DrawLine(transform.position, hit.point, Color.cyan);
 
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, Vector3.left, out hit,
-                    Mathf.Infinity, layerMask))
+            if (hit.collider.gameObject.name == name)
             {
-                Debug.DrawRay(transform.position, Vector3.left, Color.yellow);
-
-                if (hit.collider.name == gameObject.name)
-                {
-                    Vector3 spawnPos = new Vector3(transform.position.x + xPos, transform.position.y + yPos,
-                        transform.position.z + zPos);
-
-                    Instantiate(bomb, spawnPos, Quaternion.identity);
-
-                    currentTimer = timerReset;
-                    nbBomb++;
-                }
+                GameObject actualBomb = Instantiate(bomb, spawnPos, hit.transform.rotation);
+                actualBomb.GetComponent<Bomb>().terrain = _terrain;
+                nbBomb++;
             }
         }
     }

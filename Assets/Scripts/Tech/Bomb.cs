@@ -16,11 +16,8 @@ public class Bomb : MonoBehaviour
 
     bool hasExploded = false;
 
-    private void Awake()
-    {
-        
-    }
 
+    
     [System.Obsolete]
     private void Start()
     {
