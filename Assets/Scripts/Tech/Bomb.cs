@@ -55,6 +55,13 @@ public class Bomb : MonoBehaviour
     void FixedUpdate()
     {
 
+        if (transform.position.y <= 0)
+        {
+            Instantiate(explosionVfx, transform.position, transform.rotation);
+            hasExploded = true;
+            Destroy(gameObject);
+        }
+        
         int layerMask = 1 << GroundLayerNb;
 
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
