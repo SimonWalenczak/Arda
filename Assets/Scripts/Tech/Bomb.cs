@@ -53,6 +53,10 @@ public class Bomb : MonoBehaviour
     [System.Obsolete]
     void FixedUpdate()
     {
+        if (transform.position.y < -100)
+        {
+            Destroy(gameObject);
+        }
         
         int layerMask = 1 << GroundLayerNb;
 
