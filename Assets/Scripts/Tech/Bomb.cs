@@ -21,7 +21,6 @@ public class Bomb : MonoBehaviour
     [System.Obsolete]
     private void Start()
     {
-        terrainData = terrain.terrainData;
         //EditTerrain();
     }
 
@@ -54,13 +53,6 @@ public class Bomb : MonoBehaviour
     [System.Obsolete]
     void FixedUpdate()
     {
-
-        if (transform.position.y <= 0)
-        {
-            Instantiate(explosionVfx, transform.position, transform.rotation);
-            hasExploded = true;
-            Destroy(gameObject);
-        }
         
         int layerMask = 1 << GroundLayerNb;
 
@@ -75,6 +67,7 @@ public class Bomb : MonoBehaviour
             //print("There is something in front of the object!");
 
             terrain = hit.collider.GetComponent<Terrain>();
+            terrainData = terrain.terrainData;
 
             int xPos = TerrainUtils.GetTerrainCoordsFromWorldPosition(terrain, hit.point).y;
             int yPos = TerrainUtils.GetTerrainCoordsFromWorldPosition(terrain, hit.point).x;

@@ -90,8 +90,8 @@ public class BombingZone : MonoBehaviour
 
             if (hit.collider.gameObject.name == name)
             {
-                GameObject actualBomb = Instantiate(bomb, spawnPos, hit.transform.rotation);
-                actualBomb.GetComponent<Bomb>().terrain = _terrain;
+                GameObject actualBomb = Instantiate(bomb, spawnPos, Quaternion.Euler(90f, 0f, 0f));
+                //actualBomb.GetComponent<Bomb>().terrain = _terrain;
                 nbBomb++;
             }
         }
