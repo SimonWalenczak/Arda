@@ -32,22 +32,24 @@ public class Bomb : MonoBehaviour
 
         //tests made with value of 50, 50 for base values
 
-        float [,] Heights = terrainData.GetHeights(xBase, yBase, xRes, yRes);
+        float[,] Heights = terrainData.GetHeights(xBase - 1, yBase - 1, xRes, yRes);
 
         for (int y = 0; y < yRes; y++)
         {
             for (int x = 0; x < xRes; x++)
             {
                 float cos = Mathf.Cos(x);
-                float sin = -Mathf.Sin(y);
+                float sin = Mathf.Sin(y);
+
                 //Debug.Log(cos - sin);
 
+                //Heights[x, y] = (cos - sin) / 350;
                 Heights[x, y] = (cos - sin) / 350;
                 //Heights[x, y] = 1;
             }
         }
 
-        terrainData.SetHeights(xBase, yBase, Heights);
+        terrainData.SetHeights(xBase - 1, yBase - 1, Heights);
     }
 
     [System.Obsolete]
