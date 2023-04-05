@@ -27,8 +27,10 @@ public class Bomb : MonoBehaviour
     [System.Obsolete]
     void EditTerrain(int xBase, int yBase)
     {
-        int xRes = 4; //terrainData.heightmapWidth;
-        int yRes = 4; //terrainData.heightmapHeight;
+        int xRes = 4;
+        int yRes = 4;
+        //int xRes = terrainData.heightmapWidth;
+        //int yRes = terrainData.heightmapHeight;
 
         //tests made with value of 50, 50 for base values
 
@@ -43,9 +45,8 @@ public class Bomb : MonoBehaviour
 
                 //Debug.Log(cos - sin);
 
-                //Heights[x, y] = (cos - sin) / 350;
+                //Heights[x, y] = Heights[x,y] + ((cos - sin) / 350);
                 Heights[x, y] = (cos - sin) / 350;
-                //Heights[x, y] = 1;
             }
         }
 
@@ -64,7 +65,7 @@ public class Bomb : MonoBehaviour
 
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
-        Debug.DrawRay(transform.position, fwd * DetectionDist, Color.yellow, layerMask);
+        Debug.DrawRay(transform.position, fwd * DetectionDist, Color.yellow, 3);
 
         RaycastHit hit;
 
