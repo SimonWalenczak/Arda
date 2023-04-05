@@ -16,6 +16,7 @@ public class Bomb : MonoBehaviour
 
     bool hasExploded = false;
 
+    int goldenNumber = 1000;
 
     
     [System.Obsolete]
@@ -32,6 +33,8 @@ public class Bomb : MonoBehaviour
         //int xRes = terrainData.heightmapWidth;
         //int yRes = terrainData.heightmapHeight;
 
+        int smoothness = 850;
+
         //tests made with value of 50, 50 for base values
 
         float[,] Heights = terrainData.GetHeights(xBase - 1, yBase - 1, xRes, yRes);
@@ -45,8 +48,9 @@ public class Bomb : MonoBehaviour
 
                 //Debug.Log(cos - sin);
 
-                //Heights[x, y] = Heights[x,y] + ((cos - sin) / 350);
-                Heights[x, y] = (cos - sin) / 350;
+                Heights[x, y] = Heights[x,y] + ((cos - sin) - 1) / smoothness;
+                //Heights[x, y] = ((cos - sin)-1) / 350;
+                //Heights[x, y] = cos / 350;
             }
         }
 
