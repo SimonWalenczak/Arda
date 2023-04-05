@@ -49,12 +49,6 @@ public class TimeController : MonoBehaviour
             _isTimeToNight = true;
             StartCoroutine(WaitingForSunSet());
         }
-
-        if (!_playerController.Healing)
-        {
-            UpdateTimeOfDay();
-            RotateSun();
-        }
     }
 
     void UpdateTimeOfDay()

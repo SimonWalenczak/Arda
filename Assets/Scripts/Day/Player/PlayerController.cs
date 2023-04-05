@@ -1,11 +1,10 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     public bool CanHeal;
-    public bool Healing;
+    public bool Diagnosing;
     public float speed = 10.0f;
     public float CurrentSpeed;
     public float turnSpeed = 10.0f;
@@ -18,12 +17,9 @@ public class PlayerController : MonoBehaviour
 
     public Camp CurrentCamp;
     public List<Soldier> soldiers;
-    public List<float> HealTime;
 
     public GameObject SoldierCardPanel;
     public Camera CamPlayer;
-
-    public GameObject SoldierDebugPanel;
 
     public bool _mapOpened;
     [SerializeField] Camera mapCam;
@@ -31,8 +27,38 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject _mapMarkerPrefab;
     public GameObject _mapMarkerObject;
     [SerializeField] private GameObject _mapMarker;
-    
-    
+
+    #region Input
+    float pressTime = 0;
+    bool isLongPress = false;
+    void TapOrLongTouch()
+    {
+        if (Input.GetKey(KeyCode.F))
+        {
+            pressTime += Time.deltaTime;
+
+            if (pressTime >= 0.5f)
+                isLongPress = true;
+            else
+                isLongPress = false;
+        }
+        else if (Input.GetKeyUp(KeyCode.F))
+        {
+            if (isLongPress)
+            {
+                Debug.Log("Long press detected");
+            }
+            else
+            {
+                Debug.Log("Short press detected");
+            }
+
+            pressTime = 0;
+        }
+    }
+    #endregion
+
+
     void Start()
     {
         if (GameData.NumberDays == 1 && GameData.Started == false)
@@ -45,7 +71,7 @@ public class PlayerController : MonoBehaviour
         {
             GameData.Started = false;
         }
-        
+
         rb = GetComponentInParent<Rigidbody>();
         rb.centerOfMass = _centerOfMass;
         speed = GameData.speed;
@@ -60,21 +86,18 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Move();
-        Heal();
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-            SoldierDebug();
 
         if (Input.GetKeyDown(KeyCode.M))
             MapManager();
 
         if (Input.GetKeyDown(KeyCode.F))
-            AButton();
+            if(Diagnosing == false)
+                AButton();
 
         if (Input.GetKeyDown(KeyCode.R))
             BButton();
-        
-        if(Healing)
+
+        if (Diagnosing)
             CompassUI.SetActive(false);
         else
             CompassUI.SetActive(true);
@@ -86,30 +109,9 @@ public class PlayerController : MonoBehaviour
         CurrentTurnSpeed = turnSpeed;
     }
 
-    private void Heal()
-    {
-        if (Healing)
-        {
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                CurrentCamp.SelectedSoldier++;
-            }
-
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                CurrentCamp.SelectedSoldier--;
-            }
-            
-            if (CurrentCamp.SoldierInPlace == 0)
-                SoldierCardPanel.SetActive(false);
-            else
-                SoldierCardPanel.SetActive(true);
-        }
-    }
-
     private void AButton()
     {
-        if (CanHeal && CurrentCamp.SoldierInPlace != 0 && !_mapOpened)
+        if (CanHeal && CurrentCamp.IsDiagnostised == false && !_mapOpened)
         {
             CurrentCamp.StartHeal();
             SoldierCardPanel.SetActive(true);
@@ -130,16 +132,6 @@ public class PlayerController : MonoBehaviour
 
     private void BButton()
     {
-        if (Healing)
-        {
-            Healing = false;
-            CurrentCamp.cam.gameObject.SetActive(false);
-            SoldierCardPanel.SetActive(false);
-            CamPlayer.enabled = true;
-            CurrentCamp.WaitingForSpawn();
-            ResetSpeed();
-        }
-
         if (_mapOpened && _mapMarkerObject != null)
         {
             Destroy(_mapMarkerObject);
@@ -199,10 +191,5 @@ public class PlayerController : MonoBehaviour
             _mapOpened = false;
             ResetSpeed();
         }
-    }
-
-    private void SoldierDebug()
-    {
-        SoldierDebugPanel.SetActive(!SoldierDebugPanel.activeSelf);
     }
 }
