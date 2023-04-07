@@ -8,7 +8,7 @@ public class Explosion : MonoBehaviour
 
     void Start()
     {
-        _audioSource = GetComponent<AudioSource>();
-        _audioSource.Play();
+        //_audioSource = GetComponent<AudioSource>();
+        //_audioSource.Play();
     }
 }

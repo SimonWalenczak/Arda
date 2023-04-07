@@ -57,6 +57,23 @@ public class Bomb : MonoBehaviour
         terrainData.SetHeights(xBase - 1, yBase - 1, Heights);
     }
 
+
+    void DestroyProps()
+    {
+        RaycastHit[] hits = Physics.SphereCastAll(transform.position, 5, transform.forward);
+        //print("ouai c moi");
+
+        foreach (RaycastHit hit in hits)
+        {
+            if(hit.collider.tag == "DestructibleObj")
+            {
+                //print("cc");
+                hit.collider.gameObject.GetComponent<Destructible>().Destruction();
+            }
+        }
+    }
+
+
     [System.Obsolete]
     void FixedUpdate()
     {
@@ -86,11 +103,18 @@ public class Bomb : MonoBehaviour
             if (!hasExploded)
             {
                 Instantiate(explosionVfx, transform.position, transform.rotation);
+                DestroyProps();
                 EditTerrain(xPos, yPos);
                 hasExploded = true;
                 Destroy(gameObject);
             }
         }
 
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, 5);
     }
 }
