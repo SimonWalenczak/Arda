@@ -11,6 +11,8 @@ public class Bomb : MonoBehaviour
     [SerializeField] float DetectionDist;
     [SerializeField] int GroundLayerNb = 6;
 
+    [HideInInspector] public GameObject MainCamera; 
+
     //int xBase = 0;
     //int yBase = 0;
 
@@ -74,6 +76,17 @@ public class Bomb : MonoBehaviour
     }
 
 
+    void TriggerCameraShake()
+    {
+        float dist = Vector3.Distance(gameObject.transform.position, MainCamera.transform.position);
+        if (dist <= 75)
+        {
+            MainCamera.GetComponent<CameraShake>().CameraShaker();
+        }
+
+    }
+
+
     [System.Obsolete]
     void FixedUpdate()
     {
@@ -104,6 +117,7 @@ public class Bomb : MonoBehaviour
             {
                 Instantiate(explosionVfx, transform.position, transform.rotation);
                 DestroyProps();
+                TriggerCameraShake();
                 EditTerrain(xPos, yPos);
                 hasExploded = true;
                 Destroy(gameObject);
