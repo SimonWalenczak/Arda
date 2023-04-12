@@ -5,13 +5,14 @@ public class Camp : MonoBehaviour
 {
     public PlayerController _playerController;
     public Camera cam;
-    public List<Soldier> _soldiers;
+    public List<SoldierStruct> _soldiers;
     public bool IsDiagnostised;
     [SerializeField] private int SelectedSoldier;
 
     [SerializeField] LayerMask TargetLayer;
-    [SerializeField] Soldier currentSoldier;
-
+    [SerializeField] SoldierStruct currentSoldier;
+    [SerializeField] private GenerateSoldier _generateSoldier;
+    
     public static bool Contains(LayerMask mask, int layer)
     {
         return mask == (mask | (1 << layer));
@@ -43,6 +44,12 @@ public class Camp : MonoBehaviour
         _playerController.CurrentTurnSpeed = 0;
     }
 
+    private void Start()
+    {
+        _generateSoldier = GetComponent<GenerateSoldier>();
+        SelectedSoldier = 1;
+    }
+
     private void Update()
     {
         foreach (var soldier in _soldiers)
@@ -59,15 +66,9 @@ public class Camp : MonoBehaviour
         SoldierCard soldierCard = null;
         soldierCard = _playerController.SoldierCardPanel.GetComponent<SoldierCard>();
 
-        soldierCard.LastNameText.SetText(currentSoldier.LastName);
-        soldierCard.FirstNameText.SetText(currentSoldier.FirstName);
+        soldierCard.NameText.SetText(currentSoldier.Name);
         soldierCard.AgeText.SetText(currentSoldier.Age);
-        soldierCard.SituationText.SetText(currentSoldier.Situation);
+        soldierCard.AchievementsText.SetText(currentSoldier.Achievements);
         soldierCard.MilitaryRankText.SetText(currentSoldier.MilitaryRank);
-
-        soldierCard.BodyHairColor = currentSoldier.BodyHairColor;
-        soldierCard.FaceSprite.sprite = currentSoldier.Face;
-        soldierCard.BodyHairSprite.sprite = currentSoldier.BodyHair;
-        soldierCard.BodyHairSprite.color = currentSoldier.BodyHairColor;
     }
 }

@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private List<GameObject> frontWheels;
 
     public Camp CurrentCamp;
-    public List<Soldier> soldiers;
+    public List<SoldierStruct> soldiers;
 
     public GameObject SoldierCardPanel;
     public Camera CamPlayer;

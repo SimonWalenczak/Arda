@@ -11,7 +11,6 @@ public class TimeController : MonoBehaviour
     private bool _isTimeToNight;
 
     //Reference
-    [SerializeField] private PlayerController _playerController;
     [SerializeField] private float _timeMultiplier;
     [SerializeField] private Light _sunLight;
     [SerializeField] private float _startHour;
