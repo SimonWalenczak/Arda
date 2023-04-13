@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Test
+  m_Name: Car
   m_Shader: {fileID: -6465566751694194690, guid: 490ab7255c7237445bb054b71e64fd59, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -55,10 +55,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AmbiantStrengh: 0.6
+    - _AmbiantStrengh: 0.2
     - _FalloffAmount: 0.09
     - _Float: 5.85
-    - _FresnelSize: 0.15
+    - _FresnelSize: 0.14
     - _LightingCutoff: 0.2
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -66,6 +66,6 @@ Material:
     m_Colors:
     - _ColorTest: {r: 1, g: 1, b: 1, a: 0}
     - _DifuseColor: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 0}
-    - _FresnelColor: {r: 0.20754719, g: 0.20754719, b: 0.20754719, a: 0}
+    - _FresnelColor: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 0}
     - _SpecularColor: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 0}
   m_BuildTextureStacks: []
