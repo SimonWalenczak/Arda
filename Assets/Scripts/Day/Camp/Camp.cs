@@ -47,6 +47,7 @@ public class Camp : MonoBehaviour
     private void Start()
     {
         _generateSoldier = GetComponent<GenerateSoldier>();
+        _soldiers = _generateSoldier.Soldiers;
         SelectedSoldier = 1;
     }
 
@@ -55,7 +56,10 @@ public class Camp : MonoBehaviour
         foreach (var soldier in _soldiers)
         {
             if (SelectedSoldier == soldier.Index)
+            {
                 currentSoldier = soldier;
+                Debug.Log("soldat trouvé");   
+            }
         }
 
         SoldierCardUpdate();

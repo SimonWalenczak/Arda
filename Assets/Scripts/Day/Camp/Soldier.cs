@@ -12,7 +12,7 @@ public struct SoldierStruct
     public string Achievements;
     public string MilitaryRank;
 
-    public Sprite Face;
-     public Sprite BodyHair;
-     public Color BodyHairColor;
+    [HideInInspector] public Sprite Face;
+    [HideInInspector]  public Sprite BodyHair;
+    [HideInInspector] public Color BodyHairColor;
 }
