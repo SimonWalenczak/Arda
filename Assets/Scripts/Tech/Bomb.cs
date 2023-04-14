@@ -115,7 +115,8 @@ public class Bomb : MonoBehaviour
 
             if (!hasExploded)
             {
-                Instantiate(explosionVfx, transform.position, transform.rotation);
+                Vector3 spawnPos = new Vector3(transform.position.x, transform.position.y-2, transform.position.z);  
+                Instantiate(explosionVfx, spawnPos, transform.rotation);
                 DestroyProps();
                 TriggerCameraShake();
                 EditTerrain(xPos, yPos);
