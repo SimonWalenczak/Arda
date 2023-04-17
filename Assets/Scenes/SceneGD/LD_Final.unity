@@ -8695,6 +8695,10 @@ PrefabInstance:
       value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: FirstName.Array.size
       value: 19
       objectReference: {fileID: 0}
@@ -8923,6 +8927,54 @@ PrefabInstance:
       value: Capitaine
       objectReference: {fileID: 0}
     - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].Age
+      value: 22 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].Age
+      value: 28 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Age
+      value: Pierre
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Age
+      value: Louis
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].Name
+      value: "Petit Andr\xE9"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].Name
+      value: Martin Jean
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Name
+      value: Dubois
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Name
+      value: Durand
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].Index
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].Index
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Index
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Index
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: BodyHairColor.Array.data[0].a
       value: 1
       objectReference: {fileID: 0}
@@ -8990,6 +9042,26 @@ PrefabInstance:
       propertyPath: BodyHairSprites.Array.data[3]
       value: 
       objectReference: {fileID: 21300000, guid: b7177a7c29b6efd4baa49abea131ce6b, type: 3}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].MilitaryRank
+      value: Fantassin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].MilitaryRank
+      value: Fantassin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].MilitaryRank
+      value: Fantassin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Achievements
+      value: "Un grand strat\xE8ge qui a contribu\xE9 \xE0 de nombreuses victoires"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].MilitaryRank
+      value: Capitaine
+      objectReference: {fileID: 0}
     - target: {fileID: 6758212860467391881, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: IndexCamp
       value: 1
@@ -11824,6 +11896,10 @@ PrefabInstance:
       value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: FirstName.Array.size
       value: 19
       objectReference: {fileID: 0}
@@ -12052,6 +12128,54 @@ PrefabInstance:
       value: Capitaine
       objectReference: {fileID: 0}
     - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].Age
+      value: 38 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].Age
+      value: 35 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Age
+      value: 48 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Age
+      value: 32 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].Name
+      value: 'Jacquet Henri '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].Name
+      value: "Girault Andr\xE9 "
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Name
+      value: Perrot Albert
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Name
+      value: "Chagnon L\xE9on"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].Index
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].Index
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Index
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Index
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: BodyHairColor.Array.data[0].a
       value: 1
       objectReference: {fileID: 0}
@@ -12119,6 +12243,22 @@ PrefabInstance:
       propertyPath: BodyHairSprites.Array.data[3]
       value: 
       objectReference: {fileID: 21300000, guid: b7177a7c29b6efd4baa49abea131ce6b, type: 3}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].MilitaryRank
+      value: Corp-Franc
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].MilitaryRank
+      value: Corp-Franc
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].MilitaryRank
+      value: Fantassin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].MilitaryRank
+      value: Corp-Franc
+      objectReference: {fileID: 0}
     - target: {fileID: 6758212860467391881, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: IndexCamp
       value: 3
@@ -13325,6 +13465,10 @@ PrefabInstance:
       value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: FirstName.Array.size
       value: 19
       objectReference: {fileID: 0}
@@ -13553,6 +13697,54 @@ PrefabInstance:
       value: Capitaine
       objectReference: {fileID: 0}
     - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].Age
+      value: 38 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].Age
+      value: 50 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Age
+      value: 24 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Age
+      value: 28 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].Name
+      value: Clavier Denis
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].Name
+      value: Aubrin Etienne
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Name
+      value: Gaudry Nicolas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Name
+      value: Bedu Jean
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].Index
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].Index
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Index
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Index
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: BodyHairColor.Array.data[0].a
       value: 1
       objectReference: {fileID: 0}
@@ -13620,6 +13812,26 @@ PrefabInstance:
       propertyPath: BodyHairSprites.Array.data[3]
       value: 
       objectReference: {fileID: 21300000, guid: b7177a7c29b6efd4baa49abea131ce6b, type: 3}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].MilitaryRank
+      value: Corp-Franc
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].MilitaryRank
+      value: Fantassin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].MilitaryRank
+      value: Fantassin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Achievements
+      value: "A sauv\xE9 plusieurs soldats fran\xE7ais lors d'une attaque allemande"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].MilitaryRank
+      value: Corp-Franc
+      objectReference: {fileID: 0}
     - target: {fileID: 6758212860467391881, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: IndexCamp
       value: 4
@@ -15001,6 +15213,10 @@ PrefabInstance:
       value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: FirstName.Array.size
       value: 19
       objectReference: {fileID: 0}
@@ -15229,6 +15445,54 @@ PrefabInstance:
       value: Capitaine
       objectReference: {fileID: 0}
     - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].Age
+      value: 25 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].Age
+      value: 47 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Age
+      value: 44 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Age
+      value: 24 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].Name
+      value: Gauthier Auguste
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].Name
+      value: Riviere Paul
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Name
+      value: Renaud Charles
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Name
+      value: "Dupont Ren\xE9"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].Index
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].Index
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Index
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Index
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: BodyHairColor.Array.data[0].a
       value: 1
       objectReference: {fileID: 0}
@@ -15296,6 +15560,22 @@ PrefabInstance:
       propertyPath: BodyHairSprites.Array.data[3]
       value: 
       objectReference: {fileID: 21300000, guid: b7177a7c29b6efd4baa49abea131ce6b, type: 3}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].MilitaryRank
+      value: Fantassin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].MilitaryRank
+      value: Corp-Franc
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].MilitaryRank
+      value: Capitaine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].MilitaryRank
+      value: Fantassin
+      objectReference: {fileID: 0}
     - target: {fileID: 6758212860467391881, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: IndexCamp
       value: 5
@@ -20167,6 +20447,10 @@ PrefabInstance:
       value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: FirstName.Array.size
       value: 19
       objectReference: {fileID: 0}
@@ -20395,6 +20679,54 @@ PrefabInstance:
       value: Capitaine
       objectReference: {fileID: 0}
     - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].Age
+      value: 19 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].Age
+      value: 24 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Age
+      value: 35 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Age
+      value: 30 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].Name
+      value: "Turpin R\xE9my"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].Name
+      value: Aubin Thibaut
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Name
+      value: Renaud Alain
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Name
+      value: Andre Olivier
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].Index
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].Index
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Index
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Index
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: BodyHairColor.Array.data[0].a
       value: 1
       objectReference: {fileID: 0}
@@ -20462,6 +20794,22 @@ PrefabInstance:
       propertyPath: BodyHairSprites.Array.data[3]
       value: 
       objectReference: {fileID: 21300000, guid: b7177a7c29b6efd4baa49abea131ce6b, type: 3}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].MilitaryRank
+      value: Fantassin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].MilitaryRank
+      value: Corp-Franc
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].MilitaryRank
+      value: Capitaine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].MilitaryRank
+      value: Fantassin
+      objectReference: {fileID: 0}
     - target: {fileID: 6758212860467391881, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: IndexCamp
       value: 4
@@ -39774,15 +40122,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 443307926, guid: 2327fc9e11ecf134bbb464df9a988775, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.6485476
+      value: 0.64854753
       objectReference: {fileID: 0}
     - target: {fileID: 443307926, guid: 2327fc9e11ecf134bbb464df9a988775, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.4044278
+      value: 2.4044275
       objectReference: {fileID: 0}
     - target: {fileID: 443307926, guid: 2327fc9e11ecf134bbb464df9a988775, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.592007
+      value: -6.5920067
       objectReference: {fileID: 0}
     - target: {fileID: 443307926, guid: 2327fc9e11ecf134bbb464df9a988775, type: 3}
       propertyPath: m_LocalRotation.w
@@ -44925,6 +45273,10 @@ PrefabInstance:
       value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: FirstName.Array.size
       value: 19
       objectReference: {fileID: 0}
@@ -45153,6 +45505,54 @@ PrefabInstance:
       value: Capitaine
       objectReference: {fileID: 0}
     - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].Age
+      value: 34 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].Age
+      value: 18 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Age
+      value: 20 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Age
+      value: 35 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].Name
+      value: Aubrin Roger
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].Name
+      value: Chevalier Emile
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Name
+      value: Morin Lucien
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Name
+      value: 'Jolivet Henri '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].Index
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].Index
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Index
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Index
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: BodyHairColor.Array.data[0].a
       value: 1
       objectReference: {fileID: 0}
@@ -45220,6 +45620,22 @@ PrefabInstance:
       propertyPath: BodyHairSprites.Array.data[3]
       value: 
       objectReference: {fileID: 21300000, guid: b7177a7c29b6efd4baa49abea131ce6b, type: 3}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].MilitaryRank
+      value: Fantassin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].MilitaryRank
+      value: Fantassin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].MilitaryRank
+      value: Fantassin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].MilitaryRank
+      value: Fantassin
+      objectReference: {fileID: 0}
     - target: {fileID: 6758212860467391881, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: IndexCamp
       value: 2
@@ -47908,6 +48324,10 @@ PrefabInstance:
       value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: FirstName.Array.size
       value: 19
       objectReference: {fileID: 0}
@@ -48136,6 +48556,54 @@ PrefabInstance:
       value: Capitaine
       objectReference: {fileID: 0}
     - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].Age
+      value: 32 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].Age
+      value: 19 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Age
+      value: 39 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Age
+      value: 18 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].Name
+      value: "Martinat Th\xE9ophile"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].Name
+      value: Brunet Norbert
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Name
+      value: Leger Octave
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Name
+      value: Martin Baptiste
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].Index
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].Index
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Index
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Index
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: BodyHairColor.Array.data[0].a
       value: 1
       objectReference: {fileID: 0}
@@ -48203,6 +48671,22 @@ PrefabInstance:
       propertyPath: BodyHairSprites.Array.data[3]
       value: 
       objectReference: {fileID: 21300000, guid: b7177a7c29b6efd4baa49abea131ce6b, type: 3}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].MilitaryRank
+      value: Corp-Franc
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].MilitaryRank
+      value: Fantassin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].MilitaryRank
+      value: Capitaine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].MilitaryRank
+      value: Fantassin
+      objectReference: {fileID: 0}
     - target: {fileID: 6758212860467391881, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: IndexCamp
       value: 4
@@ -48496,6 +48980,10 @@ PrefabInstance:
       value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: FirstName.Array.size
       value: 19
       objectReference: {fileID: 0}
@@ -48724,6 +49212,54 @@ PrefabInstance:
       value: Capitaine
       objectReference: {fileID: 0}
     - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].Age
+      value: 30 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].Age
+      value: 19 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Age
+      value: 22 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Age
+      value: 41 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].Name
+      value: Rousseau Maurice
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].Name
+      value: Jamet Roger
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Name
+      value: Bonnin Jules
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Name
+      value: Philippon Alfred
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].Index
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].Index
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Index
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Index
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: BodyHairColor.Array.data[0].a
       value: 1
       objectReference: {fileID: 0}
@@ -48791,6 +49327,27 @@ PrefabInstance:
       propertyPath: BodyHairSprites.Array.data[3]
       value: 
       objectReference: {fileID: 21300000, guid: b7177a7c29b6efd4baa49abea131ce6b, type: 3}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].MilitaryRank
+      value: Corp-Franc
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].MilitaryRank
+      value: Fantassin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].MilitaryRank
+      value: Fantassin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Achievements
+      value: "A sauv\xE9 tout un escadron gr\xE2ce \xE0 son g\xE9nie de tacticien
+        militaire"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].MilitaryRank
+      value: Capitaine
+      objectReference: {fileID: 0}
     - target: {fileID: 6758212860467391881, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: IndexCamp
       value: 4
@@ -51736,6 +52293,10 @@ PrefabInstance:
       value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: FirstName.Array.size
       value: 19
       objectReference: {fileID: 0}
@@ -51964,6 +52525,54 @@ PrefabInstance:
       value: Capitaine
       objectReference: {fileID: 0}
     - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].Age
+      value: 34 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].Age
+      value: 44 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Age
+      value: 28 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Age
+      value: 39 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].Name
+      value: Mercier Germain
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].Name
+      value: "Bedu Cl\xE9ment"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Name
+      value: "Vivendi L\xE9on"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Name
+      value: Chagnon Arthur
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].Index
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].Index
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Index
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Index
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: BodyHairColor.Array.data[0].a
       value: 1
       objectReference: {fileID: 0}
@@ -52031,6 +52640,27 @@ PrefabInstance:
       propertyPath: BodyHairSprites.Array.data[3]
       value: 
       objectReference: {fileID: 21300000, guid: b7177a7c29b6efd4baa49abea131ce6b, type: 3}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].MilitaryRank
+      value: Corp-Franc
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].MilitaryRank
+      value: Fantassin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Achievements
+      value: "A invent\xE9 une grenade \xE0 main qui a \xE9t\xE9 largement utilis\xE9e
+        par les forces fran\xE7aises."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].MilitaryRank
+      value: Fantassin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].MilitaryRank
+      value: Capitaine
+      objectReference: {fileID: 0}
     - target: {fileID: 6758212860467391881, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: IndexCamp
       value: 4
@@ -54035,7 +54665,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh29652
+  m_Name: pb_Mesh32084
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -55294,6 +55924,10 @@ PrefabInstance:
       value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: FirstName.Array.size
       value: 19
       objectReference: {fileID: 0}
@@ -55522,6 +56156,54 @@ PrefabInstance:
       value: Capitaine
       objectReference: {fileID: 0}
     - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].Age
+      value: 27 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].Age
+      value: 25 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Age
+      value: 34 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Age
+      value: 40 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].Name
+      value: Godon Serge
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].Name
+      value: Jolivet Vincent
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Name
+      value: Brunet Maurice
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Name
+      value: Bailly Alexandre
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].Index
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].Index
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Index
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Index
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: BodyHairColor.Array.data[0].a
       value: 1
       objectReference: {fileID: 0}
@@ -55589,6 +56271,26 @@ PrefabInstance:
       propertyPath: BodyHairSprites.Array.data[3]
       value: 
       objectReference: {fileID: 21300000, guid: b7177a7c29b6efd4baa49abea131ce6b, type: 3}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].MilitaryRank
+      value: Fantassin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].MilitaryRank
+      value: Corp-Franc
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].MilitaryRank
+      value: Capitaine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Achievements
+      value: "A chang\xE9 le d\xE9roulement d'une bataille en faveur du camp fran\xE7ais"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].MilitaryRank
+      value: Capitaine
+      objectReference: {fileID: 0}
     - target: {fileID: 6758212860467391881, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: IndexCamp
       value: 4
@@ -55882,6 +56584,10 @@ PrefabInstance:
       value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: FirstName.Array.size
       value: 19
       objectReference: {fileID: 0}
@@ -56110,6 +56816,54 @@ PrefabInstance:
       value: Capitaine
       objectReference: {fileID: 0}
     - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].Age
+      value: 22 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].Age
+      value: 25 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Age
+      value: 35 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Age
+      value: 40 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].Name
+      value: Raffestin Gabriel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].Name
+      value: Robin Ernest
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Name
+      value: Foucher Gabriel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Name
+      value: Pasdeloup Victor
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].Index
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].Index
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Index
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Index
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: BodyHairColor.Array.data[0].a
       value: 1
       objectReference: {fileID: 0}
@@ -56177,6 +56931,22 @@ PrefabInstance:
       propertyPath: BodyHairSprites.Array.data[3]
       value: 
       objectReference: {fileID: 21300000, guid: b7177a7c29b6efd4baa49abea131ce6b, type: 3}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].MilitaryRank
+      value: Fantassin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].MilitaryRank
+      value: Fantassin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].MilitaryRank
+      value: Corp-Franc
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].MilitaryRank
+      value: Fantassin
+      objectReference: {fileID: 0}
     - target: {fileID: 6758212860467391881, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: IndexCamp
       value: 4
@@ -57330,6 +58100,10 @@ PrefabInstance:
       value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: FirstName.Array.size
       value: 19
       objectReference: {fileID: 0}
@@ -57558,6 +58332,54 @@ PrefabInstance:
       value: Capitaine
       objectReference: {fileID: 0}
     - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].Age
+      value: 29 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].Age
+      value: 32 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Age
+      value: 36 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Age
+      value: 45 ans
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].Name
+      value: Bourdeau Marius
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].Name
+      value: Thomas Roland
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Name
+      value: Moreux Guy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Name
+      value: Philippon Marc
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].Index
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].Index
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].Index
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].Index
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: BodyHairColor.Array.data[0].a
       value: 1
       objectReference: {fileID: 0}
@@ -57625,6 +58447,22 @@ PrefabInstance:
       propertyPath: BodyHairSprites.Array.data[3]
       value: 
       objectReference: {fileID: 21300000, guid: b7177a7c29b6efd4baa49abea131ce6b, type: 3}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[0].MilitaryRank
+      value: Corp-Franc
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[1].MilitaryRank
+      value: Fantassin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[2].MilitaryRank
+      value: Corp-Franc
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008239869698625998, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
+      propertyPath: Soldiers.Array.data[3].MilitaryRank
+      value: Fantassin
+      objectReference: {fileID: 0}
     - target: {fileID: 6758212860467391881, guid: 6cd36ecb94790be4999c8bcde4b1b421, type: 3}
       propertyPath: IndexCamp
       value: 4
