@@ -81,7 +81,7 @@ public class Bomb : MonoBehaviour
         float dist = Vector3.Distance(gameObject.transform.position, MainCamera.transform.position);
         if (dist <= 75)
         {
-            MainCamera.GetComponent<CameraShake>().CameraShaker();
+            CMvcamShale.Instance.ShakeCamera(3f, 1.25f);
         }
 
     }
