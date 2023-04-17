@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject SoldierCardPanel;
     public Camera CamPlayer;
+    [SerializeField] private Radio _radio;
 
     public bool _mapOpened;
     [SerializeField] Camera mapCam;
@@ -96,8 +97,7 @@ public class PlayerController : MonoBehaviour
             MapManager();
 
         if (Input.GetKeyUp(KeyCode.F))
-            if (Diagnosing == false)
-                AButton();
+            AButton();
 
         if (Input.GetKeyUp(KeyCode.R))
             BButton();
@@ -117,7 +117,22 @@ public class PlayerController : MonoBehaviour
 
     private void AButton()
     {
-        if (CanHeal && CurrentCamp.IsDiagnostised == false && !_mapOpened)
+        if (Diagnosing && _radio.ActualBullet != null)
+        {
+            Debug.Log("oui");
+            if (isLongPress)
+            {
+                Debug.Log("oui oui");
+                _radio.ActualBullet.IsFound = true;
+                CurrentCamp.NbBulletFound++;
+            }
+            else
+            {
+                Debug.Log("non...");
+            }
+        }
+
+        if (CanHeal && CurrentCamp.IsDiagnostised == false && !_mapOpened && Diagnosing == false)
         {
             CurrentCamp.StartHeal();
             SoldierCardPanel.SetActive(true);

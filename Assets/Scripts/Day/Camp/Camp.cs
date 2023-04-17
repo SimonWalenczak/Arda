@@ -21,7 +21,7 @@ public class Camp : MonoBehaviour
     
     [SerializeField] private List<BulletCreation> _bodyParts;
     public List<GameObject> ActualBullets;
-    [SerializeField] private int nbBulletFound;
+    public int NbBulletFound;
     
     public static bool Contains(LayerMask mask, int layer)
     {
@@ -87,7 +87,7 @@ public class Camp : MonoBehaviour
 
         SoldierCardUpdate();
     }
-
+    
     private void UpdateSoldier()
     {
         foreach (var soldier in _soldiers)
@@ -98,7 +98,7 @@ public class Camp : MonoBehaviour
             }
         }
     }
-    
+
     public void InstantiateBullet()
     {
         for (int i = 0; i < currentSoldier.NbBulletBust; i++)
@@ -129,7 +129,7 @@ public class Camp : MonoBehaviour
         {
             CheckSoldier();
             _soldierSpriteParentAnimator.Play(0);
-            nbBulletFound = 0;
+            NbBulletFound = 0;
             SelectedSoldier++;
             UpdateSoldier();
             InstantiateBullet();
@@ -149,7 +149,7 @@ public class Camp : MonoBehaviour
 
     private void CheckSoldier()
     {
-        currentSoldier.IsAlived = currentSoldier.TotalBullet == nbBulletFound ? true : false;
+        currentSoldier.IsAlived = currentSoldier.TotalBullet == NbBulletFound ? true : false;
 
         if (currentSoldier.IsAlived)
             Debug.Log("saved");
