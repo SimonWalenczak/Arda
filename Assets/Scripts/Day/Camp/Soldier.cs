@@ -12,11 +12,11 @@ public struct SoldierStruct
     public string MilitaryRank;
 
     public int TotalBullet;
+    public int NbBulletBust;
     public int NbBulletArmLeft;
     public int NbBulletArmRight;
     public int NbBulletLegLeft;
     public int NbBulletLegRight;
-    public int NbBulletBust;
 
     public bool IsAlived;
     

@@ -18,6 +18,8 @@ public class Camp : MonoBehaviour
     [SerializeField] private GameObject _soldierSpriteParent;
     [SerializeField] private Animator _soldierSpriteParentAnimator;
 
+    [SerializeField] private List<BulletCreation> _bodyParts;
+    public List<GameObject> ActualBullets;
     [SerializeField] private int nbBulletFound;
     
     public static bool Contains(LayerMask mask, int layer)
@@ -50,6 +52,17 @@ public class Camp : MonoBehaviour
         _playerController.CurrentSpeed = 0;
         _playerController.CurrentTurnSpeed = 0;
         _soldiersProps.SetActive(false);
+    
+        for (int i = 0; i < currentSoldier.NbBulletBust; i++)
+            _bodyParts[0].CreateBullet();
+        for (int i = 0; i < currentSoldier.NbBulletArmLeft; i++)
+            _bodyParts[1].CreateBullet();
+        for (int i = 0; i < currentSoldier.NbBulletArmRight; i++)
+            _bodyParts[2].CreateBullet();
+        for (int i = 0; i < currentSoldier.NbBulletLegLeft; i++)
+            _bodyParts[3].CreateBullet();
+        for (int i = 0; i < currentSoldier.NbBulletLegRight; i++)
+            _bodyParts[4].CreateBullet();
     }
 
     private void Start()
@@ -73,14 +86,51 @@ public class Camp : MonoBehaviour
         SoldierCardUpdate();
     }
 
+    private void UpdateSoldier()
+    {
+        foreach (var soldier in _soldiers)
+        {
+            if (SelectedSoldier == soldier.Index)
+            {
+                currentSoldier = soldier;
+            }
+        }
+    }
+    
+    public void InstantiateBullet()
+    {
+        for (int i = 0; i < currentSoldier.NbBulletBust; i++)
+            _bodyParts[0].CreateBullet();
+        
+        for (int i = 0; i < currentSoldier.NbBulletArmLeft; i++)
+            _bodyParts[1].CreateBullet();
+        
+        for (int i = 0; i < currentSoldier.NbBulletArmRight; i++)
+            _bodyParts[2].CreateBullet();
+        
+        for (int i = 0; i < currentSoldier.NbBulletLegLeft; i++)
+            _bodyParts[3].CreateBullet();
+        
+        for (int i = 0; i < currentSoldier.NbBulletLegRight; i++)
+            _bodyParts[4].CreateBullet();
+    }
+
     public void NextSoldier()
     {
+        foreach (var bullet in ActualBullets)
+        {
+            Destroy(bullet);
+        }
+        ActualBullets.Clear();
+
         if (SelectedSoldier < _soldiers.Count)
         {
             CheckSoldier();
             _soldierSpriteParentAnimator.Play(0);
             nbBulletFound = 0;
             SelectedSoldier++;
+            UpdateSoldier();
+            InstantiateBullet();
         }
         else if(SelectedSoldier == _soldiers.Count)
         {
@@ -90,6 +140,7 @@ public class Camp : MonoBehaviour
             _playerController.Diagnosing = false;
             _playerController.ResetSpeed();
             _soldiersProps.SetActive(true);
+            _playerController.SoldierCardPanel.SetActive(false);
         }
     }
 

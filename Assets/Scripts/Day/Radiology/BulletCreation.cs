@@ -1,52 +1,58 @@
+using System;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class BulletCreation : MonoBehaviour
 {
+
+    [SerializeField] private Camp currentCamp;
+    
     private float minXPoint;
     private float maxXPoint;
 
     private float minZPoint;
     private float maxZPoint;
-    
-    private int Area;
 
-    private BoxCollider collider;
+    private BoxCollider _collider;
 
     public GameObject bullet;
 
     private void Start()
     {
-        collider = GetComponent<BoxCollider>();
+        _collider = GetComponent<BoxCollider>();
         Initialize();
     }
 
     void Initialize()
     {
-        minXPoint = collider.bounds.min.x;
-        maxXPoint = collider.bounds.max.x;
+        minXPoint = _collider.bounds.min.x;
+        maxXPoint = _collider.bounds.max.x;
 
-        minZPoint = collider.bounds.min.z;
-        maxZPoint = collider.bounds.max.z;
+        minZPoint = _collider.bounds.min.z;
+        maxZPoint = _collider.bounds.max.z;
 
-        print("min X : " + collider.bounds.min.x);
-        print("max X : " + collider.bounds.max.x);
-        print("min Z : " + collider.bounds.min.z);
-        print("max Z : " + collider.bounds.max.z);
+        print("min X : " + _collider.bounds.min.x);
+        print("max X : " + _collider.bounds.max.x);
+        print("min Z : " + _collider.bounds.min.z);
+        print("max Z : " + _collider.bounds.max.z);
 
         float distX = math.abs(minXPoint - maxXPoint);
         float distZ = math.abs(minZPoint - maxZPoint);
-        
-        CreateBullet();
     }
+
+    // private void Update()
+    // {
+    //     if(Input.GetKeyDown(KeyCode.A))
+    //         CreateBullet();
+    // }
 
     public void CreateBullet()
     {
         float xPos = Random.Range(minXPoint, maxXPoint);
         float zPos = Random.Range(minZPoint, maxZPoint);
         
-        Vector3 spawnPos = new Vector3(xPos, transform.position.y, zPos);
+        Vector3 spawnPos = new Vector3(xPos, transform.position.y+0.1f, zPos);
         
         RaycastHit hit;
         if (Physics.Raycast(spawnPos, -Vector3.up, out hit))
@@ -55,10 +61,13 @@ public class BulletCreation : MonoBehaviour
 
             if (hit.collider.gameObject.name == name)
             {
-                GameObject actualbullet = Instantiate(bullet, spawnPos, Quaternion.Euler(90f, 0f, 0f));
-                Debug.Log("bullet create");
+                GameObject actualbullet = Instantiate(bullet, spawnPos, Quaternion.Euler(-90f, 0f, 0f));
+                currentCamp.ActualBullets.Add(actualbullet);
             }
-            Debug.Log("nope ");
+            else
+            {
+                CreateBullet();
+            }
         }
     }
 }
