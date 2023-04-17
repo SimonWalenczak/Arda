@@ -1,15 +1,16 @@
-using System;
-using Unity.Mathematics;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class Radio : MonoBehaviour
 {
-    [SerializeField] private Camera cam;
-    
+    public float speed;
+
     void Update()
     {
-        Vector2 cursorPos = cam.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = new Vector2(cursorPos.x, cursorPos.y);
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+        
+        Vector3 newPosition = transform.position + new Vector3(x * speed * Time.deltaTime, 0f, z * speed * Time.deltaTime);
+        
+        transform.position = newPosition;
     }
 }

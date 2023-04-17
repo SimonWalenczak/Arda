@@ -17,7 +17,8 @@ public class Camp : MonoBehaviour
     [SerializeField] private GameObject _soldiersProps;
     [SerializeField] private GameObject _soldierSpriteParent;
     [SerializeField] private Animator _soldierSpriteParentAnimator;
-
+    [SerializeField] private GameObject radio;
+    
     [SerializeField] private List<BulletCreation> _bodyParts;
     public List<GameObject> ActualBullets;
     [SerializeField] private int nbBulletFound;
@@ -52,7 +53,8 @@ public class Camp : MonoBehaviour
         _playerController.CurrentSpeed = 0;
         _playerController.CurrentTurnSpeed = 0;
         _soldiersProps.SetActive(false);
-    
+        radio.SetActive(true);
+        
         for (int i = 0; i < currentSoldier.NbBulletBust; i++)
             _bodyParts[0].CreateBullet();
         for (int i = 0; i < currentSoldier.NbBulletArmLeft; i++)
@@ -140,6 +142,7 @@ public class Camp : MonoBehaviour
             _playerController.Diagnosing = false;
             _playerController.ResetSpeed();
             _soldiersProps.SetActive(true);
+            radio.SetActive(false);
             _playerController.SoldierCardPanel.SetActive(false);
         }
     }
