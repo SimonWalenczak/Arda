@@ -27,7 +27,6 @@ public class GenerateSoldier : MonoBehaviour
             newSoldier.Face = face;
             newSoldier.BodyHair = bodyHair;
             newSoldier.BodyHairColor = bodyHairColor;
-            newSoldier.IsDiagnosed = false;
             Soldiers[i] = newSoldier;
         }
     }

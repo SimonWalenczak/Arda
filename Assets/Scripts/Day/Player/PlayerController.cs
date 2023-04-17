@@ -29,11 +29,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject _mapMarker;
 
     #region Input
+
     float pressTime = 0;
     bool isLongPress = false;
+
     void TapOrLongTouch()
     {
-        if (Input.GetKey(KeyCode.F))
+        if (Input.GetKey(KeyCode.F) || Input.GetKey(KeyCode.R))
         {
             pressTime += Time.deltaTime;
 
@@ -42,7 +44,7 @@ public class PlayerController : MonoBehaviour
             else
                 isLongPress = false;
         }
-        else if (Input.GetKeyUp(KeyCode.F))
+        else if (Input.GetKeyUp(KeyCode.F) || Input.GetKeyUp(KeyCode.R))
         {
             if (isLongPress)
             {
@@ -56,6 +58,7 @@ public class PlayerController : MonoBehaviour
             pressTime = 0;
         }
     }
+
     #endregion
 
 
@@ -87,14 +90,16 @@ public class PlayerController : MonoBehaviour
     {
         Move();
 
-        if (Input.GetKeyDown(KeyCode.M))
+        TapOrLongTouch();
+
+        if (Input.GetKeyUp(KeyCode.M))
             MapManager();
 
-        if (Input.GetKeyDown(KeyCode.F))
-            if(Diagnosing == false)
+        if (Input.GetKeyUp(KeyCode.F))
+            if (Diagnosing == false)
                 AButton();
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyUp(KeyCode.R))
             BButton();
 
         if (Diagnosing)
@@ -107,6 +112,7 @@ public class PlayerController : MonoBehaviour
     {
         CurrentSpeed = speed;
         CurrentTurnSpeed = turnSpeed;
+        CamPlayer.enabled = true;
     }
 
     private void AButton()
@@ -132,10 +138,20 @@ public class PlayerController : MonoBehaviour
 
     private void BButton()
     {
-        if (_mapOpened && _mapMarkerObject != null)
+        if (Diagnosing == false)
         {
-            Destroy(_mapMarkerObject);
-            _mapMarker.SetActive(false);
+            if (_mapOpened && _mapMarkerObject != null)
+            {
+                Destroy(_mapMarkerObject);
+                _mapMarker.SetActive(false);
+            }
+        }
+        else
+        {
+            if (isLongPress)
+            {
+                CurrentCamp.NextSoldier();
+            }
         }
     }
 
