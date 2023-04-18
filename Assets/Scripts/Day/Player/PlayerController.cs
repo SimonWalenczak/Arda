@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour
 
         TapOrLongTouch();
 
-        if (Input.GetKeyUp(KeyCode.M))
+        if (Input.GetKeyUp(KeyCode.M) && Diagnosing == false)
             MapManager();
 
         if (Input.GetKeyUp(KeyCode.F))

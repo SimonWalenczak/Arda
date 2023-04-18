@@ -38,11 +38,13 @@ public class TimeController : MonoBehaviour
 
         if (GameData.IsRainning)
             Rain.SetActive(true);
-
     }
 
     private void Update()
     {
+        UpdateTimeOfDay();
+        RotateSun();
+        
         if (_currentTime >= DateTime.Now.Date + TimeSpan.FromHours(_sunsetHour) && _isTimeToNight == false)
         {
             _isTimeToNight = true;
