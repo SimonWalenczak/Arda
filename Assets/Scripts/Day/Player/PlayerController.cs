@@ -183,29 +183,31 @@ public class PlayerController : MonoBehaviour
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-
+        
         if (vertical != 0)
         {
-            transform.position += transform.forward * vertical * CurrentSpeed * Time.deltaTime;
-
+            //transform.position += transform.forward * vertical * CurrentSpeed * Time.deltaTime;
+            
+            transform.Translate(Vector3.forward * Time.deltaTime * CurrentSpeed * vertical);
+            
             if (vertical >= 0.1f)
             {
                 transform.Rotate(Vector3.up, horizontal * CurrentTurnSpeed * Time.deltaTime);
-
-                backWheels.transform.Rotate(1.0f, 0.0f, 0.0f, Space.Self);
-
+        
+                backWheels.transform.Rotate(3.0f, 0.0f, 0.0f, Space.Self);
+        
                 foreach (var frontWheel in frontWheels)
-                    frontWheel.transform.Rotate(1.0f, 0, 0.0f, Space.Self);
+                    frontWheel.transform.Rotate(3.0f, 0, 0.0f, Space.Self);
             }
-
+        
             if (vertical <= -0.1f)
             {
                 transform.Rotate(Vector3.up, -horizontal * CurrentTurnSpeed * Time.deltaTime);
 
-                backWheels.transform.Rotate(-1.0f, 0.0f, 0.0f, Space.Self);
-
+                backWheels.transform.Rotate(-3.0f, 0.0f, 0.0f, Space.Self);
+        
                 foreach (var frontWheel in frontWheels)
-                    frontWheel.transform.Rotate(-1.0f, 0, 0.0f, Space.Self);
+                    frontWheel.transform.Rotate(-3.0f, 0, 0.0f, Space.Self);
             }
         }
     }
