@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
 {
     public bool CanHeal;
     public bool Diagnosing;
+    public bool OnBilan;
     public float speed = 10.0f;
     public float CurrentSpeed;
     public float turnSpeed = 10.0f;
@@ -21,6 +22,9 @@ public class PlayerController : MonoBehaviour
     public GameObject SoldierCardPanel;
     public Camera CamPlayer;
     [SerializeField] private Radio _radio;
+    public GameObject FicheBilan;
+    public List<GameObject> SoldierSaved;
+    public List<GameObject> SoldierDead;
 
     public bool _mapOpened;
     [SerializeField] Camera mapCam;
@@ -153,6 +157,11 @@ public class PlayerController : MonoBehaviour
 
     private void BButton()
     {
+        if (OnBilan)
+        {
+            FicheBilan.SetActive(false);    
+        }
+        
         if (Diagnosing == false)
         {
             if (_mapOpened && _mapMarkerObject != null)

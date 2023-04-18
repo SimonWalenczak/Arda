@@ -22,6 +22,9 @@ public class Camp : MonoBehaviour
     [SerializeField] private List<BulletCreation> _bodyParts;
     public List<GameObject> ActualBullets;
     public int NbBulletFound;
+
+    public int TotalSaved = 0;
+    public int TotalDead = 0;
     
     public static bool Contains(LayerMask mask, int layer)
     {
@@ -54,6 +57,10 @@ public class Camp : MonoBehaviour
         _playerController.CurrentTurnSpeed = 0;
         _soldiersProps.SetActive(false);
         radio.SetActive(true);
+        for (int i = 0; i < TotalSaved; i++)
+            _playerController.SoldierSaved[i].SetActive(false);
+        for (int i = 0; i < TotalDead; i++)
+            _playerController.SoldierDead[i].SetActive(false);
         
         for (int i = 0; i < currentSoldier.NbBulletBust; i++)
             _bodyParts[0].CreateBullet();
@@ -144,6 +151,14 @@ public class Camp : MonoBehaviour
             _soldiersProps.SetActive(true);
             radio.SetActive(false);
             _playerController.SoldierCardPanel.SetActive(false);
+            _playerController.FicheBilan.SetActive(true);
+            _playerController.OnBilan = true;
+            
+            for (int i = 0; i < TotalSaved; i++)
+                _playerController.SoldierSaved[i].SetActive(true);
+            for (int i = 0; i < TotalDead; i++)
+                _playerController.SoldierDead[i].SetActive(true);
+            
         }
     }
 
@@ -152,9 +167,9 @@ public class Camp : MonoBehaviour
         currentSoldier.IsAlived = currentSoldier.TotalBullet == NbBulletFound ? true : false;
 
         if (currentSoldier.IsAlived)
-            Debug.Log("saved");
+            TotalSaved++;
         else
-            Debug.Log(("dead"));
+            TotalDead++;
     }
 
     private void SoldierCardUpdate()
