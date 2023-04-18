@@ -20,8 +20,6 @@ public class CMvcamShale : MonoBehaviour
 
     public void ShakeCamera(float intensity, float time)
     {
-        print("coucouuu");
-
         CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin =
             cinemachineVirtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 
