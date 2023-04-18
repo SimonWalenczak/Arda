@@ -17,11 +17,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private List<GameObject> frontWheels;
 
     public Camp CurrentCamp;
-    public List<SoldierStruct> soldiers;
 
     public GameObject SoldierCardPanel;
     public Camera CamPlayer;
-    [SerializeField] private Radio _radio;
+    public Radio _radio;
     public GameObject FicheBilan;
     public List<GameObject> SoldierSaved;
     public List<GameObject> SoldierDead;
@@ -32,6 +31,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject _mapMarkerPrefab;
     public GameObject _mapMarkerObject;
     [SerializeField] private GameObject _mapMarker;
+    
 
     #region Input
 

@@ -1,4 +1,3 @@
-using System;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -62,6 +61,7 @@ public class BulletCreation : MonoBehaviour
             if (hit.collider.gameObject.name == name)
             {
                 GameObject actualbullet = Instantiate(bullet, spawnPos, Quaternion.Euler(-90f, 0f, 0f));
+                actualbullet.transform.SetParent(currentCamp.transform);
                 currentCamp.ActualBullets.Add(actualbullet);
             }
             else

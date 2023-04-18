@@ -18,6 +18,7 @@ public class Camp : MonoBehaviour
     [SerializeField] private GameObject _soldierSpriteParent;
     [SerializeField] private Animator _soldierSpriteParentAnimator;
     [SerializeField] private GameObject radio;
+    public GameObject radioParent;
     
     [SerializeField] private List<BulletCreation> _bodyParts;
     public List<GameObject> ActualBullets;
@@ -57,6 +58,9 @@ public class Camp : MonoBehaviour
         _playerController.CurrentTurnSpeed = 0;
         _soldiersProps.SetActive(false);
         radio.SetActive(true);
+        _playerController._radio = radio.GetComponent<Radio>();
+        radioParent.SetActive(true);
+        
         for (int i = 0; i < TotalSaved; i++)
             _playerController.SoldierSaved[i].SetActive(false);
         for (int i = 0; i < TotalDead; i++)
@@ -153,7 +157,9 @@ public class Camp : MonoBehaviour
             _playerController.SoldierCardPanel.SetActive(false);
             _playerController.FicheBilan.SetActive(true);
             _playerController.OnBilan = true;
-            
+            _playerController._radio = null;
+            radioParent.SetActive(false);
+
             for (int i = 0; i < TotalSaved; i++)
                 _playerController.SoldierSaved[i].SetActive(true);
             for (int i = 0; i < TotalDead; i++)
