@@ -60,7 +60,7 @@ public class Bomb : MonoBehaviour
     }
 
 
-    void DestroyProps()
+    void HandleEnviro()
     {
         RaycastHit[] hits = Physics.SphereCastAll(transform.position, 5, transform.forward);
         //print("ouai c moi");
@@ -72,9 +72,12 @@ public class Bomb : MonoBehaviour
                 //print("cc");
                 hit.collider.gameObject.GetComponent<Destructible>().Destruction();
             }
+            else if (hit.collider.tag == "Soldier")
+            {
+                hit.collider.gameObject.GetComponent<SoldierMoving>().UpdateState(0, "fall");
+            }
         }
     }
-
 
     void TriggerCameraShake()
     {
@@ -117,7 +120,7 @@ public class Bomb : MonoBehaviour
             {
                 Vector3 spawnPos = new Vector3(transform.position.x, transform.position.y-2, transform.position.z);  
                 Instantiate(explosionVfx, spawnPos, transform.rotation);
-                DestroyProps();
+                HandleEnviro();
                 TriggerCameraShake();
                 EditTerrain(xPos, yPos);
                 hasExploded = true;

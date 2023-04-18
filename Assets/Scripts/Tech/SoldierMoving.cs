@@ -6,9 +6,9 @@ public class SoldierMoving : MonoBehaviour
 {
     Rigidbody rb;
     Animator animator;
-    [SerializeField] float speed;
-    [SerializeField] bool fastRun;
 
+    public List<SoldierState> SoldierStates = new List<SoldierState>();
+    private float speed;
 
 
     void Start()
@@ -16,23 +16,42 @@ public class SoldierMoving : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
 
-        if (fastRun)
+        if (animator != null)
         {
-            animator.SetBool("fastrun", true);
+            foreach (var item in SoldierStates)
+            {
+                if (item.isStartAnimation)
+                {
+                    UpdateState(item.Speed, item.Animation);
+                }
+            }
         }
 
     }
 
-    // Update is called once per frame
+
     void FixedUpdate()
     {
         MoveSoldier();
     }
 
+    public void UpdateState(float newSpeed, string newAnim)
+    {
+        float randomStart;
+        if (newSpeed!=0)
+        {
+            randomStart = Random.Range(0.00f, 1.00f);
+        }
+        else
+        {
+            randomStart = 0;
+        }
+        animator.Play("Base Layer." + newAnim, 0, randomStart);
+        speed = newSpeed;
+    }
+
     void MoveSoldier()
     {
-        //Vector3 tempVect = new Vector3(0, 0, 0);
-        //tempVect = tempVect.normalized * speed * Time.deltaTime;
         rb.MovePosition(transform.position + (transform.forward * speed * Time.deltaTime));
     }
 }
