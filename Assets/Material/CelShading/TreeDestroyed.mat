@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Tree
+  m_Name: TreeDestroyed
   m_Shader: {fileID: -6465566751694194690, guid: 490ab7255c7237445bb054b71e64fd59, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -89,7 +89,7 @@ Material:
     - _Alpha: 1
     - _AlphaClip: 0
     - _AmbiantStrengh: -0.12
-    - _Ammount_Red: -1
+    - _Ammount_Red: 40
     - _Blend: 0
     - _BumpScale: 1
     - _ClearCoatMask: 0
@@ -102,7 +102,7 @@ Material:
     - _EnvironmentReflections: 1
     - _FalloffAmount: 0
     - _Float: 0.59
-    - _Float_1: 0
+    - _Float_1: 40.57
     - _FresnelSize: 1.29
     - _GlossMapScale: 0
     - _Glossiness: 0

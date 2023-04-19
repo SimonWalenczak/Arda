@@ -17,6 +17,7 @@ public class Destructible : MonoBehaviour
     public void Destruction()
     {
         boxCollider.enabled = false;
+        //DestroyedVersion.GetComponentInChildren<Material>().SetFloat("_Ammount_Red", 40);
         Instantiate(DestroyedVersion, transform.position, transform.rotation);
         Destroy(gameObject);
     }
