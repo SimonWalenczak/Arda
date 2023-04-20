@@ -1,8 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections;
-
-
+using UnityEngine.InputSystem;
 
 public class ArcadeCar : MonoBehaviour
 {
@@ -226,6 +225,7 @@ public class ArcadeCar : MonoBehaviour
     bool isReverseAcceleration = false;
     float accelerationForceMagnitude = 0.0f;
     Rigidbody rb = null;
+    Vector2 horizontalMovement = Vector2.zero;
 
     // UI style for debug render
     static GUIStyle style = new GUIStyle();
@@ -272,7 +272,7 @@ public class ArcadeCar : MonoBehaviour
             rb = GetComponent<Rigidbody>();
         }
 
-        //ApplyVisual();
+        ApplyVisual();
         CalculateAckermannSteering();
     }
 
@@ -426,11 +426,30 @@ public class ArcadeCar : MonoBehaviour
         return limitDegrees;
     }
 
+    public void GetXvalue(InputAction.CallbackContext ctx)
+    {
+        horizontalMovement = ctx.ReadValue<Vector2>();
+    }
+
+
     void UpdateInput()
     {
-        float v = Input.GetAxis("Vertical");
-        float h = Input.GetAxis("Horizontal");
+        //float v = Input.GetAxis("Vertical");
+        float v = 0f;
+        float h = 0f;
+        //float h = Input.GetAxis("Horizontal");
         //Debug.Log (string.Format ("H = {0}", h));
+
+        if (Gamepad.current.leftTrigger.isPressed)
+        {
+            v = -1;
+        }
+        if (Gamepad.current.rightTrigger.isPressed)
+        {
+            v = 1;
+        }
+
+        h = horizontalMovement.x;
 
         if (!controllable)
         {
@@ -438,56 +457,56 @@ public class ArcadeCar : MonoBehaviour
             h = 0.0f;
         }
 
-        if (Input.GetKey(KeyCode.R) && controllable)
-        {
-            Debug.Log("Reset pressed");
-            Ray resetRay = new Ray();
+        //if (Input.GetKey(KeyCode.R) && controllable)
+        //{
+        //    Debug.Log("Reset pressed");
+        //    Ray resetRay = new Ray();
 
-            // trace top-down
-            resetRay.origin = transform.position + new Vector3(0.0f, 100.0f, 0.0f);
-            resetRay.direction = new Vector3(0.0f, -1.0f, 0.0f);
+        //    // trace top-down
+        //    resetRay.origin = transform.position + new Vector3(0.0f, 100.0f, 0.0f);
+        //    resetRay.direction = new Vector3(0.0f, -1.0f, 0.0f);
 
-            RaycastHit[] resetRayHits = new RaycastHit[16];
+        //    RaycastHit[] resetRayHits = new RaycastHit[16];
 
-            int numHits = Physics.RaycastNonAlloc(resetRay, resetRayHits, 250.0f);
+        //    int numHits = Physics.RaycastNonAlloc(resetRay, resetRayHits, 250.0f);
 
-            if (numHits > 0)
-            {                
-                float nearestDistance = float.MaxValue;
-                for (int j = 0; j < numHits; j++)
-                {
-                    if (resetRayHits[j].collider != null && resetRayHits[j].collider.isTrigger)
-                    {
-                        // skip triggers
-                        continue;
-                    }
+        //    if (numHits > 0)
+        //    {                
+        //        float nearestDistance = float.MaxValue;
+        //        for (int j = 0; j < numHits; j++)
+        //        {
+        //            if (resetRayHits[j].collider != null && resetRayHits[j].collider.isTrigger)
+        //            {
+        //                // skip triggers
+        //                continue;
+        //            }
 
-                    // Filter contacts with car body
-                    if (resetRayHits[j].rigidbody == rb)
-                    {
-                        continue;
-                    }
+        //            // Filter contacts with car body
+        //            if (resetRayHits[j].rigidbody == rb)
+        //            {
+        //                continue;
+        //            }
 
-                    if (resetRayHits[j].distance < nearestDistance)
-                    {
-                        nearestDistance = resetRayHits[j].distance;
-                    }
-                }
+        //            if (resetRayHits[j].distance < nearestDistance)
+        //            {
+        //                nearestDistance = resetRayHits[j].distance;
+        //            }
+        //        }
 
-                // -4 meters from surface
-                nearestDistance -= 4.0f;
-                Vector3 resetPos = resetRay.origin + resetRay.direction * nearestDistance;
-                Reset(resetPos);
-            } else
-            {
-                // Hard reset
-                Reset(new Vector3(-69.48f, 5.25f, 132.71f));
-            }
-        }
+        //        // -4 meters from surface
+        //        nearestDistance -= 4.0f;
+        //        Vector3 resetPos = resetRay.origin + resetRay.direction * nearestDistance;
+        //        Reset(resetPos);
+        //    } else
+        //    {
+        //        // Hard reset
+        //        Reset(new Vector3(-69.48f, 5.25f, 132.71f));
+        //    }
+        //}
 
 
         bool isBrakeNow = false;
-        bool isHandBrakeNow = Input.GetKey(KeyCode.Space) && controllable;
+        //bool isHandBrakeNow = Input.GetKey(KeyCode.Space) && controllable;
 
         float speed = GetSpeed();
         isAcceleration = false;
@@ -522,15 +541,15 @@ public class ArcadeCar : MonoBehaviour
         }
 
         // slippery tires while handsbrakes are pressed
-        if (isHandBrakeNow == true)
-        {
-            handBrakeSlipperyTiresTime = Math.Max(0.1f, handBrakeSlipperyTime);
-        }
+        //if (isHandBrakeNow == true)
+        //{
+        //    handBrakeSlipperyTiresTime = Math.Max(0.1f, handBrakeSlipperyTime);
+        //}
 
         isBrake = isBrakeNow;
 
         // hand brake + acceleration = power slide
-        isHandBrake = isHandBrakeNow && !isAcceleration && !isReverseAcceleration;
+        //isHandBrake = isHandBrakeNow && !isAcceleration && !isReverseAcceleration;
 
         axles[0].brakeLeft = isBrake;
         axles[0].brakeRight = isBrake;
@@ -1253,7 +1272,7 @@ public class ArcadeCar : MonoBehaviour
             if (axle.wheelVisualLeft != null)
             {
                 CalculateWheelVisualTransform(wsL, wsDownDirection, axle, axle.wheelDataL, WHEEL_LEFT_INDEX, axle.wheelDataL.visualRotationRad, out wsPos, out wsRot);
-                //axle.wheelVisualLeft.transform.position = wsPos;
+                axle.wheelVisualLeft.transform.position = wsPos;
                 axle.wheelVisualLeft.transform.rotation = wsRot;
                 //axle.wheelVisualLeft.transform.localScale = new Vector3(axle.radius, axle.radius, axle.radius) * axle.visualScale;
 
@@ -1266,7 +1285,7 @@ public class ArcadeCar : MonoBehaviour
             if (axle.wheelVisualRight != null)
             {
                 CalculateWheelVisualTransform(wsR, wsDownDirection, axle, axle.wheelDataR, WHEEL_RIGHT_INDEX, axle.wheelDataR.visualRotationRad, out wsPos, out wsRot);
-                //axle.wheelVisualRight.transform.position = wsPos;
+                axle.wheelVisualRight.transform.position = wsPos;
                 axle.wheelVisualRight.transform.rotation = wsRot;
                 //axle.wheelVisualRight.transform.localScale = new Vector3(axle.radius, axle.radius, axle.radius) * axle.visualScale;
 

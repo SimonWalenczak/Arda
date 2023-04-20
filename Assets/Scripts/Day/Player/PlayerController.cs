@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -40,7 +41,30 @@ public class PlayerController : MonoBehaviour
 
     void TapOrLongTouch()
     {
-        if (Input.GetKey(KeyCode.F) || Input.GetKey(KeyCode.R))
+        //if (Input.GetKey(KeyCode.F) || Input.GetKey(KeyCode.R))
+        //{
+        //    pressTime += Time.deltaTime;
+
+        //    if (pressTime >= 0.5f)
+        //        isLongPress = true;
+        //    else
+        //        isLongPress = false;
+        //}
+        //else if (Input.GetKeyUp(KeyCode.F) || Input.GetKeyUp(KeyCode.R))
+        //{
+        //    if (isLongPress)
+        //    {
+        //        Debug.Log("Long press detected");
+        //    }
+        //    else
+        //    {
+        //        Debug.Log("Short press detected");
+        //    }
+
+        //    pressTime = 0;
+        //}
+
+        if (Gamepad.current.aButton.isPressed || Gamepad.current.bButton.isPressed)
         {
             pressTime += Time.deltaTime;
 
@@ -49,7 +73,7 @@ public class PlayerController : MonoBehaviour
             else
                 isLongPress = false;
         }
-        else if (Input.GetKeyUp(KeyCode.F) || Input.GetKeyUp(KeyCode.R))
+        else if (Gamepad.current.aButton.wasReleasedThisFrame || Gamepad.current.bButton.wasReleasedThisFrame)
         {
             if (isLongPress)
             {
@@ -62,6 +86,7 @@ public class PlayerController : MonoBehaviour
 
             pressTime = 0;
         }
+
     }
 
     #endregion
@@ -93,23 +118,40 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Move();
+        //Move();
+
+        //TapOrLongTouch();
+
+        //if ((Input.GetKeyUp(KeyCode.M) || Gamepad.current.yButton.wasReleasedThisFrame) && Diagnosing == false)
+        //    MapManager();
+
+        //if (Input.GetKeyUp(KeyCode.F) || Gamepad.current.aButton.wasReleasedThisFrame)
+        //    AButton();
+
+        //if (Input.GetKeyUp(KeyCode.R) || Gamepad.current.bButton.wasReleasedThisFrame)
+        //    BButton();
+
+        //if (Diagnosing)
+        //    CompassUI.SetActive(false);
+        //else
+        //    CompassUI.SetActive(true);
 
         TapOrLongTouch();
 
-        if (Input.GetKeyUp(KeyCode.M) && Diagnosing == false)
+        if (Gamepad.current.yButton.wasReleasedThisFrame && Diagnosing == false)
             MapManager();
 
-        if (Input.GetKeyUp(KeyCode.F))
+        if (Gamepad.current.aButton.wasReleasedThisFrame)
             AButton();
 
-        if (Input.GetKeyUp(KeyCode.R))
+        if (Gamepad.current.bButton.wasReleasedThisFrame)
             BButton();
 
         if (Diagnosing)
             CompassUI.SetActive(false);
         else
             CompassUI.SetActive(true);
+
     }
 
     public void ResetSpeed()
@@ -179,38 +221,38 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Move()
-    {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+    //private void Move()
+    //{
+    //    float horizontal = Input.GetAxis("Horizontal");
+    //    float vertical = Input.GetAxis("Vertical");
         
-        if (vertical != 0)
-        {
-            //transform.position += transform.forward * vertical * CurrentSpeed * Time.deltaTime;
+    //    if (vertical != 0)
+    //    {
+    //        //transform.position += transform.forward * vertical * CurrentSpeed * Time.deltaTime;
             
-            transform.Translate(Vector3.forward * Time.deltaTime * CurrentSpeed * vertical);
+    //        transform.Translate(Vector3.forward * Time.deltaTime * CurrentSpeed * vertical);
             
-            if (vertical >= 0.1f)
-            {
-                transform.Rotate(Vector3.up, horizontal * CurrentTurnSpeed * Time.deltaTime);
+    //        if (vertical >= 0.1f)
+    //        {
+    //            transform.Rotate(Vector3.up, horizontal * CurrentTurnSpeed * Time.deltaTime);
         
-                backWheels.transform.Rotate(3.0f, 0.0f, 0.0f, Space.Self);
+    //            backWheels.transform.Rotate(3.0f, 0.0f, 0.0f, Space.Self);
         
-                foreach (var frontWheel in frontWheels)
-                    frontWheel.transform.Rotate(3.0f, 0, 0.0f, Space.Self);
-            }
+    //            foreach (var frontWheel in frontWheels)
+    //                frontWheel.transform.Rotate(3.0f, 0, 0.0f, Space.Self);
+    //        }
         
-            if (vertical <= -0.1f)
-            {
-                transform.Rotate(Vector3.up, -horizontal * CurrentTurnSpeed * Time.deltaTime);
+    //        if (vertical <= -0.1f)
+    //        {
+    //            transform.Rotate(Vector3.up, -horizontal * CurrentTurnSpeed * Time.deltaTime);
 
-                backWheels.transform.Rotate(-3.0f, 0.0f, 0.0f, Space.Self);
+    //            backWheels.transform.Rotate(-3.0f, 0.0f, 0.0f, Space.Self);
         
-                foreach (var frontWheel in frontWheels)
-                    frontWheel.transform.Rotate(-3.0f, 0, 0.0f, Space.Self);
-            }
-        }
-    }
+    //            foreach (var frontWheel in frontWheels)
+    //                frontWheel.transform.Rotate(-3.0f, 0, 0.0f, Space.Self);
+    //        }
+    //    }
+    //}
 
     private void MapManager()
     {
