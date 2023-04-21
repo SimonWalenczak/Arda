@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
@@ -24,15 +24,16 @@ public class NightManager : MonoBehaviour
     [SerializeField] private TMP_Text FirstClassSavedText;
     [SerializeField] private TMP_Text EliteSavedText;
     [SerializeField] private TMP_Text OfficierSavedText;
-    
-    [Header("\nChance of rain\n")] 
-    [SerializeField] private int _rainChance = 15;
 
-    [Header("\nChance of hard or soft fight (by range)\n")] 
-    [SerializeField] private int hardFightChance = 20;
+    [Header("\nChance of rain\n")] [SerializeField]
+    private int _rainChance = 15;
+
+    [Header("\nChance of hard or soft fight (by range)\n")] [SerializeField]
+    private int hardFightChance = 20;
+
     [SerializeField] private int softFightChance = 10;
 
-    
+
     [Header("\n----------- Upgrade -----------\n")] [SerializeField]
     private GameObject _upgradePanel;
 
@@ -48,10 +49,12 @@ public class NightManager : MonoBehaviour
     [SerializeField] private GameObject FadeOut;
 
 
+    [Space(10)] [Header("Input")] private bool canGoToNextDay;
+    float pressTime = 0;
+
+    bool isLongPress = false;
     //[Header("\n------------ Zones ------------\n")] 
     //[SerializeField] private List<Zone> _zones;
-
-
 
     #endregion
 
@@ -77,6 +80,7 @@ public class NightManager : MonoBehaviour
         {
             UpgradeApplicated[i].SetActive(false);
         }
+
         ResetGlobalVariables();
         CalculGameDataTotal();
         SetValueForBilan();
@@ -86,8 +90,15 @@ public class NightManager : MonoBehaviour
 
     private void Update()
     {
+        TapOrLongTouch();
+
         if (_generalDialog.CanUpgrade)
             UpgradeCar();
+
+        if (Gamepad.current.bButton.wasReleasedThisFrame && canGoToNextDay == true)
+        {
+            GoToDayScene();
+        }
     }
 
     private void StartEvents()
@@ -208,54 +219,63 @@ public class NightManager : MonoBehaviour
         FadeOut.SetActive(true);
         GameData.NumberDays++;
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene("LD_Reboot");
+        SceneManager.LoadScene(1);
     }
+
     void UpgradeCar()
     {
+        canGoToNextDay = true;
         _generalAnnounce.SetActive(false);
         _upgradePanel.SetActive(true);
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Gamepad.current.buttonEast.wasPressedThisFrame)
+        {
+            print(("moins"));
             index--;
-        if (Input.GetKeyDown(KeyCode.D))
-            index++;
+        }
 
-        if (Input.GetKeyDown(KeyCode.R))
-            StartCoroutine(GoToDayScene());
+        if (Gamepad.current.buttonWest.wasPressedThisFrame)
+        {
+            print(("plus"));
+            index++;
+        }
 
         if (index > Items.Count)
             index = 1;
         if (index < 1)
             index = Items.Count;
-        
+
         foreach (var item in Items)
         {
             if (item.index == index)
                 item.isSelected = true;
             else
                 item.isSelected = false;
-            
+
             if (item.isSelected)
             {
                 print(item.index);
                 item.transform.DOScale(new Vector3(1.7f, 1.7f, 1.7f), 1);
-                UpgradePopup.transform.position = new Vector3(item.transform.position.x + 3.5f, item.transform.position.y + 1f,  item.transform.position.z - 1);
+                UpgradePopup.transform.position = new Vector3(item.transform.position.x + 3.5f,
+                    item.transform.position.y + 1f, item.transform.position.z - 1);
                 UpgradePopupText.SetText(item.previewEffect);
 
-                if (Input.GetKeyDown(KeyCode.F) && item.isPicked == false)
+                if (Gamepad.current.aButton.wasPressedThisFrame
+                    && item.isPicked == false)
                 {
                     item.isPicked = true;
                     item.Excute();
                     nbUpgradeapplicated++;
-                    
+
                     for (int i = 0; i < nbUpgradeapplicated; i++)
                     {
                         UpgradeApplicated[i].SetActive(true);
                     }
 
-                    UpgradeApplicated[nbUpgradeapplicated - 1].transform.DOMoveX(UpgradeApplicated[nbUpgradeapplicated - 1].transform.position.x + offsetX, 1);
-                    UpgradeApplicated[nbUpgradeapplicated-1].GetComponentInChildren<TMP_Text>().SetText(item.effect);
-                    
+                    UpgradeApplicated[nbUpgradeapplicated - 1].transform
+                        .DOMoveX(UpgradeApplicated[nbUpgradeapplicated - 1].transform.position.x + offsetX, 1);
+                    UpgradeApplicated[nbUpgradeapplicated - 1].GetComponentInChildren<TMP_Text>().SetText(item.effect);
+
                     print(item.itemName);
                 }
             }
@@ -264,11 +284,22 @@ public class NightManager : MonoBehaviour
                 item.transform.DOScale(new Vector3(1.5f, 1.5f, 1.5f), 1);
             }
         }
+    }
 
+    private void TapOrLongTouch()
+    {
+        if (Gamepad.current.aButton.isPressed || Gamepad.current.bButton.isPressed)
+        {
+            pressTime += Time.deltaTime;
 
-        // if (Input.GetKeyDown(KeyCode.Return))
-        // {
-        //     SceneManager.LoadScene(1);
-        // }
+            if (pressTime >= 0.5f)
+                isLongPress = true;
+            else
+                isLongPress = false;
+        }
+        else if (Gamepad.current.aButton.wasReleasedThisFrame || Gamepad.current.bButton.wasReleasedThisFrame)
+        {
+            pressTime = 0;
+        }
     }
 }

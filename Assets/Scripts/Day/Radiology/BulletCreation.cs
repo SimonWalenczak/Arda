@@ -4,7 +4,6 @@ using Random = UnityEngine.Random;
 
 public class BulletCreation : MonoBehaviour
 {
-
     [SerializeField] private Camp currentCamp;
     
     private float minXPoint;
@@ -31,20 +30,10 @@ public class BulletCreation : MonoBehaviour
         minZPoint = _collider.bounds.min.z;
         maxZPoint = _collider.bounds.max.z;
 
-        // print("min X : " + _collider.bounds.min.x);
-        // print("max X : " + _collider.bounds.max.x);
-        // print("min Z : " + _collider.bounds.min.z);
-        // print("max Z : " + _collider.bounds.max.z);
-
         float distX = math.abs(minXPoint - maxXPoint);
         float distZ = math.abs(minZPoint - maxZPoint);
     }
-
-    // private void Update()
-    // {
-    //     if(Input.GetKeyDown(KeyCode.A))
-    //         CreateBullet();
-    // }
+    
 
     public void CreateBullet()
     {
