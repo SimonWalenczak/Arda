@@ -97,7 +97,7 @@ public class NightManager : MonoBehaviour
 
         if (Gamepad.current.bButton.wasReleasedThisFrame && canGoToNextDay == true)
         {
-            GoToDayScene();
+            StartCoroutine(GoToDayScene());
         }
     }
 
@@ -228,13 +228,13 @@ public class NightManager : MonoBehaviour
         _generalAnnounce.SetActive(false);
         _upgradePanel.SetActive(true);
 
-        if (Gamepad.current.buttonEast.wasPressedThisFrame)
+        if (Gamepad.current.dpad.left.wasPressedThisFrame)
         {
             print(("moins"));
             index--;
         }
 
-        if (Gamepad.current.buttonWest.wasPressedThisFrame)
+        if (Gamepad.current.dpad.right.wasPressedThisFrame)
         {
             print(("plus"));
             index++;

@@ -18,7 +18,7 @@ public class TerrainSaver : MonoBehaviour
         }
     }
 
-    private void OnApplicationQuit()
+    public void OnApplicationQuit()
     {
         for (int i = 0; i < Terrains.Count; i++)
         {

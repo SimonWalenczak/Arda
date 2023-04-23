@@ -7,28 +7,35 @@ using UnityEngine.SceneManagement;
 public class TimeController : MonoBehaviour
 {
     //Transition
+    [Space(10)] [Header("Transition")]
     [SerializeField] private GameObject _fader;
     private bool _isTimeToNight;
 
     //Reference
+    [Space(10)] [Header("Reference")]
     [SerializeField] private float _timeMultiplier;
     [SerializeField] private Light _sunLight;
     [SerializeField] private float _startHour;
 
     //Lever-Coucher
+    [Space(10)] [Header("Lever-Coucher")]
     [SerializeField] private float _sunriseHour;
     [SerializeField] public float _sunsetHour;
 
     //Affichage
+    [Space(10)] [Header("Affichage")]
     [SerializeField] private TextMeshProUGUI textTime;
 
+    [Space(10)] [Header("Time")]
     public DateTime _currentTime;
     TimeSpan _sunriseTime;
     TimeSpan _sunsetTime;
-
     public float LongTimeDay;
 
+    [Space(10)] [Header("Environment")]
     [SerializeField] private GameObject Rain;
+    [SerializeField] private TerrainSaver _terrainSaver;
+    
     private void Start()
     {
         _currentTime = DateTime.Now.Date + TimeSpan.FromHours(_startHour);
@@ -101,6 +108,7 @@ public class TimeController : MonoBehaviour
     {
         _fader.SetActive(true);
         yield return new WaitForSeconds(3);
+        _terrainSaver.OnApplicationQuit(); // reset terrain
         SceneManager.LoadScene("Night");
     }
 }

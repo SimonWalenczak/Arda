@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -6,20 +7,28 @@ public class Radio : MonoBehaviour
 {
     public float speed;
     public LayerMask TargetLayer;
+    public LayerMask DeadZoneRadio;
 
     public List<Bullet> BulletsList;
     public List<Bullet> SafeList;
     public Bullet ActualBullet;
 
     private Vector2 vector;
+
+    private Vector3 startPosition;
+    private void Start()
+    {
+        startPosition = transform.position;
+    }
+
     void FixedUpdate()
     {
-        // Vector3 newPosition =
-        //     transform.position + new Vector3(x * speed * Time.deltaTime, 0f, z * speed * Time.deltaTime);
-
         Vector3 newPosition = transform.position + new Vector3(vector.x * speed * Time.deltaTime, 0f, vector.y * speed * Time.deltaTime);
         
         transform.position = newPosition;
+        
+        //transform.Translate(newPosition, Space.World);
+
     }
 
     public void StickMove(InputAction.CallbackContext ctx)
@@ -46,6 +55,11 @@ public class Radio : MonoBehaviour
                 else
                     ActualBullet = null;
             }
+        }
+
+        if (Contains(DeadZoneRadio, other.gameObject.layer))
+        {
+            transform.position = startPosition;
         }
     }
 

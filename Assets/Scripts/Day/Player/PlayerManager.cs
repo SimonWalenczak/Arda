@@ -12,6 +12,8 @@ public class PlayerManager : MonoBehaviour
    
     [Space(10)] [Header("Camp")]
     public Camp CurrentCamp;
+    [HideInInspector] public CampTuto CampTuto;
+    
     public bool CanHeal;
     public bool Diagnosing;
     public Radio _radio;
