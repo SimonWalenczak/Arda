@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class GeneralDialog : MonoBehaviour
 {
@@ -30,7 +29,7 @@ public class GeneralDialog : MonoBehaviour
         {
             _generalTextVisual.gameObject.SetActive(true);
 
-            if (Gamepad.current.aButton.wasPressedThisFrame && index < _generalText.Count-1)
+            if (Input.GetKeyDown(KeyCode.F) && index < _generalText.Count-1)
                 index++;
 
             _generalTextVisual.SetText(_generalText[index].DialogText);

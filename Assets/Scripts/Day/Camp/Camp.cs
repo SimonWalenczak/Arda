@@ -4,7 +4,7 @@ using UnityEngine.Serialization;
 
 public class Camp : MonoBehaviour
 {
-    public PlayerManager PlayerManager;
+    public PlayerController _playerController;
     public Camera cam;
     public List<SoldierStruct> _soldiers;
     public bool IsDiagnostised;
@@ -13,21 +13,20 @@ public class Camp : MonoBehaviour
     [SerializeField] LayerMask TargetLayer;
     [SerializeField] SoldierStruct currentSoldier;
     [SerializeField] private GenerateSoldier _generateSoldier;
-    [SerializeField] private bool _isGenerate;
 
     [SerializeField] private GameObject _soldiersProps;
     [SerializeField] private GameObject _soldierSpriteParent;
     [SerializeField] private Animator _soldierSpriteParentAnimator;
     [SerializeField] private GameObject radio;
     public GameObject radioParent;
-
+    
     [SerializeField] private List<BulletCreation> _bodyParts;
     public List<GameObject> ActualBullets;
     public int NbBulletFound;
 
     public int TotalSaved = 0;
     public int TotalDead = 0;
-
+    
     public static bool Contains(LayerMask mask, int layer)
     {
         return mask == (mask | (1 << layer));
@@ -37,8 +36,8 @@ public class Camp : MonoBehaviour
     {
         if (Contains(TargetLayer, other.gameObject.layer))
         {
-            PlayerManager.CanHeal = true;
-            PlayerManager.CurrentCamp = this;
+            _playerController.CanHeal = true;
+            _playerController.CurrentCamp = this;
         }
     }
 
@@ -46,29 +45,37 @@ public class Camp : MonoBehaviour
     {
         if (Contains(TargetLayer, other.gameObject.layer))
         {
-            PlayerManager.CanHeal = false;
-            PlayerManager.CurrentCamp = null;
+            _playerController.CanHeal = false;
+            _playerController.CurrentCamp = null;
         }
     }
 
     public void StartHeal()
     {
         cam.gameObject.SetActive(true);
-        PlayerManager.Diagnosing = true;
-
-        // Speed 0
-        PlayerManager.GetComponent<ArcadeCar>().enabled = false;
-        //
-
+        _playerController.Diagnosing = true;
+        _playerController.CurrentSpeed = 0;
+        _playerController.CurrentTurnSpeed = 0;
         _soldiersProps.SetActive(false);
         radio.SetActive(true);
-        PlayerManager._radio = radio.GetComponent<Radio>();
+        _playerController._radio = radio.GetComponent<Radio>();
         radioParent.SetActive(true);
-
+        
         for (int i = 0; i < TotalSaved; i++)
-            PlayerManager.SoldierSaved[i].SetActive(false);
+            _playerController.SoldierSaved[i].SetActive(false);
         for (int i = 0; i < TotalDead; i++)
-            PlayerManager.SoldierDead[i].SetActive(false);
+            _playerController.SoldierDead[i].SetActive(false);
+        
+        for (int i = 0; i < currentSoldier.NbBulletBust; i++)
+            _bodyParts[0].CreateBullet();
+        for (int i = 0; i < currentSoldier.NbBulletArmLeft; i++)
+            _bodyParts[1].CreateBullet();
+        for (int i = 0; i < currentSoldier.NbBulletArmRight; i++)
+            _bodyParts[2].CreateBullet();
+        for (int i = 0; i < currentSoldier.NbBulletLegLeft; i++)
+            _bodyParts[3].CreateBullet();
+        for (int i = 0; i < currentSoldier.NbBulletLegRight; i++)
+            _bodyParts[4].CreateBullet();
     }
 
     private void Start()
@@ -77,22 +84,21 @@ public class Camp : MonoBehaviour
         _soldiers = _generateSoldier.Soldiers;
         SelectedSoldier = 1;
         _soldierSpriteParentAnimator = _soldierSpriteParent.GetComponent<Animator>();
-        UpdateSoldier();
     }
 
     private void Update()
     {
-        UpdateSoldier();
-
-        if (_isGenerate == false)
+        foreach (var soldier in _soldiers)
         {
-            _isGenerate = true;
-            InstantiateBullet();
+            if (SelectedSoldier == soldier.Index)
+            {
+                currentSoldier = soldier;
+            }
         }
 
         SoldierCardUpdate();
     }
-
+    
     private void UpdateSoldier()
     {
         foreach (var soldier in _soldiers)
@@ -108,16 +114,16 @@ public class Camp : MonoBehaviour
     {
         for (int i = 0; i < currentSoldier.NbBulletBust; i++)
             _bodyParts[0].CreateBullet();
-
+        
         for (int i = 0; i < currentSoldier.NbBulletArmLeft; i++)
             _bodyParts[1].CreateBullet();
-
+        
         for (int i = 0; i < currentSoldier.NbBulletArmRight; i++)
             _bodyParts[2].CreateBullet();
-
+        
         for (int i = 0; i < currentSoldier.NbBulletLegLeft; i++)
             _bodyParts[3].CreateBullet();
-
+        
         for (int i = 0; i < currentSoldier.NbBulletLegRight; i++)
             _bodyParts[4].CreateBullet();
     }
@@ -128,7 +134,6 @@ public class Camp : MonoBehaviour
         {
             Destroy(bullet);
         }
-
         ActualBullets.Clear();
 
         if (SelectedSoldier < _soldiers.Count)
@@ -140,25 +145,26 @@ public class Camp : MonoBehaviour
             UpdateSoldier();
             InstantiateBullet();
         }
-        else if (SelectedSoldier == _soldiers.Count)
+        else if(SelectedSoldier == _soldiers.Count)
         {
             CheckSoldier();
             IsDiagnostised = true;
             cam.gameObject.SetActive(false);
-            PlayerManager.Diagnosing = false;
-            PlayerManager.ResetSpeed();
+            _playerController.Diagnosing = false;
+            _playerController.ResetSpeed();
             _soldiersProps.SetActive(true);
             radio.SetActive(false);
-            PlayerManager.SoldierCardPanel.SetActive(false);
-            PlayerManager.FicheBilan.SetActive(true);
-            PlayerManager.OnBilan = true;
-            PlayerManager._radio = null;
+            _playerController.SoldierCardPanel.SetActive(false);
+            _playerController.FicheBilan.SetActive(true);
+            _playerController.OnBilan = true;
+            _playerController._radio = null;
             radioParent.SetActive(false);
 
             for (int i = 0; i < TotalSaved; i++)
-                PlayerManager.SoldierSaved[i].SetActive(true);
+                _playerController.SoldierSaved[i].SetActive(true);
             for (int i = 0; i < TotalDead; i++)
-                PlayerManager.SoldierDead[i].SetActive(true);
+                _playerController.SoldierDead[i].SetActive(true);
+            
         }
     }
 
@@ -175,7 +181,7 @@ public class Camp : MonoBehaviour
     private void SoldierCardUpdate()
     {
         SoldierCard soldierCard = null;
-        soldierCard = PlayerManager.SoldierCardPanel.GetComponent<SoldierCard>();
+        soldierCard = _playerController.SoldierCardPanel.GetComponent<SoldierCard>();
 
         soldierCard.NameText.SetText(currentSoldier.Name);
         soldierCard.AgeText.SetText(currentSoldier.Age);

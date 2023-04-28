@@ -32,7 +32,7 @@ public class MainMenu : MonoBehaviour
     {
         fadeOut.SetActive(true);
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("LD_Reboot");
     }
     public void MissionButton()
     {
