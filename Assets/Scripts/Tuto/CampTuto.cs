@@ -17,13 +17,13 @@ public class CampTuto : MonoBehaviour
     [SerializeField] private Animator _soldierSpriteParentAnimator;
     [SerializeField] private GameObject radio;
     public GameObject radioParent;
-    
+
     public List<GameObject> ActualBullets;
     public int NbBulletFound;
-    
+
     public int TotalSaved = 0;
     public int TotalDead = 0;
-    
+
     public static bool Contains(LayerMask mask, int layer)
     {
         return mask == (mask | (1 << layer));
@@ -34,7 +34,7 @@ public class CampTuto : MonoBehaviour
         if (Contains(PlayerLayer, other.gameObject.layer))
         {
             PlayerManager.CanHeal = true;
-            PlayerManager.CampTuto = this;
+            //PlayerManager.CampTuto = this;
         }
     }
 
@@ -43,7 +43,7 @@ public class CampTuto : MonoBehaviour
         if (Contains(PlayerLayer, other.gameObject.layer))
         {
             PlayerManager.CanHeal = false;
-            PlayerManager.CampTuto = null;
+            //PlayerManager.CampTuto = null;
         }
     }
 
@@ -66,10 +66,10 @@ public class CampTuto : MonoBehaviour
         for (int i = 0; i < TotalDead; i++)
             PlayerManager.SoldierDead[i].SetActive(false);
     }
-    
+
     public void NextSoldier()
     {
-         if (SelectedSoldier == _soldiers.Count)
+        if (SelectedSoldier == _soldiers.Count)
         {
             CheckSoldier();
             IsDiagnostised = true;
@@ -90,7 +90,7 @@ public class CampTuto : MonoBehaviour
                 PlayerManager.SoldierDead[i].SetActive(true);
         }
     }
-    
+
     private void CheckSoldier()
     {
         currentSoldier.IsAlived = currentSoldier.TotalBullet == NbBulletFound ? true : false;
@@ -100,7 +100,7 @@ public class CampTuto : MonoBehaviour
         else
             TotalDead++;
     }
-    
+
     private void SoldierCardUpdate()
     {
         SoldierCard soldierCard = null;

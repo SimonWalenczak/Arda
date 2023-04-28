@@ -5,7 +5,7 @@ public class TutoManager : MonoBehaviour
 {
     public PlayerManager PlayerManager;
     public LayerMask TargetLayer;
-    
+
     private void Awake()
     {
         PlayerManager = GetComponent<PlayerManager>();
@@ -37,6 +37,6 @@ public class TutoManager : MonoBehaviour
 
     private void Update()
     {
-        
+
     }
 }
