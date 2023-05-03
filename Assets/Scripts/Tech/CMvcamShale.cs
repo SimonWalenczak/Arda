@@ -27,6 +27,7 @@ public class CMvcamShale : MonoBehaviour
         startingIntensity = intensity;
         shakeTimerTotal = time;
         shakeTimer = time;
+        //print("shake u booty");
     }
 
     private void Update()

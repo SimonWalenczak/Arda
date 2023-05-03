@@ -8,13 +8,13 @@ public class Radio : MonoBehaviour
     
     void Update()
     {
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        //float x = Input.GetAxis("Horizontal");
+        //float z = Input.GetAxis("Vertical");
         
-        Vector3 newPosition =
-            transform.position + new Vector3(x * speed * Time.deltaTime, 0f, z * speed * Time.deltaTime);
+        //Vector3 newPosition =
+            //transform.position + new Vector3(x * speed * Time.deltaTime, 0f, z * speed * Time.deltaTime);
 
-        transform.position = newPosition;
+        //transform.position = newPosition;
     }
 
     public static bool Contains(LayerMask mask, int layer)
@@ -28,7 +28,7 @@ public class Radio : MonoBehaviour
         {
             if (other.GetComponent<Bullet>().IsFound == false)
             {
-                Debug.Log("balle trouvé !");
+                Debug.Log("balle trouvée !");
                 other.GetComponent<Bullet>().IsDetected = true;
                 ActualBullet = other.GetComponent<Bullet>();
             }
