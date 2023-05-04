@@ -13,11 +13,17 @@ public class SoldierInfo
     public string MilitaryRank;
 
     //public int TotalBullet;
-    public int NbBulletBust;
-    public int NbBulletArmLeft;
-    public int NbBulletArmRight;
-    public int NbBulletLegLeft;
-    public int NbBulletLegRight;
+
+    [Space(10)]
+    [Header("0 = Torso ; 1 = Left Arm ; 2 = Right Arm ; 3 = Left Leg ; 4 = Right Leg")]
+    public List<int> Bullets = new List<int>();
+
+
+    //public int NbBulletTorso;
+    //public int NbBulletArmLeft;
+    //public int NbBulletArmRight;
+    //public int NbBulletLegLeft;
+    //public int NbBulletLegRight;
 
     //public bool IsAlived;
 
