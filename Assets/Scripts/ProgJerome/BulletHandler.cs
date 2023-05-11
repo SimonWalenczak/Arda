@@ -53,8 +53,10 @@ public class BulletHandler : MonoBehaviour
                     
 
                     //Instantiate(Bullet, spawnPos, Quaternion.Euler(-90f, 0f, 0f));
-                    GameObject bullet = Instantiate(Bullet, spawnPos, transform.rotation, Parent.transform);
-                    cameraRelative = bullet.transform.InverseTransformPoint(bullet.transform.position);
+                    //GameObject bullet = Instantiate(Bullet, spawnPos, transform.rotation, Parent.transform);
+                    GameObject bullet = Instantiate(Bullet, Parent.transform, false);
+                    bullet.transform.position = spawnPos;
+                    //cameraRelative = bullet.transform.InverseTransformPoint(bullet.transform.position);
                 }
             }
         }

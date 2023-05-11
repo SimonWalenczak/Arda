@@ -53,7 +53,7 @@ public class RadiologyPhase : MonoBehaviour
         Skeleton.transform.position = skeletonStartPos;
         UiRadioUpdate.Instance.UpdateUI(currentSoldier);
 
-        //BulletHandler.Instance.SetupBullets(currentSoldier);
+        BulletHandler.Instance.SetupBullets(currentSoldier);
         canMove = true;
     }
 
