@@ -49,13 +49,16 @@ public class BulletHandler : MonoBehaviour
                     print(xPos);
                     print(yPos);
 
+                    spawnPos = Vector3.zero;
                     spawnPos = new Vector3(xPos, yPos, 0);
-                    
+
 
                     //Instantiate(Bullet, spawnPos, Quaternion.Euler(-90f, 0f, 0f));
                     //GameObject bullet = Instantiate(Bullet, spawnPos, transform.rotation, Parent.transform);
+
                     GameObject bullet = Instantiate(Bullet, Parent.transform, false);
-                    bullet.transform.position = spawnPos;
+                    //bullet.transform.position = spawnPos;
+
                     //cameraRelative = bullet.transform.InverseTransformPoint(bullet.transform.position);
                 }
             }
