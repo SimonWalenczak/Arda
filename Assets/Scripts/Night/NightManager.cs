@@ -5,6 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 
 public class NightManager : MonoBehaviour
@@ -215,12 +216,17 @@ public class NightManager : MonoBehaviour
         _generalAnnounce.SetActive(false);
         _upgradePanel.SetActive(true);
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        //if (Input.GetKeyDown(KeyCode.Q))
+        //    index--;
+        //if (Input.GetKeyDown(KeyCode.D))
+        //    index++;
+
+        if (Gamepad.current.buttonWest.IsPressed())
             index--;
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Gamepad.current.buttonEast.IsPressed())
             index++;
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Gamepad.current.buttonSouth.IsPressed())
             StartCoroutine(GoToDayScene());
 
         if (index > Items.Count)
@@ -242,7 +248,7 @@ public class NightManager : MonoBehaviour
                 UpgradePopup.transform.position = new Vector3(item.transform.position.x + 3.5f, item.transform.position.y + 1f,  item.transform.position.z - 1);
                 UpgradePopupText.SetText(item.previewEffect);
 
-                if (Input.GetKeyDown(KeyCode.F) && item.isPicked == false)
+                if (Gamepad.current.buttonNorth.IsPressed() && item.isPicked == false)
                 {
                     item.isPicked = true;
                     item.Excute();
