@@ -30,7 +30,7 @@ public class GeneralDialog : MonoBehaviour
         {
             _generalTextVisual.gameObject.SetActive(true);
 
-            if (Gamepad.current.buttonSouth.IsPressed() && index < _generalText.Count-1)
+            if (Gamepad.current.buttonSouth.wasPressedThisFrame && index < _generalText.Count-1)
                 index++;
 
             _generalTextVisual.SetText(_generalText[index].DialogText);

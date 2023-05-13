@@ -209,7 +209,7 @@ public class NightManager : MonoBehaviour
         FadeOut.SetActive(true);
         GameData.NumberDays++;
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene("LD_Reboot");
+        SceneManager.LoadScene("ScenePascal");
     }
     void UpgradeCar()
     {
@@ -221,12 +221,12 @@ public class NightManager : MonoBehaviour
         //if (Input.GetKeyDown(KeyCode.D))
         //    index++;
 
-        if (Gamepad.current.buttonWest.IsPressed())
+        if (Gamepad.current.buttonWest.wasPressedThisFrame)
             index--;
-        if (Gamepad.current.buttonEast.IsPressed())
+        if (Gamepad.current.buttonEast.wasPressedThisFrame)
             index++;
 
-        if (Gamepad.current.buttonSouth.IsPressed())
+        if (Gamepad.current.buttonSouth.wasPressedThisFrame)
             StartCoroutine(GoToDayScene());
 
         if (index > Items.Count)
@@ -248,7 +248,7 @@ public class NightManager : MonoBehaviour
                 UpgradePopup.transform.position = new Vector3(item.transform.position.x + 3.5f, item.transform.position.y + 1f,  item.transform.position.z - 1);
                 UpgradePopupText.SetText(item.previewEffect);
 
-                if (Gamepad.current.buttonNorth.IsPressed() && item.isPicked == false)
+                if (Gamepad.current.buttonNorth.wasPressedThisFrame && item.isPicked == false)
                 {
                     item.isPicked = true;
                     item.Excute();
