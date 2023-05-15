@@ -44,6 +44,11 @@ public class DayManager : MonoBehaviour
 
         CurrentHour = StartHour;
         CurrentMinute = StartMinute;
+        
+        //Test Simon
+        if(GameData.NumberDays == 1)
+            GameData.NumberDays = 2;
+        //Fin Test
     }
 
     void Update()
