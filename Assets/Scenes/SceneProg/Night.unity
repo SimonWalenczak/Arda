@@ -3731,10 +3731,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24d8ccf4d89d70447a119568cf222357, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanTalk: 0
+  CanTalk: 1
   CanUpgrade: 0
   _generalTextVisual: {fileID: 1588957666}
-  _generalText:
+  _generalTextFirstNight:
   - {fileID: 51005856}
   - {fileID: 564100317}
   - {fileID: 1857078226}
@@ -3742,8 +3742,11 @@ MonoBehaviour:
   - {fileID: 116962537}
   - {fileID: 1314074222}
   - {fileID: 1311413525}
-  - {fileID: 1595823564}
   - {fileID: 1366219319}
+  - {fileID: 1595823564}
+  - {fileID: 767545829}
+  _generalText:
+  - {fileID: 1311413525}
   - {fileID: 767545829}
   index: 0
   BGLettre: {fileID: 2071512567}
