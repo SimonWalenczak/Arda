@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 51005855}
   - component: {fileID: 51005856}
   m_Layer: 0
-  m_Name: 1
+  m_Name: GeneralPresentation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -168,8 +168,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 1
-  DialogText: "Bonsoir, votre service s'arr\xEAte l\xE0 pour aujourd'hui. Asseyez-vous,
-    je vais vous donner votre bilan des pertes..."
+  DialogText: "G\xE9n\xE9ral de Villaret au rapport jeune fille, bienvenue dans cet
+    enfer.  Je suis votre sup\xE9rieur et tout les soirs nous ferons un bilan de
+    votre efficacit\xE9 et j\u2019en informeront l\u2019\xE9tat major. Sachez que
+    vous devrez faire vos preuves pour vous faire accepter et rester sur le front. "
+  HavePaper: 0
+  PaperActif: 0
+  Paper: {fileID: 0}
 --- !u!1 &75903588
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,7 +262,7 @@ GameObject:
   - component: {fileID: 116962536}
   - component: {fileID: 116962537}
   m_Layer: 0
-  m_Name: 5
+  m_Name: OfficierRewards
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -291,8 +296,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 5
-  DialogText: "(Tendant deux lettres) : Vous avez \xE9galement re\xE7u du courrier
-    de vos proches."
+  DialogText: Pour vous encourager, voici de quoi vous aider demain. Faites en bon
+    usage.
+  HavePaper: 1
+  PaperActif: 0
+  Paper: {fileID: 743083620}
 --- !u!1 &118906577
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,55 +418,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 0}
---- !u!1 &174715587
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 174715588}
-  - component: {fileID: 174715589}
-  m_Layer: 0
-  m_Name: 12
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &174715588
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 174715587}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 454542907}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &174715589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 174715587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1049cf60c2b39044bbee6a2adb7295a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  index: 12
-  DialogText: "Bien, maintenant le champ. J'ai le regret de vous annoncer que demain
-    sera une journ\xE9e tr\xE8s mouvement\xE9e. Vous allez recevoir des alertes de
-    bombardements dans une bonne paire de zones. Prenez garde \xE0 vous, si l'on
-    perd votre unit\xE9 dans la journ\xE9e, beaucoup de nos soldats p\xE9riront."
 --- !u!1 &192020248
 GameObject:
   m_ObjectHideFlags: 0
@@ -1446,16 +1405,12 @@ Transform:
   m_Children:
   - {fileID: 51005855}
   - {fileID: 564100316}
-  - {fileID: 925131035}
   - {fileID: 1857078225}
+  - {fileID: 925131035}
   - {fileID: 116962536}
   - {fileID: 1314074221}
   - {fileID: 1311413524}
   - {fileID: 1366219318}
-  - {fileID: 643163154}
-  - {fileID: 838313739}
-  - {fileID: 661702377}
-  - {fileID: 174715588}
   - {fileID: 767545828}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -1547,7 +1502,7 @@ GameObject:
   - component: {fileID: 564100316}
   - component: {fileID: 564100317}
   m_Layer: 0
-  m_Name: 2
+  m_Name: SoldierBilan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1581,8 +1536,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 2
-  DialogText: "Bonsoir, votre service s'arr\xEAte l\xE0 pour aujourd'hui. Asseyez-vous,
-    je vais vous donner votre bilan des pertes..."
+  DialogText: "Apparemment vous avez fait forte impression aupr\xE8s des secondes
+    classes, dommage que vous n\u2019ayez impressionn\xE9 qu\u2019eux."
+  HavePaper: 1
+  PaperActif: 0
+  Paper: {fileID: 118906577}
 --- !u!1 &578000250
 GameObject:
   m_ObjectHideFlags: 0
@@ -2064,101 +2022,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 641261143}
   m_CullTransparentMesh: 1
---- !u!1 &643163153
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 643163154}
-  - component: {fileID: 643163155}
-  m_Layer: 0
-  m_Name: 9
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &643163154
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 643163153}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 454542907}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &643163155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 643163153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1049cf60c2b39044bbee6a2adb7295a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  index: 9
-  DialogText: "(Murmurant discr\xE8tement) : Celle-ci est un peu plus d\xE9licate.
-    Faites comme il vous pla\xEEra."
---- !u!1 &661702376
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 661702377}
-  - component: {fileID: 661702378}
-  m_Layer: 0
-  m_Name: 11
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &661702377
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 661702376}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 454542907}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &661702378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 661702376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1049cf60c2b39044bbee6a2adb7295a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  index: 11
-  DialogText: "Tout d'abord la m\xE9t\xE9o : vous aurez une bonne visibilit\xE9 sur
-    le champ de bataille, n\xE9anmoins les tests barom\xE9triques indiquent qu'il
-    y aura probablement des averses."
 --- !u!1 &676244870
 GameObject:
   m_ObjectHideFlags: 0
@@ -2681,7 +2544,7 @@ GameObject:
   - component: {fileID: 767545828}
   - component: {fileID: 767545829}
   m_Layer: 0
-  m_Name: 13
+  m_Name: FinDialogue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2700,7 +2563,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 454542907}
-  m_RootOrder: 12
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &767545829
 MonoBehaviour:
@@ -2714,9 +2577,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1049cf60c2b39044bbee6a2adb7295a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 13
-  DialogText: "Voil\xE0, maintenant vous savez. Allez vous reposer, demain et un
-    autre jour, mais \xE7a sera \xE9galement le dernier de certain d'entre-nous. "
+  index: 9
+  DialogText: "Allez vous reposer, demain et un autre jour, mais \xE7a sera \xE9galement
+    le dernier de certain d'entre-nous. "
+  HavePaper: 0
+  PaperActif: 0
+  Paper: {fileID: 0}
 --- !u!1 &786922346
 GameObject:
   m_ObjectHideFlags: 0
@@ -3141,53 +3007,6 @@ MonoBehaviour:
   m_EffectColor: {r: 1, g: 1, b: 1, a: 0.5}
   m_EffectDistance: {x: 3, y: 3}
   m_UseGraphicAlpha: 1
---- !u!1 &838313738
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 838313739}
-  - component: {fileID: 838313740}
-  m_Layer: 0
-  m_Name: 10
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &838313739
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 838313738}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 454542907}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &838313740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 838313738}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1049cf60c2b39044bbee6a2adb7295a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  index: 10
-  DialogText: "Bien, maintenant laissez-moi vous faire part de nos renseignements
-    sur les \xE9v\xE8nements du prochain lever de soleil."
 --- !u!1 &864286854
 GameObject:
   m_ObjectHideFlags: 0
@@ -3726,7 +3545,7 @@ GameObject:
   - component: {fileID: 925131035}
   - component: {fileID: 925131036}
   m_Layer: 0
-  m_Name: 3
+  m_Name: OfficierBilan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3745,7 +3564,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 454542907}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &925131036
 MonoBehaviour:
@@ -3759,9 +3578,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1049cf60c2b39044bbee6a2adb7295a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 3
-  DialogText: "En effet, \xE7a fait beaucoup... N\xE9anmoins gr\xE2ce \xE0 vos actions
-    certains sont encore en \xE9tat de se battre pour la France."
+  index: 4
+  DialogText: "Vous avez sauv\xE9 un nombre important d\u2019officiers aujourd\u2019hui
+    et l'\xE9tat-major vous en remercie mais attention aux g\xE9nies et aux secondes
+    classes qui vous surveillent."
+  HavePaper: 1
+  PaperActif: 0
+  Paper: {fileID: 118906577}
 --- !u!1 &962506129
 GameObject:
   m_ObjectHideFlags: 0
@@ -3919,13 +3742,9 @@ MonoBehaviour:
   - {fileID: 1314074222}
   - {fileID: 1311413525}
   - {fileID: 1366219319}
-  - {fileID: 643163155}
-  - {fileID: 838313740}
-  - {fileID: 661702378}
-  - {fileID: 174715589}
   - {fileID: 767545829}
-  BilanPerte: {fileID: 118906577}
-  BilanSauve: {fileID: 743083620}
+  index: 0
+  Bilan: {fileID: 0}
   BGLettre: {fileID: 2071512567}
   RelativeLetter1: {fileID: 233354332}
   RelativeLetter2: {fileID: 712014933}
@@ -4824,7 +4643,7 @@ GameObject:
   - component: {fileID: 1311413524}
   - component: {fileID: 1311413525}
   m_Layer: 0
-  m_Name: 7
+  m_Name: LettreFrere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4858,8 +4677,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 7
-  DialogText: "(Tendant deux lettres) : Vous avez \xE9galement re\xE7u du courrier
-    de vos proches."
+  DialogText: "Votre frere vous a \xE9crit."
+  HavePaper: 1
+  PaperActif: 0
+  Paper: {fileID: 233354332}
 --- !u!1 &1312992584
 GameObject:
   m_ObjectHideFlags: 0
@@ -4986,7 +4807,7 @@ GameObject:
   - component: {fileID: 1314074221}
   - component: {fileID: 1314074222}
   m_Layer: 0
-  m_Name: 6
+  m_Name: LettreSoldatSauve
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5020,8 +4841,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 6
-  DialogText: "(Tendant deux lettres) : Vous avez \xE9galement re\xE7u du courrier
-    de vos proches."
+  DialogText: Vous avez recu une lettre de remerciement.
+  HavePaper: 1
+  PaperActif: 0
+  Paper: {fileID: 1886772883}
 --- !u!1 &1366219317
 GameObject:
   m_ObjectHideFlags: 0
@@ -5033,7 +4856,7 @@ GameObject:
   - component: {fileID: 1366219318}
   - component: {fileID: 1366219319}
   m_Layer: 0
-  m_Name: 8
+  m_Name: ChoixEnvoie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5067,8 +4890,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 8
-  DialogText: "(Murmurant discr\xE8tement) : Celle-ci est un peu plus d\xE9licate.
-    Faites comme il vous pla\xEEra."
+  DialogText: "La soir\xE9e semble plus calme, vous avez un peu de temps pour \xE9crire
+    \xE0 quelqu\u2019un profitez en."
+  HavePaper: 0
+  PaperActif: 0
+  Paper: {fileID: 0}
 --- !u!1 &1370296380
 GameObject:
   m_ObjectHideFlags: 0
@@ -7133,7 +6959,7 @@ GameObject:
   - component: {fileID: 1857078225}
   - component: {fileID: 1857078226}
   m_Layer: 0
-  m_Name: 4
+  m_Name: SoldierRewards
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7152,7 +6978,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 454542907}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1857078226
 MonoBehaviour:
@@ -7166,9 +6992,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1049cf60c2b39044bbee6a2adb7295a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 4
-  DialogText: "En effet, \xE7a fait beaucoup... N\xE9anmoins gr\xE2ce \xE0 vos actions
-    certains sont encore en \xE9tat de se battre pour la France."
+  index: 3
+  DialogText: "Un groupe de bless\xE9s vous a envoy\xE9 un cadeau en remerciement,
+    tenez."
+  HavePaper: 1
+  PaperActif: 0
+  Paper: {fileID: 743083620}
 --- !u!1 &1886772883
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,17 +12,9 @@ public class GeneralDialog : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI _generalTextVisual;
     [SerializeField] private List<Dialog> _generalText;
-    private int index = 0;
 
-    [SerializeField] private GameObject BilanPerte;
-    [SerializeField] private GameObject BilanSauve;
-
+    [SerializeField] private int index = 0;
     [SerializeField] private GameObject BGLettre;
-    [SerializeField] private GameObject RelativeLetter1;
-    [SerializeField] private GameObject RelativeLetter2;
-    [SerializeField] private GameObject RequestLetter1;
-    [SerializeField] private GameObject ThanksLetter1;
-
     
     private void Update()
     {
@@ -30,57 +22,71 @@ public class GeneralDialog : MonoBehaviour
         {
             _generalTextVisual.gameObject.SetActive(true);
 
-            if (Gamepad.current.buttonSouth.wasPressedThisFrame && index < _generalText.Count-1)
-                index++;
+            if (Gamepad.current.buttonSouth.wasPressedThisFrame)
+            {
+                if (index < _generalText.Count - 1)
+                {
+                    if (index >= 5)
+                    {
+                        if (_generalText[index].HavePaper == false)
+                        {
+                            index++;
+                        }
+                        else
+                        {
+                            if (_generalText[index].PaperActif == false)
+                            {
+                                _generalText[index].PaperActif = true;
+                                BGLettre.SetActive(true);
+                                LetterAppearing(_generalText[index].Paper);
+                            }
+                            else
+                            {
+                                BGLettre.SetActive(false);
+                                LetterDisappearing(_generalText[index].Paper);
+                                index++;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (index == 0)
+                        {
+                            if (GameData.HadSaveSoldier)
+                                index = 1;
+                            else
+                                index = 3;
+                        }
+                        else
+                        {
+                            if (_generalText[index].PaperActif == false)
+                            {
+                                _generalText[index].PaperActif = true;
+                                BGLettre.SetActive(true);
+                                LetterAppearing(_generalText[index].Paper);
+                            }
+                            else if (_generalText[index].PaperActif == true && (index == 2 || index == 4))
+                            {
+                                BGLettre.SetActive(false);
+                                LetterDisappearing(_generalText[index].Paper);
+                                index = 5;
+                            }
+                            else if (_generalText[index].PaperActif == true)
+                            {
+                                BGLettre.SetActive(false);
+                                LetterDisappearing(_generalText[index].Paper);
+                                index++;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    CanUpgrade = true;
+                }
+            }
 
             _generalTextVisual.SetText(_generalText[index].DialogText);
-        }
-
-        switch (index + 1)
-        {
-            case 0:
-                BilanPerte.SetActive(false);
-                BilanSauve.SetActive(false);
-                break;
-            case 2:
-                BGLettre.SetActive(true);
-                LetterAppearing(BilanPerte);
-                break;
-            case 3:
-                BGLettre.SetActive(false);
-                LetterDisappearing(BilanPerte);
-                break;
-            case 4:
-                BGLettre.SetActive(true);
-                LetterAppearing(BilanSauve);
-                break;
-            case 5:
-                BGLettre.SetActive(false);
-                LetterDisappearing(BilanSauve);
-                break;
-            case 6:
-                BGLettre.SetActive(true);
-                LetterAppearing(RelativeLetter1);
-                break;
-            case 7:
-                LetterDisappearing(RelativeLetter1);
-                LetterAppearing(RelativeLetter2);
-                break;
-            case 8:
-                BGLettre.SetActive(false);
-                LetterDisappearing(RelativeLetter2);
-                break;
-            case 9:
-                BGLettre.SetActive(true);
-                LetterAppearing(RequestLetter1);
-                break;
-            case 10:
-                BGLettre.SetActive(false);
-                LetterDisappearing(RequestLetter1);
-                break;
-            case 13:
-                CanUpgrade = true;
-                break;
         }
     }
 
@@ -88,9 +94,9 @@ public class GeneralDialog : MonoBehaviour
     {
         StartCoroutine(letter.GetComponent<Letter>().Appearing());
     }
+
     private void LetterDisappearing(GameObject letter)
     {
         StartCoroutine(letter.GetComponent<Letter>().Disappearing());
-
     }
 }

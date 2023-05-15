@@ -16,13 +16,13 @@ public class GameData
 
     
     //Soldier
-    public float _maxGaugeSoldier;
-    public float _maxGaugeOfficier;
-    public float _maxGaugeMedecin;
+    public static float _maxGaugeSoldier;
+    public static float _maxGaugeOfficier;
+    public static float _maxGaugeMedecin;
 
-    public float _actualGaugeSoldier;
-    public float _actualGaugeOfficier;
-    public float _actualGaugeMedecin;
+    public static float _actualGaugeSoldier;
+    public static float _actualGaugeOfficier;
+    public static float _actualGaugeMedecin;
     
     //Zones
     public static bool IsRainning;
@@ -33,4 +33,8 @@ public class GameData
     public static int BombingNb;
     public static int UnderminedInfiltrationNb;
     public static int InfantryChargeNb;
+    
+    //Night Tutorial
+
+    public static bool HadSaveSoldier;
 }
