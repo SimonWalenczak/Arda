@@ -12,6 +12,7 @@ public class GeneralDialog : MonoBehaviour
     public bool CanUpgrade;
 
     [SerializeField] private TextMeshProUGUI _generalTextVisual;
+    [SerializeField] private TextMeshProUGUI _bodyTextVisual;
     [SerializeField] private List<Dialog> _generalTextFirstNight;
     [SerializeField] private List<Dialog> _generalText;
 
@@ -97,7 +98,7 @@ public class GeneralDialog : MonoBehaviour
                         CanUpgrade = true;
                     }
                 }
-
+                _bodyTextVisual.SetText(_generalTextFirstNight[index].BodyDialog);
                 _generalTextVisual.SetText(_generalTextFirstNight[index].DialogText);
             }
             else
@@ -131,7 +132,7 @@ public class GeneralDialog : MonoBehaviour
                         CanUpgrade = true;
                     }
                 }
-
+                _bodyTextVisual.SetText(_generalText[index].BodyDialog);
                 _generalTextVisual.SetText(_generalText[index].DialogText);
             }
         }

@@ -3,6 +3,7 @@ using UnityEngine;
 public class Dialog : MonoBehaviour
 {
     public int index;
+    public string BodyDialog;
     public string DialogText;
     
     public bool HavePaper;
