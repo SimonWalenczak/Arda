@@ -24,4 +24,11 @@ public class Letter : MonoBehaviour
         yield return new WaitForSeconds(1);
         _animator.SetBool("Disappear", false);
     }
+
+    public IEnumerator SendLetter()
+    {
+        _animator.SetBool("Send", true);
+        yield return new WaitForSeconds(3);
+        _animator.SetBool("Send", false);
+    }
 }
