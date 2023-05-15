@@ -1410,6 +1410,7 @@ Transform:
   - {fileID: 116962536}
   - {fileID: 1314074221}
   - {fileID: 1311413524}
+  - {fileID: 1595823563}
   - {fileID: 1366219318}
   - {fileID: 767545828}
   m_Father: {fileID: 0}
@@ -2563,7 +2564,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 454542907}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &767545829
 MonoBehaviour:
@@ -2577,7 +2578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1049cf60c2b39044bbee6a2adb7295a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 9
+  index: 10
   DialogText: "Allez vous reposer, demain et un autre jour, mais \xE7a sera \xE9galement
     le dernier de certain d'entre-nous. "
   HavePaper: 0
@@ -3736,20 +3737,16 @@ MonoBehaviour:
   _generalText:
   - {fileID: 51005856}
   - {fileID: 564100317}
-  - {fileID: 925131036}
   - {fileID: 1857078226}
+  - {fileID: 925131036}
   - {fileID: 116962537}
   - {fileID: 1314074222}
   - {fileID: 1311413525}
+  - {fileID: 1595823564}
   - {fileID: 1366219319}
   - {fileID: 767545829}
   index: 0
-  Bilan: {fileID: 0}
   BGLettre: {fileID: 2071512567}
-  RelativeLetter1: {fileID: 233354332}
-  RelativeLetter2: {fileID: 712014933}
-  RequestLetter1: {fileID: 1302183530}
-  ThanksLetter1: {fileID: 1886772883}
 --- !u!1 &995741879
 GameObject:
   m_ObjectHideFlags: 0
@@ -4875,7 +4872,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 454542907}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1366219319
 MonoBehaviour:
@@ -4889,7 +4886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1049cf60c2b39044bbee6a2adb7295a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 8
+  index: 9
   DialogText: "La soir\xE9e semble plus calme, vous avez un peu de temps pour \xE9crire
     \xE0 quelqu\u2019un profitez en."
   HavePaper: 0
@@ -6124,6 +6121,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1588957664}
   m_CullTransparentMesh: 1
+--- !u!1 &1595823562
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1595823563}
+  - component: {fileID: 1595823564}
+  m_Layer: 0
+  m_Name: JeanneRemerciement
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1595823563
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595823562}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 454542907}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1595823564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595823562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1049cf60c2b39044bbee6a2adb7295a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 8
+  DialogText: "Merci mon g\xE9n\xE9ral !"
+  HavePaper: 0
+  PaperActif: 0
+  Paper: {fileID: 0}
 --- !u!1 &1598623265
 GameObject:
   m_ObjectHideFlags: 0
