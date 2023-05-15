@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class GeneralDialog : MonoBehaviour
 {
+    public int DayNumber;
     public bool CanTalk;
     public bool CanUpgrade;
 
@@ -31,7 +32,7 @@ public class GeneralDialog : MonoBehaviour
 
     private void Start()
     {
-        GameData.NumberDays = 2;
+        GameData.NumberDays = DayNumber;
 
         CanTalk = false;
         StartCoroutine(WaitingForTalk());
@@ -167,7 +168,7 @@ public class GeneralDialog : MonoBehaviour
         }
     }
 
-    public IEnumerator GoToCredits()
+    private IEnumerator GoToCredits()
     {
         gameObject.GetComponent<NightManager>().FadeOut.SetActive(true);
         yield return new WaitForSeconds(2);

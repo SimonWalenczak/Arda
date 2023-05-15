@@ -25,15 +25,16 @@ public class NightManager : MonoBehaviour
     [SerializeField] private TMP_Text FirstClassSavedText;
     [SerializeField] private TMP_Text EliteSavedText;
     [SerializeField] private TMP_Text OfficierSavedText;
-    
-    [Header("\nChance of rain\n")] 
-    [SerializeField] private int _rainChance = 15;
 
-    [Header("\nChance of hard or soft fight (by range)\n")] 
-    [SerializeField] private int hardFightChance = 20;
+    [Header("\nChance of rain\n")] [SerializeField]
+    private int _rainChance = 15;
+
+    [Header("\nChance of hard or soft fight (by range)\n")] [SerializeField]
+    private int hardFightChance = 20;
+
     [SerializeField] private int softFightChance = 10;
 
-    
+
     [Header("\n----------- Upgrade -----------\n")] [SerializeField]
     private GameObject _upgradePanel;
 
@@ -51,8 +52,6 @@ public class NightManager : MonoBehaviour
 
     //[Header("\n------------ Zones ------------\n")] 
     //[SerializeField] private List<Zone> _zones;
-
-
 
     #endregion
 
@@ -74,11 +73,11 @@ public class NightManager : MonoBehaviour
         Cursor.visible = false;
         _generalDialog = GetComponent<GeneralDialog>();
         index = 1;
-        for(int i = 0; i < UpgradeApplicated.Count; i++)
+        for (int i = 0; i < UpgradeApplicated.Count; i++)
         {
             UpgradeApplicated[i].SetActive(false);
         }
-        
+
         ResetGlobalVariables();
         StartCoroutine(WaitingForAppearing());
     }
@@ -88,8 +87,7 @@ public class NightManager : MonoBehaviour
         if (_generalDialog.CanUpgrade)
             UpgradeCar();
     }
-    
-    
+
 
     IEnumerator WaitingForAppearing()
     {
@@ -130,10 +128,10 @@ public class NightManager : MonoBehaviour
     IEnumerator GoToDayScene()
     {
         FadeOut.SetActive(true);
-        GameData.NumberDays++;
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene("ScenePascal");
     }
+
     void UpgradeCar()
     {
         _generalAnnounce.SetActive(false);
@@ -151,19 +149,20 @@ public class NightManager : MonoBehaviour
             index = 1;
         if (index < 1)
             index = Items.Count;
-        
+
         foreach (var item in Items)
         {
             if (item.index == index)
                 item.isSelected = true;
             else
                 item.isSelected = false;
-            
+
             if (item.isSelected)
             {
                 print(item.index);
                 item.transform.DOScale(new Vector3(1.7f, 1.7f, 1.7f), 1);
-                UpgradePopup.transform.position = new Vector3(item.transform.position.x + 3.5f, item.transform.position.y + 1f,  item.transform.position.z - 1);
+                UpgradePopup.transform.position = new Vector3(item.transform.position.x + 3.5f,
+                    item.transform.position.y + 1f, item.transform.position.z - 1);
                 UpgradePopupText.SetText(item.previewEffect);
 
                 if (Gamepad.current.buttonNorth.wasPressedThisFrame && item.isPicked == false)
@@ -171,15 +170,16 @@ public class NightManager : MonoBehaviour
                     item.isPicked = true;
                     item.Excute();
                     nbUpgradeapplicated++;
-                    
+
                     for (int i = 0; i < nbUpgradeapplicated; i++)
                     {
                         UpgradeApplicated[i].SetActive(true);
                     }
 
-                    UpgradeApplicated[nbUpgradeapplicated - 1].transform.DOMoveX(UpgradeApplicated[nbUpgradeapplicated - 1].transform.position.x + offsetX, 1);
-                    UpgradeApplicated[nbUpgradeapplicated-1].GetComponentInChildren<TMP_Text>().SetText(item.effect);
-                    
+                    UpgradeApplicated[nbUpgradeapplicated - 1].transform
+                        .DOMoveX(UpgradeApplicated[nbUpgradeapplicated - 1].transform.position.x + offsetX, 1);
+                    UpgradeApplicated[nbUpgradeapplicated - 1].GetComponentInChildren<TMP_Text>().SetText(item.effect);
+
                     print(item.itemName);
                 }
             }
