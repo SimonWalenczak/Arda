@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.InputSystem;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class GeneralDialog : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class GeneralDialog : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _bodyTextVisual;
     [SerializeField] private List<Dialog> _generalTextFirstNight;
     [SerializeField] private List<Dialog> _generalText;
+    [SerializeField] private GameObject _generalSprite;
 
     [SerializeField] private int index = 0;
     [SerializeField] private GameObject BGLettre;
@@ -29,12 +31,17 @@ public class GeneralDialog : MonoBehaviour
 
     private void Start()
     {
-        GameData.NumberDays = 1;
+        GameData.NumberDays = 2;
 
         CanTalk = false;
         StartCoroutine(WaitingForTalk());
 
         _actualFace = BodyFaces[_letterIndex];
+
+        if (GameData.NumberDays == 2)
+        {
+            _generalSprite.SetActive(false);
+        }
     }
 
     private void DialogGeneral()
@@ -151,7 +158,7 @@ public class GeneralDialog : MonoBehaviour
                 }
                 else
                 {
-                    CanUpgrade = true;
+                    StartCoroutine(GoToCredits());
                 }
             }
 
@@ -160,6 +167,13 @@ public class GeneralDialog : MonoBehaviour
         }
     }
 
+    public IEnumerator GoToCredits()
+    {
+        gameObject.GetComponent<NightManager>().FadeOut.SetActive(true);
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("Credits");
+    }
+    
     private void DialogChoice()
     {
         BGLettre.SetActive(true);

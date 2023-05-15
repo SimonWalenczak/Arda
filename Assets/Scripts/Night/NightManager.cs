@@ -46,7 +46,7 @@ public class NightManager : MonoBehaviour
     [SerializeField] private int nbUpgradeapplicated;
     public List<GameObject> UpgradeApplicated;
     [SerializeField] private float offsetX;
-    [SerializeField] private GameObject FadeOut;
+    public GameObject FadeOut;
 
 
     //[Header("\n------------ Zones ------------\n")] 
@@ -80,7 +80,6 @@ public class NightManager : MonoBehaviour
         }
         
         ResetGlobalVariables();
-        StartEvents();
         StartCoroutine(WaitingForAppearing());
     }
 
@@ -89,15 +88,7 @@ public class NightManager : MonoBehaviour
         if (_generalDialog.CanUpgrade)
             UpgradeCar();
     }
-
-    private void StartEvents()
-    {
-        if (GameData.NumberDays >= 0)
-        {
-            RainingChance();
-            HardSoftFightChance();
-        }
-    }
+    
     
 
     IEnumerator WaitingForAppearing()
