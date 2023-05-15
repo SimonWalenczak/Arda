@@ -79,8 +79,8 @@ public class NightManager : MonoBehaviour
             UpgradeApplicated[i].SetActive(false);
         }
         ResetGlobalVariables();
-        CalculGameDataTotal();
-        SetValueForBilan();
+        // CalculGameDataTotal();
+        // SetValueForBilan();
         StartEvents();
         StartCoroutine(WaitingForAppearing());
     }
@@ -100,73 +100,73 @@ public class NightManager : MonoBehaviour
         }
     }
 
-    private void CalculGameDataTotal()
-    {
-        //First Class
-        GameData.TotalFirstClassAmputated = GameData.Zone1FirstClassAmputated + GameData.Zone2FirstClassAmputated +
-                                            GameData.Zone3FirstClassAmputated + GameData.Zone4FirstClassAmputated +
-                                            GameData.Zone5FirstClassAmputated;
+    // private void CalculGameDataTotal()
+    // {
+    //     //First Class
+    //     GameData.TotalFirstClassAmputated = GameData.Zone1FirstClassAmputated + GameData.Zone2FirstClassAmputated +
+    //                                         GameData.Zone3FirstClassAmputated + GameData.Zone4FirstClassAmputated +
+    //                                         GameData.Zone5FirstClassAmputated;
+    //
+    //     GameData.TotalFirstClassDead = GameData.Zone1FirstClassDead + GameData.Zone2FirstClassDead +
+    //                                    GameData.Zone3FirstClassDead + GameData.Zone4FirstClassDead +
+    //                                    GameData.Zone5FirstClassDead;
+    //
+    //     GameData.TotalFirstClassSaved = GameData.Zone1FirstClassSaved + GameData.Zone2FirstClassSaved +
+    //                                     GameData.Zone3FirstClassSaved + GameData.Zone4FirstClassSaved +
+    //                                     GameData.Zone5FirstClassSaved;
+    //
+    //     //Elit Class
+    //     GameData.TotalElitAmputated = GameData.Zone1ElitClassAmputated + GameData.Zone2ElitClassAmputated +
+    //                                   GameData.Zone3ElitClassAmputated + GameData.Zone4ElitClassAmputated +
+    //                                   GameData.Zone5ElitClassAmputated;
+    //
+    //     GameData.TotalElitDead = GameData.Zone1ElitClassDead + GameData.Zone2ElitClassDead +
+    //                              GameData.Zone3ElitClassDead + GameData.Zone4ElitClassDead +
+    //                              GameData.Zone5ElitClassDead;
+    //
+    //     GameData.TotalElitClassSaved = GameData.Zone1ElitClassSaved + GameData.Zone2ElitClassSaved +
+    //                                    GameData.Zone3ElitClassSaved + GameData.Zone4ElitClassSaved +
+    //                                    GameData.Zone5ElitClassSaved;
+    //
+    //     //Officier Class
+    //     GameData.TotalOfficierAmputated = GameData.Zone1OfficierClassAmputated + GameData.Zone2OfficierClassAmputated +
+    //                                       GameData.Zone3OfficierClassAmputated + GameData.Zone4OfficierClassAmputated +
+    //                                       GameData.Zone5OfficierClassAmputated;
+    //
+    //     GameData.TotalOfficierDead = GameData.Zone1OfficierClassDead + GameData.Zone2OfficierClassDead +
+    //                                  GameData.Zone3OfficierClassDead + GameData.Zone4OfficierClassDead +
+    //                                  GameData.Zone5OfficierClassDead;
+    //
+    //     GameData.TotalOfficierSaved = GameData.Zone1OfficierClassSaved + GameData.Zone2OfficierClassSaved +
+    //                                   GameData.Zone3OfficierClassSaved + GameData.Zone4OfficierClassSaved +
+    //                                   GameData.Zone5OfficierClassSaved;
+    //
+    //     //Total
+    //     GameData.TotalSoldierAmputated = GameData.TotalFirstClassAmputated + GameData.TotalElitAmputated +
+    //                                      GameData.TotalOfficierAmputated;
+    //
+    //     GameData.TotalSoldierDead = GameData.TotalFirstClassAmputated + GameData.TotalElitAmputated +
+    //                                 GameData.TotalOfficierAmputated;
+    //
+    //     GameData.TotalSoldierSaved = GameData.TotalFirstClassSaved + GameData.TotalElitClassSaved +
+    //                                  GameData.TotalOfficierSaved;
+    // }
 
-        GameData.TotalFirstClassDead = GameData.Zone1FirstClassDead + GameData.Zone2FirstClassDead +
-                                       GameData.Zone3FirstClassDead + GameData.Zone4FirstClassDead +
-                                       GameData.Zone5FirstClassDead;
-
-        GameData.TotalFirstClassSaved = GameData.Zone1FirstClassSaved + GameData.Zone2FirstClassSaved +
-                                        GameData.Zone3FirstClassSaved + GameData.Zone4FirstClassSaved +
-                                        GameData.Zone5FirstClassSaved;
-
-        //Elit Class
-        GameData.TotalElitAmputated = GameData.Zone1ElitClassAmputated + GameData.Zone2ElitClassAmputated +
-                                      GameData.Zone3ElitClassAmputated + GameData.Zone4ElitClassAmputated +
-                                      GameData.Zone5ElitClassAmputated;
-
-        GameData.TotalElitDead = GameData.Zone1ElitClassDead + GameData.Zone2ElitClassDead +
-                                 GameData.Zone3ElitClassDead + GameData.Zone4ElitClassDead +
-                                 GameData.Zone5ElitClassDead;
-
-        GameData.TotalElitClassSaved = GameData.Zone1ElitClassSaved + GameData.Zone2ElitClassSaved +
-                                       GameData.Zone3ElitClassSaved + GameData.Zone4ElitClassSaved +
-                                       GameData.Zone5ElitClassSaved;
-
-        //Officier Class
-        GameData.TotalOfficierAmputated = GameData.Zone1OfficierClassAmputated + GameData.Zone2OfficierClassAmputated +
-                                          GameData.Zone3OfficierClassAmputated + GameData.Zone4OfficierClassAmputated +
-                                          GameData.Zone5OfficierClassAmputated;
-
-        GameData.TotalOfficierDead = GameData.Zone1OfficierClassDead + GameData.Zone2OfficierClassDead +
-                                     GameData.Zone3OfficierClassDead + GameData.Zone4OfficierClassDead +
-                                     GameData.Zone5OfficierClassDead;
-
-        GameData.TotalOfficierSaved = GameData.Zone1OfficierClassSaved + GameData.Zone2OfficierClassSaved +
-                                      GameData.Zone3OfficierClassSaved + GameData.Zone4OfficierClassSaved +
-                                      GameData.Zone5OfficierClassSaved;
-
-        //Total
-        GameData.TotalSoldierAmputated = GameData.TotalFirstClassAmputated + GameData.TotalElitAmputated +
-                                         GameData.TotalOfficierAmputated;
-
-        GameData.TotalSoldierDead = GameData.TotalFirstClassAmputated + GameData.TotalElitAmputated +
-                                    GameData.TotalOfficierAmputated;
-
-        GameData.TotalSoldierSaved = GameData.TotalFirstClassSaved + GameData.TotalElitClassSaved +
-                                     GameData.TotalOfficierSaved;
-    }
-
-    private void SetValueForBilan()
-    {
-        FirstClassAmputatedText.SetText(GameData.TotalFirstClassAmputated.ToString());
-        FirstClassDeadText.SetText(GameData.TotalFirstClassDead.ToString());
-
-        EliteAmputatedText.SetText(GameData.TotalElitAmputated.ToString());
-        EliteDeadText.SetText(GameData.TotalElitDead.ToString());
-
-        OfficerAmputatedText.SetText(GameData.TotalOfficierAmputated.ToString());
-        OfficierDeadText.SetText(GameData.TotalOfficierDead.ToString());
-
-        FirstClassSavedText.SetText(GameData.TotalFirstClassSaved.ToString());
-        EliteSavedText.SetText(GameData.TotalElitClassSaved.ToString());
-        OfficierSavedText.SetText(GameData.TotalOfficierSaved.ToString());
-    }
+    // private void SetValueForBilan()
+    // {
+    //     FirstClassAmputatedText.SetText(GameData.TotalFirstClassAmputated.ToString());
+    //     FirstClassDeadText.SetText(GameData.TotalFirstClassDead.ToString());
+    //
+    //     EliteAmputatedText.SetText(GameData.TotalElitAmputated.ToString());
+    //     EliteDeadText.SetText(GameData.TotalElitDead.ToString());
+    //
+    //     OfficerAmputatedText.SetText(GameData.TotalOfficierAmputated.ToString());
+    //     OfficierDeadText.SetText(GameData.TotalOfficierDead.ToString());
+    //
+    //     FirstClassSavedText.SetText(GameData.TotalFirstClassSaved.ToString());
+    //     EliteSavedText.SetText(GameData.TotalElitClassSaved.ToString());
+    //     OfficierSavedText.SetText(GameData.TotalOfficierSaved.ToString());
+    // }
 
     IEnumerator WaitingForAppearing()
     {
@@ -221,9 +221,9 @@ public class NightManager : MonoBehaviour
         //if (Input.GetKeyDown(KeyCode.D))
         //    index++;
 
-        if (Gamepad.current.buttonWest.wasPressedThisFrame)
+        if (Gamepad.current.leftStick.left.wasPressedThisFrame)
             index--;
-        if (Gamepad.current.buttonEast.wasPressedThisFrame)
+        if (Gamepad.current.leftStick.right.wasPressedThisFrame)
             index++;
 
         if (Gamepad.current.buttonSouth.wasPressedThisFrame)
