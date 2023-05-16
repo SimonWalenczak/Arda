@@ -36,5 +36,5 @@ public class GameData
     
     //Night Tutorial
 
-    public static bool HadSaveSoldier;
+    public static bool HasSavesSoldier;
 }

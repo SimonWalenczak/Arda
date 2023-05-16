@@ -38,7 +38,7 @@ public class GeneralDialog : MonoBehaviour
         StartCoroutine(WaitingForTalk());
 
         _actualFace = BodyFaces[_letterIndex];
-
+        
         if (GameData.NumberDays == 2)
         {
             _generalSprite.SetActive(false);
@@ -94,7 +94,7 @@ public class GeneralDialog : MonoBehaviour
                     {
                         if (index == 0)
                         {
-                            if (GameData.HadSaveSoldier)
+                            if (GameData.HasSavesSoldier)
                                 index = 1;
                             else
                                 index = 3;
