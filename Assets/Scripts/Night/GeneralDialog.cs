@@ -28,6 +28,7 @@ public class GeneralDialog : MonoBehaviour
     [SerializeField] private int _letterIndex = 0;
     [SerializeField] private TextMeshProUGUI _letterTextVisual;
     [SerializeField] private List<GameObject> BodyFaces;
+    [SerializeField] private List<GameObject> SentLetters;
     private GameObject _actualFace;
 
     private void Start()
@@ -38,7 +39,7 @@ public class GeneralDialog : MonoBehaviour
         StartCoroutine(WaitingForTalk());
 
         _actualFace = BodyFaces[_letterIndex];
-        
+
         if (GameData.NumberDays == 2)
         {
             _generalSprite.SetActive(false);
@@ -55,6 +56,13 @@ public class GeneralDialog : MonoBehaviour
             {
                 if (index < _generalTextFirstNight.Count - 1)
                 {
+                    if (index == 7)
+                    {
+                        foreach (var sprite in BodyFaces)
+                        {
+                            sprite.SetActive(true);
+                        }
+                    }
                     if (index >= 5 && index != 8)
                     {
                         if (_generalTextFirstNight[index].HavePaper == false)
@@ -79,14 +87,21 @@ public class GeneralDialog : MonoBehaviour
                     }
                     else if (index == 8)
                     {
-                        if (_generalTextFirstNight[index].HavePaper == false)
+                        if (_generalTextFirstNight[index].PaperActif == false)
+                        {
+                            _generalTextFirstNight[index].PaperActif = true;
+                            foreach (var sprite in BodyFaces)
+                            {
+                                sprite.SetActive(false);
+                            }
+                            LetterWrite(SentLetters[_letterIndex]);
+                        }
+                        else
                         {
                             BGLettre.SetActive(false);
                             _generalTextVisual.gameObject.SetActive(true);
                             _letterTextVisual.gameObject.SetActive(false);
-                            foreach (var sprite in BodyFaces)
-                                sprite.SetActive(false);
-                            LetterSend(_generalTextFirstNight[index].Paper);
+                            LetterSend(SentLetters[_letterIndex]);
                             index++;
                         }
                     }
@@ -174,16 +189,13 @@ public class GeneralDialog : MonoBehaviour
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene("Credits");
     }
-    
+
     private void DialogChoice()
     {
         BGLettre.SetActive(true);
         _generalTextVisual.gameObject.SetActive(false);
         _letterTextVisual.gameObject.SetActive(true);
-        foreach (var sprite in BodyFaces)
-        {
-            sprite.SetActive(true);
-        }
+        
 
         if (Gamepad.current.leftStick.right.wasPressedThisFrame)
         {
@@ -241,6 +253,11 @@ public class GeneralDialog : MonoBehaviour
     private void LetterDisappearing(GameObject letter)
     {
         StartCoroutine(letter.GetComponent<Letter>().Disappearing());
+    }
+
+    private void LetterWrite(GameObject letter)
+    {
+        StartCoroutine(letter.GetComponent<Letter>().WriteLetter());
     }
 
     private void LetterSend(GameObject letter)

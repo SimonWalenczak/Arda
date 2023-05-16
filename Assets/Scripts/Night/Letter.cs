@@ -31,4 +31,11 @@ public class Letter : MonoBehaviour
         yield return new WaitForSeconds(3);
         _animator.SetBool("Send", false);
     }
+    
+    public IEnumerator WriteLetter()
+    {
+        _animator.SetBool("Write", true);
+        yield return new WaitForSeconds(0.1f);
+        _animator.SetBool("Write", false);
+    }
 }

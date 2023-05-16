@@ -27,8 +27,6 @@ public class MainMenu : MonoBehaviour
         GameData.BombingNb = 0;
         GameData.UnderminedInfiltrationNb = 0;
         GameData.InfantryChargeNb = 0;
-
-        print(GameData.IsRainning);
     }
 
     private void Update()
