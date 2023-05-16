@@ -12,6 +12,8 @@ public class Tent : MonoBehaviour
     public CanvasGroup Fader;
     public CanvasGroup Radiology;
 
+    public bool Enterable = true;
+
     //public int TentNum;
 
     private void Awake()
@@ -22,7 +24,7 @@ public class Tent : MonoBehaviour
 
     public void GoToTent()
     {
-        DataCenterDay.Instance.CurrentTent = gameObject;
+        DataCenterDay.Instance.CurrentTent = this;
         foreach (var item in Soldiers)
         {
             DataCenterDay.Instance.CurrentSoldiers.Add(item);

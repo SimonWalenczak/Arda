@@ -6,6 +6,12 @@ using UnityEngine.InputSystem;
 
 public class RadiologyPhase : MonoBehaviour
 {
+    [Header("Radiology Mode")]
+    [SerializeField] bool Scan = true;
+    [SerializeField] bool Survey;
+
+
+    [Space(10)]
     public CanvasGroup Fader;
     public CanvasGroup Radiology;
 
@@ -23,6 +29,7 @@ public class RadiologyPhase : MonoBehaviour
     public static RadiologyPhase Instance;
 
     [HideInInspector] public bool canMove = false;
+    [HideInInspector] public bool isInteractable = false;
 
     int currentSoldier = 0;
 
@@ -52,17 +59,32 @@ public class RadiologyPhase : MonoBehaviour
         Mask.transform.position = maskStartPos;
         Skeleton.transform.position = skeletonStartPos;
         UiRadioUpdate.Instance.UpdateUI(currentSoldier);
+        isInteractable = true;
 
-        BulletHandler.Instance.SetupBullets(currentSoldier);
-        canMove = true;
+        if (Survey)
+        {
+            Mask.SetActive(false);
+        }
+        else if (Scan)
+        {
+            BulletHandler.Instance.SetupBullets(currentSoldier);
+            canMove = true;
+        }
     }
 
     private void Update()
     {
-        UpdateSoldier();
-        if (Gamepad.current.buttonEast.wasReleasedThisFrame && canMove)
+        if (Gamepad.current.buttonWest.wasReleasedThisFrame && isInteractable)
+        {
+            UpdateSoldier();
+        }
+        if (Gamepad.current.buttonEast.wasReleasedThisFrame && isInteractable)
         {
             LeaveTent();
+        }
+        if (Gamepad.current.buttonSouth.wasReleasedThisFrame && Survey && isInteractable)
+        {
+            HealSoldier();
         }
     }
 
@@ -70,9 +92,11 @@ public class RadiologyPhase : MonoBehaviour
     {
 
         canMove = false;
+        isInteractable = false;
         currentSoldier = 0;
         PlayerManager.GetComponent<DaytimePlayerCtrler>().arcadeCar.controllable = true;
         PlayerManager.GetComponent<DaytimePlayerCtrler>().isDriving = true;
+        DataCenterDay.Instance.CurrentTent.Enterable = false;
         DataCenterDay.Instance.Clean();
         StartCoroutine(Fading());
     }
@@ -88,19 +112,23 @@ public class RadiologyPhase : MonoBehaviour
 
     void UpdateSoldier()
     {
-        if (Gamepad.current.buttonWest.wasReleasedThisFrame && canMove)
+        if (currentSoldier < DataCenterDay.Instance.CurrentSoldiers.Count - 1)
         {
-            if (currentSoldier < DataCenterDay.Instance.CurrentSoldiers.Count-1)
-            {
-                //print(DataCenterDay.Instance.CurrentSoldiers.Count);
-                currentSoldier++;
-                UiRadioUpdate.Instance.UpdateUI(currentSoldier);
-            }
-            else
-            {
-                LeaveTent();
-            }
+            //print(DataCenterDay.Instance.CurrentSoldiers.Count);
+            currentSoldier++;
+            UiRadioUpdate.Instance.UpdateUI(currentSoldier);
         }
+        else
+        {
+            LeaveTent();
+        }
+    }
+
+    void HealSoldier()
+    {
+        DayManager.Instance.Timer += DataCenterDay.Instance.CurrentSoldiers[currentSoldier].MinutesConsumed*60;
+        DayManager.Instance.CurrentSeconds += DataCenterDay.Instance.CurrentSoldiers[currentSoldier].MinutesConsumed*60;
+        UpdateSoldier();
     }
 
 }

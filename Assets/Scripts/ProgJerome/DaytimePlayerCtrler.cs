@@ -21,9 +21,12 @@ public class DaytimePlayerCtrler : MonoBehaviour
         {
             if (Gamepad.current.buttonSouth.isPressed && isDriving)
             {
-                isDriving = false;
-                arcadeCar.controllable = false;
-                other.gameObject.GetComponent<Tent>().GoToTent();
+                if (other.gameObject.GetComponent<Tent>().Enterable)
+                {
+                    isDriving = false;
+                    arcadeCar.controllable = false;
+                    other.gameObject.GetComponent<Tent>().GoToTent();
+                }
                 //print("coucou c'est une tente");            
             }
         }

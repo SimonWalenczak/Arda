@@ -7,7 +7,7 @@ public class DataCenterDay : MonoBehaviour
     public static DataCenterDay Instance;
 
     [HideInInspector] public List<SoldierInfo> CurrentSoldiers = new List<SoldierInfo>();
-    [HideInInspector] public GameObject CurrentTent;
+    [HideInInspector] public Tent CurrentTent;
 
     private void Awake()
     {

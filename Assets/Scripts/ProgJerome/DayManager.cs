@@ -21,7 +21,7 @@ public class DayManager : MonoBehaviour
     [Space(10)]
     [Header("Control")]
     public int TimeMultiplier;
-    float timer = 0.0f;
+    [HideInInspector] public float Timer = 0.0f;
 
     [Space(10)]
     [Header("Debug")]
@@ -37,9 +37,16 @@ public class DayManager : MonoBehaviour
 
     int endSecs;
 
+    public static DayManager Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     private void Start()
     {
-        timer = StartHour * 3600 + StartMinute * 60;
+        Timer = StartHour * 3600 + StartMinute * 60;
         endSecs = EndHour * 3600 + EndMinute * 60;
 
         CurrentHour = StartHour;
@@ -54,7 +61,7 @@ public class DayManager : MonoBehaviour
     void Update()
     {
         
-        timer += Time.deltaTime * TimeMultiplier;
+        Timer += Time.deltaTime * TimeMultiplier;
         
         _timeSinceStart += Time.deltaTime;
         TimeSinceStart = (int)_timeSinceStart;
@@ -64,7 +71,7 @@ public class DayManager : MonoBehaviour
 
         if (CurrentSeconds >= 60)
         {
-            CurrentSeconds = 0;
+            CurrentSeconds -=60;
             CurrentMinute++;
             if (CurrentMinute >= 60)
             {
@@ -83,7 +90,7 @@ public class DayManager : MonoBehaviour
         }
         
 
-        if (timer >= endSecs)
+        if (Timer >= endSecs)
         {
             //print("coucou");
             StartCoroutine(WaitingForSunSet());

@@ -9,6 +9,7 @@ public class UiRadioUpdate : MonoBehaviour
     public TextMeshProUGUI Age;
     public TextMeshProUGUI Rank;
     public TextMeshProUGUI Achievement;
+    public TextMeshProUGUI CurrentSoldierNumber;
 
     static public UiRadioUpdate Instance;
 
@@ -23,6 +24,7 @@ public class UiRadioUpdate : MonoBehaviour
         Age.text = DataCenterDay.Instance.CurrentSoldiers[i].Age;
         Rank.text = DataCenterDay.Instance.CurrentSoldiers[i].MilitaryRank;
         Achievement.text = DataCenterDay.Instance.CurrentSoldiers[i].Achievements;
+        CurrentSoldierNumber.text = (i+1).ToString() + '/' + (DataCenterDay.Instance.CurrentSoldiers.Count);
     }
 
 

@@ -11,6 +11,7 @@ public class SoldierInfo
     public string Age;
     public string Achievements;
     public string MilitaryRank;
+    public int MinutesConsumed;
 
     //public int TotalBullet;
 
