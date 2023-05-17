@@ -1,5 +1,9 @@
+using System;
+using System.Collections;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 
 public class BombingZone : MonoBehaviour
@@ -19,13 +23,26 @@ public class BombingZone : MonoBehaviour
     [SerializeField] int minY;
     [SerializeField] int maxY;
     [SerializeField] GameObject bomb;
-    private int nbBomb;
-    [SerializeField] private float ratioBomb;
+    [SerializeField] private int _nbBombMax;
     [SerializeField] private Terrain _terrain;
     [SerializeField] private Color color;
 
     [SerializeField] GameObject mainCamera;
 
+    [SerializeField] private float startBombingHour;
+    [SerializeField] private float startBombingMinute;
+    [SerializeField] private float stopBombingHour;
+    [SerializeField] private float stopBombingMinute;
+    [SerializeField] private bool _bombingStarted;
+
+    private float _hourDuration;
+    private float _minuteDuration;
+    private float _bombingDuration;
+    private int _bombPerSec;
+    [SerializeField] private int nbBomb;
+
+    private float _currentTime = 0;
+    
     // [Header("Debug")] public GameObject pointsCheck;
 
     #endregion
@@ -35,6 +52,12 @@ public class BombingZone : MonoBehaviour
         _meshCollider = GetComponent<MeshCollider>();
         GetComponent<MeshRenderer>().material.color = color;
         Initialize();
+
+        _hourDuration = stopBombingHour - startBombingHour;
+        _minuteDuration = stopBombingMinute - startBombingMinute;
+
+        _bombingDuration = (_hourDuration * 3600 + _minuteDuration * 60) / DayManager.Instance.TimeMultiplier;
+        _bombPerSec = (int)(_nbBombMax / _bombingDuration);
     }
 
     void Initialize()
@@ -54,7 +77,7 @@ public class BombingZone : MonoBehaviour
         float distZ = math.abs(minZPoint - maxZPoint);
 
         nbBomb = 0;
-        Area = (int) (distX * distZ);
+        Area = (int)(distX * distZ);
 
         print(Area);
 
@@ -73,8 +96,22 @@ public class BombingZone : MonoBehaviour
 
     private void Update()
     {
-        if (nbBomb < Area / (ratioBomb * 100))
-                StartBombing();
+        if (DayManager.Instance.CurrentHour >= startBombingHour &&
+            DayManager.Instance.CurrentMinute >= startBombingMinute)
+        {
+            _currentTime += Time.deltaTime;
+
+            if (_currentTime >= 1)
+            {
+                for (int i = 0; i < _bombPerSec; i++)
+                {
+                    if (nbBomb < _nbBombMax)
+                        StartBombing();
+                }
+
+                _currentTime = 0;
+            }
+        }
     }
 
     void StartBombing()
@@ -95,6 +132,10 @@ public class BombingZone : MonoBehaviour
                 GameObject actualBomb = Instantiate(bomb, spawnPos, Quaternion.Euler(90f, 0f, 0f));
                 actualBomb.GetComponent<Bomb>().MainCamera = mainCamera;
                 nbBomb++;
+            }
+            else
+            {
+                StartBombing();
             }
         }
     }
