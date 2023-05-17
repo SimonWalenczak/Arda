@@ -338,7 +338,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh239130
+  m_Name: pb_Mesh272212
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5195,6 +5195,10 @@ PrefabInstance:
       value: DayManager
       objectReference: {fileID: 0}
     - target: {fileID: 3434172786854650948, guid: afe084ec7e1856242ba87c4326440662, type: 3}
+      propertyPath: EndHour
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 3434172786854650948, guid: afe084ec7e1856242ba87c4326440662, type: 3}
       propertyPath: TimeOfDay
       value: 
       objectReference: {fileID: 275610383}
@@ -5202,6 +5206,10 @@ PrefabInstance:
       propertyPath: _terrainSaver
       value: 
       objectReference: {fileID: 85441087}
+    - target: {fileID: 3434172786854650948, guid: afe084ec7e1856242ba87c4326440662, type: 3}
+      propertyPath: TimeMultiplier
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 3434172786854650949, guid: afe084ec7e1856242ba87c4326440662, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -5254,7 +5262,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh238832
+  m_Name: pb_Mesh272176
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5580,7 +5588,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh238402
+  m_Name: pb_Mesh272128
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6011,16 +6019,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 851f4792158b82c4d9c750639d01828a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minY: 250
-  maxY: 300
+  minY: 150
+  maxY: 250
   bomb: {fileID: 86717784527407039, guid: 92d3a9f909ca8f64fabb7643d1d0b62c, type: 3}
-  _nbBombMax: 0
+  _nbBombMax: 500
   _terrain: {fileID: 33266351}
   color: {r: 0, g: 0, b: 0, a: 0}
-  mainCamera: {fileID: 0}
-  startBombingHour: 0
+  mainCamera: {fileID: 1819506021}
+  startBombingHour: 14
   startBombingMinute: 0
-  stopBombingHour: 0
+  stopBombingHour: 19
   stopBombingMinute: 0
   _bombingStarted: 0
   nbBomb: 0
@@ -6207,6 +6215,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1819506021 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1379205042, guid: d7ef22a83cd2ea247aa347897cb4c84a, type: 3}
+  m_PrefabInstance: {fileID: 483796036}
+  m_PrefabAsset: {fileID: 0}
 --- !u!850595691 &1957809577
 LightingSettings:
   m_ObjectHideFlags: 0
