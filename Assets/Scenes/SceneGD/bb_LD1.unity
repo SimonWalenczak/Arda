@@ -4530,7 +4530,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh32072
+  m_Name: pb_Mesh31412
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6546,6 +6546,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.397461, y: 0.6799927, z: 0.5905762}
   m_Center: {x: -0.319458, y: 0.35858154, z: -0.15148926}
+--- !u!114 &470632654 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 966003545902498471, guid: a98fc4f365522c04b8ffaebb21e2c9f8, type: 3}
+  m_PrefabInstance: {fileID: 1550735384}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &482723754
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8690,7 +8701,7 @@ MonoBehaviour:
     Achievements: sg
     MilitaryRank: gdgdg
     MinutesConsumed: 0
-    Bullets: 01000000
+    Bullets: 0000000000000000000000000000000000000000
     Face: {fileID: 0}
     BodyHair: {fileID: 0}
     BodyHairColor: {r: 0, g: 0, b: 0, a: 0}
@@ -17630,6 +17641,10 @@ PrefabInstance:
       propertyPath: Achievement
       value: 
       objectReference: {fileID: 1550735385}
+    - target: {fileID: 8314006830337262616, guid: 74caa12a3b4fff54d8b2e707da180960, type: 3}
+      propertyPath: CurrentSoldierNumber
+      value: 
+      objectReference: {fileID: 470632654}
     - target: {fileID: 8314006830500811844, guid: 74caa12a3b4fff54d8b2e707da180960, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -17707,9 +17722,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1550735391}
     - target: {fileID: 8314006831646699251, guid: 74caa12a3b4fff54d8b2e707da180960, type: 3}
+      propertyPath: Scan
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8314006831646699251, guid: 74caa12a3b4fff54d8b2e707da180960, type: 3}
       propertyPath: Fader
       value: 
       objectReference: {fileID: 1550735389}
+    - target: {fileID: 8314006831646699251, guid: 74caa12a3b4fff54d8b2e707da180960, type: 3}
+      propertyPath: Survey
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8314006831646699251, guid: 74caa12a3b4fff54d8b2e707da180960, type: 3}
       propertyPath: Skeleton
       value: 
@@ -19531,8 +19554,8 @@ MonoBehaviour:
     Age: 3
     Achievements: dsf
     MilitaryRank: cfvnbf
-    MinutesConsumed: 0
-    Bullets: 01000000
+    MinutesConsumed: 10
+    Bullets: 0000000000000000000000000000000000000000
     Face: {fileID: 0}
     BodyHair: {fileID: 0}
     BodyHairColor: {r: 0, g: 0, b: 0, a: 0}
