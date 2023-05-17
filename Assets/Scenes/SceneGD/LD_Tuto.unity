@@ -5105,6 +5105,27 @@ Transform:
   m_Father: {fileID: 1309157756}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1053936273 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2092774458626804555, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+  m_PrefabInstance: {fileID: 48855941}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1053936277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053936273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8719d76853d15449bb9665886005015, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  IsSoldier: 0
 --- !u!1001 &1211011528
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5528,9 +5549,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 98276961}
     - target: {fileID: 8314006831646699251, guid: 74caa12a3b4fff54d8b2e707da180960, type: 3}
+      propertyPath: Scan
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8314006831646699251, guid: 74caa12a3b4fff54d8b2e707da180960, type: 3}
       propertyPath: Fader
       value: 
       objectReference: {fileID: 98276954}
+    - target: {fileID: 8314006831646699251, guid: 74caa12a3b4fff54d8b2e707da180960, type: 3}
+      propertyPath: Survey
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8314006831646699251, guid: 74caa12a3b4fff54d8b2e707da180960, type: 3}
       propertyPath: Skeleton
       value: 
@@ -5709,6 +5738,27 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1528931182 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2092774458626804555, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+  m_PrefabInstance: {fileID: 360417414}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1528931186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528931182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8719d76853d15449bb9665886005015, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  IsSoldier: 1
 --- !u!1 &1552570213
 GameObject:
   m_ObjectHideFlags: 0

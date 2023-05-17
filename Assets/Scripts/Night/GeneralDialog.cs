@@ -33,7 +33,7 @@ public class GeneralDialog : MonoBehaviour
 
     private void Start()
     {
-        GameData.NumberDays = DayNumber;
+        //GameData.NumberDays = DayNumber;
 
         CanTalk = false;
         StartCoroutine(WaitingForTalk());

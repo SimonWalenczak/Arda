@@ -129,7 +129,7 @@ public class NightManager : MonoBehaviour
     {
         FadeOut.SetActive(true);
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene("ScenePascal");
+        SceneManager.LoadScene("bb_LD1");
     }
 
     void UpgradeCar()

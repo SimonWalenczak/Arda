@@ -91,7 +91,7 @@ public class MainMenu : MonoBehaviour
     {
         fadeOut.SetActive(true);
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene("Night");
+        SceneManager.LoadScene("LD_Tuto");
     }
 
     IEnumerator GoToCredits()
