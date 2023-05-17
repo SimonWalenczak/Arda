@@ -38,11 +38,11 @@ public class BombingZone : MonoBehaviour
     private float _hourDuration;
     private float _minuteDuration;
     private float _bombingDuration;
-    private int _bombPerSec;
+    private double _bombPerSec;
     [SerializeField] private int nbBomb;
 
     private float _currentTime = 0;
-    
+
     // [Header("Debug")] public GameObject pointsCheck;
 
     #endregion
@@ -57,7 +57,7 @@ public class BombingZone : MonoBehaviour
         _minuteDuration = stopBombingMinute - startBombingMinute;
 
         _bombingDuration = (_hourDuration * 3600 + _minuteDuration * 60) / DayManager.Instance.TimeMultiplier;
-        _bombPerSec = (int)(_nbBombMax / _bombingDuration);
+        _bombPerSec = Math.Round(_nbBombMax / _bombingDuration);
     }
 
     void Initialize()
@@ -99,6 +99,7 @@ public class BombingZone : MonoBehaviour
         if (DayManager.Instance.CurrentHour >= startBombingHour &&
             DayManager.Instance.CurrentMinute >= startBombingMinute)
         {
+            print("start bombing");
             _currentTime += Time.deltaTime;
 
             if (_currentTime >= 1)
@@ -111,6 +112,17 @@ public class BombingZone : MonoBehaviour
 
                 _currentTime = 0;
             }
+        }
+
+        if (DayManager.Instance.CurrentHour >= stopBombingHour &&
+    DayManager.Instance.CurrentMinute >= stopBombingMinute)
+        {
+            print("stop bombing");
+        }
+
+        if (Gamepad.current.buttonSouth.wasPressedThisFrame)
+        {
+            print(_bombPerSec);
         }
     }
 
@@ -132,6 +144,7 @@ public class BombingZone : MonoBehaviour
                 GameObject actualBomb = Instantiate(bomb, spawnPos, Quaternion.Euler(90f, 0f, 0f));
                 actualBomb.GetComponent<Bomb>().MainCamera = mainCamera;
                 nbBomb++;
+                print("bomb create");
             }
             else
             {

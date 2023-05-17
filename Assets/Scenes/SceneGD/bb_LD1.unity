@@ -2205,6 +2205,10 @@ PrefabInstance:
       value: DayManager
       objectReference: {fileID: 0}
     - target: {fileID: 3434172786854650948, guid: afe084ec7e1856242ba87c4326440662, type: 3}
+      propertyPath: EndHour
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 3434172786854650948, guid: afe084ec7e1856242ba87c4326440662, type: 3}
       propertyPath: TimeOfDay
       value: 
       objectReference: {fileID: 2119944444}
@@ -2212,6 +2216,10 @@ PrefabInstance:
       propertyPath: _terrainSaver
       value: 
       objectReference: {fileID: 626239792}
+    - target: {fileID: 3434172786854650948, guid: afe084ec7e1856242ba87c4326440662, type: 3}
+      propertyPath: TimeMultiplier
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 3434172786854650949, guid: afe084ec7e1856242ba87c4326440662, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -4530,7 +4538,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh41134
+  m_Name: pb_Mesh106704
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7675,13 +7683,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 851f4792158b82c4d9c750639d01828a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minY: 300
+  minY: 150
   maxY: 300
   bomb: {fileID: 86717784527407039, guid: 92d3a9f909ca8f64fabb7643d1d0b62c, type: 3}
-  ratioBomb: 2
+  _nbBombMax: 150
   _terrain: {fileID: 989626397}
   color: {r: 0, g: 0, b: 0, a: 0}
   mainCamera: {fileID: 904203382}
+  startBombingHour: 14
+  startBombingMinute: 0
+  stopBombingHour: 17
+  stopBombingMinute: 0
+  _bombingStarted: 0
+  nbBomb: 0
 --- !u!1 &676108046 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8b667f1a281c1694488d2555cd3d567a, type: 3}
