@@ -22,9 +22,10 @@ public class GeneralDialog : MonoBehaviour
     [SerializeField] private int index = 0;
     [SerializeField] private GameObject BGLettre;
 
-    [Space(10)] [Header("Lettre Envoie")] [SerializeField]
-    private List<String> _letterText;
-
+    [Space(10)] [Header("Lettre Envoie")]
+    [SerializeField] private List<String> _letterText;
+    [SerializeField] private List<LetterRewards> _letterRewardsList;
+    
     [SerializeField] private int _letterIndex = 0;
     [SerializeField] private TextMeshProUGUI _letterTextVisual;
     [SerializeField] private List<GameObject> BodyFaces;
@@ -233,7 +234,7 @@ public class GeneralDialog : MonoBehaviour
             _letterIndex = 2;
 
         _actualFace.GetComponent<RectTransform>().DOScale(1.2f, 0.7f);
-        _letterTextVisual.SetText(_letterText[_letterIndex]);
+        _letterTextVisual.SetText($"{_letterText[_letterIndex]}\n \nVous gagnerez {_letterRewardsList[_letterIndex].rewardText}");
     }
 
     private void Update()

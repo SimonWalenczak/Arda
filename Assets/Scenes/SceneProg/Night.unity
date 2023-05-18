@@ -432,6 +432,7 @@ GameObject:
   - component: {fileID: 174187703}
   - component: {fileID: 174187702}
   - component: {fileID: 174187701}
+  - component: {fileID: 174187704}
   - component: {fileID: 174187700}
   m_Layer: 5
   m_Name: LettreLouisRenault
@@ -531,6 +532,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 174187698}
   m_CullTransparentMesh: 1
+--- !u!114 &174187704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174187698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a0a30c0f671b84a8306a83d274462f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rewardText: un meilleur chassit.
 --- !u!1 &192020248
 GameObject:
   m_ObjectHideFlags: 0
@@ -4501,6 +4515,10 @@ MonoBehaviour:
   - "Ecrire \xE0 Georges."
   - "Ecrire \xE0 Marie Curie."
   - "Ecrire \xE0 Louis Renault."
+  _letterRewardsList:
+  - {fileID: 1205095323}
+  - {fileID: 1549659229}
+  - {fileID: 174187704}
   _letterIndex: 0
   _letterTextVisual: {fileID: 723809621}
   BodyFaces:
@@ -5196,6 +5214,7 @@ GameObject:
   - component: {fileID: 1205095322}
   - component: {fileID: 1205095321}
   - component: {fileID: 1205095320}
+  - component: {fileID: 1205095323}
   - component: {fileID: 1205095319}
   m_Layer: 5
   m_Name: LettreGeorges
@@ -5295,6 +5314,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1205095317}
   m_CullTransparentMesh: 1
+--- !u!114 &1205095323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205095317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a0a30c0f671b84a8306a83d274462f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rewardText: une roue.
 --- !u!1 &1224704809
 GameObject:
   m_ObjectHideFlags: 0
@@ -6723,6 +6755,7 @@ GameObject:
   - component: {fileID: 1549659228}
   - component: {fileID: 1549659227}
   - component: {fileID: 1549659226}
+  - component: {fileID: 1549659229}
   - component: {fileID: 1549659225}
   m_Layer: 5
   m_Name: LettreMarieCurie
@@ -6822,6 +6855,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1549659223}
   m_CullTransparentMesh: 1
+--- !u!114 &1549659229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549659223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a0a30c0f671b84a8306a83d274462f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rewardText: une batterie de radiologie.
 --- !u!1 &1551856693
 GameObject:
   m_ObjectHideFlags: 0
