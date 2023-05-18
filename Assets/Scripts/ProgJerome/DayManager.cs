@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 public class DayManager : MonoBehaviour
 {
     [SerializeField] TerrainSaver _terrainSaver;
-
+    [SerializeField] private bool _isTuto;
+    
     [Space(10)]
     [Header("Start")]
     public int StartHour;
@@ -52,10 +53,8 @@ public class DayManager : MonoBehaviour
         CurrentHour = StartHour;
         CurrentMinute = StartMinute;
         
-        //Test Simon
-        if(GameData.NumberDays == 1)
-            GameData.NumberDays = 2;
-        //Fin Test
+        //Détermine le numéro du jour
+        GameData.NumberDays = _isTuto ? 1 : 2;
     }
 
     void Update()
