@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3309820857924334136}
   - component: {fileID: 723443197477570290}
   - component: {fileID: 6669112234488782246}
+  - component: {fileID: -8765392244816079986}
   m_Layer: 0
   m_Name: RockCollider
   m_TagString: Untagged
@@ -98,3 +99,22 @@ CapsuleCollider:
   m_Height: 1.6840382
   m_Direction: 1
   m_Center: {x: -0.07810071, y: -0.2962495, z: 0.10749001}
+--- !u!205 &-8765392244816079986
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1228026607294048039}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 12
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.05
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 723443197477570290}
+  m_Enabled: 1
