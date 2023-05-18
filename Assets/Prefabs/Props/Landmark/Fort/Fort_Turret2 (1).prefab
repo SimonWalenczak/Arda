@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5490869797913154191}
   - component: {fileID: 8907178228192894250}
   - component: {fileID: 6663163755261012448}
+  - component: {fileID: 2888915811497362164}
   m_Layer: 0
   m_Name: Fort_Turret2 (1)
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &2888915811497362164
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5150055641518737461}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2.1946578
+  m_Height: 6.488225
+  m_Direction: 2
+  m_Center: {x: 0, y: -0.30233884, z: 0.0031130314}
