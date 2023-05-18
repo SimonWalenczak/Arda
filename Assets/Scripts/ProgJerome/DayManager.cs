@@ -35,6 +35,7 @@ public class DayManager : MonoBehaviour
     [Space(10)]
     [Header("UI")]
     public TextMeshProUGUI TimeOfDay;
+    [SerializeField] private GameObject _fadeOut;
 
     int endSecs;
 
@@ -101,8 +102,8 @@ public class DayManager : MonoBehaviour
 
     IEnumerator WaitingForSunSet()
     {
-        //_fader.SetActive(true);
-        yield return new WaitForSeconds(1);
+        _fadeOut.SetActive(true);
+        yield return new WaitForSeconds(3.5f);
         _terrainSaver.OnApplicationQuit(); // reset terrain
         SceneManager.LoadScene("Night");
     }

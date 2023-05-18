@@ -47,7 +47,11 @@ public class NightManager : MonoBehaviour
     [SerializeField] private int nbUpgradeapplicated;
     public List<GameObject> UpgradeApplicated;
     [SerializeField] private float offsetX;
-    public GameObject FadeOut;
+
+    public GameObject FadeIn23;
+    public GameObject FadeIn24;
+    public GameObject FadeOutDay;
+    public GameObject FadeOutCredits;
 
 
     //[Header("\n------------ Zones ------------\n")] 
@@ -73,6 +77,11 @@ public class NightManager : MonoBehaviour
         Cursor.visible = false;
         _generalDialog = GetComponent<GeneralDialog>();
         index = 1;
+        if (GameData.NumberDays == 1)
+            FadeIn24.SetActive(false);
+        else
+            FadeIn23.SetActive(false);
+
         for (int i = 0; i < UpgradeApplicated.Count; i++)
         {
             UpgradeApplicated[i].SetActive(false);
@@ -127,8 +136,8 @@ public class NightManager : MonoBehaviour
 
     IEnumerator GoToDayScene()
     {
-        FadeOut.SetActive(true);
-        yield return new WaitForSeconds(2);
+        FadeOutDay.SetActive(true);
+        yield return new WaitForSeconds(3.5f);
         SceneManager.LoadScene("bb_LD1");
     }
 

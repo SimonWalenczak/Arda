@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 
 public class ControllerChecker : MonoBehaviour
 {
-
     public CanvasGroup ControllerOff;
 
     private void Awake()

@@ -186,7 +186,7 @@ public class GeneralDialog : MonoBehaviour
 
     private IEnumerator GoToCredits()
     {
-        gameObject.GetComponent<NightManager>().FadeOut.SetActive(true);
+        gameObject.GetComponent<NightManager>().FadeOutCredits.SetActive(true);
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene("Credits");
     }
