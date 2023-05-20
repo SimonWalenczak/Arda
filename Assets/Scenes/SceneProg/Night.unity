@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 51005855}
   - component: {fileID: 51005856}
   m_Layer: 0
-  m_Name: GeneralPresentation
+  m_Name: GeneralPresentation1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -169,10 +169,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 1
   BodyDialog: Gr. De Villaret
-  DialogText: "G\xE9n\xE9ral de Villaret au rapport jeune fille, bienvenue dans cet
-    enfer.  Je suis votre sup\xE9rieur et tout les soirs nous ferons un bilan de
-    votre efficacit\xE9 et j\u2019en informeront l\u2019\xE9tat major. Sachez que
-    vous devrez faire vos preuves pour vous faire accepter et rester sur le front. "
+  DialogText: "G\xE9n\xE9ral de Villaret du septi\xE8me corps d\u2019arm\xE9e, bienvenue
+    dans cet enfer jeune fille."
   HavePaper: 0
   PaperActif: 0
   Paper: {fileID: 0}
@@ -282,7 +280,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 454542907}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &116962537
 MonoBehaviour:
@@ -296,7 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1049cf60c2b39044bbee6a2adb7295a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 5
+  index: 6
   BodyDialog: Gr. De Villaret
   DialogText: Pour vous encourager, voici de quoi vous aider demain. Faites en bon
     usage.
@@ -1740,14 +1738,15 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 51005855}
+  - {fileID: 1929432085}
   - {fileID: 564100316}
   - {fileID: 1857078225}
   - {fileID: 925131035}
   - {fileID: 116962536}
   - {fileID: 1314074221}
   - {fileID: 1311413524}
-  - {fileID: 1595823563}
   - {fileID: 1366219318}
+  - {fileID: 1595823563}
   - {fileID: 767545828}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -2194,7 +2193,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 454542907}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &564100317
 MonoBehaviour:
@@ -2208,7 +2207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1049cf60c2b39044bbee6a2adb7295a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 2
+  index: 3
   BodyDialog: Gr. De Villaret
   DialogText: "Apparemment vous avez fait forte impression aupr\xE8s des secondes
     classes, dommage que vous n\u2019ayez impressionn\xE9 qu\u2019eux."
@@ -3601,7 +3600,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 454542907}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &767545829
 MonoBehaviour:
@@ -3615,7 +3614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1049cf60c2b39044bbee6a2adb7295a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 10
+  index: 11
   BodyDialog: Gr. De Villaret
   DialogText: "Allez vous reposer, demain et un autre jour, mais \xE7a sera \xE9galement
     le dernier de certain d'entre-nous. "
@@ -4606,7 +4605,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 454542907}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &925131036
 MonoBehaviour:
@@ -4620,7 +4619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1049cf60c2b39044bbee6a2adb7295a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 4
+  index: 5
   BodyDialog: Gr. De Villaret
   DialogText: "Vous avez sauv\xE9 un nombre important d\u2019officiers aujourd\u2019hui
     et l'\xE9tat-major vous en remercie mais attention aux g\xE9nies et aux secondes
@@ -5074,6 +5073,7 @@ MonoBehaviour:
   _bodyTextVisual: {fileID: 2135980229}
   _generalTextFirstNight:
   - {fileID: 51005856}
+  - {fileID: 1929432086}
   - {fileID: 564100317}
   - {fileID: 1857078226}
   - {fileID: 925131036}
@@ -6322,7 +6322,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 454542907}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1311413525
 MonoBehaviour:
@@ -6336,9 +6336,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1049cf60c2b39044bbee6a2adb7295a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 7
+  index: 8
   BodyDialog: Gr. De Villaret
-  DialogText: "Votre frere vous a \xE9crit."
+  DialogText: "Vous avez \xE9galement re\xE7u une lettre de votre fr\xE8re."
   HavePaper: 1
   PaperActif: 0
   Paper: {fileID: 233354332}
@@ -6487,7 +6487,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 454542907}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1314074222
 MonoBehaviour:
@@ -6501,9 +6501,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1049cf60c2b39044bbee6a2adb7295a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 6
+  index: 7
   BodyDialog: Gr. De Villaret
-  DialogText: Vous avez recu une lettre de remerciement.
+  DialogText: "J\u2019ai failli oublier. Tenez, vous avez du courrier. C\u2019est
+    moi qui vous le transmettrai directement apr\xE8s nos bilans quotidiens."
   HavePaper: 1
   PaperActif: 0
   Paper: {fileID: 1886772883}
@@ -8021,7 +8022,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 454542907}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1595823564
 MonoBehaviour:
@@ -8035,7 +8036,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1049cf60c2b39044bbee6a2adb7295a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 8
+  index: 10
   BodyDialog: Jeanne
   DialogText: "Merci mon g\xE9n\xE9ral."
   HavePaper: 1
@@ -8946,7 +8947,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 454542907}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1857078226
 MonoBehaviour:
@@ -8960,7 +8961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1049cf60c2b39044bbee6a2adb7295a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 3
+  index: 4
   BodyDialog: Gr. De Villaret
   DialogText: "Un groupe de bless\xE9s vous a envoy\xE9 un cadeau en remerciement,
     tenez."
@@ -9078,6 +9079,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 0}
+--- !u!1 &1929432084
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1929432085}
+  - component: {fileID: 1929432086}
+  m_Layer: 0
+  m_Name: GeneralPresentation2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1929432085
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929432084}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 454542907}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1929432086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929432084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1049cf60c2b39044bbee6a2adb7295a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 2
+  BodyDialog: Gr. De Villaret
+  DialogText: "Je suis votre sup\xE9rieur et tous les soirs nous ferons un bilan
+    de votre efficacit\xE9 et j\u2019en informeront l\u2019\xE9tat major. Sachez
+    que vous devrez faire vos preuves pour vous faire accepter et rester sur le front."
+  HavePaper: 0
+  PaperActif: 0
+  Paper: {fileID: 0}
 --- !u!1 &1935898198
 GameObject:
   m_ObjectHideFlags: 0

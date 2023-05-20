@@ -57,14 +57,14 @@ public class GeneralDialog : MonoBehaviour
             {
                 if (index < _generalTextFirstNight.Count - 1)
                 {
-                    if (index == 7)
+                    if (index == 8)
                     {
                         foreach (var sprite in BodyFaces)
                         {
                             sprite.SetActive(true);
                         }
                     }
-                    if (index >= 5 && index != 8)
+                    if (index == 0 || (index >= 6 && index != 9))
                     {
                         if (_generalTextFirstNight[index].HavePaper == false)
                         {
@@ -86,7 +86,7 @@ public class GeneralDialog : MonoBehaviour
                             }
                         }
                     }
-                    else if (index == 8)
+                    else if (index == 9)
                     {
                         if (_generalTextFirstNight[index].PaperActif == false)
                         {
@@ -108,12 +108,12 @@ public class GeneralDialog : MonoBehaviour
                     }
                     else
                     {
-                        if (index == 0)
+                        if (index == 1)
                         {
                             if (GameData.HasSavesSoldier)
-                                index = 1;
+                                index = 2;
                             else
-                                index = 3;
+                                index = 4;
                         }
                         else
                         {
@@ -123,11 +123,11 @@ public class GeneralDialog : MonoBehaviour
                                 BGLettre.SetActive(true);
                                 LetterAppearing(_generalTextFirstNight[index].Paper);
                             }
-                            else if (_generalTextFirstNight[index].PaperActif == true && (index == 2 || index == 4))
+                            else if (_generalTextFirstNight[index].PaperActif == true && (index == 3 || index == 5))
                             {
                                 BGLettre.SetActive(false);
                                 LetterDisappearing(_generalTextFirstNight[index].Paper);
-                                index = 5;
+                                index = 6;
                             }
                             else if (_generalTextFirstNight[index].PaperActif == true)
                             {
@@ -242,7 +242,7 @@ public class GeneralDialog : MonoBehaviour
         if (CanTalk)
             DialogGeneral();
 
-        if (index == 8)
+        if (index == 9)
             DialogChoice();
     }
 
