@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1381615455577930563}
   - component: {fileID: 2631123055508092134}
   - component: {fileID: 245260582913474604}
+  - component: {fileID: 6679504984518807356}
   m_Layer: 0
   m_Name: Trench_Full
   m_TagString: Untagged
@@ -84,3 +85,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6679504984518807356
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758562485228085753}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.0018983, y: 6.218523, z: 10.258569}
+  m_Center: {x: -7.2732885e-21, y: 1.5349403e-14, z: 5.080117}
