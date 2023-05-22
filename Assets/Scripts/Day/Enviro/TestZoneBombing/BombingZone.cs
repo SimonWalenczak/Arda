@@ -141,7 +141,7 @@ public class BombingZone : MonoBehaviour
 
             if (hit.collider.gameObject.name == name)
             {
-                GameObject actualBomb = Instantiate(bomb, spawnPos, Quaternion.Euler(90f, 0f, 0f));
+                GameObject actualBomb = Instantiate(bomb, spawnPos, Quaternion.Euler(270f, 0f, 0f));
                 actualBomb.GetComponent<Bomb>().MainCamera = mainCamera;
                 nbBomb++;
                 print("bomb create");
