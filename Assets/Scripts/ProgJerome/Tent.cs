@@ -13,7 +13,7 @@ public class Tent : MonoBehaviour
     public CanvasGroup Radiology;
 
     public bool Enterable = true;
-
+    
     //public int TentNum;
 
     private void Awake()

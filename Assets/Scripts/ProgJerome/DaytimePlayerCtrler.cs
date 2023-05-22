@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class DaytimePlayerCtrler : MonoBehaviour
     [HideInInspector] public ArcadeCar arcadeCar;
     [HideInInspector] public bool isDriving = true;
 
+    public GameObject AButtonDebug;
 
     void Start()
     {
@@ -19,6 +21,7 @@ public class DaytimePlayerCtrler : MonoBehaviour
     {
         if (other.tag == "TentTrigger")
         {
+            AButtonDebug.SetActive(true);
             if (Gamepad.current.buttonSouth.isPressed && isDriving)
             {
                 if (other.gameObject.GetComponent<Tent>().Enterable)
@@ -29,6 +32,14 @@ public class DaytimePlayerCtrler : MonoBehaviour
                 }
                 //print("coucou c'est une tente");            
             }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "TentTrigger")
+        {
+            AButtonDebug.SetActive(false);
         }
     }
 }
