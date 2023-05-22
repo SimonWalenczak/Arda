@@ -91,7 +91,7 @@ public class Bomb : MonoBehaviour
 
 
     [System.Obsolete]
-    void FixedUpdate()
+    void Update()
     {
         if (transform.position.y < -100)
         {

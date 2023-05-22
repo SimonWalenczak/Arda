@@ -5,7 +5,8 @@ using UnityEngine.InputSystem;
 
 public class ArcadeCar : MonoBehaviour
 {
-
+    [Tooltip("UI Debug")]
+    public bool infoDebug;
 
     const int WHEEL_LEFT_INDEX = 0;
     const int WHEEL_RIGHT_INDEX = 1;
@@ -731,6 +732,11 @@ public class ArcadeCar : MonoBehaviour
     void OnGUI()
     {
         if (!controllable)
+        {
+            return;
+        }
+
+        if (!infoDebug)
         {
             return;
         }
