@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1478669979121334779}
   - component: {fileID: 2533997271465375326}
   - component: {fileID: 346326776635474580}
+  - component: {fileID: 5229342887995411080}
   m_Layer: 0
   m_Name: ChurchWallRoof
   m_TagString: Untagged
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5229342887995411080
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2291938784469574465}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.449266, y: 12.19224, z: 0.9034522}
+  m_Center: {x: -0.00000071525574, y: -0.00000071525574, z: -0.00000014901161}

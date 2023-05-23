@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7109121687834066058}
   - component: {fileID: 6126996759304532783}
   - component: {fileID: 8278601684612024293}
+  - component: {fileID: 6145834342709896855}
   m_Layer: 0
   m_Name: ChurchWallintactHigh
   m_TagString: Untagged
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6145834342709896855
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7630078734983210544}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.599043, y: 12.229322, z: 0.90345764}
+  m_Center: {x: -0.0000011920929, y: 0, z: -0.000000014901161}

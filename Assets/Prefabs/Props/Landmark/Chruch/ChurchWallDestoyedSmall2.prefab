@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6034740999995415629}
   - component: {fileID: 7210385470490498024}
   - component: {fileID: 4896706009540175650}
+  - component: {fileID: 9193858665316528440}
   m_Layer: 0
   m_Name: ChurchWallDestoyedSmall2
   m_TagString: Untagged
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &9193858665316528440
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6409858515057641207}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.027288, y: 9.376609, z: 0.90344965}
+  m_Center: {x: -0.0000023245811, y: 0, z: -0.0000018328428}

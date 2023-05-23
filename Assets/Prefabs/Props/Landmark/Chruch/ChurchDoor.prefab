@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2623795453281731941}
   - component: {fileID: 1424900572534508224}
   - component: {fileID: 3756763830000778762}
+  - component: {fileID: 6974586255472276754}
   m_Layer: 0
   m_Name: ChurchDoor
   m_TagString: Untagged
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6974586255472276754
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3396357044210819039}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.2166324, y: 9.8687725, z: 1.8323382}
+  m_Center: {x: -0.00000023841858, y: 0, z: 0.0000008940697}

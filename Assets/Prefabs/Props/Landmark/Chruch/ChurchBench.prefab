@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1284161352528029166}
   - component: {fileID: 2773542712798407243}
   - component: {fileID: 115243313831353985}
+  - component: {fileID: 3995994522914539952}
   m_Layer: 0
   m_Name: ChurchBench
   m_TagString: Untagged
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 271bf3fad46098645bf7573a3feb01df, type: 2}
+  - {fileID: 2100000, guid: 4cbd87ecae49bb94dac4ee8c68e31f12, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3995994522914539952
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916722952976973652}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.6086745, y: 1.8709577, z: 0.9560891}
+  m_Center: {x: 0, y: 0, z: 0}
