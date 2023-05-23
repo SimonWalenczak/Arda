@@ -26,15 +26,10 @@ public class NightManager : MonoBehaviour
     [SerializeField] private TMP_Text EliteSavedText;
     [SerializeField] private TMP_Text OfficierSavedText;
 
-    [Header("\nChance of rain\n")] [SerializeField]
-    private int _rainChance = 15;
-
-    [Header("\nChance of hard or soft fight (by range)\n")] [SerializeField]
-    private int hardFightChance = 20;
-
-    [SerializeField] private int softFightChance = 10;
-
-
+    [Header("\nChance of rain\n")] 
+    [SerializeField] private int _rainChance = 15;
+    [SerializeField] private int _fogChance = 20;
+    
     [Header("\n----------- Upgrade -----------\n")] [SerializeField]
     private GameObject _upgradePanel;
 
@@ -52,10 +47,6 @@ public class NightManager : MonoBehaviour
     public GameObject FadeIn24;
     public GameObject FadeOutDay;
     public GameObject FadeOutCredits;
-
-
-    //[Header("\n------------ Zones ------------\n")] 
-    //[SerializeField] private List<Zone> _zones;
 
     #endregion
 
@@ -88,6 +79,10 @@ public class NightManager : MonoBehaviour
         }
 
         ResetGlobalVariables();
+        RainingChance();
+        FogChance();
+        HardSoftFightChance();
+        
         StartCoroutine(WaitingForAppearing());
     }
 
@@ -104,6 +99,20 @@ public class NightManager : MonoBehaviour
         _generalDialog.CanTalk = true;
     }
 
+    public void FogChance()
+    {
+        int _fogChanceAppear = Random.Range(0, 101);
+        if (_fogChanceAppear < _fogChance)
+        {
+            GameData.HasFog = true;
+            print("fog active");
+        }
+        else
+        {
+            GameData.HasFog = false;
+            print("fog desactive");
+        }
+    }
     public void RainingChance()
     {
         int _rainChanceAppear = Random.Range(0, 101);
@@ -122,15 +131,17 @@ public class NightManager : MonoBehaviour
     public void HardSoftFightChance()
     {
         int hardFightChanceAppear = Random.Range(0, 101);
-        if (hardFightChanceAppear <= hardFightChance && hardFightChanceAppear > softFightChance)
+        if (hardFightChanceAppear <= 66 && hardFightChanceAppear > 33)
         {
-            GameData.SoftFight = true;
             print("soft fight");
         }
-        else if (hardFightChanceAppear <= softFightChance)
+        else if (hardFightChanceAppear <= 33)
         {
-            GameData.HardFight = true;
             print("hard fight");
+        }
+        else
+        {
+            print("normal fight");
         }
     }
 

@@ -22,10 +22,11 @@ public class GeneralDialog : MonoBehaviour
     [SerializeField] private int index = 0;
     [SerializeField] private GameObject BGLettre;
 
-    [Space(10)] [Header("Lettre Envoie")]
-    [SerializeField] private List<String> _letterText;
+    [Space(10)] [Header("Lettre Envoie")] [SerializeField]
+    private List<String> _letterText;
+
     [SerializeField] private List<LetterRewards> _letterRewardsList;
-    
+
     [SerializeField] private int _letterIndex = 0;
     [SerializeField] private TextMeshProUGUI _letterTextVisual;
     [SerializeField] private List<GameObject> BodyFaces;
@@ -45,6 +46,8 @@ public class GeneralDialog : MonoBehaviour
         {
             _generalSprite.SetActive(false);
         }
+
+        ExtraDialogue();
     }
 
     private void DialogGeneral()
@@ -64,6 +67,7 @@ public class GeneralDialog : MonoBehaviour
                             sprite.SetActive(true);
                         }
                     }
+
                     if (index == 0 || (index >= 6 && index != 9))
                     {
                         if (_generalTextFirstNight[index].HavePaper == false)
@@ -95,6 +99,7 @@ public class GeneralDialog : MonoBehaviour
                             {
                                 sprite.SetActive(false);
                             }
+
                             LetterWrite(SentLetters[_letterIndex]);
                         }
                         else
@@ -196,7 +201,7 @@ public class GeneralDialog : MonoBehaviour
         BGLettre.SetActive(true);
         _generalTextVisual.gameObject.SetActive(false);
         _letterTextVisual.gameObject.SetActive(true);
-        
+
 
         if (Gamepad.current.leftStick.right.wasPressedThisFrame)
         {
@@ -234,7 +239,8 @@ public class GeneralDialog : MonoBehaviour
             _letterIndex = 2;
 
         _actualFace.GetComponent<RectTransform>().DOScale(1.2f, 0.7f);
-        _letterTextVisual.SetText($"{_letterText[_letterIndex]}\n \nVous gagnerez {_letterRewardsList[_letterIndex].rewardText}");
+        _letterTextVisual.SetText(
+            $"{_letterText[_letterIndex]}\n \nVous gagnerez {_letterRewardsList[_letterIndex].rewardText}");
     }
 
     private void Update()
@@ -246,6 +252,42 @@ public class GeneralDialog : MonoBehaviour
             DialogChoice();
     }
 
+    private void ExtraDialogue()
+    {
+        _generalTextFirstNight[10].DialogText = "Maintenant, les prévisions météorologiques.\n";
+        if (GameData.IsRainning)
+        {
+            _generalTextFirstNight[10].DialogText += "Demain sera une journée pluvieuse attetion au risque de glissage.";
+            if (GameData.HasFog)
+                _generalTextFirstNight[10].DialogText += " Et vous aurez également le droit à un épais brouillard sur les monts, alors prenez garde.";
+            else
+                _generalTextFirstNight[10].DialogText += " Mais vous échappez tout de même au brouillard de plaine.";
+        }
+        else
+        {
+            _generalTextFirstNight[10].DialogText += "Demain sera une journée ensoillée, aucun risque de glissage.";
+            if (GameData.HasFog)
+                _generalTextFirstNight[10].DialogText += " Néanmoins vous aller avoir le droit à du brouillard, alors ne relacher pas votre vigilance jeune fille.";
+            else
+                _generalTextFirstNight[10].DialogText += "";
+        }
+        
+        _generalTextFirstNight[11].DialogText = "Pour ce qui est du combat, voici ce que l'on sait : \n";
+        if (GameData.SoftFight)
+        {
+            _generalTextFirstNight[11].DialogText += "Les milices ennemies ne prévoit pas d'assaut, tout comme nous, donc demain sera une journée avec de faible combats.";
+        }
+        else if(GameData.HardFight)
+        {
+            _generalTextFirstNight[11].DialogText += "Les milices ennemies prévoient de forts assauts, tout comme nous, demain sera donc une journée rouge pour nos ennemis. " +
+                                                     "Et je ne l'espère pas pour nous...";
+        }
+        else
+        {
+            _generalTextFirstNight[11].DialogText += "Les milices ennemies compte nous attaquer avec la même intensité qu'aujourd'hui, donc tenez vous prêt !";
+        }
+    }
+    
     private void LetterAppearing(GameObject letter)
     {
         StartCoroutine(letter.GetComponent<Letter>().Appearing());

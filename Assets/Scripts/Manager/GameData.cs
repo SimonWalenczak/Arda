@@ -27,6 +27,7 @@ public class GameData
     //Zones
     public static bool IsRainning;
     public static bool IsSunning;
+    public static bool HasFog;
     public static bool SoftFight;
     public static bool HardFight;
 
