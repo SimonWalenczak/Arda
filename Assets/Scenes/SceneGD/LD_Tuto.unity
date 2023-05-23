@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 33266352}
   - component: {fileID: 33266351}
   - component: {fileID: 33266350}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -350,7 +350,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh34636
+  m_Name: pb_Mesh1265466
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4911,7 +4911,8 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1180720356544656459, guid: d7ef22a83cd2ea247aa347897cb4c84a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d7ef22a83cd2ea247aa347897cb4c84a, type: 3}
 --- !u!1 &503777571
 GameObject:
