@@ -59,24 +59,24 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AmbiantStrengh: 0.86
+    - _AmbiantStrengh: 0.1
     - _Ammount_Red: 0
-    - _FalloffAmount: 0.21
+    - _FalloffAmount: 0.01
     - _Float: 0
-    - _FresnelSize: 0.01
+    - _FresnelSize: 0.2
     - _HardnessMask: 0
     - _Hardness_Red: 0
-    - _LightingCutoff: 0.12
+    - _LightingCutoff: 0.4
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Range_Mask: 0
     - _Range_Red: 0
-    - _Smoothness: 1000
+    - _Smoothness: 0
     m_Colors:
     - _ColorTest: {r: 1, g: 1, b: 1, a: 0}
     - _DifuseColor: {r: 0.43867922, g: 0.7188054, b: 1, a: 0}
     - _FresnelColor: {r: 0.05660379, g: 0.05660379, b: 0.05660379, a: 0}
-    - _SpecularColor: {r: 1, g: 1, b: 1, a: 0}
+    - _SpecularColor: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 1}
     - _Teint_Detail: {r: 0.4716981, g: 0.4716981, b: 0.4716981, a: 0}
     - _Tile_Texture_1: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
