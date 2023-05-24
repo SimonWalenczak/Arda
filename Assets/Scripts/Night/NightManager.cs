@@ -18,12 +18,15 @@ public class NightManager : MonoBehaviour
     //Soldier Stats Text
     [SerializeField] private TMP_Text SoldierSucceededCount;
     [SerializeField] private TMP_Text SoldierMissedCount;
+    [SerializeField] private TMP_Text SoldierLimitText;
 
     [SerializeField] private TMP_Text OfficierSucceededCount;
     [SerializeField] private TMP_Text OfficierMissedCount;
+    [SerializeField] private TMP_Text OfficierLimitText;
 
     [SerializeField] private TMP_Text GenieSucceededCount;
     [SerializeField] private TMP_Text GenieMissedCount;
+    [SerializeField] private TMP_Text GenieLimitText;
 
     //Total Stats Text
     [SerializeField] private TMP_Text TotalSucceededCount;
@@ -101,21 +104,39 @@ public class NightManager : MonoBehaviour
 
     private void DisplaySoldierStats()
     {
-        SoldierSucceededCount.SetText(GlobalManager.Instance.GaugesValues[0].ActualValue.ToString());
-        SoldierMissedCount.SetText(GlobalManager.Instance.GaugesValues[0].MissValue.ToString());
+        if (GameData.NumberDays == 2)
+        {
+            SoldierSucceededCount.SetText(GlobalManager.Instance.GaugesValues[0].ActualValue.ToString());
+            SoldierMissedCount.SetText(GlobalManager.Instance.GaugesValues[0].MissValue.ToString());
+            SoldierLimitText.SetText(GlobalManager.Instance.GaugesValues[0].Limit.ToString());
+            OfficierSucceededCount.SetText(GlobalManager.Instance.GaugesValues[1].ActualValue.ToString());
+            OfficierMissedCount.SetText(GlobalManager.Instance.GaugesValues[1].MissValue.ToString());
+            OfficierLimitText.SetText(GlobalManager.Instance.GaugesValues[1].Limit.ToString());
 
-        OfficierSucceededCount.SetText(GlobalManager.Instance.GaugesValues[1].ActualValue.ToString());
-        OfficierMissedCount.SetText(GlobalManager.Instance.GaugesValues[1].MissValue.ToString());
+            GenieSucceededCount.SetText(GlobalManager.Instance.GaugesValues[2].ActualValue.ToString());
+            GenieMissedCount.SetText(GlobalManager.Instance.GaugesValues[2].MissValue.ToString());
+            GenieLimitText.SetText(GlobalManager.Instance.GaugesValues[2].Limit.ToString());
 
-        GenieSucceededCount.SetText(GlobalManager.Instance.GaugesValues[2].ActualValue.ToString());
-        GenieMissedCount.SetText(GlobalManager.Instance.GaugesValues[2].MissValue.ToString());
-
-        TotalSucceededCount.SetText((GlobalManager.Instance.GaugesValues[0].ActualValue +
-                                     GlobalManager.Instance.GaugesValues[1].ActualValue +
-                                     GlobalManager.Instance.GaugesValues[2].ActualValue).ToString());
-        TotalMissedCount.SetText((GlobalManager.Instance.GaugesValues[0].MissValue +
-                                  GlobalManager.Instance.GaugesValues[1].MissValue +
-                                  GlobalManager.Instance.GaugesValues[2].MissValue).ToString());
+            TotalSucceededCount.SetText((GlobalManager.Instance.GaugesValues[0].ActualValue +
+                                         GlobalManager.Instance.GaugesValues[1].ActualValue +
+                                         GlobalManager.Instance.GaugesValues[2].ActualValue).ToString());
+            TotalMissedCount.SetText((GlobalManager.Instance.GaugesValues[0].MissValue +
+                                      GlobalManager.Instance.GaugesValues[1].MissValue +
+                                      GlobalManager.Instance.GaugesValues[2].MissValue).ToString());
+        }
+        else
+        {
+            if (GameData.HasSavesSoldier)
+            {
+                SoldierSucceededCount.SetText("1");
+                OfficierSucceededCount.SetText("0");
+            }
+            else
+            {
+                SoldierSucceededCount.SetText("0");
+                OfficierSucceededCount.SetText("1");
+            }
+        }
     }
 
     IEnumerator WaitingForAppearing()

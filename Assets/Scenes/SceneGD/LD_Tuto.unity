@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.13040014, g: 0.09601523, b: 0.06181486, a: 1}
+  m_IndirectSpecularColor: {r: 0.13040014, g: 0.096015215, b: 0.06181486, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -216,6 +216,18 @@ PrefabInstance:
       propertyPath: Radiology
       value: 
       objectReference: {fileID: 98276962}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[0].Rank
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[1].Rank
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[2].Rank
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
       propertyPath: Soldiers.Array.data[0].MinutesConsumed
       value: 40
@@ -4951,7 +4963,7 @@ RectTransform:
   m_Children:
   - {fileID: 257948179}
   m_Father: {fileID: 1062374889}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6693,7 +6705,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1062374889}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7221,7 +7233,7 @@ RectTransform:
   m_Children:
   - {fileID: 329016683}
   m_Father: {fileID: 1062374889}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

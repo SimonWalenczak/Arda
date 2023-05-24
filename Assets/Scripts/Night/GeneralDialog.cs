@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class GeneralDialog : MonoBehaviour
 {
+    [SerializeField] private bool _debugDay;
     public int DayNumber;
     public bool CanTalk;
     public bool CanUpgrade;
@@ -21,6 +22,11 @@ public class GeneralDialog : MonoBehaviour
 
     [SerializeField] private int index = 0;
     [SerializeField] private GameObject BGLettre;
+
+    private int _bilanIndex = 0;
+    public GameObject BilanCursor;
+    public List<RectTransform> CursorOrigin;
+    public List<GameObject> RewardsGaugesText;
 
     [Space(10)] [Header("Lettre Envoie")] [SerializeField]
     private List<String> _letterText;
@@ -35,7 +41,8 @@ public class GeneralDialog : MonoBehaviour
 
     private void Start()
     {
-        //GameData.NumberDays = DayNumber;
+        if (_debugDay)
+            GameData.NumberDays = DayNumber;
 
         CanTalk = false;
         StartCoroutine(WaitingForTalk());
@@ -202,7 +209,6 @@ public class GeneralDialog : MonoBehaviour
         _generalTextVisual.gameObject.SetActive(false);
         _letterTextVisual.gameObject.SetActive(true);
 
-
         if (Gamepad.current.leftStick.right.wasPressedThisFrame)
         {
             if (_letterIndex < 2)
@@ -250,6 +256,64 @@ public class GeneralDialog : MonoBehaviour
 
         if (index == 9)
             DialogChoice();
+
+        if ((GameData.NumberDays == 1 && (index == 2 || index == 4)) || (GameData.NumberDays == 2 && index == 0))
+            BilanPhase();
+    }
+
+    private void BilanPhase()
+    {
+        if (GameData.NumberDays == 2)
+        {
+            BilanCursor.SetActive(true);
+            RewardsGaugesText[_bilanIndex].SetActive(true);
+        }
+
+        if (Gamepad.current.leftStick.down.wasPressedThisFrame)
+        {
+            _bilanIndex++;
+            if (_bilanIndex > 2)
+                _bilanIndex = 0;
+            if (_bilanIndex < 0)
+                _bilanIndex = 2;
+            if (GameData.NumberDays == 2)
+            {
+                foreach (var rewardGauge in RewardsGaugesText)
+                {
+                    rewardGauge.SetActive(false);
+                }
+
+                RewardsGaugesText[_bilanIndex].SetActive(true);
+            }
+        }
+
+        if (Gamepad.current.leftStick.up.wasPressedThisFrame)
+        {
+            _bilanIndex--;
+            if (_bilanIndex > 2)
+                _bilanIndex = 0;
+            if (_bilanIndex < 0)
+                _bilanIndex = 2;
+
+            if (GameData.NumberDays == 2)
+            {
+                foreach (var rewardGauge in RewardsGaugesText)
+                {
+                    rewardGauge.SetActive(false);
+                }
+
+                RewardsGaugesText[_bilanIndex].SetActive(true);
+            }
+        }
+
+        BilanCursor.GetComponent<RectTransform>().position =
+            CursorOrigin[_bilanIndex].GetComponent<RectTransform>().position;
+
+
+        if (Gamepad.current.buttonSouth.wasPressedThisFrame)
+        {
+            BilanCursor.SetActive(false);
+        }
     }
 
     private void ExtraDialogue()
@@ -258,9 +322,11 @@ public class GeneralDialog : MonoBehaviour
         _generalTextFirstNight[10].DialogText = "Maintenant, les prévisions météorologiques.\n";
         if (GameData.IsRainning)
         {
-            _generalTextFirstNight[10].DialogText += "Demain sera une journée pluvieuse attetion au risque de glissage.";
+            _generalTextFirstNight[10].DialogText +=
+                "Demain sera une journée pluvieuse attetion au risque de glissage.";
             if (GameData.HasFog)
-                _generalTextFirstNight[10].DialogText += " Et vous aurez également le droit à un épais brouillard sur les monts, alors prenez garde.";
+                _generalTextFirstNight[10].DialogText +=
+                    " Et vous aurez également le droit à un épais brouillard sur les monts, alors prenez garde.";
             else
                 _generalTextFirstNight[10].DialogText += " Mais vous échappez tout de même au brouillard de plaine.";
         }
@@ -268,28 +334,32 @@ public class GeneralDialog : MonoBehaviour
         {
             _generalTextFirstNight[10].DialogText += "Demain sera une journée ensoillée, aucun risque de glissage.";
             if (GameData.HasFog)
-                _generalTextFirstNight[10].DialogText += " Néanmoins vous aller avoir le droit à du brouillard, alors ne relacher pas votre vigilance jeune fille.";
+                _generalTextFirstNight[10].DialogText +=
+                    " Néanmoins vous aller avoir le droit à du brouillard, alors ne relacher pas votre vigilance jeune fille.";
             else
                 _generalTextFirstNight[10].DialogText += "";
         }
-        
+
         //Combat
         _generalTextFirstNight[11].DialogText = "Pour ce qui est du combat, voici ce que l'on sait : \n";
         if (GameData.SoftFight && GameData.HardFight == false)
         {
-            _generalTextFirstNight[11].DialogText += "Les milices ennemies ne prévoit pas d'assaut, tout comme nous, donc demain sera une journée avec de faible combats.";
+            _generalTextFirstNight[11].DialogText +=
+                "Les milices ennemies ne prévoit pas d'assaut, tout comme nous, donc demain sera une journée avec de faible combats.";
         }
-        else if(GameData.HardFight && GameData.SoftFight == false)
+        else if (GameData.HardFight && GameData.SoftFight == false)
         {
-            _generalTextFirstNight[11].DialogText += "Les milices ennemies prévoient de forts assauts, tout comme nous, demain sera donc une journée rouge pour nos ennemis. " +
-                                                     "Et je ne l'espère pas pour nous...";
+            _generalTextFirstNight[11].DialogText +=
+                "Les milices ennemies prévoient de forts assauts, tout comme nous, demain sera donc une journée rouge pour nos ennemis. " +
+                "Et je ne l'espère pas pour nous...";
         }
-        else if(GameData.SoftFight == false && GameData.HardFight == false)
+        else if (GameData.SoftFight == false && GameData.HardFight == false)
         {
-            _generalTextFirstNight[11].DialogText += "Les milices ennemies compte nous attaquer avec la même intensité qu'aujourd'hui, donc tenez vous prêt.";
+            _generalTextFirstNight[11].DialogText +=
+                "Les milices ennemies compte nous attaquer avec la même intensité qu'aujourd'hui, donc tenez vous prêt.";
         }
     }
-    
+
     private void LetterAppearing(GameObject letter)
     {
         StartCoroutine(letter.GetComponent<Letter>().Appearing());
