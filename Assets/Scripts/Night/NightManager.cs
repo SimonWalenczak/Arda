@@ -15,21 +15,25 @@ public class NightManager : MonoBehaviour
     [Header("\n------ Dialog -------\n")] public GeneralDialog _generalDialog;
     [SerializeField] private GameObject _generalAnnounce;
 
-    [SerializeField] private TMP_Text FirstClassAmputatedText;
-    [SerializeField] private TMP_Text FirstClassDeadText;
-    [SerializeField] private TMP_Text EliteAmputatedText;
-    [SerializeField] private TMP_Text EliteDeadText;
-    [SerializeField] private TMP_Text OfficerAmputatedText;
-    [SerializeField] private TMP_Text OfficierDeadText;
+    //Soldier Stats Text
+    [SerializeField] private TMP_Text SoldierSucceededCount;
+    [SerializeField] private TMP_Text SoldierMissedCount;
 
-    [SerializeField] private TMP_Text FirstClassSavedText;
-    [SerializeField] private TMP_Text EliteSavedText;
-    [SerializeField] private TMP_Text OfficierSavedText;
+    [SerializeField] private TMP_Text OfficierSucceededCount;
+    [SerializeField] private TMP_Text OfficierMissedCount;
 
-    [Header("\nChance of rain\n")] 
-    [SerializeField] private int _rainChance = 15;
+    [SerializeField] private TMP_Text GenieSucceededCount;
+    [SerializeField] private TMP_Text GenieMissedCount;
+
+    //Total Stats Text
+    [SerializeField] private TMP_Text TotalSucceededCount;
+    [SerializeField] private TMP_Text TotalMissedCount;
+
+    [Header("\nChance of rain\n")] [SerializeField]
+    private int _rainChance = 15;
+
     [SerializeField] private int _fogChance = 20;
-    
+
     [Header("\n----------- Upgrade -----------\n")] [SerializeField]
     private GameObject _upgradePanel;
 
@@ -82,16 +86,37 @@ public class NightManager : MonoBehaviour
         RainingChance();
         FogChance();
         HardSoftFightChance();
-        
+        DisplaySoldierStats();
+
         StartCoroutine(WaitingForAppearing());
     }
 
     private void Update()
     {
         if (_generalDialog.CanUpgrade)
+        {
             UpgradeCar();
+        }
     }
 
+    private void DisplaySoldierStats()
+    {
+        SoldierSucceededCount.SetText(GlobalManager.Instance.GaugesValues[0].ActualValue.ToString());
+        SoldierMissedCount.SetText(GlobalManager.Instance.GaugesValues[0].MissValue.ToString());
+
+        OfficierSucceededCount.SetText(GlobalManager.Instance.GaugesValues[1].ActualValue.ToString());
+        OfficierMissedCount.SetText(GlobalManager.Instance.GaugesValues[1].MissValue.ToString());
+
+        GenieSucceededCount.SetText(GlobalManager.Instance.GaugesValues[2].ActualValue.ToString());
+        GenieMissedCount.SetText(GlobalManager.Instance.GaugesValues[2].MissValue.ToString());
+
+        TotalSucceededCount.SetText((GlobalManager.Instance.GaugesValues[0].ActualValue +
+                                     GlobalManager.Instance.GaugesValues[1].ActualValue +
+                                     GlobalManager.Instance.GaugesValues[2].ActualValue).ToString());
+        TotalMissedCount.SetText((GlobalManager.Instance.GaugesValues[0].MissValue +
+                                  GlobalManager.Instance.GaugesValues[1].MissValue +
+                                  GlobalManager.Instance.GaugesValues[2].MissValue).ToString());
+    }
 
     IEnumerator WaitingForAppearing()
     {
@@ -113,6 +138,7 @@ public class NightManager : MonoBehaviour
             print("fog desactive");
         }
     }
+
     public void RainingChance()
     {
         int _rainChanceAppear = Random.Range(0, 101);
@@ -133,14 +159,18 @@ public class NightManager : MonoBehaviour
         int hardFightChanceAppear = Random.Range(0, 101);
         if (hardFightChanceAppear <= 66 && hardFightChanceAppear > 33)
         {
+            GameData.SoftFight = true;
             print("soft fight");
         }
         else if (hardFightChanceAppear <= 33)
         {
+            GameData.HardFight = true;
             print("hard fight");
         }
         else
         {
+            GameData.SoftFight = false;
+            GameData.HardFight = false;
             print("normal fight");
         }
     }

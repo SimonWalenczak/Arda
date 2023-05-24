@@ -17,7 +17,7 @@ public class GlobalManager : MonoBehaviour
         Instance = this;
     }
 
-    public void UpdateValue(int index)
+    public void UpdateSucceededValue(int index)
     {
         Debug.Log(GaugesValues[index].ActualValue);
         Debug.Log(GaugesValues[index].Limit);

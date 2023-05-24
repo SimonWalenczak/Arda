@@ -6,13 +6,13 @@ using UnityEngine.InputSystem;
 
 public class RadiologyPhase : MonoBehaviour
 {
-    [Header("Radiology Mode")]
-    [SerializeField] bool Scan = true;
+    [Header("Radiology Mode")] [SerializeField]
+    bool Scan = true;
+
     [SerializeField] bool Survey;
 
 
-    [Space(10)]
-    public CanvasGroup Fader;
+    [Space(10)] public CanvasGroup Fader;
     public CanvasGroup Radiology;
 
     public GameObject Mask;
@@ -78,10 +78,12 @@ public class RadiologyPhase : MonoBehaviour
         {
             UpdateSoldier();
         }
+
         if (Gamepad.current.buttonEast.wasReleasedThisFrame && isInteractable)
         {
             LeaveTent();
         }
+
         if (Gamepad.current.buttonSouth.wasReleasedThisFrame && Survey && isInteractable)
         {
             HealSoldier();
@@ -90,7 +92,6 @@ public class RadiologyPhase : MonoBehaviour
 
     void LeaveTent()
     {
-
         canMove = false;
         isInteractable = false;
         currentSoldier = 0;
@@ -126,11 +127,12 @@ public class RadiologyPhase : MonoBehaviour
 
     void HealSoldier()
     {
-        DayManager.Instance.Timer += DataCenterDay.Instance.CurrentSoldiers[currentSoldier].MinutesConsumed*60;
-        DayManager.Instance.CurrentSeconds += DataCenterDay.Instance.CurrentSoldiers[currentSoldier].MinutesConsumed*60;
+        DayManager.Instance.Timer += DataCenterDay.Instance.CurrentSoldiers[currentSoldier].MinutesConsumed * 60;
+        DayManager.Instance.CurrentSeconds +=
+            DataCenterDay.Instance.CurrentSoldiers[currentSoldier].MinutesConsumed * 60;
         //GlobalManager.Instance.GaugesValues[((int)DataCenterDay.Instance.CurrentSoldiers[currentSoldier].Rank)];
-        GlobalManager.Instance.UpdateValue(((int)DataCenterDay.Instance.CurrentSoldiers[currentSoldier].Rank));
+        if (GameData.NumberDays == 2)
+            GlobalManager.Instance.UpdateSucceededValue(((int) DataCenterDay.Instance.CurrentSoldiers[currentSoldier].Rank));
         UpdateSoldier();
     }
-
 }

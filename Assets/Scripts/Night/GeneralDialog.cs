@@ -254,6 +254,7 @@ public class GeneralDialog : MonoBehaviour
 
     private void ExtraDialogue()
     {
+        //Météo
         _generalTextFirstNight[10].DialogText = "Maintenant, les prévisions météorologiques.\n";
         if (GameData.IsRainning)
         {
@@ -272,19 +273,20 @@ public class GeneralDialog : MonoBehaviour
                 _generalTextFirstNight[10].DialogText += "";
         }
         
+        //Combat
         _generalTextFirstNight[11].DialogText = "Pour ce qui est du combat, voici ce que l'on sait : \n";
-        if (GameData.SoftFight)
+        if (GameData.SoftFight && GameData.HardFight == false)
         {
             _generalTextFirstNight[11].DialogText += "Les milices ennemies ne prévoit pas d'assaut, tout comme nous, donc demain sera une journée avec de faible combats.";
         }
-        else if(GameData.HardFight)
+        else if(GameData.HardFight && GameData.SoftFight == false)
         {
             _generalTextFirstNight[11].DialogText += "Les milices ennemies prévoient de forts assauts, tout comme nous, demain sera donc une journée rouge pour nos ennemis. " +
                                                      "Et je ne l'espère pas pour nous...";
         }
-        else
+        else if(GameData.SoftFight == false && GameData.HardFight == false)
         {
-            _generalTextFirstNight[11].DialogText += "Les milices ennemies compte nous attaquer avec la même intensité qu'aujourd'hui, donc tenez vous prêt !";
+            _generalTextFirstNight[11].DialogText += "Les milices ennemies compte nous attaquer avec la même intensité qu'aujourd'hui, donc tenez vous prêt.";
         }
     }
     
