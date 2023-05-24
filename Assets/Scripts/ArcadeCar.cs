@@ -458,52 +458,53 @@ public class ArcadeCar : MonoBehaviour
             h = 0.0f;
         }
 
-        //if (Input.GetKey(KeyCode.R) && controllable)
-        //{
-        //    Debug.Log("Reset pressed");
-        //    Ray resetRay = new Ray();
+        if (Gamepad.current.buttonNorth.wasPressedThisFrame && controllable)
+        {
+            Debug.Log("Reset pressed");
+            Ray resetRay = new Ray();
 
-        //    // trace top-down
-        //    resetRay.origin = transform.position + new Vector3(0.0f, 100.0f, 0.0f);
-        //    resetRay.direction = new Vector3(0.0f, -1.0f, 0.0f);
+            // trace top-down
+            resetRay.origin = transform.position + new Vector3(0.0f, 100.0f, 0.0f);
+            resetRay.direction = new Vector3(0.0f, -1.0f, 0.0f);
 
-        //    RaycastHit[] resetRayHits = new RaycastHit[16];
+            RaycastHit[] resetRayHits = new RaycastHit[16];
 
-        //    int numHits = Physics.RaycastNonAlloc(resetRay, resetRayHits, 250.0f);
+            int numHits = Physics.RaycastNonAlloc(resetRay, resetRayHits, 250.0f);
 
-        //    if (numHits > 0)
-        //    {                
-        //        float nearestDistance = float.MaxValue;
-        //        for (int j = 0; j < numHits; j++)
-        //        {
-        //            if (resetRayHits[j].collider != null && resetRayHits[j].collider.isTrigger)
-        //            {
-        //                // skip triggers
-        //                continue;
-        //            }
+            if (numHits > 0)
+            {
+                float nearestDistance = float.MaxValue;
+                for (int j = 0; j < numHits; j++)
+                {
+                    if (resetRayHits[j].collider != null && resetRayHits[j].collider.isTrigger)
+                    {
+                        // skip triggers
+                        continue;
+                    }
 
-        //            // Filter contacts with car body
-        //            if (resetRayHits[j].rigidbody == rb)
-        //            {
-        //                continue;
-        //            }
+                    // Filter contacts with car body
+                    if (resetRayHits[j].rigidbody == rb)
+                    {
+                        continue;
+                    }
 
-        //            if (resetRayHits[j].distance < nearestDistance)
-        //            {
-        //                nearestDistance = resetRayHits[j].distance;
-        //            }
-        //        }
+                    if (resetRayHits[j].distance < nearestDistance)
+                    {
+                        nearestDistance = resetRayHits[j].distance;
+                    }
+                }
 
-        //        // -4 meters from surface
-        //        nearestDistance -= 4.0f;
-        //        Vector3 resetPos = resetRay.origin + resetRay.direction * nearestDistance;
-        //        Reset(resetPos);
-        //    } else
-        //    {
-        //        // Hard reset
-        //        Reset(new Vector3(-69.48f, 5.25f, 132.71f));
-        //    }
-        //}
+                // -4 meters from surface
+                nearestDistance -= 4.0f;
+                Vector3 resetPos = resetRay.origin + resetRay.direction * nearestDistance;
+                Reset(resetPos);
+            }
+            else
+            {
+                // Hard reset
+                Reset(new Vector3(-69.48f, 5.25f, 132.71f));
+            }
+        }
 
 
         bool isBrakeNow = false;
