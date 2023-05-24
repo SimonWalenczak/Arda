@@ -18,11 +18,18 @@ public class UiRadioUpdate : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+        //System.Enum.GetNames(typeof(MilitaryRank));
+        
+    }
+
     public void UpdateUI(int i)
     {
+
         Name.text = DataCenterDay.Instance.CurrentSoldiers[i].Name;
         Age.text = DataCenterDay.Instance.CurrentSoldiers[i].Age;
-        Rank.text = DataCenterDay.Instance.CurrentSoldiers[i].MilitaryRank;
+        Rank.text = DataCenterDay.Instance.CurrentSoldiers[i].Rank.ToString();
         Achievement.text = DataCenterDay.Instance.CurrentSoldiers[i].Achievements;
         CurrentSoldierNumber.text = (i+1).ToString() + '/' + (DataCenterDay.Instance.CurrentSoldiers.Count);
     }

@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class GlobalManager : MonoBehaviour
 {
-    GlobalManager Instance;
+    public static GlobalManager Instance;
 
-    public float ActualSoldierCount;
-    public float ActualOfficerCount;
-    public float ActualEngineerCount;
+    public int LimitIncrease;
 
-
+    public List<Gauges> GaugesValues = new List<Gauges>();
 
 
     void Awake()
@@ -19,9 +17,15 @@ public class GlobalManager : MonoBehaviour
         Instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateValue(int index)
     {
-        
+        GaugesValues[index].ActualValue++;
+
+        if (GaugesValues[index].ActualValue >= GaugesValues[index].Limit)
+        {
+            print("salam");
+            GaugesValues[index].Limit += LimitIncrease;
+            GaugesValues[index].ActualValue = 0;
+        }
     }
 }

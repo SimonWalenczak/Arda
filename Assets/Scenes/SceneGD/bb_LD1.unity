@@ -2784,7 +2784,7 @@ Transform:
   - {fileID: 1425716543}
   - {fileID: 989626398}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &111178363
 PrefabInstance:
@@ -6923,7 +6923,7 @@ MonoBehaviour:
   - Name: "Andr\xE9 Petit"
     Age: 22
     Achievements: 
-    MilitaryRank: Seconde-Classe
+    Rank: 0
     MinutesConsumed: 40
     Bullets: 0000000000000000000000000000000000000000
     Face: {fileID: 0}
@@ -6932,7 +6932,7 @@ MonoBehaviour:
   - Name: Jean Martin
     Age: 25
     Achievements: 
-    MilitaryRank: Seconde-Classe
+    Rank: 0
     MinutesConsumed: 40
     Bullets: 0000000000000000000000000000000000000000
     Face: {fileID: 0}
@@ -6941,7 +6941,7 @@ MonoBehaviour:
   - Name: Pierre Dubois
     Age: 24
     Achievements: 
-    MilitaryRank: Seconde-Classe
+    Rank: 0
     MinutesConsumed: 40
     Bullets: 0000000000000000000000000000000000000000
     Face: {fileID: 0}
@@ -6950,7 +6950,7 @@ MonoBehaviour:
   - Name: Albert Perrot
     Age: 20
     Achievements: 
-    MilitaryRank: Seconde-Classe
+    Rank: 0
     MinutesConsumed: 40
     Bullets: 0000000000000000000000000000000000000000
     Face: {fileID: 0}
@@ -6959,7 +6959,7 @@ MonoBehaviour:
   - Name: "L\xE9on Chagnon"
     Age: 18
     Achievements: 
-    MilitaryRank: Seconde-Classe
+    Rank: 0
     MinutesConsumed: 40
     Bullets: 0000000000000000000000000000000000000000
     Face: {fileID: 0}
@@ -8554,7 +8554,7 @@ MonoBehaviour:
   - Name: Paul Riviere
     Age: 45
     Achievements: 
-    MilitaryRank: Officier
+    Rank: 0
     MinutesConsumed: 40
     Bullets: 0000000000000000000000000000000000000000
     Face: {fileID: 0}
@@ -8563,7 +8563,7 @@ MonoBehaviour:
   - Name: Auguste Gautier
     Age: 42
     Achievements: 
-    MilitaryRank: Officier
+    Rank: 0
     MinutesConsumed: 40
     Bullets: 0000000000000000000000000000000000000000
     Face: {fileID: 0}
@@ -17643,8 +17643,8 @@ MonoBehaviour:
   - Name: "Andr\xE9 Petit"
     Age: 22
     Achievements: 
-    MilitaryRank: Seconde-Classe
-    MinutesConsumed: 40
+    Rank: 0
+    MinutesConsumed: 4
     Bullets: 0000000000000000000000000000000000000000
     Face: {fileID: 0}
     BodyHair: {fileID: 0}
@@ -17652,8 +17652,8 @@ MonoBehaviour:
   - Name: Jean Martin
     Age: 25
     Achievements: 
-    MilitaryRank: Seconde-Classe
-    MinutesConsumed: 40
+    Rank: 0
+    MinutesConsumed: 4
     Bullets: 0000000000000000000000000000000000000000
     Face: {fileID: 0}
     BodyHair: {fileID: 0}
@@ -17661,8 +17661,8 @@ MonoBehaviour:
   - Name: Pierre Dubois
     Age: 24
     Achievements: 
-    MilitaryRank: Seconde-Classe
-    MinutesConsumed: 40
+    Rank: 0
+    MinutesConsumed: 4
     Bullets: 0000000000000000000000000000000000000000
     Face: {fileID: 0}
     BodyHair: {fileID: 0}
@@ -17670,8 +17670,8 @@ MonoBehaviour:
   - Name: Albert Perrot
     Age: 20
     Achievements: 
-    MilitaryRank: Seconde-Classe
-    MinutesConsumed: 40
+    Rank: 0
+    MinutesConsumed: 4
     Bullets: 0000000000000000000000000000000000000000
     Face: {fileID: 0}
     BodyHair: {fileID: 0}
@@ -17679,8 +17679,35 @@ MonoBehaviour:
   - Name: "L\xE9on Chagnon"
     Age: 18
     Achievements: 
-    MilitaryRank: Seconde-Classe
-    MinutesConsumed: 40
+    Rank: 0
+    MinutesConsumed: 4
+    Bullets: 0000000000000000000000000000000000000000
+    Face: {fileID: 0}
+    BodyHair: {fileID: 0}
+    BodyHairColor: {r: 0, g: 0, b: 0, a: 0}
+  - Name: "L\xE9on Chagnon"
+    Age: 18
+    Achievements: 
+    Rank: 0
+    MinutesConsumed: 4
+    Bullets: 0000000000000000000000000000000000000000
+    Face: {fileID: 0}
+    BodyHair: {fileID: 0}
+    BodyHairColor: {r: 0, g: 0, b: 0, a: 0}
+  - Name: "L\xE9on Chagnon"
+    Age: 18
+    Achievements: 
+    Rank: 0
+    MinutesConsumed: 4
+    Bullets: 0000000000000000000000000000000000000000
+    Face: {fileID: 0}
+    BodyHair: {fileID: 0}
+    BodyHairColor: {r: 0, g: 0, b: 0, a: 0}
+  - Name: "L\xE9on Chagnon"
+    Age: 18
+    Achievements: 
+    Rank: 0
+    MinutesConsumed: 4
     Bullets: 0000000000000000000000000000000000000000
     Face: {fileID: 0}
     BodyHair: {fileID: 0}
@@ -20447,7 +20474,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh31678
+  m_Name: pb_Mesh92428
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -28802,7 +28829,7 @@ Transform:
   - {fileID: 1869076714}
   - {fileID: 1604844807}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1423002446
 PrefabInstance:
@@ -31828,6 +31855,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1422650412}
     m_Modifications:
+    - target: {fileID: 2845686225351819790, guid: a98fc4f365522c04b8ffaebb21e2c9f8, type: 3}
+      propertyPath: m_Alpha
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3599743704271195557, guid: a98fc4f365522c04b8ffaebb21e2c9f8, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
@@ -31920,9 +31951,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasRadiology
       objectReference: {fileID: 0}
+    - target: {fileID: 3599743704422328480, guid: a98fc4f365522c04b8ffaebb21e2c9f8, type: 3}
+      propertyPath: m_Alpha
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3599743704726498037, guid: a98fc4f365522c04b8ffaebb21e2c9f8, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3599743704814582965, guid: a98fc4f365522c04b8ffaebb21e2c9f8, type: 3}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3599743705007331788, guid: a98fc4f365522c04b8ffaebb21e2c9f8, type: 3}
+      propertyPath: m_Alpha
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3599743705179263520, guid: a98fc4f365522c04b8ffaebb21e2c9f8, type: 3}
       propertyPath: m_fontColor.a
@@ -33597,7 +33640,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!1001 &1629066089
 PrefabInstance:
@@ -34237,15 +34280,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 422049335, guid: d7ef22a83cd2ea247aa347897cb4c84a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.05626958
+      value: -0.05626963
       objectReference: {fileID: 0}
     - target: {fileID: 422049335, guid: d7ef22a83cd2ea247aa347897cb4c84a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0014011585
+      value: 0.0014011622
       objectReference: {fileID: 0}
     - target: {fileID: 422049335, guid: d7ef22a83cd2ea247aa347897cb4c84a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.9528744
+      value: -0.9528745
       objectReference: {fileID: 0}
     - target: {fileID: 422049335, guid: d7ef22a83cd2ea247aa347897cb4c84a, type: 3}
       propertyPath: m_LocalRotation.z
@@ -34265,11 +34308,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 948644395, guid: d7ef22a83cd2ea247aa347897cb4c84a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.056376252
+      value: -0.056376237
       objectReference: {fileID: 0}
     - target: {fileID: 948644395, guid: d7ef22a83cd2ea247aa347897cb4c84a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0033587625
+      value: 0.0033587615
       objectReference: {fileID: 0}
     - target: {fileID: 948644395, guid: d7ef22a83cd2ea247aa347897cb4c84a, type: 3}
       propertyPath: m_LocalRotation.y
@@ -34321,11 +34364,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1722895063, guid: d7ef22a83cd2ea247aa347897cb4c84a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.05628423
+      value: -0.056284215
       objectReference: {fileID: 0}
     - target: {fileID: 1722895063, guid: d7ef22a83cd2ea247aa347897cb4c84a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.0005661035
+      value: -0.00056610163
       objectReference: {fileID: 0}
     - target: {fileID: 1722895063, guid: d7ef22a83cd2ea247aa347897cb4c84a, type: 3}
       propertyPath: m_LocalRotation.y
@@ -34369,7 +34412,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4913023816715820927, guid: d7ef22a83cd2ea247aa347897cb4c84a, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4913023816715820927, guid: d7ef22a83cd2ea247aa347897cb4c84a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -35715,7 +35758,7 @@ Transform:
   - {fileID: 1059045861}
   - {fileID: 2146916564}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1764885769
 GameObject:
@@ -36015,7 +36058,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 243083890427372085, guid: 394d7874ac3229a46bec1d0a5659bd00, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 243083890427372085, guid: 394d7874ac3229a46bec1d0a5659bd00, type: 3}
       propertyPath: m_LocalPosition.x
@@ -37303,6 +37346,61 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1381615455577930563, guid: f4bdc368613c53e4783072f58500d8d4, type: 3}
   m_PrefabInstance: {fileID: 1846127211}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1848303521
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1848303523}
+  - component: {fileID: 1848303522}
+  m_Layer: 0
+  m_Name: GlobalManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1848303522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848303521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86575cfb987ae1746ba419d00c3e292e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LimitIncrease: 0
+  GaugesValues:
+  - Name: Seconde Classe
+    ActualValue: 0
+    Limit: 5
+  - Name: Officier
+    ActualValue: 0
+    Limit: 5
+  - Name: "G\xE9nie"
+    ActualValue: 0
+    Limit: 5
+--- !u!4 &1848303523
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848303521}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -666.8969, y: 310.07333, z: 2903.2397}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1852697895
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39608,7 +39706,7 @@ MonoBehaviour:
   - Name: Paul Riviere
     Age: 45
     Achievements: 
-    MilitaryRank: Officier
+    Rank: 0
     MinutesConsumed: 40
     Bullets: 0000000000000000000000000000000000000000
     Face: {fileID: 0}
@@ -39617,7 +39715,7 @@ MonoBehaviour:
   - Name: Auguste Gautier
     Age: 42
     Achievements: 
-    MilitaryRank: Officier
+    Rank: 0
     MinutesConsumed: 40
     Bullets: 0000000000000000000000000000000000000000
     Face: {fileID: 0}

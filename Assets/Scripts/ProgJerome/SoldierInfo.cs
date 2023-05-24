@@ -3,6 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum MilitaryRank
+{
+    SecondeClasse,
+    Officier,
+    Génie
+};
+
 
 [Serializable]
 public class SoldierInfo
@@ -10,7 +17,8 @@ public class SoldierInfo
     public string Name;
     public string Age;
     public string Achievements;
-    public enum MilitaryRank {Soldier, Officer, Engineer};
+    public MilitaryRank Rank;
+    //public string MilitaryRank;
     public int MinutesConsumed;
 
     //public int TotalBullet;
