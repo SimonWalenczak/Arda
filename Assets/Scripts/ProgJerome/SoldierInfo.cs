@@ -10,7 +10,7 @@ public class SoldierInfo
     public string Name;
     public string Age;
     public string Achievements;
-    public string MilitaryRank;
+    public enum MilitaryRank {Soldier, Officer, Engineer};
     public int MinutesConsumed;
 
     //public int TotalBullet;
