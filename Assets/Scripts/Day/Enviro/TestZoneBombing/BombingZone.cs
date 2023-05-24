@@ -68,10 +68,10 @@ public class BombingZone : MonoBehaviour
         minZPoint = _meshCollider.bounds.min.z;
         maxZPoint = _meshCollider.bounds.max.z;
 
-        print("min X : " + _meshCollider.bounds.min.x);
-        print("max X : " + _meshCollider.bounds.max.x);
-        print("min Z : " + _meshCollider.bounds.min.z);
-        print("max Z : " + _meshCollider.bounds.max.z);
+        //print("min X : " + _meshCollider.bounds.min.x);
+        //print("max X : " + _meshCollider.bounds.max.x);
+        //print("min Z : " + _meshCollider.bounds.min.z);
+        //print("max Z : " + _meshCollider.bounds.max.z);
 
         float distX = math.abs(minXPoint - maxXPoint);
         float distZ = math.abs(minZPoint - maxZPoint);
@@ -79,7 +79,7 @@ public class BombingZone : MonoBehaviour
         nbBomb = 0;
         Area = (int)(distX * distZ);
 
-        print(Area);
+        //print(Area);
 
 
         // var i = Instantiate(pointsCheck, new Vector3(minXPoint, 1, minZPoint), quaternion.identity);
@@ -99,7 +99,7 @@ public class BombingZone : MonoBehaviour
         if (DayManager.Instance.CurrentHour >= startBombingHour &&
             DayManager.Instance.CurrentMinute >= startBombingMinute)
         {
-            print("start bombing");
+            //print("start bombing");
             _currentTime += Time.deltaTime;
 
             if (_currentTime >= 1)
@@ -117,12 +117,12 @@ public class BombingZone : MonoBehaviour
         if (DayManager.Instance.CurrentHour >= stopBombingHour &&
     DayManager.Instance.CurrentMinute >= stopBombingMinute)
         {
-            print("stop bombing");
+            //print("stop bombing");
         }
 
         if (Gamepad.current.buttonSouth.wasPressedThisFrame)
         {
-            print(_bombPerSec);
+            //print(_bombPerSec);
         }
     }
 
@@ -144,7 +144,7 @@ public class BombingZone : MonoBehaviour
                 GameObject actualBomb = Instantiate(bomb, spawnPos, Quaternion.Euler(90f, 0f, 0f));
                 actualBomb.GetComponent<Bomb>().MainCamera = mainCamera;
                 nbBomb++;
-                print("bomb create");
+                //print("bomb create");
             }
             else
             {

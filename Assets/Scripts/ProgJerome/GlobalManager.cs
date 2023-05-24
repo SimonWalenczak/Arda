@@ -19,6 +19,8 @@ public class GlobalManager : MonoBehaviour
 
     public void UpdateValue(int index)
     {
+        Debug.Log(GaugesValues[index].ActualValue);
+        Debug.Log(GaugesValues[index].Limit);
         GaugesValues[index].ActualValue++;
 
         if (GaugesValues[index].ActualValue >= GaugesValues[index].Limit)
