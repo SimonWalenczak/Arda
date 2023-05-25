@@ -9,6 +9,7 @@ public class Bomb : MonoBehaviour
     private TerrainData terrainData;
 
     [SerializeField] float DetectionDist;
+    [SerializeField] float MinutesLost;
     [SerializeField] int GroundLayerNb = 6;
 
     [HideInInspector] public GameObject MainCamera; 
@@ -62,7 +63,7 @@ public class Bomb : MonoBehaviour
 
     void HandleEnviro()
     {
-        RaycastHit[] hits = Physics.SphereCastAll(transform.position, 5, transform.forward);
+        RaycastHit[] hits = Physics.SphereCastAll(transform.position, 15, transform.forward);
         //print("ouai c moi");
 
         foreach (RaycastHit hit in hits)
@@ -72,9 +73,14 @@ public class Bomb : MonoBehaviour
                 //print("cc");
                 hit.collider.gameObject.GetComponent<Destructible>().Destruction();
             }
-            else if (hit.collider.tag == "Soldier")
+            if (hit.collider.tag == "Soldier")
             {
                 hit.collider.gameObject.GetComponent<SoldierMoving>().UpdateState(0, "fall");
+            }
+            if (hit.collider.tag == "Player")
+            {
+                DayManager.Instance.CurrentSeconds += MinutesLost * 60;
+                DayManager.Instance.Timer += MinutesLost * 60;
             }
         }
     }
