@@ -13,17 +13,8 @@ public class GameData
     public static float turnSpeed = 60;
 
     public static int healTimeReduc = 0;
-
     
-    //Soldier
-    public static float _maxGaugeSoldier;
-    public static float _maxGaugeOfficier;
-    public static float _maxGaugeMedecin;
 
-    public static float _actualGaugeSoldier;
-    public static float _actualGaugeOfficier;
-    public static float _actualGaugeMedecin;
-    
     //Zones
     public static bool IsRainning;
     public static bool IsSunning;
@@ -36,6 +27,27 @@ public class GameData
     public static int InfantryChargeNb;
     
     //Night Tutorial
-
     public static bool HasSavesSoldier;
+    
+    //Upgrade
+    //Car
+    public static bool HaveFrein1;
+    public static bool HaveFrein2;
+    public static bool HaveFrein3;
+    public static bool HaveMoteur1;
+    public static bool HaveMoteur2;
+    public static bool HaveMoteur3;
+    public static bool HavePneu1;
+    public static bool HavePneu2;
+    public static bool HavePneu3;
+    public static bool HaveChassis1;
+    public static bool HaveChassis2;
+    public static bool HaveChassis3;
+    
+    //Radio
+    public static bool HaveCasque1;
+    public static bool HaveCasque2;
+
+    public static bool HaveTube1;
+    public static bool HaveTube2;
 }

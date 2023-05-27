@@ -52,7 +52,7 @@ public class NightManager : MonoBehaviour
 
     public GameObject FadeIn23;
     public GameObject FadeIn24;
-    public GameObject FadeOutDay;
+    public GameObject FadeOutUpgrade;
     public GameObject FadeOutCredits;
 
     #endregion
@@ -98,7 +98,8 @@ public class NightManager : MonoBehaviour
     {
         if (_generalDialog.CanUpgrade)
         {
-            UpgradeCar();
+            StartCoroutine(GoToUpgradeScene());
+            //UpgradeCar();
         }
     }
 
@@ -196,11 +197,11 @@ public class NightManager : MonoBehaviour
         }
     }
 
-    IEnumerator GoToDayScene()
+    IEnumerator GoToUpgradeScene()
     {
-        FadeOutDay.SetActive(true);
+        FadeOutUpgrade.SetActive(true);
         yield return new WaitForSeconds(3.5f);
-        SceneManager.LoadScene("bb_LD1");
+        SceneManager.LoadScene("Upgrade");
     }
 
     void UpgradeCar()
@@ -214,7 +215,7 @@ public class NightManager : MonoBehaviour
             index++;
 
         if (Gamepad.current.buttonSouth.wasPressedThisFrame)
-            StartCoroutine(GoToDayScene());
+            StartCoroutine(GoToUpgradeScene());
 
         if (index > Items.Count)
             index = 1;
