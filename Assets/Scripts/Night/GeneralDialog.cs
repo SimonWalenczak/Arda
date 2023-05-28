@@ -323,19 +323,19 @@ public class GeneralDialog : MonoBehaviour
         if (GameData.IsRainning)
         {
             _generalTextFirstNight[10].DialogText +=
-                "Demain sera une journée pluvieuse attetion au risque de glissage.";
+                "Demain sera une journée pluvieuse, attention au risque de glissage.";
             if (GameData.HasFog)
                 _generalTextFirstNight[10].DialogText +=
                     " Et vous aurez également le droit à un épais brouillard sur les monts, alors prenez garde.";
             else
-                _generalTextFirstNight[10].DialogText += " Mais vous échappez tout de même au brouillard de plaine.";
+                _generalTextFirstNight[10].DialogText += " Mais vous échapperez tout de même au brouillard de plaine.";
         }
         else
         {
-            _generalTextFirstNight[10].DialogText += "Demain sera une journée ensoillée, aucun risque de glissage.";
+            _generalTextFirstNight[10].DialogText += "Demain sera une journée ensoleillée, aucun risque de glissage.";
             if (GameData.HasFog)
                 _generalTextFirstNight[10].DialogText +=
-                    " Néanmoins vous aller avoir le droit à du brouillard, alors ne relacher pas votre vigilance jeune fille.";
+                    " Néanmoins vous allez avoir le droit à du brouillard, alors ne relachez pas votre vigilance jeune fille.";
             else
                 _generalTextFirstNight[10].DialogText += "";
         }
@@ -345,7 +345,7 @@ public class GeneralDialog : MonoBehaviour
         if (GameData.SoftFight && GameData.HardFight == false)
         {
             _generalTextFirstNight[11].DialogText +=
-                "Les milices ennemies ne prévoit pas d'assaut, tout comme nous, donc demain sera une journée avec de faible combats.";
+                "Les milices ennemies ne prévoient pas d'assauts, tout comme nous, donc demain sera une journée avec de faibles combats.";
         }
         else if (GameData.HardFight && GameData.SoftFight == false)
         {
@@ -356,7 +356,7 @@ public class GeneralDialog : MonoBehaviour
         else if (GameData.SoftFight == false && GameData.HardFight == false)
         {
             _generalTextFirstNight[11].DialogText +=
-                "Les milices ennemies compte nous attaquer avec la même intensité qu'aujourd'hui, donc tenez vous prêt.";
+                "Les milices ennemies comptent nous attaquer avec la même intensité qu'aujourd'hui, donc tenez-vous prêt.";
         }
     }
 
