@@ -356,7 +356,7 @@ public class GeneralDialog : MonoBehaviour
         else if (GameData.SoftFight == false && GameData.HardFight == false)
         {
             _generalTextFirstNight[11].DialogText +=
-                "Les milices ennemies comptent nous attaquer avec la même intensité qu'aujourd'hui, donc tenez-vous prêt.";
+                "Les milices ennemies comptent nous attaquer avec la même intensité qu'aujourd'hui, donc tenez-vous prête.";
         }
     }
 
