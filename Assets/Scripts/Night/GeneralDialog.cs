@@ -165,7 +165,25 @@ public class GeneralDialog : MonoBehaviour
             {
                 if (index < _generalText.Count - 1)
                 {
-                    if (_generalText[index].HavePaper == false)
+                    if (index == 7)
+                    {
+                        if (_generalText[index].PaperActif == false)
+                        {
+                            _generalText[index].PaperActif = true;
+                            foreach (var sprite in BodyFaces)
+                            {
+                                sprite.SetActive(false);
+                            }
+                        }
+                        else
+                        {
+                            BGLettre.SetActive(false);
+                            _generalTextVisual.gameObject.SetActive(true);
+                            _letterTextVisual.gameObject.SetActive(false);
+                            index++;
+                        }
+                    }
+                    else if (_generalText[index].HavePaper == false)
                     {
                         index++;
                     }

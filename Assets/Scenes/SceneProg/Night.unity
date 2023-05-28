@@ -1950,7 +1950,7 @@ GameObject:
   - component: {fileID: 415226379}
   - component: {fileID: 415226380}
   m_Layer: 0
-  m_Name: FinDialogue
+  m_Name: Soldat2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1969,7 +1969,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 957123815}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &415226380
 MonoBehaviour:
@@ -1983,9 +1983,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1049cf60c2b39044bbee6a2adb7295a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 4
-  BodyDialog: 
-  DialogText: "Un dialogue appara\xEEt contextualisant le choix final:"
+  index: 5
+  BodyDialog: Soldat
+  DialogText: "Ah vous \xEAtes l\xE0."
   HavePaper: 0
   PaperActif: 0
   Paper: {fileID: 0}
@@ -2842,6 +2842,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 581677692}
   m_CullTransparentMesh: 1
+--- !u!1 &589180827
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 589180828}
+  - component: {fileID: 589180829}
+  m_Layer: 0
+  m_Name: Soldat1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &589180828
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589180827}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 957123815}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &589180829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589180827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1049cf60c2b39044bbee6a2adb7295a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 4
+  BodyDialog: ...
+  DialogText: "O\xF9 est la radiologue ??"
+  HavePaper: 0
+  PaperActif: 0
+  Paper: {fileID: 0}
 --- !u!1 &594349048
 GameObject:
   m_ObjectHideFlags: 0
@@ -5795,7 +5845,11 @@ Transform:
   - {fileID: 2016217322}
   - {fileID: 473796123}
   - {fileID: 506758319}
+  - {fileID: 589180828}
   - {fileID: 415226379}
+  - {fileID: 2093581868}
+  - {fileID: 1979998729}
+  - {fileID: 1184841262}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6104,8 +6158,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24d8ccf4d89d70447a119568cf222357, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _debugDay: 0
-  DayNumber: 1
+  _debugDay: 1
+  DayNumber: 2
   CanTalk: 1
   CanUpgrade: 0
   _generalTextVisual: {fileID: 1588957666}
@@ -6128,7 +6182,11 @@ MonoBehaviour:
   - {fileID: 2016217323}
   - {fileID: 473796124}
   - {fileID: 506758320}
+  - {fileID: 589180829}
   - {fileID: 415226380}
+  - {fileID: 2093581869}
+  - {fileID: 1979998730}
+  - {fileID: 1184841263}
   _generalSprite: {fileID: 888230182}
   index: 0
   BGLettre: {fileID: 2071512567}
@@ -6892,6 +6950,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1183551439}
   m_CullTransparentMesh: 1
+--- !u!1 &1184841261
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1184841262}
+  - component: {fileID: 1184841263}
+  m_Layer: 0
+  m_Name: Soldat5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1184841262
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184841261}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 957123815}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1184841263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184841261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1049cf60c2b39044bbee6a2adb7295a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 8
+  BodyDialog: Soldat
+  DialogText: "Tenez voici les fiches des bless\xE9s, qui choisissez-vous ?"
+  HavePaper: 0
+  PaperActif: 0
+  Paper: {fileID: 0}
 --- !u!1 &1190101309
 GameObject:
   m_ObjectHideFlags: 0
@@ -9477,8 +9585,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 10
   BodyDialog: Jeanne
-  DialogText: "Merci mon g\xE9n\xE9ral !"
-  HavePaper: 1
+  DialogText: 
+  HavePaper: 0
   PaperActif: 0
   Paper: {fileID: 0}
 --- !u!1 &1598623265
@@ -11202,6 +11310,56 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1979998728
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1979998729}
+  - component: {fileID: 1979998730}
+  m_Layer: 0
+  m_Name: Soldat4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1979998729
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979998728}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 957123815}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1979998730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979998728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1049cf60c2b39044bbee6a2adb7295a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 7
+  BodyDialog: Soldat
+  DialogText: "Vous ne pourrez en diagnostiquer qu\u2019un seul par manque de temps."
+  HavePaper: 0
+  PaperActif: 0
+  Paper: {fileID: 0}
 --- !u!1 &2002859868
 GameObject:
   m_ObjectHideFlags: 0
@@ -11367,6 +11525,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2071512567}
   m_CullTransparentMesh: 1
+--- !u!1 &2093581867
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2093581868}
+  - component: {fileID: 2093581869}
+  m_Layer: 0
+  m_Name: Soldat3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2093581868
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093581867}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 957123815}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2093581869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093581867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1049cf60c2b39044bbee6a2adb7295a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 6
+  BodyDialog: Soldat
+  DialogText: "Les allemands ont bombard\xE9 l\u2019est et ont r\xE9ussi \xE0 d\xE9jouer
+    l\u2019op\xE9ration sabotage, le G\xE9n\xE9ral et quelques hommes sont all\xE9s
+    secourir les bless\xE9s, nous avons donc deux bless\xE9s critiques mais sauvables."
+  HavePaper: 0
+  PaperActif: 0
+  Paper: {fileID: 0}
 --- !u!1 &2098155692
 GameObject:
   m_ObjectHideFlags: 0
