@@ -50,4 +50,11 @@ public class GameData
 
     public static bool HaveTube1;
     public static bool HaveTube2;
+
+    public static bool HaveDynamo1;
+    public static bool HaveDynamo2;
+    public static bool HaveDynamo3;
+
+    public static bool HavePlaque1;
+    public static bool HavePlaque2;
 }

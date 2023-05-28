@@ -24,7 +24,11 @@ public enum Effect
     Casque1,
     Casque2,
     Tube1,
-    Tube2
+    Tube2,
+    Dynamo1,
+    Dynamo2,
+    Plaque1,
+    Plaque2
 }
 
 public class UpgradeCarGridManager : MonoBehaviour
@@ -37,6 +41,7 @@ public class UpgradeCarGridManager : MonoBehaviour
     public List<ButtonUpgrade> ButtonUpgrades;
     public Button PrimaryCarButton;
     public Button PrimaryRadioButton;
+    [SerializeField] private GameObject Cam;
 
     [Space(20)] public RectTransform LeftPanelRectTransform;
     public RectTransform RightPanelRectTransform;
@@ -52,7 +57,7 @@ public class UpgradeCarGridManager : MonoBehaviour
     private void Start()
     {
         PrimaryCarButton.Select();
-        ResetGameDataCarUpgrade();
+        ResetGameDataUpgrade();
         actualButton = PrimaryCarButton.GetComponent<MainButton>();
         previousButton = PrimaryCarButton.GetComponent<MainButton>();
 
@@ -61,8 +66,9 @@ public class UpgradeCarGridManager : MonoBehaviour
         DescriptionPanel.position = RightPanelRectTransform.position;
     }
 
-    private void ResetGameDataCarUpgrade()
+    private void ResetGameDataUpgrade()
     {
+        //Car
         GameData.HaveFrein1 = false;
         GameData.HaveFrein2 = false;
         GameData.HaveFrein3 = false;
@@ -75,7 +81,19 @@ public class UpgradeCarGridManager : MonoBehaviour
         GameData.HaveChassis1 = false;
         GameData.HaveChassis2 = false;
         GameData.HaveChassis3 = false;
+        
+        //Radio
+        GameData.HaveCasque1 = false;
+        GameData.HaveCasque2 = false;
+        GameData.HaveTube1 = false;
+        GameData.HaveTube2 = false;
+        GameData.HaveDynamo1 = false;
+        GameData.HaveDynamo2 = false;
+        GameData.HaveDynamo3 = false;
+        GameData.HavePlaque1 = false;
+        GameData.HavePlaque2 = false;
     }
+    
 
     public void ValidCarUpgrade()
     {
@@ -84,6 +102,7 @@ public class UpgradeCarGridManager : MonoBehaviour
             mainButton.DefineCarEffect();
         }
         
+        Cam.GetComponent<RotateCam>().StartRotation();
         RadioUpgradePanel.SetActive(true);
         PrimaryRadioButton.Select();
         CarUpgradePanel.SetActive(false);
