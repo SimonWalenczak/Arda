@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1245727775461316424
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3969914679031205520}
+  - component: {fileID: 6925782791947023973}
+  m_Layer: 0
+  m_Name: Trenches_Bridge
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3969914679031205520
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245727775461316424}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -108.988174, y: 306.601, z: 2900.5142}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6796248456939948571}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6925782791947023973
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245727775461316424}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.193161, y: 0.23629498, z: 2.822134}
+  m_Center: {x: -0.02570343, y: 0.3855133, z: 0}
+--- !u!1001 &3492564973925026756
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3969914679031205520}
+    m_Modifications:
+    - target: {fileID: 7305641294150654821, guid: 24d6a6bcdfb47634da8dcfa9fe9033fe, type: 3}
+      propertyPath: m_Name
+      value: Trench_Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 7937887501752336863, guid: 24d6a6bcdfb47634da8dcfa9fe9033fe, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7937887501752336863, guid: 24d6a6bcdfb47634da8dcfa9fe9033fe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.474
+      objectReference: {fileID: 0}
+    - target: {fileID: 7937887501752336863, guid: 24d6a6bcdfb47634da8dcfa9fe9033fe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.017
+      objectReference: {fileID: 0}
+    - target: {fileID: 7937887501752336863, guid: 24d6a6bcdfb47634da8dcfa9fe9033fe, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7937887501752336863, guid: 24d6a6bcdfb47634da8dcfa9fe9033fe, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.56506336
+      objectReference: {fileID: 0}
+    - target: {fileID: 7937887501752336863, guid: 24d6a6bcdfb47634da8dcfa9fe9033fe, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.5650633
+      objectReference: {fileID: 0}
+    - target: {fileID: 7937887501752336863, guid: 24d6a6bcdfb47634da8dcfa9fe9033fe, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.42509222
+      objectReference: {fileID: 0}
+    - target: {fileID: 7937887501752336863, guid: 24d6a6bcdfb47634da8dcfa9fe9033fe, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.4250924
+      objectReference: {fileID: 0}
+    - target: {fileID: 7937887501752336863, guid: 24d6a6bcdfb47634da8dcfa9fe9033fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -16.092
+      objectReference: {fileID: 0}
+    - target: {fileID: 7937887501752336863, guid: 24d6a6bcdfb47634da8dcfa9fe9033fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7937887501752336863, guid: 24d6a6bcdfb47634da8dcfa9fe9033fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 24d6a6bcdfb47634da8dcfa9fe9033fe, type: 3}
+--- !u!4 &6796248456939948571 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7937887501752336863, guid: 24d6a6bcdfb47634da8dcfa9fe9033fe, type: 3}
+  m_PrefabInstance: {fileID: 3492564973925026756}
+  m_PrefabAsset: {fileID: 0}
