@@ -2527,6 +2527,140 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181293951}
   m_CullTransparentMesh: 1
+--- !u!1 &192919067
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 192919068}
+  - component: {fileID: 192919071}
+  - component: {fileID: 192919070}
+  - component: {fileID: 192919069}
+  m_Layer: 5
+  m_Name: ReturnCarUpgradePanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &192919068
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192919067}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1750498988}
+  m_Father: {fileID: 1021441570}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -90.00002, y: -151.34619}
+  m_SizeDelta: {x: 165.4679, y: 115.9352}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &192919069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192919067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.49019608, g: 0.49019608, b: 0.49019608, a: 1}
+    m_SelectedColor: {r: 0.4901961, g: 0.4901961, b: 0.4901961, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 192919070}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1658584729}
+        m_TargetAssemblyTypeName: UpgradeRadioGridManager, Assembly-CSharp
+        m_MethodName: ValidRadioUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &192919070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192919067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 903d60db5c0e3654489f223f2e77403e, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &192919071
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192919067}
+  m_CullTransparentMesh: 1
 --- !u!1 &194124264
 GameObject:
   m_ObjectHideFlags: 0
@@ -3905,8 +4039,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8c0581af813f6e459fa2d7a918d0c85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextButton: 
-  TextDescription: 
+  TextButton: Casque 3
+  TextDescription: "Vous trouvez plus facilement les balles (vibration de la manette
+    lorsqu'on est \xE0 proximit\xE9 d'une balle)."
   effect: 0
   MainButtonText: {fileID: 1880650108}
   ButtonText: {fileID: 0}
@@ -4527,7 +4662,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &424629032
 Transform:
   m_ObjectHideFlags: 0
@@ -5175,7 +5310,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh343564
+  m_Name: pb_Mesh388432
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11444,7 +11579,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &819899505
 Transform:
   m_ObjectHideFlags: 0
@@ -15466,6 +15601,7 @@ RectTransform:
   - {fileID: 1498729754}
   - {fileID: 111891348}
   - {fileID: 2136085831}
+  - {fileID: 192919068}
   m_Father: {fileID: 287576333}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19279,8 +19415,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8c0581af813f6e459fa2d7a918d0c85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextButton: 
-  TextDescription: 
+  TextButton: Chassis 3
+  TextDescription: Vibration de la manette lorsqu'un bombardement approche
   effect: 11
   MainButtonText: {fileID: 855735986}
   ButtonText: {fileID: 0}
@@ -19415,8 +19551,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8c0581af813f6e459fa2d7a918d0c85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextButton: 
-  TextDescription: 
+  TextButton: Casque 4
+  TextDescription: "Le temps se ralentit lorsque vous \xEAtes dans une tente"
   effect: 0
   MainButtonText: {fileID: 1880650108}
   ButtonText: {fileID: 0}
@@ -55292,7 +55428,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh343072
+  m_Name: pb_Mesh387940
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -56056,8 +56192,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8c0581af813f6e459fa2d7a918d0c85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextButton: 
-  TextDescription: 
+  TextButton: Plaque Photo. 4
+  TextDescription: "Vous \xEAtes pr\xE9venu lorsque toutes les balles d'un bless\xE9
+    ont \xE9t\xE9 trouv\xE9."
   effect: 0
   MainButtonText: {fileID: 869296828}
   ButtonText: {fileID: 0}
@@ -57693,6 +57830,141 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &1750498987
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1750498988}
+  - component: {fileID: 1750498990}
+  - component: {fileID: 1750498989}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1750498988
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750498987}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 192919068}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1750498989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750498987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: "V\xE9hicule"
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: f56e7ac4b0a5ddc468aba4c4f778b35b, type: 2}
+  m_sharedMaterial: {fileID: -3918335985351758798, guid: f56e7ac4b0a5ddc468aba4c4f778b35b, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4281479730
+  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 20
+  m_fontSizeBase: 20
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1750498990
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750498987}
+  m_CullTransparentMesh: 1
 --- !u!1 &1752670890
 GameObject:
   m_ObjectHideFlags: 0
@@ -58070,8 +58342,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8c0581af813f6e459fa2d7a918d0c85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextButton: 
-  TextDescription: 
+  TextButton: Plaque Photo. 5
+  TextDescription: "Vous \xEAtes pr\xE9venues lorsque toute les balles d'une partie
+    du corps ont \xE9t\xE9 trouv\xE9."
   effect: 0
   MainButtonText: {fileID: 869296828}
   ButtonText: {fileID: 0}
@@ -58437,8 +58710,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8c0581af813f6e459fa2d7a918d0c85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextButton: 
-  TextDescription: 
+  TextButton: Pneu 3
+  TextDescription: "Il est plus facile de se d\xE9placer dans les zones bombard\xE9es"
   effect: 5
   MainButtonText: {fileID: 503769866}
   ButtonText: {fileID: 0}
@@ -59069,7 +59342,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh343600
+  m_Name: pb_Mesh388468
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -62186,8 +62459,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8c0581af813f6e459fa2d7a918d0c85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextButton: 
-  TextDescription: 
+  TextButton: Frein 4
+  TextDescription: "Le v\xE9hicule s'arr\xEAte imm\xE9diatemment apr\xE8s avoir appuy\xE9
+    sur le frein."
   effect: 0
   MainButtonText: {fileID: 1753849044}
   ButtonText: {fileID: 0}
@@ -62476,8 +62750,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8c0581af813f6e459fa2d7a918d0c85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextButton: 
-  TextDescription: 
+  TextButton: Plaque Photo. 3
+  TextDescription: "Am\xE9liore la qualit\xE9 des images radiographiques"
   effect: 11
   MainButtonText: {fileID: 869296828}
   ButtonText: {fileID: 0}
@@ -63979,8 +64253,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8c0581af813f6e459fa2d7a918d0c85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextButton: 
-  TextDescription: 
+  TextButton: Dynamo 4
+  TextDescription: "Vous savez \xE0 l'avance quelles sont les parties du corps qui
+    contiennent une balle."
   effect: 0
   MainButtonText: {fileID: 584199952}
   ButtonText: {fileID: 0}
@@ -68725,7 +69000,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2, y: -151.34619}
+  m_AnchoredPosition: {x: 85, y: -151.34619}
   m_SizeDelta: {x: 165.4679, y: 115.9352}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2136085832
