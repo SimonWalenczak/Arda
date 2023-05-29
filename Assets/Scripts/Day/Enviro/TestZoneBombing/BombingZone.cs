@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
@@ -33,7 +31,7 @@ public class BombingZone : MonoBehaviour
     [SerializeField] private float startBombingMinute;
     [SerializeField] private float stopBombingHour;
     [SerializeField] private float stopBombingMinute;
-    [SerializeField] private bool _bombingStarted;
+    [SerializeField] private bool _canBombing;
 
     private float _hourDuration;
     private float _minuteDuration;
@@ -57,7 +55,16 @@ public class BombingZone : MonoBehaviour
         _minuteDuration = stopBombingMinute - startBombingMinute;
 
         _bombingDuration = (_hourDuration * 3600 + _minuteDuration * 60) / DayManager.Instance.TimeMultiplier;
-        _bombPerSec = Math.Round(_nbBombMax / _bombingDuration);
+        _bombPerSec = Math.Ceiling(_nbBombMax / _bombingDuration);
+        // print(_bombingDuration);
+        // print(_bombPerSec);
+
+        if (DayManager.Instance._isTuto == false)
+            _canBombing = true;
+        else
+        {
+            //Condition si le joueur sort de la première tente.
+        }
     }
 
     void Initialize()
@@ -77,7 +84,7 @@ public class BombingZone : MonoBehaviour
         float distZ = math.abs(minZPoint - maxZPoint);
 
         nbBomb = 0;
-        Area = (int)(distX * distZ);
+        Area = (int) (distX * distZ);
 
         //print(Area);
 
@@ -96,38 +103,44 @@ public class BombingZone : MonoBehaviour
 
     private void Update()
     {
-        if (DayManager.Instance.CurrentHour >= startBombingHour &&
-            DayManager.Instance.CurrentMinute >= startBombingMinute)
+        if (_canBombing)
         {
-            //print("start bombing");
-            _currentTime += Time.deltaTime;
-
-            if (_currentTime >= 1)
+            if (DayManager.Instance.CurrentHour >= startBombingHour &&
+                DayManager.Instance.CurrentMinute >= startBombingMinute)
             {
-                for (int i = 0; i < _bombPerSec; i++)
+                //print("start bombing");
+                _currentTime += Time.deltaTime;
+
+                if (_currentTime >= 1)
                 {
-                    if (nbBomb < _nbBombMax)
-                        StartBombing();
+                    //print("currentTime = 1");
+                    for (int i = 0; i < _bombPerSec; i++)
+                    {
+                        //print("i < bombePerSec");
+                        if (nbBomb < _nbBombMax)
+                            StartBombing();
+                    }
+
+                    _currentTime = 0;
                 }
-
-                _currentTime = 0;
             }
-        }
 
-        if (DayManager.Instance.CurrentHour >= stopBombingHour &&
-    DayManager.Instance.CurrentMinute >= stopBombingMinute)
-        {
-            //print("stop bombing");
-        }
+            if (DayManager.Instance.CurrentHour >= stopBombingHour &&
+                DayManager.Instance.CurrentMinute >= stopBombingMinute)
+            {
+                //print("stop bombing");
+            }
 
-        if (Gamepad.current.buttonSouth.wasPressedThisFrame)
-        {
-            //print(_bombPerSec);
+            if (Gamepad.current.buttonSouth.wasPressedThisFrame)
+            {
+                //print(_bombPerSec);
+            }
         }
     }
 
     void StartBombing()
     {
+        //print("Try Bombing");
         float xPos = Random.Range(minXPoint, maxXPoint);
         float zPos = Random.Range(minZPoint, maxZPoint);
         float yPos = Random.Range(minY, maxY);

@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -7,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class DayManager : MonoBehaviour
 {
     [SerializeField] TerrainSaver _terrainSaver;
-    [SerializeField] private bool _isTuto;
+    public bool _isTuto;
     
     [Space(10)]
     [Header("Start")]
@@ -96,9 +95,6 @@ public class DayManager : MonoBehaviour
             StartCoroutine(WaitingForSunSet());
         }
     }
-
-
-
 
     IEnumerator WaitingForSunSet()
     {
