@@ -400,7 +400,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &386433186
 Transform:
   m_ObjectHideFlags: 0
@@ -408,8 +408,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 386433184}
-  m_LocalRotation: {x: 0.16331035, y: 0.001118198, z: -0.00018509477, w: 0.9865741}
-  m_LocalPosition: {x: -0.029967308, y: 4.5, z: -13.219992}
+  m_LocalRotation: {x: 0.16331035, y: 0.0011192017, z: -0.00018526457, w: 0.9865741}
+  m_LocalPosition: {x: -0.029994965, y: 4.5, z: -13.21999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -628,8 +628,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 422049334}
-  m_LocalRotation: {x: -0.024849895, y: 0.055239722, z: -0.017281298, w: 0.9980143}
-  m_LocalPosition: {x: -1.1556569, y: 0.23560399, z: 3.3920236}
+  m_LocalRotation: {x: -0.024849892, y: 0.055238724, z: -0.017280988, w: 0.99801433}
+  m_LocalPosition: {x: -1.1556342, y: 0.23560345, z: 3.3920364}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -706,8 +706,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948644394}
-  m_LocalRotation: {x: -0.0593853, y: 0.05283275, z: -0.014541194, w: 0.99673}
-  m_LocalPosition: {x: -1.0943052, y: 0.23335356, z: 3.3854122}
+  m_LocalRotation: {x: -0.059384666, y: 0.05283178, z: -0.014540965, w: 0.9967301}
+  m_LocalPosition: {x: -1.0942788, y: 0.23336476, z: 3.3854606}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -779,7 +779,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1379205043
 Transform:
   m_ObjectHideFlags: 0
@@ -787,8 +787,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1379205042}
-  m_LocalRotation: {x: 0.16331035, y: 0.001118198, z: -0.00018509477, w: 0.9865741}
-  m_LocalPosition: {x: -0.029967308, y: 4.5, z: -13.219992}
+  m_LocalRotation: {x: 0.16331035, y: 0.0011192017, z: -0.00018526457, w: 0.9865741}
+  m_LocalPosition: {x: -0.029994965, y: 4.5, z: -13.21999}
   m_LocalScale: {x: 1.5097201, y: 1.54016, z: 1.4840602}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1050,8 +1050,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1722895062}
-  m_LocalRotation: {x: 0.010046481, y: 0.04932335, z: -0.017344939, w: 0.9985817}
-  m_LocalPosition: {x: -1.0442476, y: 0.23165631, z: 3.380426}
+  m_LocalRotation: {x: 0.010045259, y: 0.049322393, z: -0.017344536, w: 0.99858177}
+  m_LocalPosition: {x: -1.0442331, y: 0.23163044, z: 3.3803651}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2020,6 +2020,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e215036f-136a-40f6-8cf2-88545476fd00
     m_ActionName: Driving/Direction[/XInputControllerWindows/leftStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a0cf631e-3d30-4895-a80b-cd017abe0a55
+    m_ActionName: Driving/DirectionR[/DualShock4GamepadHID/rightStick]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Driving
