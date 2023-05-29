@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1416136438372997162}
+  - component: {fileID: 4031495825149037848}
   m_Layer: 0
   m_Name: Tree2Leaf
   m_TagString: Untagged
@@ -33,6 +34,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &4031495825149037848
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796074487205446288}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.4996796
+  m_Height: 21.510386
+  m_Direction: 1
+  m_Center: {x: 0, y: 4.918626, z: -0.7405863}
 --- !u!1 &4673767963053446231
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,7 +157,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8676654405771180017}
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.09852529, y: 2.7686856, z: -0.79383475}
+  m_LocalPosition: {x: -0.09852529, y: 12.71, z: -2.18}
   m_LocalScale: {x: 1.338625, y: 1.338625, z: 1.338625}
   m_ConstrainProportionsScale: 0
   m_Children: []

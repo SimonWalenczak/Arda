@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 287214277100357141}
   - component: {fileID: 3770559933606775216}
   - component: {fileID: 1420691076072815994}
+  - component: {fileID: 3001137636445805700}
   m_Layer: 0
   m_Name: RubblePlank
   m_TagString: Untagged
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3001137636445805700
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628167973542861999}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.815856, y: 0.093365334, z: 0.28916642}
+  m_Center: {x: 0, y: 0, z: 0}
