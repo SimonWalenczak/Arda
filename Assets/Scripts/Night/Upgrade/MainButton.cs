@@ -57,6 +57,51 @@ public class MainButton : MonoBehaviour, ISelectHandler
             case Effect.Chassis3:
                 GameData.HaveChassis3 = true;
                 break;
+            case Effect.Casque1:
+                GameData.HaveCasque1 = true;
+                break;
+            case Effect.Casque2:
+                GameData.HaveCasque1 = true;
+                break;
+            case Effect.Casque3:
+                GameData.HaveCasque3 = true;
+                break;
+            case Effect.Casque4:
+                GameData.HaveCasque4 = true;
+                break;
+            case Effect.Tube1:
+                GameData.HaveTube1 = true;
+                break;
+            case Effect.Tube2:
+                GameData.HaveTube2 = true;
+                break;
+            case Effect.Dynamo1:
+                GameData.HaveDynamo1 = true;
+                break;
+            case Effect.Dynamo2:
+                GameData.HaveDynamo2 = true;
+                break;
+            case Effect.Dynamo3:
+                GameData.HaveDynamo3 = true;
+                break; 
+            case Effect.Dynamo4:
+                GameData.HaveDynamo4 = true;
+                break;
+            case Effect.Plaque1:
+                GameData.HavePlaque1 = true;
+                break;
+            case Effect.Plaque2:
+                GameData.HavePlaque2 = true;
+                break;
+            case Effect.Plaque3:
+                GameData.HavePlaque3 = true;
+                break;
+            case Effect.Plaque4:
+                GameData.HavePlaque4 = true;
+                break;
+            case Effect.Plaque5:
+                GameData.HavePlaque5 = true;
+                break;
         }
     }
 

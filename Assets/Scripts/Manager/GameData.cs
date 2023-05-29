@@ -50,6 +50,8 @@ public class GameData
     //Radio
     public static bool HaveCasque1;
     public static bool HaveCasque2;
+    public static bool HaveCasque3;
+    public static bool HaveCasque4;
 
     public static bool HaveTube1;
     public static bool HaveTube2;
@@ -57,7 +59,11 @@ public class GameData
     public static bool HaveDynamo1;
     public static bool HaveDynamo2;
     public static bool HaveDynamo3;
+    public static bool HaveDynamo4;
 
     public static bool HavePlaque1;
     public static bool HavePlaque2;
+    public static bool HavePlaque3;
+    public static bool HavePlaque4;
+    public static bool HavePlaque5;
 }

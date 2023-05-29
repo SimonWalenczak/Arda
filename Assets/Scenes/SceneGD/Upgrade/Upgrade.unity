@@ -715,6 +715,7 @@ Transform:
   - {fileID: 455441001}
   - {fileID: 511418331}
   - {fileID: 1888453134}
+  - {fileID: 249064394}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2580,12 +2581,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
+    m_SelectOnUp: {fileID: 243037742}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnRight: {fileID: 2136085832}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -2611,9 +2612,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1658584729}
-        m_TargetAssemblyTypeName: UpgradeRadioGridManager, Assembly-CSharp
-        m_MethodName: ValidRadioUpgrade
+      - m_Target: {fileID: 1658584727}
+        m_TargetAssemblyTypeName: UpgradeCarGridManager, Assembly-CSharp
+        m_MethodName: ReturnCarUpgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3175,7 +3176,7 @@ MonoBehaviour:
     m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 258912452}
-    m_SelectOnDown: {fileID: 2136085832}
+    m_SelectOnDown: {fileID: 192919069}
     m_SelectOnLeft: {fileID: 1070307675}
     m_SelectOnRight: {fileID: 942997251}
   m_Transition: 1
@@ -3280,6 +3281,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 243037741}
   m_CullTransparentMesh: 1
+--- !u!1 &249064393
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 249064394}
+  m_Layer: 0
+  m_Name: OriginCam
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &249064394
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249064393}
+  m_LocalRotation: {x: 0.0041413805, y: 0.7239402, z: 0.004065148, w: 0.6898384}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 54812169}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: -0.01, y: 92.763, z: 0.665}
 --- !u!1 &254778348
 GameObject:
   m_ObjectHideFlags: 0
@@ -4042,7 +4074,7 @@ MonoBehaviour:
   TextButton: Casque 3
   TextDescription: "Vous trouvez plus facilement les balles (vibration de la manette
     lorsqu'on est \xE0 proximit\xE9 d'une balle)."
-  effect: 0
+  effect: 14
   MainButtonText: {fileID: 1880650108}
   ButtonText: {fileID: 0}
   IsSelect: 0
@@ -5558,7 +5590,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TextButton: Dynamo 3
   TextDescription: "Augmente la vitesse de d\xE9placement du joystick de 20%."
-  effect: 8
+  effect: 20
   MainButtonText: {fileID: 584199952}
   ButtonText: {fileID: 0}
   IsSelect: 0
@@ -10568,8 +10600,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d93a66aa907d827478c3707478477e96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startRotation: {fileID: 249064394}
   targetRotation: {fileID: 1888453134}
   rotationSpeed: 1
+  IsRotate: 0
+  IsReturn: 0
 --- !u!1 &696476005
 GameObject:
   m_ObjectHideFlags: 0
@@ -11074,7 +11109,7 @@ MonoBehaviour:
   TextButton: Plaque Photo. 2
   TextDescription: "R\xE9duit le temps d\u2019analyse requis pour trouver une balle
     de 20%."
-  effect: 10
+  effect: 23
   MainButtonText: {fileID: 869296828}
   ButtonText: {fileID: 0}
   IsSelect: 0
@@ -15092,7 +15127,7 @@ MonoBehaviour:
   GridButton: {fileID: 937681769}
   Title: Plaque Photo.
   DescriptionText: "Plaque photographique de  premi\xE8re g\xE9n\xE9ration."
-  effect: 9
+  effect: 22
   IsLeftSide: 0
   IsSelect: 0
 --- !u!222 &942997254
@@ -16750,7 +16785,7 @@ MonoBehaviour:
   GridButton: {fileID: 1219617277}
   Title: Dynamo
   DescriptionText: Dynamo d'origine.
-  effect: 6
+  effect: 18
   IsLeftSide: 0
   IsSelect: 0
 --- !u!222 &1142445688
@@ -19553,7 +19588,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TextButton: Casque 4
   TextDescription: "Le temps se ralentit lorsque vous \xEAtes dans une tente"
-  effect: 0
+  effect: 15
   MainButtonText: {fileID: 1880650108}
   ButtonText: {fileID: 0}
   IsSelect: 0
@@ -56195,7 +56230,7 @@ MonoBehaviour:
   TextButton: Plaque Photo. 4
   TextDescription: "Vous \xEAtes pr\xE9venu lorsque toutes les balles d'un bless\xE9
     ont \xE9t\xE9 trouv\xE9."
-  effect: 0
+  effect: 25
   MainButtonText: {fileID: 869296828}
   ButtonText: {fileID: 0}
   IsSelect: 0
@@ -58345,7 +58380,7 @@ MonoBehaviour:
   TextButton: Plaque Photo. 5
   TextDescription: "Vous \xEAtes pr\xE9venues lorsque toute les balles d'une partie
     du corps ont \xE9t\xE9 trouv\xE9."
-  effect: 0
+  effect: 26
   MainButtonText: {fileID: 869296828}
   ButtonText: {fileID: 0}
   IsSelect: 0
@@ -62752,7 +62787,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TextButton: Plaque Photo. 3
   TextDescription: "Am\xE9liore la qualit\xE9 des images radiographiques"
-  effect: 11
+  effect: 24
   MainButtonText: {fileID: 869296828}
   ButtonText: {fileID: 0}
   IsSelect: 0
@@ -64256,7 +64291,7 @@ MonoBehaviour:
   TextButton: Dynamo 4
   TextDescription: "Vous savez \xE0 l'avance quelles sont les parties du corps qui
     contiennent une balle."
-  effect: 0
+  effect: 21
   MainButtonText: {fileID: 584199952}
   ButtonText: {fileID: 0}
   IsSelect: 0
@@ -65742,7 +65777,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TextButton: Dynamo 2
   TextDescription: "Augmente la vitesse de d\xE9placement du joystick de 10%."
-  effect: 7
+  effect: 19
   MainButtonText: {fileID: 584199952}
   ButtonText: {fileID: 0}
   IsSelect: 0
@@ -69016,11 +69051,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
+    m_SelectOnUp: {fileID: 942997251}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnLeft: {fileID: 192919069}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:

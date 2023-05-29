@@ -23,12 +23,19 @@ public enum Effect
     //Radio
     Casque1,
     Casque2,
+    Casque3,
+    Casque4,
     Tube1,
     Tube2,
     Dynamo1,
     Dynamo2,
+    Dynamo3,
+    Dynamo4,
     Plaque1,
-    Plaque2
+    Plaque2,
+    Plaque3,
+    Plaque4,
+    Plaque5
 }
 
 public class UpgradeCarGridManager : MonoBehaviour
@@ -85,13 +92,19 @@ public class UpgradeCarGridManager : MonoBehaviour
         //Radio
         GameData.HaveCasque1 = false;
         GameData.HaveCasque2 = false;
+        GameData.HaveCasque3 = false;
+        GameData.HaveCasque4 = false;
         GameData.HaveTube1 = false;
         GameData.HaveTube2 = false;
         GameData.HaveDynamo1 = false;
         GameData.HaveDynamo2 = false;
         GameData.HaveDynamo3 = false;
+        GameData.HaveDynamo4 = false;
         GameData.HavePlaque1 = false;
         GameData.HavePlaque2 = false;
+        GameData.HavePlaque3 = false;
+        GameData.HavePlaque4 = false;
+        GameData.HavePlaque5 = false;
     }
     
 
@@ -108,7 +121,14 @@ public class UpgradeCarGridManager : MonoBehaviour
         CarUpgradePanel.SetActive(false);
     }
 
-
+    public void ReturnCarUpgrade()
+    {
+        Cam.GetComponent<RotateCam>().ReturnRotation();
+        RadioUpgradePanel.SetActive(false);
+        PrimaryCarButton.Select();
+        CarUpgradePanel.SetActive(true);
+    }
+    
     private void UpdateMainButtons()
     {
         foreach (var mainButton in MainButtons)
