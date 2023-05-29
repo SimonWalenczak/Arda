@@ -29,6 +29,9 @@ public class GameData
     //Night Tutorial
     public static bool HasSavesSoldier;
     
+    //Fin Choix
+    public static bool SaveGeorges;
+    
     //Upgrade
     //Car
     public static bool HaveFrein1;

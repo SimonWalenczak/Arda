@@ -26,7 +26,7 @@ public class Credits : MonoBehaviour
 
     IEnumerator WaitingForCredits()
     {
-        yield return new WaitForSeconds(9);
+        yield return new WaitForSeconds(32);
         _canGoToMainMenu = true;
     }
 

@@ -27,17 +27,23 @@ public class GeneralDialog : MonoBehaviour
     public GameObject BilanCursor;
     public List<RectTransform> CursorOrigin;
     public List<GameObject> RewardsGaugesText;
+    [SerializeField] private TextMeshProUGUI _letterTextVisual;
 
-    [Space(10)] [Header("Lettre Envoie")] [SerializeField]
+    [Space(10)] [Header("Lettre Envoie Nuit 1")] [SerializeField]
     private List<String> _letterText;
 
     [SerializeField] private List<LetterRewards> _letterRewardsList;
 
     [SerializeField] private int _letterIndex = 0;
-    [SerializeField] private TextMeshProUGUI _letterTextVisual;
     [SerializeField] private List<GameObject> BodyFaces;
     [SerializeField] private List<GameObject> SentLetters;
     private GameObject _actualFace;
+
+    [Space(10)] [Header("Choix Final Nuit 2")] [SerializeField]
+    private List<String> _choixText;
+
+    [SerializeField] private int _choixFinalIndex = 0;
+    [SerializeField] private List<GameObject> BodyFacesFinalChoice;
 
     private void Start()
     {
@@ -47,7 +53,10 @@ public class GeneralDialog : MonoBehaviour
         CanTalk = false;
         StartCoroutine(WaitingForTalk());
 
-        _actualFace = BodyFaces[_letterIndex];
+        if (GameData.NumberDays == 1)
+            _actualFace = BodyFaces[_letterIndex];
+        else if (GameData.NumberDays == 2)
+            _actualFace = BodyFacesFinalChoice[_choixFinalIndex];
 
         if (GameData.NumberDays == 2)
         {
@@ -167,21 +176,19 @@ public class GeneralDialog : MonoBehaviour
                 {
                     if (index == 7)
                     {
-                        if (_generalText[index].PaperActif == false)
+                        foreach (var sprite in BodyFacesFinalChoice)
                         {
-                            _generalText[index].PaperActif = true;
-                            foreach (var sprite in BodyFaces)
-                            {
-                                sprite.SetActive(false);
-                            }
+                            sprite.SetActive(true);
                         }
-                        else
-                        {
-                            BGLettre.SetActive(false);
-                            _generalTextVisual.gameObject.SetActive(true);
-                            _letterTextVisual.gameObject.SetActive(false);
-                            index++;
-                        }
+                    }
+
+                    if (index == 8)
+                    {
+                        BGLettre.SetActive(false);
+
+                        _generalTextVisual.gameObject.SetActive(true);
+                        _letterTextVisual.gameObject.SetActive(false);
+                        index++;
                     }
                     else if (_generalText[index].HavePaper == false)
                     {
@@ -216,6 +223,11 @@ public class GeneralDialog : MonoBehaviour
 
     private IEnumerator GoToCredits()
     {
+        if (_choixFinalIndex == 0)
+            GameData.SaveGeorges = true;
+        else
+            GameData.SaveGeorges = false;
+        
         gameObject.GetComponent<NightManager>().FadeOutCredits.SetActive(true);
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene("Credits");
@@ -267,13 +279,61 @@ public class GeneralDialog : MonoBehaviour
             $"{_letterText[_letterIndex]}\n \nVous gagnerez {_letterRewardsList[_letterIndex].rewardText}");
     }
 
+    private void DialogFinalChoice()
+    {
+        BGLettre.SetActive(true);
+        _generalTextVisual.gameObject.SetActive(false);
+        _letterTextVisual.gameObject.SetActive(true);
+
+        if (Gamepad.current.leftStick.right.wasPressedThisFrame)
+        {
+            if (_choixFinalIndex == 0)
+            {
+                _choixFinalIndex = 1;
+            }
+            else if (_choixFinalIndex == 1)
+            {
+                _choixFinalIndex = 0;
+            }
+
+            _actualFace.GetComponent<RectTransform>().DOScale(1f, 0.7f);
+            _actualFace = BodyFacesFinalChoice[_choixFinalIndex];
+        }
+
+        if (Gamepad.current.leftStick.left.wasPressedThisFrame)
+        {
+            if (_choixFinalIndex == 0)
+            {
+                _choixFinalIndex = 1;
+            }
+            else if (_choixFinalIndex == 1)
+            {
+                _choixFinalIndex = 0;
+            }
+
+            _actualFace.GetComponent<RectTransform>().DOScale(1f, 0.7f);
+            _actualFace = BodyFacesFinalChoice[_choixFinalIndex];
+        }
+
+        if (_choixFinalIndex < 0)
+            _choixFinalIndex = 1;
+        if (_choixFinalIndex > 1)
+            _choixFinalIndex = 0;
+
+        _actualFace.GetComponent<RectTransform>().DOScale(1.2f, 0.7f);
+        _letterTextVisual.SetText(_choixText[_choixFinalIndex]);
+    }
+
     private void Update()
     {
         if (CanTalk)
             DialogGeneral();
 
-        if (index == 9)
+        if (GameData.NumberDays == 1 && index == 9)
             DialogChoice();
+
+        if (GameData.NumberDays == 2 && index == 8)
+            DialogFinalChoice();
 
         if ((GameData.NumberDays == 1 && (index == 2 || index == 4)) || (GameData.NumberDays == 2 && index == 0))
             BilanPhase();
