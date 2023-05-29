@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GeneralDialog : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class GeneralDialog : MonoBehaviour
     [SerializeField] private List<Dialog> _generalTextFirstNight;
     [SerializeField] private List<Dialog> _generalText;
     [SerializeField] private GameObject _generalSprite;
+    [SerializeField] private GameObject _soldatSpriteFinal;
+    [SerializeField] private Image colorFinalSoldat;
 
     [SerializeField] private int index = 0;
     [SerializeField] private GameObject BGLettre;
@@ -56,11 +59,12 @@ public class GeneralDialog : MonoBehaviour
         if (GameData.NumberDays == 1)
             _actualFace = BodyFaces[_letterIndex];
         else if (GameData.NumberDays == 2)
-            _actualFace = BodyFacesFinalChoice[_choixFinalIndex];
-
-        if (GameData.NumberDays == 2)
         {
             _generalSprite.SetActive(false);
+            _actualFace = BodyFacesFinalChoice[_choixFinalIndex];
+            colorFinalSoldat = _soldatSpriteFinal.GetComponent<Image>();
+            colorFinalSoldat.color = Color.black;
+            Debug.Log(colorFinalSoldat);
         }
 
         ExtraDialogue();
@@ -174,6 +178,19 @@ public class GeneralDialog : MonoBehaviour
             {
                 if (index < _generalText.Count - 1)
                 {
+                    if (index == 2)
+                    {
+                        if (_generalText[index].PaperActif == true)
+                        {
+                            _soldatSpriteFinal.SetActive(true);
+                        }
+                    }
+
+                    if (index == 3)
+                    {
+                        colorFinalSoldat.color = Color.white;
+                    }
+
                     if (index == 7)
                     {
                         foreach (var sprite in BodyFacesFinalChoice)
@@ -227,7 +244,7 @@ public class GeneralDialog : MonoBehaviour
             GameData.SaveGeorges = true;
         else
             GameData.SaveGeorges = false;
-        
+
         gameObject.GetComponent<NightManager>().FadeOutCredits.SetActive(true);
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene("Credits");
