@@ -362,7 +362,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh139460
+  m_Name: pb_Mesh213022
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5195,7 +5195,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 897103237}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &738576183
 GameObject:
@@ -5243,7 +5243,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 243083890427372085, guid: 394d7874ac3229a46bec1d0a5659bd00, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 243083890427372085, guid: 394d7874ac3229a46bec1d0a5659bd00, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5435,11 +5435,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 902140352}
+  - {fileID: 1878570207}
   - {fileID: 142734183}
   - {fileID: 1450628090}
+  - {fileID: 902140352}
   - {fileID: 645473616}
-  - {fileID: 1878570207}
   - {fileID: 85441088}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -6328,6 +6328,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   IsSoldier: 0
+  FirstTent: 0
 --- !u!4 &1053936278 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2092774458626804554, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
@@ -6424,9 +6425,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1568979922}
     - target: {fileID: 3434172786854650948, guid: afe084ec7e1856242ba87c4326440662, type: 3}
+      propertyPath: StartHour
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3434172786854650948, guid: afe084ec7e1856242ba87c4326440662, type: 3}
       propertyPath: TimeOfDay
       value: 
       objectReference: {fileID: 275610383}
+    - target: {fileID: 3434172786854650948, guid: afe084ec7e1856242ba87c4326440662, type: 3}
+      propertyPath: StartMinute
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 3434172786854650948, guid: afe084ec7e1856242ba87c4326440662, type: 3}
       propertyPath: _terrainSaver
       value: 
@@ -6712,7 +6721,7 @@ PrefabInstance:
       objectReference: {fileID: 98276957}
     - target: {fileID: 8314006830500811844, guid: 74caa12a3b4fff54d8b2e707da180960, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8314006830500811844, guid: 74caa12a3b4fff54d8b2e707da180960, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7078,6 +7087,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   IsSoldier: 1
+  FirstTent: 0
 --- !u!4 &1528931187 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2092774458626804554, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
@@ -7379,7 +7389,7 @@ MonoBehaviour:
   startBombingMinute: 0
   stopBombingHour: 19
   stopBombingMinute: 0
-  _bombingStarted: 0
+  _canBombing: 0
   nbBomb: 0
 --- !u!1 &1568979922
 GameObject:
@@ -7525,9 +7535,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 98276954}
     - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Enterable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
       propertyPath: Radiology
       value: 
       objectReference: {fileID: 98276962}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: IsFirstTent
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
       propertyPath: Soldiers.Array.data[0].MinutesConsumed
       value: 40
@@ -7848,3 +7866,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2067869404 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2092774458626804555, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+  m_PrefabInstance: {fileID: 1721403927}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2067869407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067869404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8719d76853d15449bb9665886005015, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  IsSoldier: 0
+  FirstTent: 1

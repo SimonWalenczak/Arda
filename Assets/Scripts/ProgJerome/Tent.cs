@@ -32,6 +32,15 @@ public class Tent : MonoBehaviour
         StartCoroutine(Fading());
     }
 
+    public void StartInTent()
+    {
+        DataCenterDay.Instance.CurrentTent = this;
+        foreach (var item in Soldiers)
+        {
+            DataCenterDay.Instance.CurrentSoldiers.Add(item);
+        }
+        StartCoroutine(FadeFirstTent());
+    }
 
     IEnumerator Fading()
     {
@@ -43,6 +52,11 @@ public class Tent : MonoBehaviour
         yield return null;
     }
 
-
+    IEnumerator FadeFirstTent()
+    {
+        Radiology.alpha = 1;
+        RadiologyPhase.Instance.Setup();
+        yield return null;
+    }
 
 }
