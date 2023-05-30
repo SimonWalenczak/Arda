@@ -1,11 +1,5 @@
 using UnityEngine;
 
-public enum TextType
-{
-    NoType,
-    EndRadiologie,
-    End
-}
 public class TutoManager : MonoBehaviour
 {
     public PlayerManager PlayerManager;
