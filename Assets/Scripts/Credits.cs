@@ -10,6 +10,8 @@ public class Credits : MonoBehaviour
 
     private bool _canGoToMainMenu;
 
+    public int SecondBeforeCredits;
+
     private void Start()
     {
         StartCoroutine(WaitingForCredits());
@@ -26,7 +28,7 @@ public class Credits : MonoBehaviour
 
     IEnumerator WaitingForCredits()
     {
-        yield return new WaitForSeconds(32);
+        yield return new WaitForSeconds(SecondBeforeCredits);
         _canGoToMainMenu = true;
     }
 
