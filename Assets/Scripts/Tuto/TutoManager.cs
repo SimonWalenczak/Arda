@@ -1,6 +1,11 @@
-using System;
 using UnityEngine;
 
+public enum TextType
+{
+    NoType,
+    EndRadiologie,
+    End
+}
 public class TutoManager : MonoBehaviour
 {
     public PlayerManager PlayerManager;
@@ -33,10 +38,5 @@ public class TutoManager : MonoBehaviour
             PlayerManager.CanHeal = false;
             PlayerManager.CurrentCamp = null;
         }
-    }
-
-    private void Update()
-    {
-
     }
 }

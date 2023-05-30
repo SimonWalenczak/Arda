@@ -39,7 +39,8 @@ public class Tent : MonoBehaviour
         {
             DataCenterDay.Instance.CurrentSoldiers.Add(item);
         }
-        StartCoroutine(FadeFirstTent());
+        Radiology.alpha = 1;
+        RadiologyPhase.Instance.Setup();
     }
 
     IEnumerator Fading()
@@ -51,12 +52,4 @@ public class Tent : MonoBehaviour
         RadiologyPhase.Instance.Setup();
         yield return null;
     }
-
-    IEnumerator FadeFirstTent()
-    {
-        Radiology.alpha = 1;
-        RadiologyPhase.Instance.Setup();
-        yield return null;
-    }
-
 }

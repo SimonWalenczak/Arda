@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -41,5 +40,15 @@ public class CampTuto : MonoBehaviour
         {
             print("soldat : " + GameData.HasSavesSoldier);
         }
+
+        if (FirstTent)
+        {
+            LaunchTuto();
+        }
+    }
+
+    private void LaunchTuto()
+    {
+        print("Lancement du Tuto");
     }
 }
