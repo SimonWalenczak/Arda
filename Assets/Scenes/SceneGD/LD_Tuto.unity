@@ -1581,12 +1581,32 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 98276962}
     - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[0].Age
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[1].Age
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[0].Name
+      value: "Josselin Lavall\xE9e"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
       propertyPath: Soldiers.Array.data[0].Rank
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[1].Name
+      value: Jean-Louis Moreau
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
       propertyPath: Soldiers.Array.data[1].Rank
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[2].Name
+      value: "Ren\xE9 Vasseur"
       objectReference: {fileID: 0}
     - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
       propertyPath: Soldiers.Array.data[2].Rank
@@ -1603,6 +1623,42 @@ PrefabInstance:
     - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
       propertyPath: Soldiers.Array.data[2].MinutesConsumed
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[0].Bullets.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[0].Bullets.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[0].Bullets.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[0].Bullets.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[0].Bullets.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[0].Bullets.Array.data[4]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[1].Bullets.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[2].Bullets.Array.data[3]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[2].Bullets.Array.data[4]
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2092774458626804553, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
       propertyPath: m_Size.x
@@ -9606,6 +9662,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 98276962}
     - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[1].Age
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[2].Age
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[0].Name
+      value: Joseph Vasseur
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[1].Name
+      value: Paul Lebreton
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[2].Name
+      value: "\xC9mile Richard"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
       propertyPath: Soldiers.Array.data[0].MinutesConsumed
       value: 40
       objectReference: {fileID: 0}
@@ -9616,6 +9692,46 @@ PrefabInstance:
     - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
       propertyPath: Soldiers.Array.data[2].MinutesConsumed
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[0].Bullets.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[0].Bullets.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[0].Bullets.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[0].Bullets.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[0].Bullets.Array.data[4]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[1].Bullets.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[1].Bullets.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[1].Bullets.Array.data[2]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[1].Bullets.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[1].Bullets.Array.data[4]
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2092774458626804553, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
       propertyPath: m_Size.x
@@ -34632,6 +34748,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[2].Age
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[2].Name
+      value: Michel Dupuis
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
       propertyPath: Soldiers.Array.data[0].MinutesConsumed
       value: 40
       objectReference: {fileID: 0}
@@ -34642,6 +34766,38 @@ PrefabInstance:
     - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
       propertyPath: Soldiers.Array.data[2].MinutesConsumed
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[0].Bullets.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[0].Bullets.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[0].Bullets.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[0].Bullets.Array.data[4]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[2].Bullets.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[2].Bullets.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[2].Bullets.Array.data[3]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092774458626804552, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
+      propertyPath: Soldiers.Array.data[2].Bullets.Array.data[4]
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2092774458626804553, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
       propertyPath: m_Size.x
