@@ -7,17 +7,75 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x4000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 00000191B2AE20B8 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 000001F885D26228 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] PlaybackSystem::init                     : done
 [LOG] Thread::initThread                       : Init FMOD Studio bank load thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] Manager::init                            : done.
+[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
+[LOG] SoundI::release                          :  (000001F8785FD3B8)
+[LOG] SoundI::release                          :     sfx_mortarExplosion (000001F7AC2068F8)
+[LOG] SoundI::release                          :  (000001F8785FD698)
+[LOG] SoundI::release                          :     sfx_mediumExplosion2 (000001F7AC1FE6F8)
+[LOG] SoundI::release                          : sfx_thunder3 (000001F877E54AD8)
+[LOG] SoundI::release                          :     sfx_thunder3 (000001F7AC205A58)
+[LOG] SoundI::release                          :     sfx_thunder3 (000001F877E4F168)
+[LOG] SoundI::release                          : sfx_thunder2 (000001F877E59D88)
+[LOG] SoundI::release                          :     sfx_thunder2 (000001F7AC204A18)
+[LOG] SoundI::release                          :     sfx_thunder2 (000001F877E54E38)
+[LOG] SoundI::release                          : amb_rooftopRainLoop (000001F877E52E28)
+[LOG] SoundI::release                          :     amb_rooftopRainLoop (000001F7AC208158)
+[LOG] SoundI::release                          :     amb_rooftopRainLoop (000001F877E53848)
+[LOG] SoundI::release                          : amb_rainfallLoop (000001F877E4E8F8)
+[LOG] SoundI::release                          :     amb_rainfallLoop (000001F7AC204BB8)
+[LOG] SoundI::release                          :     amb_rainfallLoop (000001F877E52AC8)
+[LOG] SoundI::release                          : amb_windLoop (000001F877E4F9D8)
+[LOG] SoundI::release                          :     amb_windLoop (000001F7AC2031B8)
+[LOG] SoundI::release                          :     amb_windLoop (000001F877E525B8)
+[LOG] SoundI::release                          :  (000001F8785FD808)
+[LOG] SoundI::release                          :     sfx_shortExplosion (000001F7AC205F38)
+[LOG] SoundI::release                          :  (000001F8785FDC58)
+[LOG] SoundI::release                          :     sfx_machineGun1 (000001F7AC204EF8)
+[LOG] SoundI::release                          :  (000001F8785FD978)
+[LOG] SoundI::release                          :     sfx_machineGun2 (000001F7AC206418)
+[LOG] SoundI::release                          :  (000001F8785FD528)
+[LOG] SoundI::release                          :     sfx_rifleLarge (000001F7AC2046D8)
+[LOG] SoundI::release                          :  (000001F8785FDDC8)
+[LOG] SoundI::release                          :     sfx_rifleQuadruple (000001F7AC207AD8)
+[LOG] SoundI::release                          :  (000001F8785FD248)
+[LOG] SoundI::release                          :     sfx_rifleDouble (000001F7AC1FDD38)
+[LOG] Thread::callback                         : FMOD Studio update thread finished.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
 [LOG] Thread::callback                         : FMOD Studio sample load thread finished.
 [LOG] LiveUpdate::release                      : 
 [LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
 [LOG] Thread::callback                         : FMOD stream thread finished.
 [LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
 [LOG] SystemI::close                           : Closed.
+[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
+[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
+[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
+[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
+[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
+[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
