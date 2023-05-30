@@ -6,11 +6,11 @@ public class Destructible : MonoBehaviour
 {
     [SerializeField] GameObject DestroyedVersion;
 
-    BoxCollider boxCollider;
+    CapsuleCollider boxCollider;
 
     private void Awake()
     {
-        boxCollider = gameObject.GetComponent<BoxCollider>();
+        boxCollider = gameObject.GetComponent<CapsuleCollider>();
     }
 
 
