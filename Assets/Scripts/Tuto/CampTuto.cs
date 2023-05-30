@@ -6,7 +6,7 @@ public class CampTuto : MonoBehaviour
     public LayerMask TargetLayer;
     public bool IsSoldier;
     public bool FirstTent;
-
+    
     public static bool Contains(LayerMask mask, int layer)
     {
         return mask == (mask | (1 << layer));
