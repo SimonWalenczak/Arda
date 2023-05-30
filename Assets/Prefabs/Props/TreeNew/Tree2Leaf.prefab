@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1416136438372997162}
   - component: {fileID: 4031495825149037848}
   - component: {fileID: -3325874490346846630}
+  - component: {fileID: -8355396798581191639}
   m_Layer: 0
   m_Name: Tree2Leaf
   m_TagString: Untagged
@@ -80,6 +81,19 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &-8355396798581191639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796074487205446288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a29de746ed878498491c385324d80f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyedVersion: {fileID: 2887881313142075621, guid: 8b6302dd8fe423441a00cc256929687f, type: 3}
 --- !u!1 &4673767963053446231
 GameObject:
   m_ObjectHideFlags: 0

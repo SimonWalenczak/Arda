@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 4943268429378925408}
   - component: {fileID: -6382645712328666049}
   - component: {fileID: -1460657236714246062}
+  - component: {fileID: 3181569103406559998}
   m_Layer: 0
   m_Name: Tree5Leaf
   m_TagString: Untagged
@@ -248,6 +249,19 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &3181569103406559998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5751612252033182170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a29de746ed878498491c385324d80f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyedVersion: {fileID: 5491602114236746761, guid: 71143df5dc221614d82bd131beb5181c, type: 3}
 --- !u!1 &8058901984707879314
 GameObject:
   m_ObjectHideFlags: 0
