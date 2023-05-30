@@ -27,7 +27,7 @@ public class GlobalManager : MonoBehaviour
         {
             print("salam");
             GaugesValues[index].Limit += LimitIncrease;
-            GaugesValues[index].ActualValue = 0;
+            //GaugesValues[index].ActualValue = 0;
         }
     }
 }

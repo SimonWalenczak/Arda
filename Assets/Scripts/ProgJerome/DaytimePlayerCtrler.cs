@@ -21,11 +21,11 @@ public class DaytimePlayerCtrler : MonoBehaviour
     {
         if (other.tag == "TentTrigger")
         {
+            AButtonDebug.SetActive(true);
             if (Gamepad.current.buttonSouth.isPressed && isDriving)
             {
                 if (other.gameObject.GetComponent<Tent>().Enterable)
                 {
-                    AButtonDebug.SetActive(true);
                     isDriving = false;
                     arcadeCar.controllable = false;
                     other.gameObject.GetComponent<Tent>().GoToTent();
