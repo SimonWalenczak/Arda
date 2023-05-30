@@ -176,6 +176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4943268429378925408}
   - component: {fileID: -6382645712328666049}
+  - component: {fileID: -1460657236714246062}
   m_Layer: 0
   m_Name: Tree5Leaf
   m_TagString: Untagged
@@ -216,6 +217,37 @@ CapsuleCollider:
   m_Height: 16.978725
   m_Direction: 1
   m_Center: {x: 0.011062622, y: 7.4302464, z: -0.13}
+--- !u!114 &-1460657236714246062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5751612252033182170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 2040895715
+      Data2: 1156303588
+      Data3: 1553136513
+      Data4: 1025275352
+    Path: event:/snd_car_collision
+  Event: 
+  PlayEvent: 7
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &8058901984707879314
 GameObject:
   m_ObjectHideFlags: 0

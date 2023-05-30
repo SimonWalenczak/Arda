@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4787520942862997344}
   - component: {fileID: 7319554078177452970}
   - component: {fileID: 8238722020654989828}
+  - component: {fileID: -2796109830519471867}
   m_Layer: 0
   m_Name: Fort_Extension
   m_TagString: Untagged
@@ -97,3 +98,34 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 9.682578, y: 3.2032335, z: 6.07742}
   m_Center: {x: 0.00036621094, y: -0.00012207031, z: 0}
+--- !u!114 &-2796109830519471867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9121121679549448831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1851656854
+      Data2: 1223131473
+      Data3: -448726368
+      Data4: -618426849
+    Path: event:/Vehicle Events/state_car
+  Event: 
+  PlayEvent: 7
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

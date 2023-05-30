@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7036745810933031504}
   - component: {fileID: 5063027027015194266}
   - component: {fileID: 5873514013215661546}
+  - component: {fileID: -8646690547296631751}
   m_Layer: 0
   m_Name: Fort_Turret
   m_TagString: Untagged
@@ -97,3 +98,34 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 4.5421953
   m_Center: {x: -0.000061035156, y: 1.33869864e-14, z: 0.31400856}
+--- !u!114 &-8646690547296631751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6720356020127725391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1851656854
+      Data2: 1223131473
+      Data3: -448726368
+      Data4: -618426849
+    Path: event:/Vehicle Events/state_car
+  Event: 
+  PlayEvent: 7
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
