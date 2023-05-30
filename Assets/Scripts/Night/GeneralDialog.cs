@@ -229,7 +229,7 @@ public class GeneralDialog : MonoBehaviour
                 }
                 else
                 {
-                    StartCoroutine(GoToCredits());
+                    StartCoroutine(GoToFin());
                 }
             }
 
@@ -238,7 +238,7 @@ public class GeneralDialog : MonoBehaviour
         }
     }
 
-    private IEnumerator GoToCredits()
+    private IEnumerator GoToFin()
     {
         if (_choixFinalIndex == 0)
             GameData.SaveGeorges = true;
@@ -247,7 +247,7 @@ public class GeneralDialog : MonoBehaviour
 
         gameObject.GetComponent<NightManager>().FadeOutCredits.SetActive(true);
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene("Credits");
+        SceneManager.LoadScene("FinHistoire");
     }
 
     private void DialogChoice()
