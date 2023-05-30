@@ -88,6 +88,11 @@ public class RadiologyPhase : MonoBehaviour
         {
             HealSoldier();
         }
+
+        if (Gamepad.current.buttonSouth.wasReleasedThisFrame && Scan && isInteractable)
+        {
+            HealSoldier();
+        }
     }
 
     void LeaveTent()
@@ -117,6 +122,7 @@ public class RadiologyPhase : MonoBehaviour
         {
             //print(DataCenterDay.Instance.CurrentSoldiers.Count);
             currentSoldier++;
+            BulletHandler.Instance.SetupBullets(currentSoldier);
             UiRadioUpdate.Instance.UpdateUI(currentSoldier);
         }
         else
