@@ -18,7 +18,19 @@ public class FollowCamera : MonoBehaviour
     void Start()
     {
         offsetX = new Vector3(0, 0, -distance);
-        offsetY = new Vector3(0, height, 0);
+
+        RaycastHit hit;
+        int layerMask = 1 << 6;
+        if (Physics.Raycast(transform.position, -transform.up, out hit, layerMask))
+        {
+            float terrainHeight = hit.point.y; // Adjust this value based on your terrain height
+            offsetY = new Vector3(0, height + terrainHeight, 0);
+
+            //if (transform.position.y < terrainHeight)
+            //{
+            //    transform.position = new Vector3(transform.position.x, terrainHeight, transform.position.z);
+            //}
+        }
     }
 
     void LateUpdate()
@@ -54,7 +66,7 @@ public class FollowCamera : MonoBehaviour
             //}
         }
 
-        offsetX = Quaternion.AngleAxis(joystickInput.x * turnSpeed, Vector3.up) * offsetX;
+        offsetX = Quaternion.AngleAxis(joystickInput.x * turnSpeed * Time.deltaTime, Vector3.up) * offsetX;
 
         Vector3 newPos = new Vector3(player.position.x + offsetX.x, offsetY.y, player.position.z + offsetX.z);
 
