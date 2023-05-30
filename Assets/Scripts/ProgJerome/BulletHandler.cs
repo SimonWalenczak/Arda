@@ -54,6 +54,7 @@ public class BulletHandler : MonoBehaviour
 
                     //Instantiate(Bullet, spawnPos, Quaternion.Euler(-90f, 0f, 0f));
                     GameObject bullet = Instantiate(Bullet, spawnPos, transform.rotation, Parent.transform);
+                    DataCenterDay.Instance.CurrentBullets.Add(bullet);
 
                     //GameObject bullet = Instantiate(Bullet, Parent.transform, false);
                     //bullet.transform.position = spawnPos;
