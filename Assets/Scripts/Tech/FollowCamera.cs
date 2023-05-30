@@ -34,25 +34,26 @@ public class FollowCamera : MonoBehaviour
         int layerMask = 1 << 6;
 
         RaycastHit hit;
-        //Debug.DrawRay(player.position, -transform.up, Color.yellow, 1);
-
-        //if (Physics.Raycast(player.position, -transform.up, out hit, layerMask))
-        //{
-        //    float terrainHeight = hit.point.y; // Adjust this value based on your terrain height
-        //    offsetY = new Vector3(0, height + terrainHeight, 0);
-        //}
-        //if (Physics.Raycast(transform.position, -transform.up, out hit, layerMask))
-        //{
-        //    if (offsetY.y - hit.point.y <1f)
-        //    {
-        //        offsetY = new Vector3(0, offsetY.y + 1, 0);
-        //    }
-        //}
-
-        if (Physics.Raycast(transform.position, -transform.up, out hit, layerMask))
+        RaycastHit hitCam;
+ 
+        if (Physics.Raycast(player.position, -transform.up, out hit, layerMask))
         {
-            float terrainHeight = hit.point.y; // Adjust this value based on your terrain height
-            offsetY = new Vector3(0, height + terrainHeight, 0);
+            //Debug.Log(hit.point.y);
+            //Physics.Raycast(transform.position, -transform.up, out hitCam, layerMask);
+
+            //if (hitCam.distance < height)
+            //{
+            //    float terrainHeight = hitCam.point.y + 1f;
+            //    offsetY = new Vector3(0, terrainHeight + height, 0);
+            //}
+            //else
+            //{
+            //    float terrainHeight = hit.point.y;
+            //    offsetY = new Vector3(0, terrainHeight + height, 0);
+            //}
+
+            float terrainHeight = hit.point.y;
+            offsetY = new Vector3(0, terrainHeight + height, 0);
         }
 
 
