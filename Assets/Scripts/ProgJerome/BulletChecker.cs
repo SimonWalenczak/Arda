@@ -1,17 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class BulletChecker : MonoBehaviour
 {
-    public Camera MainCamera;
+    //public Camera MainCamera;
+    public float DetectionDistance;
 
     private RectTransform rectTransform;
     public bool isABulletFound = false;
 
-
     public static BulletChecker Instance;
+
 
     private void Awake()
     {
@@ -23,32 +25,29 @@ public class BulletChecker : MonoBehaviour
     {
         foreach (var item in DataCenterDay.Instance.CurrentBullets)
         {
-            Vector2 localPoint = item.transform.position; 
+            float dist = Vector3.Distance(transform.position, item.transform.position);
 
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, item.transform.position, MainCamera, out localPoint);
-
-            if (rectTransform.rect.Contains(item.transform.position))
+            if (dist <= DetectionDistance)
             {
-                isABulletFound = true;
-                print("SALAMALEKOUM");
+                item.GetComponent<Bastos>().isDetected = true;
             }
 
-            //if (rectTransform.rect.Overlaps(item.GetComponent<Image>().rectTransform.rect))
-            //{
-            //    isABulletFound = true;
-            //    print("SALAMALEKOUM");
-            //}
+            else
+            {
+                item.GetComponent<Bastos>().isDetected = false;
+            }
         }
-    }
 
-    private void OnTriggerStay(Collider other)
-    {
-        print("LOOOOOOOOOOL");
-
-        if (other.tag == "Bullet")
+        foreach (var item in DataCenterDay.Instance.CurrentBullets)
         {
-            isABulletFound = true;
-            print("SALAMALEKOUM");
+            if (item.GetComponent<Bastos>().isDetected)
+            {
+                isABulletFound = true;
+                break;
+            }
+
+            isABulletFound = false;
         }
+
     }
 }

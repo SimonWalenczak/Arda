@@ -91,7 +91,7 @@ public class RadiologyPhase : MonoBehaviour
 
         if (Gamepad.current.buttonSouth.wasReleasedThisFrame && Scan && isInteractable)
         {
-            HealSoldier();
+            RemoveBulllet();
         }
     }
 
@@ -122,6 +122,8 @@ public class RadiologyPhase : MonoBehaviour
         {
             //print(DataCenterDay.Instance.CurrentSoldiers.Count);
             currentSoldier++;
+            DataCenterDay.Instance.CurrentBullets.Clear();
+            DataCenterDay.Instance.BulletsFound = 0;
             BulletHandler.Instance.SetupBullets(currentSoldier);
             UiRadioUpdate.Instance.UpdateUI(currentSoldier);
         }
@@ -140,5 +142,23 @@ public class RadiologyPhase : MonoBehaviour
         if (GameData.NumberDays == 2)
             GlobalManager.Instance.UpdateSucceededValue(((int) DataCenterDay.Instance.CurrentSoldiers[currentSoldier].Rank));
         UpdateSoldier();
+    }
+
+    void RemoveBulllet()
+    {
+        foreach (var item in DataCenterDay.Instance.CurrentBullets)
+        {
+            if (item.GetComponent<Bastos>().isDetected)
+            {
+                item.SetActive(false);
+                DataCenterDay.Instance.BulletsFound++;
+                if (DataCenterDay.Instance.BulletsFound == DataCenterDay.Instance.CurrentBullets.Count)
+                {
+                    if (GameData.NumberDays == 2)
+                        GlobalManager.Instance.UpdateSucceededValue(((int)DataCenterDay.Instance.CurrentSoldiers[currentSoldier].Rank));
+                }
+
+            }
+        }
     }
 }
