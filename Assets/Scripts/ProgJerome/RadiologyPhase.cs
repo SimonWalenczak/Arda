@@ -122,6 +122,10 @@ public class RadiologyPhase : MonoBehaviour
         {
             //print(DataCenterDay.Instance.CurrentSoldiers.Count);
             currentSoldier++;
+            for (int i = 0; i < DataCenterDay.Instance.CurrentBullets.Count; i++)
+            {
+                Destroy(DataCenterDay.Instance.CurrentBullets[i]);
+            }
             DataCenterDay.Instance.CurrentBullets.Clear();
             DataCenterDay.Instance.BulletsFound = 0;
             BulletHandler.Instance.SetupBullets(currentSoldier);
