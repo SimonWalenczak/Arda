@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6217219360808022409}
   - component: {fileID: 6299963425424192372}
   - component: {fileID: 9112952664149991011}
+  - component: {fileID: 1471834396660294368}
   m_Layer: 0
   m_Name: Rampart
   m_TagString: Untagged
@@ -83,6 +84,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1471834396660294368
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5059140007756323469}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4234824024728264151, guid: cbf973965025c3d4eb64ebf6e774a5cd, type: 3}
 --- !u!1 &6402927958777135614
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,7 +107,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6021336484972616516}
-  - component: {fileID: 6060346310042787745}
   m_Layer: 0
   m_Name: Fort_Rampart
   m_TagString: Untagged
@@ -117,20 +131,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -139.698, z: 0}
---- !u!64 &6060346310042787745
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6402927958777135614}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -4335638524415766239, guid: cbf973965025c3d4eb64ebf6e774a5cd, type: 3}
 --- !u!1 &6824802127821128189
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,6 +142,7 @@ GameObject:
   - component: {fileID: 5735405829456962422}
   - component: {fileID: 3588873729971541953}
   - component: {fileID: 4978920220571184156}
+  - component: {fileID: 8046161821524857851}
   m_Layer: 0
   m_Name: Gates
   m_TagString: Untagged
@@ -214,3 +215,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8046161821524857851
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6824802127821128189}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1909369885094917613, guid: cbf973965025c3d4eb64ebf6e774a5cd, type: 3}
