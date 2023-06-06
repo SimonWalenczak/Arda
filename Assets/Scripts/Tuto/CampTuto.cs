@@ -29,7 +29,10 @@ public class CampTuto : MonoBehaviour
             }
             else
             {
-                GetComponent<Tent>().StartInTent();
+                if (GetComponent<Tent>().IsEnter == false)
+                {
+                    GetComponent<Tent>().StartInTent();
+                }
             }
         }
     }

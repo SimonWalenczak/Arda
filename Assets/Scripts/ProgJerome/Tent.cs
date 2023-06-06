@@ -13,6 +13,7 @@ public class Tent : MonoBehaviour
     public CanvasGroup Radiology;
 
     public bool Enterable = true;
+    [HideInInspector] public bool IsEnter = false;
     
     //public int TentNum;
 
@@ -34,6 +35,8 @@ public class Tent : MonoBehaviour
 
     public void StartInTent()
     {
+        IsEnter = true;
+        
         DataCenterDay.Instance.CurrentTent = this;
         foreach (var item in Soldiers)
         {

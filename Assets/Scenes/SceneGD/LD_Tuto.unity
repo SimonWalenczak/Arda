@@ -6711,6 +6711,40 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2092774458626804554, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
   m_PrefabInstance: {fileID: 48855941}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1053936279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053936273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bca51688146e2342bdca462c1f2e2f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FaceUpSprites:
+  - {fileID: 21300000, guid: 265fc8877d2af5941920d6ce02bf5683, type: 3}
+  - {fileID: 21300000, guid: 695cd34383fe9034c87c69d30924cee5, type: 3}
+  - {fileID: 21300000, guid: 16bcbe7aa0d8040439d73b4de58a7bb9, type: 3}
+  - {fileID: 21300000, guid: 93ccf3d60c714af4c838a1d7440a2c94, type: 3}
+  FaceDownSprites:
+  - {fileID: 21300000, guid: fc044093c862e6f4fa39e68f1eb2a16a, type: 3}
+  - {fileID: 21300000, guid: 8e382765083cc4148ae9e4c9c6d51c9c, type: 3}
+  - {fileID: 21300000, guid: 08af1705e873d514da3748bad532adaf, type: 3}
+  - {fileID: 21300000, guid: f2ea775123c34eb42bf0e7bc57b679f4, type: 3}
+  - {fileID: 21300000, guid: 581a3675f5b0e5e4db746873f33d600a, type: 3}
+  - {fileID: 21300000, guid: a006f523418147c4fa339b036c5740b9, type: 3}
+  BodySprites:
+  - {fileID: 21300000, guid: c28f13ce09a687b49aafb3780db298da, type: 3}
+  - {fileID: 21300000, guid: 824f5befcca066e499d3fe61afbb8b5c, type: 3}
+  - {fileID: 21300000, guid: cb5761dd50a09b54ba4704dfda4b6c5f, type: 3}
+  FaceDownColor:
+  - {r: 0.16037738, g: 0.08104106, b: 0, a: 1}
+  - {r: 0.6509434, g: 0.3241813, b: 0, a: 1}
+  - {r: 0.5471698, g: 0.4756919, b: 0.13163047, a: 1}
+  tent: {fileID: 0}
+  Soldiers: []
 --- !u!224 &1062374889 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3599743704271195558, guid: a98fc4f365522c04b8ffaebb21e2c9f8, type: 3}
@@ -8274,6 +8308,40 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2092774458626804554, guid: 8bb3b25e26d961c4f80b3d3dbbdc1b8f, type: 3}
   m_PrefabInstance: {fileID: 360417414}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1528931188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528931182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bca51688146e2342bdca462c1f2e2f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FaceUpSprites:
+  - {fileID: 21300000, guid: 265fc8877d2af5941920d6ce02bf5683, type: 3}
+  - {fileID: 21300000, guid: 695cd34383fe9034c87c69d30924cee5, type: 3}
+  - {fileID: 21300000, guid: 16bcbe7aa0d8040439d73b4de58a7bb9, type: 3}
+  - {fileID: 21300000, guid: 93ccf3d60c714af4c838a1d7440a2c94, type: 3}
+  FaceDownSprites:
+  - {fileID: 21300000, guid: fc044093c862e6f4fa39e68f1eb2a16a, type: 3}
+  - {fileID: 21300000, guid: 8e382765083cc4148ae9e4c9c6d51c9c, type: 3}
+  - {fileID: 21300000, guid: 08af1705e873d514da3748bad532adaf, type: 3}
+  - {fileID: 21300000, guid: f2ea775123c34eb42bf0e7bc57b679f4, type: 3}
+  - {fileID: 21300000, guid: 581a3675f5b0e5e4db746873f33d600a, type: 3}
+  - {fileID: 21300000, guid: a006f523418147c4fa339b036c5740b9, type: 3}
+  BodySprites:
+  - {fileID: 21300000, guid: c28f13ce09a687b49aafb3780db298da, type: 3}
+  - {fileID: 21300000, guid: 824f5befcca066e499d3fe61afbb8b5c, type: 3}
+  - {fileID: 21300000, guid: cb5761dd50a09b54ba4704dfda4b6c5f, type: 3}
+  FaceDownColor:
+  - {r: 0.16037738, g: 0.08104106, b: 0, a: 1}
+  - {r: 0.6509434, g: 0.3241813, b: 0, a: 1}
+  - {r: 0.5471698, g: 0.4756919, b: 0.13163047, a: 1}
+  tent: {fileID: 0}
+  Soldiers: []
 --- !u!1 &1548998691
 GameObject:
   m_ObjectHideFlags: 0
