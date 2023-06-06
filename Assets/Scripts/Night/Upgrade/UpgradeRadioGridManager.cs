@@ -65,6 +65,11 @@ public class UpgradeRadioGridManager : MonoBehaviour
             {
                 actualButton = mainButton;
 
+                if (mainButton.IsSelect)
+                {
+                    DescriptionText.text = mainButton.DescriptionText;
+                }
+                
                 if (actualButton != previousButton)
                 {
                     previousButton.IsSelect = false;
@@ -90,10 +95,6 @@ public class UpgradeRadioGridManager : MonoBehaviour
             {
                 DescriptionText.text = buttonUpgrade.TextDescription;
                 break;
-            }
-            else
-            {
-                DescriptionText.text = "";
             }
         }
     }

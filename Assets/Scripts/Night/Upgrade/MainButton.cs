@@ -8,8 +8,9 @@ public class MainButton : MonoBehaviour, ISelectHandler
     public string Title;
     public string DescriptionText;
     public Effect effect;
-    
-    [Header("Debug")] public bool IsLeftSide;
+
+    [Header("Debug")] public int index;
+    public bool IsLeftSide;
     public bool IsSelect;
 
     public void OnSelect(BaseEventData eventData)

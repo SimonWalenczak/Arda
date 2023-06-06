@@ -52,20 +52,25 @@ public class ButtonUpgrade : MonoBehaviour, ISelectHandler, IDeselectHandler
 
     private void SwapNode()
     {
-        //Visual
-        _buttonTextSave = TextButton;
-        TextButton = MainButtonText.text;
-        MainButtonText.text = _buttonTextSave;
-        
         //Description
-        _textDescriptionSave = TextDescription;
-        TextDescription = MainButtonText.gameObject.GetComponentInParent<MainButton>().DescriptionText;
-        MainButtonText.gameObject.GetComponentInParent<MainButton>().DescriptionText = _textDescriptionSave;
-            
-        //Swap Effect
-        _effectSave = effect;
-        effect = MainButtonText.gameObject.GetComponentInParent<MainButton>().effect;
-        MainButtonText.gameObject.GetComponentInParent<MainButton>().effect = _effectSave;
+        MainButtonText.gameObject.GetComponentInParent<MainButton>().DescriptionText = TextDescription;
+        MainButtonText.gameObject.GetComponentInParent<MainButton>().effect = effect;
+        MainButtonText.text = TextButton;
+        
+        //Ping
+        Vector3 pos = GetComponent<RectTransform>().position;
+
+        UpgradeCarGridManager gridManager = FindObjectOfType<UpgradeCarGridManager>();
+        
+        foreach (var ping in gridManager.PingPrefab)
+        {
+            ping.SetActive(false);
+        }
+
+        gridManager.PingPrefab[MainButtonText.GetComponentInParent<MainButton>().index].SetActive(true);
+        
+        gridManager.PingPrefab[MainButtonText.GetComponentInParent<MainButton>().index].GetComponent<RectTransform>().position =
+            new Vector3(pos.x, pos.y + 40, 0);
     }
 
     public void ApplyEffect()

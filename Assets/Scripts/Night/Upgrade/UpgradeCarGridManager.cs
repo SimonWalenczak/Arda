@@ -61,6 +61,8 @@ public class UpgradeCarGridManager : MonoBehaviour
     private MainButton actualButton;
     private MainButton previousButton;
 
+    public List<GameObject> PingPrefab;
+
     private void Start()
     {
         PrimaryCarButton.Select();
@@ -136,7 +138,12 @@ public class UpgradeCarGridManager : MonoBehaviour
             if (mainButton.IsSelect)
             {
                 actualButton = mainButton;
-
+                
+                if (mainButton.IsSelect)
+                {
+                    DescriptionText.text = mainButton.DescriptionText;
+                }
+                
                 if (actualButton != previousButton)
                 {
                     previousButton.IsSelect = false;
@@ -162,10 +169,6 @@ public class UpgradeCarGridManager : MonoBehaviour
             {
                 DescriptionText.text = buttonUpgrade.TextDescription;
                 break;
-            }
-            else
-            {
-                DescriptionText.text = "";
             }
         }
     }
