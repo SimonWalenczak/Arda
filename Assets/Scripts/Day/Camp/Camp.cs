@@ -81,7 +81,7 @@ public class Camp : MonoBehaviour
     private void Start()
     {
         _generateSoldier = GetComponent<GenerateSoldier>();
-        _soldiers = _generateSoldier.Soldiers;
+        //_soldiers = _generateSoldier.Soldiers;
         SelectedSoldier = 1;
         _soldierSpriteParentAnimator = _soldierSpriteParent.GetComponent<Animator>();
     }

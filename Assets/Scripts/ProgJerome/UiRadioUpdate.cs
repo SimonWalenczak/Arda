@@ -26,13 +26,10 @@ public class UiRadioUpdate : MonoBehaviour
 
     public void UpdateUI(int i)
     {
-
         Name.text = DataCenterDay.Instance.CurrentSoldiers[i].Name;
         Age.text = DataCenterDay.Instance.CurrentSoldiers[i].Age;
         Rank.text = DataCenterDay.Instance.CurrentSoldiers[i].Rank.ToString();
         Achievement.text = DataCenterDay.Instance.CurrentSoldiers[i].Achievements;
         CurrentSoldierNumber.text = (i+1).ToString() + '/' + (DataCenterDay.Instance.CurrentSoldiers.Count);
     }
-
-
 }

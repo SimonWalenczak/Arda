@@ -4,14 +4,20 @@ using Random = UnityEngine.Random;
 
 public class GenerateSoldier : MonoBehaviour
 {
-    public List<Sprite> FaceSprites;
-    public List<Sprite> BodyHairSprites;
-    public List<Color> BodyHairColor;
+    public List<Sprite> FaceUpSprites;
+    public List<Sprite> FaceDownSprites;
+    public List<Sprite> BodySprites;
+    public List<Color> FaceDownColor;
 
-    public List<SoldierStruct> Soldiers = new List<SoldierStruct>();
+    public Tent tent;
+
+    public List<SoldierInfo> Soldiers;
     
     private void Start()
     {
+        tent = GetComponent<Tent>();
+        Soldiers = tent.Soldiers;
+        
         GeneratorSoldier();
     }
 
@@ -19,15 +25,27 @@ public class GenerateSoldier : MonoBehaviour
     {
         for(int i = 0; i < Soldiers.Count; i++)
         {
-            Color bodyHairColor = BodyHairColor[Random.Range(0, BodyHairColor.Count)];
-            Sprite face = FaceSprites[Random.Range(0, FaceSprites.Count)];
-            Sprite bodyHair = BodyHairSprites[Random.Range(0, BodyHairSprites.Count)];
+            Sprite faceUp = FaceUpSprites[Random.Range(0, FaceUpSprites.Count)];
+            Sprite faceDown = FaceDownSprites[Random.Range(0, FaceDownSprites.Count)];
+            Color bodyHairColor = FaceDownColor[Random.Range(0, FaceDownColor.Count)];
 
-            SoldierStruct newSoldier = Soldiers[i];
-            newSoldier.Face = face;
-            newSoldier.BodyHair = bodyHair;
-            newSoldier.BodyHairColor = bodyHairColor;
-            Soldiers[i] = newSoldier;
+            Soldiers[i].FaceUp = faceUp;
+            Soldiers[i].FaceDown = faceDown;
+            Soldiers[i].FaceDownColor = bodyHairColor;
+
+            switch (Soldiers[i].Rank)
+            {
+                case MilitaryRank.Génie:
+                    Soldiers[i].Body = BodySprites[0];
+                    break;
+                case MilitaryRank.Officier:
+                    Soldiers[i].Body = BodySprites[1];
+                    break;
+                case MilitaryRank.SecondeClasse:
+                    Soldiers[i].Body = BodySprites[2];
+                    break;
+            }
+            
         }
     }
 }

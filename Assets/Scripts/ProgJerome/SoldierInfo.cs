@@ -7,7 +7,7 @@ public enum MilitaryRank
 {
     SecondeClasse,
     Officier,
-    Génie
+    GÃ©nie
 };
 
 
@@ -36,7 +36,8 @@ public class SoldierInfo
 
     //public bool IsAlived;
 
-    public Sprite Face;
-    public Sprite BodyHair;
-    public Color BodyHairColor;
+    public Sprite FaceUp;
+    public Sprite FaceDown;
+    public Sprite Body;
+    public Color FaceDownColor;
 }

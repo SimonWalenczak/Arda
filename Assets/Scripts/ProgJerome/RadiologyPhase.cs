@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class RadiologyPhase : MonoBehaviour
 {
@@ -31,8 +32,12 @@ public class RadiologyPhase : MonoBehaviour
     [HideInInspector] public bool canMove = false;
     [HideInInspector] public bool isInteractable = false;
 
-    int currentSoldier = 0;
+    [SerializeField] int currentSoldier = 0;
 
+    [Space(10)] [Header("Soldat Visuel")] public Image FaceUp;
+    public Image FaceDown;
+    public Image Body;
+    
     private void Awake()
     {
         Instance = this;
@@ -70,6 +75,15 @@ public class RadiologyPhase : MonoBehaviour
             BulletHandler.Instance.SetupBullets(currentSoldier);
             canMove = true;
         }
+        //Affichage Soldat (face + uniforme)
+
+        FaceUp.sprite = DataCenterDay.Instance.CurrentSoldiers[currentSoldier].FaceUp;
+        FaceDown.sprite = DataCenterDay.Instance.CurrentSoldiers[currentSoldier].FaceDown;
+        Body.sprite = DataCenterDay.Instance.CurrentSoldiers[currentSoldier].Body;
+            
+        FaceDown.color = DataCenterDay.Instance.CurrentSoldiers[currentSoldier].FaceDownColor;
+
+        //Fin affichage 
     }
 
     private void Update()
@@ -130,6 +144,16 @@ public class RadiologyPhase : MonoBehaviour
             DataCenterDay.Instance.BulletsFound = 0;
             BulletHandler.Instance.SetupBullets(currentSoldier);
             UiRadioUpdate.Instance.UpdateUI(currentSoldier);
+            
+            //Affichage Soldat (face + uniforme)
+
+            FaceUp.sprite = DataCenterDay.Instance.CurrentSoldiers[currentSoldier].FaceUp;
+            FaceDown.sprite = DataCenterDay.Instance.CurrentSoldiers[currentSoldier].FaceDown;
+            Body.sprite = DataCenterDay.Instance.CurrentSoldiers[currentSoldier].Body;
+            
+            FaceDown.color = DataCenterDay.Instance.CurrentSoldiers[currentSoldier].FaceDownColor;
+
+            //Fin affichage
         }
         else
         {
