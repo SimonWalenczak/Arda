@@ -13,11 +13,13 @@ public class ButtonUpgrade : MonoBehaviour, ISelectHandler, IDeselectHandler
     [Space (10)][Header("Reference")]
     public TMP_Text MainButtonText;
     public TMP_Text ButtonText;
+    public Ping ping;
 
     [Space (10)][Header("Debug")]
     
     public bool IsSelect;
     public bool IsOccuped;
+    public bool IsEquiped;
 
 
     private Color color;
@@ -56,21 +58,16 @@ public class ButtonUpgrade : MonoBehaviour, ISelectHandler, IDeselectHandler
         MainButtonText.gameObject.GetComponentInParent<MainButton>().DescriptionText = TextDescription;
         MainButtonText.gameObject.GetComponentInParent<MainButton>().effect = effect;
         MainButtonText.text = TextButton;
-        
+
         //Ping
-        Vector3 pos = GetComponent<RectTransform>().position;
-
-        UpgradeCarGridManager gridManager = FindObjectOfType<UpgradeCarGridManager>();
-        
-        foreach (var ping in gridManager.PingPrefab)
+        foreach (var buttonUpgrade in ping.ButtonUpgrades)
         {
-            ping.SetActive(false);
+            if (buttonUpgrade.IsEquiped == true)
+            {
+                buttonUpgrade.IsEquiped = false;
+            }
         }
-
-        gridManager.PingPrefab[MainButtonText.GetComponentInParent<MainButton>().index].SetActive(true);
-        
-        gridManager.PingPrefab[MainButtonText.GetComponentInParent<MainButton>().index].GetComponent<RectTransform>().position =
-            new Vector3(pos.x, pos.y + 40, 0);
+        IsEquiped = true;
     }
 
     public void ApplyEffect()

@@ -3,14 +3,12 @@ using UnityEngine.EventSystems;
 
 public class MainButton : MonoBehaviour, ISelectHandler
 {
-    [Header("Reference")] 
-    public GameObject GridButton;
+    [Header("Reference")] public GameObject GridButton;
     public string Title;
     public string DescriptionText;
     public Effect effect;
 
-    [Header("Debug")] public int index;
-    public bool IsLeftSide;
+    [Header("Debug")] public bool IsLeftSide;
     public bool IsSelect;
 
     public void OnSelect(BaseEventData eventData)
@@ -84,7 +82,7 @@ public class MainButton : MonoBehaviour, ISelectHandler
                 break;
             case Effect.Dynamo3:
                 GameData.HaveDynamo3 = true;
-                break; 
+                break;
             case Effect.Dynamo4:
                 GameData.HaveDynamo4 = true;
                 break;
@@ -116,7 +114,7 @@ public class MainButton : MonoBehaviour, ISelectHandler
             case Effect.Casque2:
                 GameData.HaveCasque2 = true;
                 break;
-   
+
             case Effect.Tube1:
                 GameData.HaveTube1 = true;
                 break;

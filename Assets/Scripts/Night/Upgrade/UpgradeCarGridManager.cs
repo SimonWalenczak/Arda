@@ -61,8 +61,6 @@ public class UpgradeCarGridManager : MonoBehaviour
     private MainButton actualButton;
     private MainButton previousButton;
 
-    public List<GameObject> PingPrefab;
-
     private void Start()
     {
         PrimaryCarButton.Select();
@@ -71,7 +69,7 @@ public class UpgradeCarGridManager : MonoBehaviour
         previousButton = PrimaryCarButton.GetComponent<MainButton>();
 
         GetComponent<UpgradeRadioGridManager>().actualButton = PrimaryRadioButton.GetComponent<MainButton>();
-
+        
         DescriptionPanel.position = RightPanelRectTransform.position;
     }
 
