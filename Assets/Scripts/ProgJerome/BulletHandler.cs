@@ -40,21 +40,25 @@ public class BulletHandler : MonoBehaviour
                     float minYPoint = BulletZones[i].bounds.min.y;
                     float maxYPoint = BulletZones[i].bounds.max.y;
 
-                    float xPos = Random.Range(minXPoint, maxXPoint);
-                    float yPos = Random.Range(minYPoint, maxYPoint);
+                    for (int j = 0; j < currentSoldier.Bullets[i]; j++)
+                    {
+                        float xPos = Random.Range(minXPoint, maxXPoint);
+                        float yPos = Random.Range(minYPoint, maxYPoint);
 
-                    print(minXPoint);
-                    print(maxXPoint);
+                        //print(minXPoint);
+                        //print(maxXPoint);
 
-                    print(xPos);
-                    print(yPos);
+                        //print(xPos);
+                        //print(yPos);
 
-                    spawnPos = new Vector3(xPos, yPos, 0);
+                        spawnPos = new Vector3(xPos, yPos, 0);
+                        GameObject bullet = Instantiate(Bullet, spawnPos, transform.rotation, Parent.transform);
+                        DataCenterDay.Instance.CurrentBullets.Add(bullet);
+                    }
+
 
 
                     //Instantiate(Bullet, spawnPos, Quaternion.Euler(-90f, 0f, 0f));
-                    GameObject bullet = Instantiate(Bullet, spawnPos, transform.rotation, Parent.transform);
-                    DataCenterDay.Instance.CurrentBullets.Add(bullet);
                     //print(DataCenterDay.Instance.CurrentBullets.Count);
 
                     //GameObject bullet = Instantiate(Bullet, Parent.transform, false);
