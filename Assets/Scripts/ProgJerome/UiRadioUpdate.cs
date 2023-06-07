@@ -60,17 +60,15 @@ public class UiRadioUpdate : MonoBehaviour
             lastSelected.localPosition = Vector3.Lerp(lastSelected.localPosition, new Vector3(-365, lastSelected.localPosition.y, lastSelected.localPosition.z), 1);
             actualSelected.localPosition = Vector3.Lerp(actualSelected.localPosition, new Vector3(-280, actualSelected.localPosition.y, actualSelected.localPosition.z), 1);
         }
-        
-        ApplyInfoSoldier();
     }
 
-    public void ApplyInfoSoldier()
+    public void ApplyInfoSoldier(int i)
     {
-        FirstName.text = "Nom : " + DataCenterDay.Instance.CurrentSoldiers[indexSoldier].Name.Split(' ')[0];
-        LastName.text = "Prénom : " + DataCenterDay.Instance.CurrentSoldiers[indexSoldier].Name.Split(' ')[1];
-        Age.text = "Age : " + DataCenterDay.Instance.CurrentSoldiers[indexSoldier].Age;
-        Rank.text = "Grade : " + DataCenterDay.Instance.CurrentSoldiers[indexSoldier].Rank;
-        Achievement.text = DataCenterDay.Instance.CurrentSoldiers[indexSoldier].Achievements;
+        FirstName.text = "Nom : " + DataCenterDay.Instance.CurrentSoldiers[i].Name.Split(' ')[0];
+        LastName.text = "Prénom : " + DataCenterDay.Instance.CurrentSoldiers[i].Name.Split(' ')[1];
+        Age.text = "Age : " + DataCenterDay.Instance.CurrentSoldiers[i].Age;
+        Rank.text = "Grade : " + DataCenterDay.Instance.CurrentSoldiers[i].Rank;
+        Achievement.text = DataCenterDay.Instance.CurrentSoldiers[i].Achievements;
     }
 
     public void UpdateUI(int i)

@@ -129,7 +129,22 @@ public class RadiologyPhase : MonoBehaviour
 
         FaceUp.color = DataCenterDay.Instance.CurrentSoldiers[currentSoldier].BeardColor;
         Beard.color = DataCenterDay.Instance.CurrentSoldiers[currentSoldier].BeardColor;
+
+        switch (DataCenterDay.Instance.CurrentSoldiers[currentSoldier].Rank)
+        {
+            case MilitaryRank.Génie:
+                SkeletonSoldierSprite.sprite = SkeletonSoldiers[0];
+                break;
+            case MilitaryRank.Officier:
+                SkeletonSoldierSprite.sprite = SkeletonSoldiers[1];
+                break;
+            case MilitaryRank.SecondeClasse:
+                SkeletonSoldierSprite.sprite = SkeletonSoldiers[2];
+                break;
+        }
         //Fin affichage 
+
+        UiRadioUpdate.Instance.ApplyInfoSoldier(currentSoldier);
     }
 
     private void Update()
@@ -215,6 +230,8 @@ public class RadiologyPhase : MonoBehaviour
                     break;
             }
             //Fin affichage
+
+            UiRadioUpdate.Instance.ApplyInfoSoldier(currentSoldier);
         }
         else
         {
