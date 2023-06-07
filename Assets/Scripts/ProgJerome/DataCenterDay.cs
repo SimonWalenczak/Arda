@@ -10,13 +10,14 @@ public class DataCenterDay : MonoBehaviour
 
     [HideInInspector] public List<SoldierInfo> CurrentSoldiers = new List<SoldierInfo>();
     [HideInInspector] public List<GameObject> CurrentBullets = new List<GameObject>();
+    public List<SoldierCard> CurrentInfoSoldiers = new List<SoldierCard>();
     [HideInInspector] public Tent CurrentTent;
     [HideInInspector] public int BulletsFound = 0;
 
     [SerializeField] private GameObject _map;
     public Camera MainCamera;
     public Camera MapCam;
-    
+
     private void Awake()
     {
         Instance = this;
@@ -37,6 +38,10 @@ public class DataCenterDay : MonoBehaviour
     public void Clean()
     {
         CurrentSoldiers.Clear();
+        CurrentInfoSoldiers.Clear();
+        for (int i = 0; i < DataCenterDay.Instance.CurrentSoldiers.Count; i++)
+            CurrentInfoSoldiers[i].gameObject.SetActive(true);
+        
         CurrentTent = null;
     }
 

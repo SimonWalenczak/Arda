@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class RadiologyPhase : MonoBehaviour
@@ -35,9 +36,11 @@ public class RadiologyPhase : MonoBehaviour
     [SerializeField] int currentSoldier = 0;
 
     [Space(10)] [Header("Soldat Visuel")] public Image FaceUp;
-    public Image FaceDown;
+    public Image Beard;
     public Image Body;
-    
+    public Image Nose;
+    public List<Sprite> bodySoldierPortrait;
+
     private void Awake()
     {
         Instance = this;
@@ -61,6 +64,44 @@ public class RadiologyPhase : MonoBehaviour
 
     public void Setup()
     {
+        for (int i = 0; i < DataCenterDay.Instance.CurrentSoldiers.Count; i++)
+        {
+            DataCenterDay.Instance.CurrentInfoSoldiers[i].gameObject.SetActive(true);
+
+            DataCenterDay.Instance.CurrentInfoSoldiers[i].NameText.text =
+                DataCenterDay.Instance.CurrentSoldiers[i].Name;
+            DataCenterDay.Instance.CurrentInfoSoldiers[i].AgeText.text = DataCenterDay.Instance.CurrentSoldiers[i].Age;
+            DataCenterDay.Instance.CurrentInfoSoldiers[i].MilitaryRankText.text =
+                DataCenterDay.Instance.CurrentSoldiers[i].Rank.ToString();
+
+            switch (DataCenterDay.Instance.CurrentSoldiers[i].Rank)
+            {
+                case MilitaryRank.Génie:
+                    DataCenterDay.Instance.CurrentInfoSoldiers[i].Body.sprite = bodySoldierPortrait[0];
+                    break;
+                case MilitaryRank.Officier:
+                    DataCenterDay.Instance.CurrentInfoSoldiers[i].Body.sprite = bodySoldierPortrait[1];
+                    break;
+                case MilitaryRank.SecondeClasse:
+                    DataCenterDay.Instance.CurrentInfoSoldiers[i].Body.sprite = bodySoldierPortrait[2];
+                    break;
+            }
+            
+            DataCenterDay.Instance.CurrentInfoSoldiers[i].FaceUp.sprite =
+                DataCenterDay.Instance.CurrentSoldiers[i].FaceUp;
+            
+            DataCenterDay.Instance.CurrentInfoSoldiers[i].Beard.sprite =
+                DataCenterDay.Instance.CurrentSoldiers[i].Beard;
+            
+            DataCenterDay.Instance.CurrentInfoSoldiers[i].Nose.sprite = DataCenterDay.Instance.CurrentSoldiers[i].Nose;
+
+
+            DataCenterDay.Instance.CurrentInfoSoldiers[i].FaceUp.color =
+                DataCenterDay.Instance.CurrentSoldiers[i].BeardColor;
+            DataCenterDay.Instance.CurrentInfoSoldiers[i].Beard.color =
+                DataCenterDay.Instance.CurrentSoldiers[i].BeardColor;
+        }
+
         Mask.transform.position = maskStartPos;
         Skeleton.transform.position = skeletonStartPos;
         UiRadioUpdate.Instance.UpdateUI(currentSoldier);
@@ -75,14 +116,15 @@ public class RadiologyPhase : MonoBehaviour
             BulletHandler.Instance.SetupBullets(currentSoldier);
             canMove = true;
         }
+
         //Affichage Soldat (face + uniforme)
-
         FaceUp.sprite = DataCenterDay.Instance.CurrentSoldiers[currentSoldier].FaceUp;
-        FaceDown.sprite = DataCenterDay.Instance.CurrentSoldiers[currentSoldier].FaceDown;
+        Beard.sprite = DataCenterDay.Instance.CurrentSoldiers[currentSoldier].Beard;
+        Nose.sprite = DataCenterDay.Instance.CurrentSoldiers[currentSoldier].Nose;
         Body.sprite = DataCenterDay.Instance.CurrentSoldiers[currentSoldier].Body;
-            
-        FaceDown.color = DataCenterDay.Instance.CurrentSoldiers[currentSoldier].FaceDownColor;
 
+        FaceUp.color = DataCenterDay.Instance.CurrentSoldiers[currentSoldier].BeardColor;
+        Beard.color = DataCenterDay.Instance.CurrentSoldiers[currentSoldier].BeardColor;
         //Fin affichage 
     }
 
@@ -140,18 +182,21 @@ public class RadiologyPhase : MonoBehaviour
             {
                 Destroy(DataCenterDay.Instance.CurrentBullets[i]);
             }
+
             DataCenterDay.Instance.CurrentBullets.Clear();
             DataCenterDay.Instance.BulletsFound = 0;
             BulletHandler.Instance.SetupBullets(currentSoldier);
             UiRadioUpdate.Instance.UpdateUI(currentSoldier);
-            
+
             //Affichage Soldat (face + uniforme)
 
             FaceUp.sprite = DataCenterDay.Instance.CurrentSoldiers[currentSoldier].FaceUp;
-            FaceDown.sprite = DataCenterDay.Instance.CurrentSoldiers[currentSoldier].FaceDown;
+            Beard.sprite = DataCenterDay.Instance.CurrentSoldiers[currentSoldier].Beard;
+            Nose.sprite = DataCenterDay.Instance.CurrentSoldiers[currentSoldier].Nose;
             Body.sprite = DataCenterDay.Instance.CurrentSoldiers[currentSoldier].Body;
-            
-            FaceDown.color = DataCenterDay.Instance.CurrentSoldiers[currentSoldier].FaceDownColor;
+
+            FaceUp.color = DataCenterDay.Instance.CurrentSoldiers[currentSoldier].BeardColor;
+            Beard.color = DataCenterDay.Instance.CurrentSoldiers[currentSoldier].BeardColor;
 
             //Fin affichage
         }
@@ -168,7 +213,8 @@ public class RadiologyPhase : MonoBehaviour
             DataCenterDay.Instance.CurrentSoldiers[currentSoldier].MinutesConsumed * 60;
         //GlobalManager.Instance.GaugesValues[((int)DataCenterDay.Instance.CurrentSoldiers[currentSoldier].Rank)];
         if (GameData.NumberDays == 2)
-            GlobalManager.Instance.UpdateSucceededValue(((int) DataCenterDay.Instance.CurrentSoldiers[currentSoldier].Rank));
+            GlobalManager.Instance.UpdateSucceededValue(((int)DataCenterDay.Instance.CurrentSoldiers[currentSoldier]
+                .Rank));
         UpdateSoldier();
     }
 
@@ -183,9 +229,9 @@ public class RadiologyPhase : MonoBehaviour
                 if (DataCenterDay.Instance.BulletsFound == DataCenterDay.Instance.CurrentBullets.Count)
                 {
                     if (GameData.NumberDays == 2)
-                        GlobalManager.Instance.UpdateSucceededValue(((int)DataCenterDay.Instance.CurrentSoldiers[currentSoldier].Rank));
+                        GlobalManager.Instance.UpdateSucceededValue(((int)DataCenterDay.Instance
+                            .CurrentSoldiers[currentSoldier].Rank));
                 }
-
             }
         }
     }

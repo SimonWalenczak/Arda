@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public enum MilitaryRank
 {
@@ -37,7 +38,8 @@ public class SoldierInfo
     //public bool IsAlived;
 
     public Sprite FaceUp;
-    public Sprite FaceDown;
+    public Sprite Beard;
+    public Sprite Nose;
     public Sprite Body;
-    public Color FaceDownColor;
+    public Color BeardColor;
 }

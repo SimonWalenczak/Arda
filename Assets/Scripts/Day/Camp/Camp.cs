@@ -185,7 +185,7 @@ public class Camp : MonoBehaviour
 
         soldierCard.NameText.SetText(currentSoldier.Name);
         soldierCard.AgeText.SetText(currentSoldier.Age);
-        soldierCard.AchievementsText.SetText(currentSoldier.Achievements);
+        //soldierCard.AchievementsText.SetText(currentSoldier.Achievements);
         soldierCard.MilitaryRankText.SetText(currentSoldier.MilitaryRank);
     }
 }
