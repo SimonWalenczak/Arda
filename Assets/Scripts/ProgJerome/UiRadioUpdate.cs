@@ -1,5 +1,11 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 using TMPro;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class UiRadioUpdate : MonoBehaviour
 {
@@ -12,19 +18,63 @@ public class UiRadioUpdate : MonoBehaviour
 
     static public UiRadioUpdate Instance;
 
+    public int indexSoldier;
+
+    public List<RectTransform> SoldiersPanelOrigin;
+    public RectTransform lastSelected;
+    public RectTransform actualSelected;
+    
     private void Awake()
     {
         Instance = this;
+        indexSoldier = 0;
+        lastSelected = SoldiersPanelOrigin[0];
+        actualSelected = SoldiersPanelOrigin[0];
+        actualSelected.localPosition = Vector3.Lerp(actualSelected.localPosition, new Vector3(-280, actualSelected.localPosition.y, actualSelected.localPosition.z), 1);
+    }
+    
+    private void Update()
+    {
+        if (Gamepad.current.dpad.down.wasPressedThisFrame /*|| Gamepad.current.dpad.right.wasPressedThisFrame*/)
+        {
+            indexSoldier++;
+            if (indexSoldier > DataCenterDay.Instance.CurrentSoldiers.Count - 1)
+                indexSoldier = 0;
+            
+            lastSelected = actualSelected;
+            actualSelected = SoldiersPanelOrigin[indexSoldier];
+            
+            lastSelected.localPosition = Vector3.Lerp(lastSelected.localPosition, new Vector3(-365, lastSelected.localPosition.y, lastSelected.localPosition.z), 1);
+            actualSelected.localPosition = Vector3.Lerp(actualSelected.localPosition, new Vector3(-280, actualSelected.localPosition.y, actualSelected.localPosition.z), 1);
+        }
+
+        if (Gamepad.current.dpad.up.wasPressedThisFrame /*||Gamepad.current.dpad.left.wasPressedThisFrame*/)
+        {
+            indexSoldier--;
+            if (indexSoldier < 0)
+                indexSoldier = DataCenterDay.Instance.CurrentSoldiers.Count - 1;
+
+            lastSelected = actualSelected;
+            actualSelected = SoldiersPanelOrigin[indexSoldier];
+            
+            lastSelected.localPosition = Vector3.Lerp(lastSelected.localPosition, new Vector3(-365, lastSelected.localPosition.y, lastSelected.localPosition.z), 1);
+            actualSelected.localPosition = Vector3.Lerp(actualSelected.localPosition, new Vector3(-280, actualSelected.localPosition.y, actualSelected.localPosition.z), 1);
+        }
+        
+        ApplyInfoSoldier();
+    }
+
+    public void ApplyInfoSoldier()
+    {
+        FirstName.text = "Nom : " + DataCenterDay.Instance.CurrentSoldiers[indexSoldier].Name.Split(' ')[0];
+        LastName.text = "Prénom : " + DataCenterDay.Instance.CurrentSoldiers[indexSoldier].Name.Split(' ')[1];
+        Age.text = "Age : " + DataCenterDay.Instance.CurrentSoldiers[indexSoldier].Age;
+        Rank.text = "Grade : " + DataCenterDay.Instance.CurrentSoldiers[indexSoldier].Rank;
+        Achievement.text = DataCenterDay.Instance.CurrentSoldiers[indexSoldier].Achievements;
     }
 
     public void UpdateUI(int i)
     {
-        FirstName.text = "Nom : " + DataCenterDay.Instance.CurrentSoldiers[i].Name.Split(' ')[0];
-        LastName.text = "Prénom : " + DataCenterDay.Instance.CurrentSoldiers[i].Name.Split(' ')[1];
-        Age.text = "Age : " + DataCenterDay.Instance.CurrentSoldiers[i].Age;
-        Rank.text = "Grade : " + DataCenterDay.Instance.CurrentSoldiers[i].Rank;
-        Achievement.text = DataCenterDay.Instance.CurrentSoldiers[i].Achievements;
-        
-        CurrentSoldierNumber.text = (i+1).ToString() + '/' + (DataCenterDay.Instance.CurrentSoldiers.Count);
+        CurrentSoldierNumber.text = (i + 1).ToString() + '/' + (DataCenterDay.Instance.CurrentSoldiers.Count);
     }
 }

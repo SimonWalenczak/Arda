@@ -39,6 +39,10 @@ public class RadiologyPhase : MonoBehaviour
     public Image Beard;
     public Image Body;
     public Image Nose;
+
+    public Image SkeletonSoldierSprite;
+    public List<Sprite> SkeletonSoldiers;
+
     public List<Sprite> bodySoldierPortrait;
 
     private void Awake()
@@ -86,13 +90,13 @@ public class RadiologyPhase : MonoBehaviour
                     DataCenterDay.Instance.CurrentInfoSoldiers[i].Body.sprite = bodySoldierPortrait[2];
                     break;
             }
-            
+
             DataCenterDay.Instance.CurrentInfoSoldiers[i].FaceUp.sprite =
                 DataCenterDay.Instance.CurrentSoldiers[i].FaceUp;
-            
+
             DataCenterDay.Instance.CurrentInfoSoldiers[i].Beard.sprite =
                 DataCenterDay.Instance.CurrentSoldiers[i].Beard;
-            
+
             DataCenterDay.Instance.CurrentInfoSoldiers[i].Nose.sprite = DataCenterDay.Instance.CurrentSoldiers[i].Nose;
 
 
@@ -188,7 +192,7 @@ public class RadiologyPhase : MonoBehaviour
             BulletHandler.Instance.SetupBullets(currentSoldier);
             UiRadioUpdate.Instance.UpdateUI(currentSoldier);
 
-            //Affichage Soldat (face + uniforme)
+            //Affichage Soldat (face + uniforme + squelette)
 
             FaceUp.sprite = DataCenterDay.Instance.CurrentSoldiers[currentSoldier].FaceUp;
             Beard.sprite = DataCenterDay.Instance.CurrentSoldiers[currentSoldier].Beard;
@@ -198,6 +202,18 @@ public class RadiologyPhase : MonoBehaviour
             FaceUp.color = DataCenterDay.Instance.CurrentSoldiers[currentSoldier].BeardColor;
             Beard.color = DataCenterDay.Instance.CurrentSoldiers[currentSoldier].BeardColor;
 
+            switch (DataCenterDay.Instance.CurrentSoldiers[currentSoldier].Rank)
+            {
+                case MilitaryRank.Génie:
+                    SkeletonSoldierSprite.sprite = SkeletonSoldiers[0];
+                    break;
+                case MilitaryRank.Officier:
+                    SkeletonSoldierSprite.sprite = SkeletonSoldiers[1];
+                    break;
+                case MilitaryRank.SecondeClasse:
+                    SkeletonSoldierSprite.sprite = SkeletonSoldiers[2];
+                    break;
+            }
             //Fin affichage
         }
         else
