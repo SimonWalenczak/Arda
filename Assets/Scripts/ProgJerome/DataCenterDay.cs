@@ -38,9 +38,9 @@ public class DataCenterDay : MonoBehaviour
     public void Clean()
     {
         CurrentSoldiers.Clear();
-        CurrentInfoSoldiers.Clear();
+        
         for (int i = 0; i < DataCenterDay.Instance.CurrentSoldiers.Count; i++)
-            CurrentInfoSoldiers[i].gameObject.SetActive(true);
+            CurrentInfoSoldiers[i].gameObject.SetActive(false);
         
         CurrentTent = null;
     }

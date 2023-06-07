@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 public class UiRadioUpdate : MonoBehaviour
 {
-    public TextMeshProUGUI Name;
+    public TextMeshProUGUI FirstName;
+    public TextMeshProUGUI LastName;
     public TextMeshProUGUI Age;
     public TextMeshProUGUI Rank;
     public TextMeshProUGUI Achievement;
@@ -18,18 +17,14 @@ public class UiRadioUpdate : MonoBehaviour
         Instance = this;
     }
 
-    private void Start()
-    {
-        //System.Enum.GetNames(typeof(MilitaryRank));
-        
-    }
-
     public void UpdateUI(int i)
     {
-        Name.text = DataCenterDay.Instance.CurrentSoldiers[i].Name;
-        Age.text = DataCenterDay.Instance.CurrentSoldiers[i].Age;
-        Rank.text = DataCenterDay.Instance.CurrentSoldiers[i].Rank.ToString();
+        FirstName.text = "Nom : " + DataCenterDay.Instance.CurrentSoldiers[i].Name.Split(' ')[0];
+        LastName.text = "Prénom : " + DataCenterDay.Instance.CurrentSoldiers[i].Name.Split(' ')[1];
+        Age.text = "Age : " + DataCenterDay.Instance.CurrentSoldiers[i].Age;
+        Rank.text = "Grade : " + DataCenterDay.Instance.CurrentSoldiers[i].Rank;
         Achievement.text = DataCenterDay.Instance.CurrentSoldiers[i].Achievements;
+        
         CurrentSoldierNumber.text = (i+1).ToString() + '/' + (DataCenterDay.Instance.CurrentSoldiers.Count);
     }
 }
