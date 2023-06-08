@@ -9,8 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2092774458626804554}
-  - component: {fileID: 2092774458626804553}
   - component: {fileID: 2092774458626804552}
+  - component: {fileID: 3989258715463307857}
+  - component: {fileID: 937929741388489387}
+  - component: {fileID: 5216539341467439687}
+  - component: {fileID: 9172794718988498204}
   m_Layer: 0
   m_Name: TentTrigger
   m_TagString: TentTrigger
@@ -27,25 +30,12 @@ Transform:
   m_GameObject: {fileID: 2092774458626804555}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 445.4, y: 3.29, z: 439.2}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 8.378919, y: 8.378919, z: 8.378919}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2092774458626804553
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2092774458626804555}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 9.297424, y: 3.780621, z: 10.357666}
-  m_Center: {x: -3.38797, y: 0.48543614, z: 0.9282837}
 --- !u!114 &2092774458626804552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,30 +52,141 @@ MonoBehaviour:
   - Name: Albert Pierre
     Age: 21
     Achievements: 
-    MilitaryRank: Capitaine
+    Rank: 0
     MinutesConsumed: 5
     Bullets: 0100000001000000010000000100000001000000
-    Face: {fileID: 0}
-    BodyHair: {fileID: 0}
-    BodyHairColor: {r: 0, g: 0, b: 0, a: 0}
+    FaceUp: {fileID: 0}
+    Beard: {fileID: 0}
+    Nose: {fileID: 0}
+    Body: {fileID: 0}
+    BeardColor: {r: 0, g: 0, b: 0, a: 0}
   - Name: Pierre Despart
     Age: 24
     Achievements: 
-    MilitaryRank: Capitaine
+    Rank: 0
     MinutesConsumed: 10
     Bullets: 0000000001000000000000000100000000000000
-    Face: {fileID: 0}
-    BodyHair: {fileID: 0}
-    BodyHairColor: {r: 0, g: 0, b: 0, a: 0}
+    FaceUp: {fileID: 0}
+    Beard: {fileID: 0}
+    Nose: {fileID: 0}
+    Body: {fileID: 0}
+    BeardColor: {r: 0, g: 0, b: 0, a: 0}
   - Name: Michel Michel
     Age: 40
     Achievements: 
-    MilitaryRank: Soldat
+    Rank: 0
     MinutesConsumed: 20
     Bullets: 0000000000000000000000000000000002000000
-    Face: {fileID: 0}
-    BodyHair: {fileID: 0}
-    BodyHairColor: {r: 0, g: 0, b: 0, a: 0}
+    FaceUp: {fileID: 0}
+    Beard: {fileID: 0}
+    Nose: {fileID: 0}
+    Body: {fileID: 0}
+    BeardColor: {r: 0, g: 0, b: 0, a: 0}
   Fader: {fileID: 0}
   Radiology: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
   Enterable: 1
+  IsEnter: 0
+--- !u!33 &3989258715463307857
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092774458626804555}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &937929741388489387
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092774458626804555}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: c21c026d6663c9445898cef83c9932b4, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &5216539341467439687
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092774458626804555}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5000001
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &9172794718988498204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092774458626804555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bca51688146e2342bdca462c1f2e2f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FaceUpSprites:
+  - {fileID: 21300000, guid: 84576d595d6437d4cb1c307746dae57d, type: 3}
+  - {fileID: 21300000, guid: 57061ea07fa0fdb42b91b3d6f24f730e, type: 3}
+  - {fileID: 21300000, guid: a716210acd02f0a479427e636f6f266b, type: 3}
+  - {fileID: 21300000, guid: 01117339df347c54eb2cfc31c397e0f4, type: 3}
+  BeardSprites:
+  - {fileID: 21300000, guid: d6d579158283a8e419f850a047c416f0, type: 3}
+  - {fileID: 21300000, guid: 3d3901b271504e142a10b44acb490dc1, type: 3}
+  - {fileID: 21300000, guid: fa1ba79ede69f5a4ebcfc384bb486dbe, type: 3}
+  - {fileID: 21300000, guid: 296d05bb4605d064592916bcb50c9db6, type: 3}
+  - {fileID: 21300000, guid: 8bc1edbd86cc2bf4f87f8f66b58b50c2, type: 3}
+  NoseSprites:
+  - {fileID: 21300000, guid: 91fee29f3f126224baa96cd68e734b77, type: 3}
+  - {fileID: 21300000, guid: d0a1e4a851b6ad444bf505481bee0522, type: 3}
+  - {fileID: 21300000, guid: d8e3df4588b93d243a8b6ac40a7301bd, type: 3}
+  - {fileID: 21300000, guid: 169cc5e0185c1164aaf737fc20e25410, type: 3}
+  BodySprites:
+  - {fileID: 21300000, guid: 0d0594dc41bdf2b4696f7b47336e6416, type: 3}
+  - {fileID: 21300000, guid: 8aa6b353e937f184faac2d237ec8b9ae, type: 3}
+  - {fileID: 21300000, guid: f78908b570b3c284eb68c8e9f22670d9, type: 3}
+  FaceDownColor:
+  - {r: 0.16037738, g: 0.08104106, b: 0, a: 1}
+  - {r: 0.6509434, g: 0.3241813, b: 0, a: 1}
+  - {r: 0.5471698, g: 0.4756919, b: 0.13163047, a: 1}
+  tent: {fileID: 0}
+  Soldiers: []

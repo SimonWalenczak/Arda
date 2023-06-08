@@ -188,6 +188,7 @@ public class RadiologyPhase : MonoBehaviour
         PlayerManager.GetComponent<DaytimePlayerCtrler>().arcadeCar.controllable = true;
         PlayerManager.GetComponent<DaytimePlayerCtrler>().isDriving = true;
         DataCenterDay.Instance.CurrentTent.Enterable = false;
+        DataCenterDay.Instance.CurrentTent.meshRenderer.enabled = false; 
         DataCenterDay.Instance.Clean();
         StartCoroutine(Fading());
     }

@@ -10,6 +10,9 @@ public class Tent : MonoBehaviour
     public CanvasGroup Fader;
     public CanvasGroup Radiology;
 
+    [HideInInspector] public MeshRenderer meshRenderer;
+    [HideInInspector] public MeshFilter meshFilter;
+
     public bool Enterable = true;
     [HideInInspector] public bool IsEnter = false;
     
@@ -19,6 +22,8 @@ public class Tent : MonoBehaviour
     {
         Fader.alpha = 0;
         Radiology.alpha = 0;
+        meshRenderer = GetComponent<MeshRenderer>();
+        meshFilter = GetComponent<MeshFilter>();
     }
 
     public void GoToTent()
