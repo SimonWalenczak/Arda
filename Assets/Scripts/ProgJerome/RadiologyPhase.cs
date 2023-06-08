@@ -45,6 +45,11 @@ public class RadiologyPhase : MonoBehaviour
 
     public List<Sprite> bodySoldierPortrait;
 
+    [Space(10)] [Header("Input")]
+    private bool isPressed = false;
+    private float pressStartTime = 0f;
+    public float longPressDuration = 3f;
+
     private void Awake()
     {
         Instance = this;
@@ -164,9 +169,14 @@ public class RadiologyPhase : MonoBehaviour
             HealSoldier();
         }
 
-        if (Gamepad.current.buttonSouth.wasReleasedThisFrame && Scan && isInteractable)
+
+        foreach (var item in DataCenterDay.Instance.CurrentBullets)
         {
-            RemoveBulllet();
+            if (item.GetComponent<Bastos>().isDetected)
+            {
+                TapOrLongPress(item);
+                break;
+            }
         }
     }
 
@@ -251,20 +261,44 @@ public class RadiologyPhase : MonoBehaviour
         UpdateSoldier();
     }
 
-    void RemoveBulllet()
+    void RemoveBullet(GameObject item)
     {
-        foreach (var item in DataCenterDay.Instance.CurrentBullets)
+        item.SetActive(false);
+        DataCenterDay.Instance.BulletsFound++;
+        if (DataCenterDay.Instance.BulletsFound == DataCenterDay.Instance.CurrentBullets.Count)
         {
-            if (item.GetComponent<Bastos>().isDetected)
+            if (GameData.NumberDays == 2)
+                GlobalManager.Instance.UpdateSucceededValue(((int)DataCenterDay.Instance
+                    .CurrentSoldiers[currentSoldier].Rank));
+        }
+    }
+
+    private void TapOrLongPress(GameObject item)
+    {
+        if (Gamepad.current.buttonSouth.wasPressedThisFrame)
+        {
+            isPressed = true;
+            pressStartTime = Time.time;
+
+            //Apparaitre roue de chargement
+            //Utiliser le fillAmount radial
+        }
+
+        if (Gamepad.current.buttonSouth.wasReleasedThisFrame)
+        {
+            isPressed = false;
+
+            if (Time.time - pressStartTime > longPressDuration)
             {
-                item.SetActive(false);
-                DataCenterDay.Instance.BulletsFound++;
-                if (DataCenterDay.Instance.BulletsFound == DataCenterDay.Instance.CurrentBullets.Count)
-                {
-                    if (GameData.NumberDays == 2)
-                        GlobalManager.Instance.UpdateSucceededValue(((int)DataCenterDay.Instance
-                            .CurrentSoldiers[currentSoldier].Rank));
-                }
+                Debug.Log("Long press detected!");
+                RemoveBullet(item);
+            }
+            else
+            {
+                Debug.Log("Tap detected!");
+
+                //Reset roue de chargement
+                //Disparaitre roue de chargement
             }
         }
     }

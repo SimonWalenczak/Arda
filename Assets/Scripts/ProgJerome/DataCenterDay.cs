@@ -18,6 +18,13 @@ public class DataCenterDay : MonoBehaviour
     public Camera MainCamera;
     public Camera MapCam;
 
+    // [Space(10)] [Header("Input")] [HideInInspector]
+    // public bool isLongPress;
+    //
+    // private bool isPressed = false;
+    // private float pressStartTime = 0f;
+    // public float longPressDuration = 3f;
+
     private void Awake()
     {
         Instance = this;
@@ -29,6 +36,31 @@ public class DataCenterDay : MonoBehaviour
             ResetValuesAfterTuto();
     }
 
+    // private void TapOrLongPress()
+    // {
+    //     if (Gamepad.current.buttonSouth.wasPressedThisFrame)
+    //     {
+    //         isPressed = true;
+    //         pressStartTime = Time.time;
+    //     }
+    //
+    //     if (Gamepad.current.buttonSouth.wasReleasedThisFrame)
+    //     {
+    //         isPressed = false;
+    //         
+    //         if (Time.time - pressStartTime > longPressDuration)
+    //         {
+    //             Debug.Log("Long press detected!");
+    //             isLongPress = true;
+    //         }
+    //         else
+    //         {
+    //             Debug.Log("Tap detected!");
+    //             isLongPress = false;
+    //         }
+    //     }
+    // }
+
     private void ResetValuesAfterTuto()
     {
         GlobalManager.Instance.GaugesValues[0].ActualValue = 0;
@@ -38,15 +70,17 @@ public class DataCenterDay : MonoBehaviour
     public void Clean()
     {
         CurrentSoldiers.Clear();
-        
+
         for (int i = 0; i < DataCenterDay.Instance.CurrentSoldiers.Count; i++)
             CurrentInfoSoldiers[i].gameObject.SetActive(false);
-        
+
         CurrentTent = null;
     }
 
     private void Update()
     {
+        //TapOrLongPress();
+
         if (Gamepad.current.startButton.wasPressedThisFrame)
         {
             _map.SetActive(!_map.activeSelf);

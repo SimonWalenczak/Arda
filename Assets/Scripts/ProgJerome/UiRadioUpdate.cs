@@ -1,11 +1,7 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using DG.Tweening;
 using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 public class UiRadioUpdate : MonoBehaviour
 {
@@ -16,7 +12,7 @@ public class UiRadioUpdate : MonoBehaviour
     public TextMeshProUGUI Achievement;
     public TextMeshProUGUI CurrentSoldierNumber;
 
-    static public UiRadioUpdate Instance;
+    public static UiRadioUpdate Instance;
 
     public int indexSoldier;
 
