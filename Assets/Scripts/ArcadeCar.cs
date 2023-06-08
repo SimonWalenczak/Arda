@@ -513,18 +513,7 @@ public class ArcadeCar : MonoBehaviour
         float speed = GetSpeed();
         isAcceleration = false;
         isReverseAcceleration = false;
-        if (v > 0.4f)
-        {
-            if (speed < -0.5f)
-            {
-                isBrakeNow = true;
-            }
-            else
-            {
-                isAcceleration = true;
-            }
-        }
-        else if (v < -0.4f)
+        if (v < -0.4f)
         {
             if (speed > 0.5f)
             {
@@ -535,11 +524,22 @@ public class ArcadeCar : MonoBehaviour
                 isReverseAcceleration = true;
             }
         }
+        else if (v > 0.4f)
+        {
+            if (speed < -0.5f)
+            {
+                isBrakeNow = true;
+            }
+            else
+            {
+                isAcceleration = true;
+            }
+        }
 
         // Make tires more slippery (for 1 seconds) when player hit brakes
         if (isBrakeNow == true && isBrake == false)
         {
-            brakeSlipperyTiresTime = 1.0f;
+            brakeSlipperyTiresTime = 3.0f;
         }
 
         // slippery tires while handsbrakes are pressed
