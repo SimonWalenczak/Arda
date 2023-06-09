@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4418334886688972210}
   - component: {fileID: 2259128567110546034}
   - component: {fileID: 3557336924340771467}
-  - component: {fileID: 4217386625360336510}
   - component: {fileID: 2809814795330359285}
+  - component: {fileID: 578284687703332957}
   m_Layer: 0
   m_Name: Box001
   m_TagString: Untagged
@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3370244275394164406}
-  m_Mesh: {fileID: 2186430941476567602, guid: 2b9b8724c45c15d4da5f4c9ceec9a74b, type: 3}
+  m_Mesh: {fileID: 2186430941476567602, guid: 1a6bc971070d1014983681cabf20070c, type: 3}
 --- !u!23 &3557336924340771467
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -85,19 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4217386625360336510
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3370244275394164406}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10.863037, y: 8.185973, z: 4.123442}
-  m_Center: {x: 0.3359375, y: -2.9363922e-16, z: 1.9793365}
 --- !u!114 &2809814795330359285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,6 +116,20 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!64 &578284687703332957
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3370244275394164406}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2186430941476567602, guid: 1a6bc971070d1014983681cabf20070c, type: 3}
 --- !u!1 &5293709304807749739
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,7 +140,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4772927458851594961}
   m_Layer: 0
-  m_Name: House1Damaged
+  m_Name: House1Destroyed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
