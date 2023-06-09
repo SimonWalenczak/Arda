@@ -10,7 +10,6 @@ public class FollowCamera : MonoBehaviour
 
     public float height = 1f;
     public float distance = 2f;
-    public float lookAtHeight;
 
     private Vector3 offsetX;
     private Vector3 offsetY;
@@ -63,7 +62,7 @@ public class FollowCamera : MonoBehaviour
         Vector3 newPos = new Vector3(player.position.x + offsetX.x, offsetY.y, player.position.z + offsetX.z);
 
         transform.position = newPos;
-        transform.LookAt(player.position + new Vector3(0, lookAtHeight, 0));
+        transform.LookAt(player.position);
     }
 
     public void GetXvalue(InputAction.CallbackContext ctx)
