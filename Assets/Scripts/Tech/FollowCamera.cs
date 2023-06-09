@@ -29,6 +29,8 @@ public class FollowCamera : MonoBehaviour
         }
     }
 
+
+
     void LateUpdate()
     {
         // Keep the camera above the terrain
