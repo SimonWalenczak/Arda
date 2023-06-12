@@ -1,36 +1,57 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PauseController : MonoBehaviour
 {
     [SerializeField] private GameObject _pausePanel;
-    [SerializeField] private GameObject _parentAmbulance;
     [SerializeField] private bool _isPaused;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Gamepad.current.startButton.wasPressedThisFrame)
         {
-            if (!_isPaused)
+            if (_isPaused == false)
             {
-                GameData.CanPlay = false;
+                //GameData.CanPlay = false;
                 Time.timeScale = 0;
-                _parentAmbulance.SetActive(false);
                 _pausePanel.SetActive(true);
                 _isPaused = true;
             }
             else
             {
-                GameData.CanPlay = true;
+                //GameData.CanPlay = true;
                 Time.timeScale = 1;
-                _parentAmbulance.SetActive(true);
                 _pausePanel.SetActive(false);
                 _isPaused = false;
             }
         }
     }
 
+
+    
+    // Boutons dans le Pause Panel
+    
+    public void Continue()
+    {
+        //GameData.CanPlay = true;
+        Time.timeScale = 1;
+        _pausePanel.SetActive(!_pausePanel.activeSelf);
+        _isPaused = false;
+    }
+
+    public void ReturnToMainMenu()
+    {
+        
+    }
+
+    public void ActiveOption()
+    {
+        
+    }
+    
+    
+    //PAS TOUCHE
+    
     public void Quit()
     {
         //If we are running in a standalone build of the game
@@ -44,14 +65,5 @@ public class PauseController : MonoBehaviour
         //Stop playing the scene
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
-    }
-
-    public void Continue()
-    {
-        GameData.CanPlay = true;
-        Time.timeScale = 1;
-        _parentAmbulance.SetActive(!_parentAmbulance.activeSelf);
-        _pausePanel.SetActive(!_pausePanel.activeSelf);
-        _isPaused = false;
     }
 }
