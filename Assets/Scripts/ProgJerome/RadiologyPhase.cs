@@ -175,7 +175,7 @@ public class RadiologyPhase : MonoBehaviour
             if (item.GetComponent<Bastos>().isDetected)
             {
                 TapOrLongPress(item);
-                break;
+                //break;
             }
         }
     }
