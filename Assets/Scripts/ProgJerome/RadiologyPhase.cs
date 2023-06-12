@@ -8,13 +8,19 @@ using UnityEngine.UI;
 
 public class RadiologyPhase : MonoBehaviour
 {
+    public float longPressDuration = 3f;
+
     [Header("Radiology Mode")] [SerializeField]
     bool Scan = true;
 
     [SerializeField] bool Survey;
 
 
-    [Space(10)] public CanvasGroup Fader;
+    [Space(10)]
+    public GameObject TimerSlider;
+    bool isSliderActive;
+    GameObject slider;
+    public CanvasGroup Fader;
     public CanvasGroup Radiology;
 
     public GameObject Mask;
@@ -48,7 +54,6 @@ public class RadiologyPhase : MonoBehaviour
     [Space(10)] [Header("Input")]
     private bool isPressed = false;
     private float pressStartTime = 0f;
-    public float longPressDuration = 3f;
 
     private void Awake()
     {
@@ -175,7 +180,21 @@ public class RadiologyPhase : MonoBehaviour
             if (item.GetComponent<Bastos>().isDetected)
             {
                 TapOrLongPress(item);
+                //
                 //break;
+            }
+        }
+
+        if (pressStartTime > 0)
+        {
+            if (!isSliderActive)
+            {
+                isSliderActive = true;
+                slider = Instantiate(TimerSlider);
+            }
+            else
+            {
+
             }
         }
     }
