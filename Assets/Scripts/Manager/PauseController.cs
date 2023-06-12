@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PauseController : MonoBehaviour
 {
@@ -41,7 +42,7 @@ public class PauseController : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
-        
+        SceneManager.LoadScene(sceneName:"MainMenu");
     }
 
     public void ActiveOption()
