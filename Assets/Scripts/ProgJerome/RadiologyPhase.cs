@@ -23,6 +23,7 @@ public class RadiologyPhase : MonoBehaviour
     public CanvasGroup Fader;
     public CanvasGroup Radiology;
 
+    public GameObject SliderFolder;
     public GameObject Mask;
     public GameObject Skeleton;
     public GameObject PlayerManager;
@@ -53,7 +54,7 @@ public class RadiologyPhase : MonoBehaviour
 
     [Space(10)] [Header("Input")]
     private bool isPressed = false;
-    private float pressStartTime = 0f;
+    private float pressTime = 0f;
 
     private void Awake()
     {
@@ -174,28 +175,61 @@ public class RadiologyPhase : MonoBehaviour
             HealSoldier();
         }
 
-
-        foreach (var item in DataCenterDay.Instance.CurrentBullets)
+        if (Gamepad.current.buttonSouth.wasPressedThisFrame && Scan && isInteractable)
         {
-            if (item.GetComponent<Bastos>().isDetected)
+            foreach (var item in DataCenterDay.Instance.CurrentBullets)
             {
-                TapOrLongPress(item);
-                //
-                //break;
+                if (item.GetComponent<Bastos>().isDetected)
+                {
+                    DataCenterDay.Instance.isABulletFound = true;
+                    break;
+                }
+                else
+                {
+                    DataCenterDay.Instance.isABulletFound = false;
+                }
             }
+
+            if (DataCenterDay.Instance.isABulletFound)
+            {
+                if (!isSliderActive)
+                {
+                    isSliderActive = true;
+                    canMove = false;
+                    slider = Instantiate(TimerSlider, Mask.transform.position + new Vector3(10, 0, 0), Mask.transform.rotation, SliderFolder.transform);
+                    slider.GetComponent<TimerBar>().SetValues(longPressDuration);
+                }
+            }
+
         }
 
-        if (pressStartTime > 0)
+        if (Gamepad.current.buttonSouth.isPressed && Scan && isSliderActive)
         {
-            if (!isSliderActive)
+            isPressed = true;
+            canMove = false;
+            pressTime += Time.deltaTime;
+            slider.GetComponent<TimerBar>().SetTime(pressTime);
+            if (pressTime >= longPressDuration)
             {
-                isSliderActive = true;
-                slider = Instantiate(TimerSlider);
+                foreach (var item in DataCenterDay.Instance.CurrentBullets)
+                {
+                    RemoveBullet(item);
+                }
+                pressTime = 0;
+                isSliderActive = false;
+                Destroy(slider);
             }
-            else
-            {
 
-            }
+        }
+
+        if (Gamepad.current.buttonSouth.wasReleasedThisFrame && Scan && isInteractable)
+        {
+            isPressed = false;
+            pressTime = 0;
+            isSliderActive = false;
+            Destroy(slider);
+            canMove = true;
+
         }
     }
 
@@ -293,33 +327,37 @@ public class RadiologyPhase : MonoBehaviour
         }
     }
 
-    private void TapOrLongPress(GameObject item)
-    {
-        if (Gamepad.current.buttonSouth.wasPressedThisFrame)
-        {
-            isPressed = true;
-            pressStartTime = Time.time;
+    //private void TapOrLongPress(GameObject item)
+    //{
+    //    if (Gamepad.current.buttonSouth.wasPressedThisFrame)
+    //    {
+    //        isPressed = true;
+    //        pressStartTime = Time.time;
 
-            //Apparaitre roue de chargement
-            //Utiliser le fillAmount radial
-        }
+    //        //Apparaitre roue de chargement
+    //        //Utiliser le fillAmount radial
+    //        slider.GetComponent<TimerBar>().SetTime(Time.time - pressStartTime);
+    //        Debug.Log(Time.time - pressStartTime);
+    //    }
 
-        if (Gamepad.current.buttonSouth.wasReleasedThisFrame)
-        {
-            isPressed = false;
+    //    if (Gamepad.current.buttonSouth.wasReleasedThisFrame)
+    //    {
+    //        isPressed = false;
+    //        Destroy(slider);
+    //        isSliderActive = false;
 
-            if (Time.time - pressStartTime > longPressDuration)
-            {
-                Debug.Log("Long press detected!");
-                RemoveBullet(item);
-            }
-            else
-            {
-                Debug.Log("Tap detected!");
+    //        if (Time.time - pressStartTime > longPressDuration)
+    //        {
+    //            Debug.Log("Long press detected!");
+    //            RemoveBullet(item);
+    //        }
+    //        else
+    //        {
+    //            Debug.Log("Tap detected!");
 
-                //Reset roue de chargement
-                //Disparaitre roue de chargement
-            }
-        }
-    }
+    //            //Reset roue de chargement
+    //            //Disparaitre roue de chargement
+    //        }
+    //    }
+    //}
 }

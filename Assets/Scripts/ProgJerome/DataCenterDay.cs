@@ -13,6 +13,7 @@ public class DataCenterDay : MonoBehaviour
     public List<SoldierCard> CurrentInfoSoldiers = new List<SoldierCard>();
     [HideInInspector] public Tent CurrentTent;
     [HideInInspector] public int BulletsFound = 0;
+    [HideInInspector] public bool isABulletFound;
 
     [SerializeField] private GameObject _map;
     public Camera MainCamera;
