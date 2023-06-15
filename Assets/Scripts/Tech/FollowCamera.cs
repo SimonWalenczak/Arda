@@ -33,36 +33,36 @@ public class FollowCamera : MonoBehaviour
 
     void LateUpdate()
     {
-        // Keep the camera above the terrain
-        int layerMask = 1 << 6;
+        //// Keep the camera above the terrain
+        //int layerMask = 1 << 6;
 
-        RaycastHit hit;
-        RaycastHit hitCam;
+        //RaycastHit hit;
+        //RaycastHit hitCam;
  
-        if (Physics.Raycast(player.position, -transform.up, out hit, layerMask))
-        {
-            //Debug.Log(hit.point.y);
-            //Physics.Raycast(transform.position, -transform.up, out hitCam, layerMask);
+        //if (Physics.Raycast(player.position, -transform.up, out hit, layerMask))
+        //{
+        //    //Debug.Log(hit.point.y);
+        //    //Physics.Raycast(transform.position, -transform.up, out hitCam, layerMask);
 
-            //if (hitCam.distance < height)
-            //{
-            //    float terrainHeight = hitCam.point.y + 1f;
-            //    offsetY = new Vector3(0, terrainHeight + height, 0);
-            //}
-            //else
-            //{
-            //    float terrainHeight = hit.point.y;
-            //    offsetY = new Vector3(0, terrainHeight + height, 0);
-            //}
+        //    //if (hitCam.distance < height)
+        //    //{
+        //    //    float terrainHeight = hitCam.point.y + 1f;
+        //    //    offsetY = new Vector3(0, terrainHeight + height, 0);
+        //    //}
+        //    //else
+        //    //{
+        //    //    float terrainHeight = hit.point.y;
+        //    //    offsetY = new Vector3(0, terrainHeight + height, 0);
+        //    //}
 
-            float terrainHeight = hit.point.y;
-            offsetY = new Vector3(0, terrainHeight + height, 0);
-        }
+        //    float terrainHeight = hit.point.y;
+        //    offsetY = new Vector3(0, terrainHeight + height, 0);
+        //}
 
 
         offsetX = Quaternion.AngleAxis(joystickInput.x * turnSpeed * Time.deltaTime, Vector3.up) * offsetX;
 
-        Vector3 newPos = new Vector3(player.position.x + offsetX.x, offsetY.y, player.position.z + offsetX.z);
+        Vector3 newPos = new Vector3(player.position.x + offsetX.x, player.position.y + height, player.position.z + offsetX.z);
 
         transform.position = newPos;
         transform.LookAt(player.position + new Vector3(0, lookAtHeight, 0));
