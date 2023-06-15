@@ -123,6 +123,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5d0d60739e4bf8849a1cba636a616a15, type: 2}
+    - target: {fileID: -3477821731311062464, guid: 3948485c92c3ec3449202dbabb6b5aae, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5d0d60739e4bf8849a1cba636a616a15, type: 2}
+    - target: {fileID: -1592289475483123607, guid: 3948485c92c3ec3449202dbabb6b5aae, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5d0d60739e4bf8849a1cba636a616a15, type: 2}
     - target: {fileID: 125094640875359822, guid: 3948485c92c3ec3449202dbabb6b5aae, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -135,52 +143,44 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5d0d60739e4bf8849a1cba636a616a15, type: 2}
+    - target: {fileID: 4407187375235809858, guid: 3948485c92c3ec3449202dbabb6b5aae, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5d0d60739e4bf8849a1cba636a616a15, type: 2}
+    - target: {fileID: 4431670454091400558, guid: 3948485c92c3ec3449202dbabb6b5aae, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5d0d60739e4bf8849a1cba636a616a15, type: 2}
     - target: {fileID: 8575169685555175079, guid: 3948485c92c3ec3449202dbabb6b5aae, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5d0d60739e4bf8849a1cba636a616a15, type: 2}
+    - target: {fileID: 8835409689826365435, guid: 3948485c92c3ec3449202dbabb6b5aae, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5d0d60739e4bf8849a1cba636a616a15, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3948485c92c3ec3449202dbabb6b5aae, type: 3}
---- !u!1 &1359767513311203890 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3594243245622329198, guid: 3948485c92c3ec3449202dbabb6b5aae, type: 3}
-  m_PrefabInstance: {fileID: 2539903097655635292}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &1915495771953656391
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1359767513311203890}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2186430941476567602, guid: 3948485c92c3ec3449202dbabb6b5aae, type: 3}
 --- !u!4 &2645078718129687223 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3948485c92c3ec3449202dbabb6b5aae, type: 3}
   m_PrefabInstance: {fileID: 2539903097655635292}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4949213748185411843 stripped
+--- !u!1 &3592922527942380030 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: -1760714182489039777, guid: 3948485c92c3ec3449202dbabb6b5aae, type: 3}
+  m_CorrespondingSourceObject: {fileID: -7862391691550088030, guid: 3948485c92c3ec3449202dbabb6b5aae, type: 3}
   m_PrefabInstance: {fileID: 2539903097655635292}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &2994249652164965163
-MeshCollider:
+--- !u!65 &8215593296131921799
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4949213748185411843}
+  m_GameObject: {fileID: 3592922527942380030}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 3562073674547505438, guid: 3948485c92c3ec3449202dbabb6b5aae, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 10.671003, y: 8.258469, z: 7.1801953}
+  m_Center: {x: 0.3829503, y: -0.06719427, z: 3.5901282}
