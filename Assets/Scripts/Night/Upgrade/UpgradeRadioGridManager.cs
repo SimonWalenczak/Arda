@@ -54,7 +54,7 @@ public class UpgradeRadioGridManager : MonoBehaviour
     {
         FadeOutDay.SetActive(true);
         yield return new WaitForSeconds(3.5f);
-        SceneManager.LoadScene("bb_LD1");
+        SceneManager.LoadScene("REBOOT_FINAL(finalement)");
     }
 
     private void UpdateMainButtons()
