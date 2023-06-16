@@ -13,14 +13,14 @@ public class PauseController : MonoBehaviour
         {
             if (_isPaused == false)
             {
-                //GameData.CanPlay = false;
+                GameData.CanPlay = false;
                 Time.timeScale = 0;
                 _pausePanel.SetActive(true);
                 _isPaused = true;
             }
             else
             {
-                //GameData.CanPlay = true;
+                GameData.CanPlay = true;
                 Time.timeScale = 1;
                 _pausePanel.SetActive(false);
                 _isPaused = false;

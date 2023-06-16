@@ -6,6 +6,9 @@ public class CampTuto : MonoBehaviour
     public LayerMask TargetLayer;
     public bool IsSoldier;
     public bool FirstTent;
+    public bool SecondTent;
+
+    public GameObject barrier;
     
     public static bool Contains(LayerMask mask, int layer)
     {
@@ -39,9 +42,9 @@ public class CampTuto : MonoBehaviour
 
     private void Update()
     {
-        if (Gamepad.current.buttonSouth.wasPressedThisFrame && FirstTent == false)
+        if (Gamepad.current.buttonSouth.wasPressedThisFrame && SecondTent)
         {
-            print("soldat : " + GameData.HasSavesSoldier);
+            barrier.SetActive(false);
         }
 
         if (FirstTent)

@@ -16,8 +16,7 @@ public class RadiologyPhase : MonoBehaviour
     [SerializeField] bool Survey;
 
 
-    [Space(10)]
-    public GameObject TimerSlider;
+    [Space(10)] public GameObject TimerSlider;
     bool isSliderActive;
     GameObject slider;
     public CanvasGroup Fader;
@@ -52,8 +51,7 @@ public class RadiologyPhase : MonoBehaviour
 
     public List<Sprite> bodySoldierPortrait;
 
-    [Space(10)] [Header("Input")]
-    private bool isPressed = false;
+    [Space(10)] [Header("Input")] private bool isPressed = false;
     private float pressTime = 0f;
 
     private void Awake()
@@ -196,11 +194,11 @@ public class RadiologyPhase : MonoBehaviour
                 {
                     isSliderActive = true;
                     canMove = false;
-                    slider = Instantiate(TimerSlider, Mask.transform.position + new Vector3(10, 0, 0), Mask.transform.rotation, SliderFolder.transform);
+                    slider = Instantiate(TimerSlider, Mask.transform.position + new Vector3(10, 0, 0),
+                        Mask.transform.rotation, SliderFolder.transform);
                     slider.GetComponent<TimerBar>().SetValues(longPressDuration);
                 }
             }
-
         }
 
         if (Gamepad.current.buttonSouth.isPressed && Scan && isSliderActive)
@@ -215,11 +213,11 @@ public class RadiologyPhase : MonoBehaviour
                 {
                     RemoveBullet(item);
                 }
+
                 pressTime = 0;
                 isSliderActive = false;
                 Destroy(slider);
             }
-
         }
 
         if (Gamepad.current.buttonSouth.wasReleasedThisFrame && Scan && isInteractable)
@@ -229,7 +227,6 @@ public class RadiologyPhase : MonoBehaviour
             isSliderActive = false;
             Destroy(slider);
             canMove = true;
-
         }
     }
 
@@ -241,7 +238,7 @@ public class RadiologyPhase : MonoBehaviour
         PlayerManager.GetComponent<DaytimePlayerCtrler>().arcadeCar.controllable = true;
         PlayerManager.GetComponent<DaytimePlayerCtrler>().isDriving = true;
         DataCenterDay.Instance.CurrentTent.Enterable = false;
-        DataCenterDay.Instance.CurrentTent.meshRenderer.enabled = false; 
+        DataCenterDay.Instance.CurrentTent.meshRenderer.enabled = false;
         DataCenterDay.Instance.Clean();
         StartCoroutine(Fading());
     }
