@@ -7,6 +7,8 @@ public class SkyboxMeteo : MonoBehaviour
 {
     public Material Skybox;
     [SerializeField] float rotationSpeed;
+    [SerializeField] float risingSpeed;
+    [SerializeField] float nightfallSpeed;
     float rotationValue = 0;
 
     [Space(10)]
@@ -16,23 +18,27 @@ public class SkyboxMeteo : MonoBehaviour
     [Space(10)]
     [Header("Half Day")]
     [SerializeField] float halfIntensity;
-    [SerializeField] private float halfHour;
-    [SerializeField] private float halfMinute;
 
     [Space(10)]
-    [Header("End")]
+    [Header("Nightfall")]
     [SerializeField] float endIntensity;
-    [SerializeField] private float fadeEndHour;
-    [SerializeField] private float fadeEndMinute;
+    [SerializeField] private int fadeEndHour;
+    [SerializeField] private int fadeEndMinute;
 
 
     private void Start()
     {
-        Skybox.DOFloat(halfIntensity, "_Exposure", 10f);   
+        Skybox.DOFloat(halfIntensity, "_Exposure", risingSpeed);   
     }
 
     void Update()
     {
+        if (DayManager.Instance.CurrentHour == fadeEndHour && DayManager.Instance.CurrentMinute == fadeEndMinute)
+        {
+            Skybox.DOFloat(endIntensity, "_Exposure", nightfallSpeed);
+        }
+
+
         rotationValue += rotationSpeed * Time.deltaTime;
         if (rotationValue >= 360)
         {
