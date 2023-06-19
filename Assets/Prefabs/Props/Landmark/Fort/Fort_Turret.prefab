@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5063027027015194266}
   - component: {fileID: 5873514013215661546}
   - component: {fileID: -8646690547296631751}
+  - component: {fileID: -86133707970813575}
   m_Layer: 0
   m_Name: Fort_Turret
   m_TagString: Untagged
@@ -113,11 +114,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1851656854
-      Data2: 1223131473
-      Data3: -448726368
-      Data4: -618426849
-    Path: event:/Vehicle Events/state_car
+      Data1: 2040895715
+      Data2: 1156303588
+      Data3: 1553136513
+      Data4: 1025275352
+    Path: event:/snd_car_collision
   Event: 
   PlayEvent: 7
   StopEvent: 0
@@ -129,3 +130,34 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &-86133707970813575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6720356020127725391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: -1
+  OverrideMaxDistance: -1
