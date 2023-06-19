@@ -138,7 +138,7 @@ public class GeneralDialog : MonoBehaviour
                             if (GameData.HasSavesSoldier)
                                 index = 2;
                             else
-                                index = 4;
+                                index = 3;
                         }
                         else
                         {
@@ -148,11 +148,11 @@ public class GeneralDialog : MonoBehaviour
                                 BGLettre.SetActive(true);
                                 LetterAppearing(_generalTextFirstNight[index].Paper);
                             }
-                            else if (_generalTextFirstNight[index].PaperActif == true && (index == 3 || index == 5))
+                            else if (_generalTextFirstNight[index].PaperActif == true && (index == 2 || index == 3))
                             {
                                 BGLettre.SetActive(false);
                                 LetterDisappearing(_generalTextFirstNight[index].Paper);
-                                index = 6;
+                                index = 4;
                             }
                             else if (_generalTextFirstNight[index].PaperActif == true)
                             {

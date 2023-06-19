@@ -30,4 +30,11 @@ public class GlobalManager : MonoBehaviour
             //GaugesValues[index].ActualValue = 0;
         }
     }
+    
+    public void UpdateMissedValue(int index)
+    {
+        Debug.Log(GaugesValues[index].ActualValue);
+        Debug.Log(GaugesValues[index].Limit);
+        GaugesValues[index].MissValue++;
+    }
 }

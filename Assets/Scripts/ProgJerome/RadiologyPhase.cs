@@ -307,8 +307,8 @@ public class RadiologyPhase : MonoBehaviour
             DataCenterDay.Instance.CurrentSoldiers[currentSoldier].MinutesConsumed * 60;
         //GlobalManager.Instance.GaugesValues[((int)DataCenterDay.Instance.CurrentSoldiers[currentSoldier].Rank)];
         if (GameData.NumberDays == 2)
-            GlobalManager.Instance.UpdateSucceededValue(((int)DataCenterDay.Instance.CurrentSoldiers[currentSoldier]
-                .Rank));
+            GlobalManager.Instance.UpdateSucceededValue((int)DataCenterDay.Instance.CurrentSoldiers[currentSoldier]
+                .Rank);
         UpdateSoldier();
     }
 

@@ -36,19 +36,8 @@ public class NightManager : MonoBehaviour
     private int _rainChance = 15;
 
     [SerializeField] private int _fogChance = 20;
-
-    [Header("\n----------- Upgrade -----------\n")] [SerializeField]
-    private GameObject _upgradePanel;
-
-    [SerializeField] private List<Item> Items;
-    [SerializeField] private int index;
-
-    [SerializeField] GameObject UpgradePopup;
-    [SerializeField] TMP_Text UpgradePopupText;
-
-    [SerializeField] private int nbUpgradeapplicated;
-    public List<GameObject> UpgradeApplicated;
-    [SerializeField] private float offsetX;
+    
+    [Header("Fader")]
 
     public GameObject FadeIn23;
     public GameObject FadeIn24;
@@ -74,16 +63,12 @@ public class NightManager : MonoBehaviour
     {
         Cursor.visible = false;
         _generalDialog = GetComponent<GeneralDialog>();
-        index = 1;
+
         if (GameData.NumberDays == 1)
             FadeIn24.SetActive(false);
         else
             FadeIn23.SetActive(false);
-
-        for (int i = 0; i < UpgradeApplicated.Count; i++)
-        {
-            UpgradeApplicated[i].SetActive(false);
-        }
+        
 
         ResetGlobalVariables();
         RainingChance();
@@ -98,8 +83,7 @@ public class NightManager : MonoBehaviour
     {
         if (_generalDialog.CanUpgrade)
         {
-            StartCoroutine(GoToUpgradeScene());
-            //UpgradeCar();
+            StartCoroutine(GoToDayScene());
         }
     }
 
@@ -197,68 +181,17 @@ public class NightManager : MonoBehaviour
         }
     }
 
-    IEnumerator GoToUpgradeScene()
+    // IEnumerator GoToUpgradeScene()
+    // {
+    //     FadeOutUpgrade.SetActive(true);
+    //     yield return new WaitForSeconds(3.5f);
+    //     SceneManager.LoadScene("Upgrade");
+    // }
+    
+    IEnumerator GoToDayScene()
     {
         FadeOutUpgrade.SetActive(true);
         yield return new WaitForSeconds(3.5f);
-        SceneManager.LoadScene("Upgrade");
-    }
-
-    void UpgradeCar()
-    {
-        _generalAnnounce.SetActive(false);
-        _upgradePanel.SetActive(true);
-
-        if (Gamepad.current.leftStick.left.wasPressedThisFrame)
-            index--;
-        if (Gamepad.current.leftStick.right.wasPressedThisFrame)
-            index++;
-
-        if (Gamepad.current.buttonSouth.wasPressedThisFrame)
-            StartCoroutine(GoToUpgradeScene());
-
-        if (index > Items.Count)
-            index = 1;
-        if (index < 1)
-            index = Items.Count;
-
-        foreach (var item in Items)
-        {
-            if (item.index == index)
-                item.isSelected = true;
-            else
-                item.isSelected = false;
-
-            if (item.isSelected)
-            {
-                print(item.index);
-                item.transform.DOScale(new Vector3(1.7f, 1.7f, 1.7f), 1);
-                UpgradePopup.transform.position = new Vector3(item.transform.position.x + 3.5f,
-                    item.transform.position.y + 1f, item.transform.position.z - 1);
-                UpgradePopupText.SetText(item.previewEffect);
-
-                if (Gamepad.current.buttonNorth.wasPressedThisFrame && item.isPicked == false)
-                {
-                    item.isPicked = true;
-                    item.Excute();
-                    nbUpgradeapplicated++;
-
-                    for (int i = 0; i < nbUpgradeapplicated; i++)
-                    {
-                        UpgradeApplicated[i].SetActive(true);
-                    }
-
-                    UpgradeApplicated[nbUpgradeapplicated - 1].transform
-                        .DOMoveX(UpgradeApplicated[nbUpgradeapplicated - 1].transform.position.x + offsetX, 1);
-                    UpgradeApplicated[nbUpgradeapplicated - 1].GetComponentInChildren<TMP_Text>().SetText(item.effect);
-
-                    print(item.itemName);
-                }
-            }
-            else
-            {
-                item.transform.DOScale(new Vector3(1.5f, 1.5f, 1.5f), 1);
-            }
-        }
+        SceneManager.LoadScene("REBOOT_FINAL(finalement)");
     }
 }
