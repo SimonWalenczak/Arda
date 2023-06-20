@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class CampTuto : MonoBehaviour
 {
+    public DaytimePlayerCtrler daytimePlayerCtrler;
     public LayerMask TargetLayer;
     public bool IsSoldier;
     public bool FirstTent;
@@ -19,6 +20,8 @@ public class CampTuto : MonoBehaviour
     {
         if (Contains(TargetLayer, other.gameObject.layer))
         {
+            daytimePlayerCtrler.actualTent = this;
+            
             if (FirstTent == false)
             {
                 if (IsSoldier)
@@ -42,10 +45,10 @@ public class CampTuto : MonoBehaviour
 
     private void Update()
     {
-        if (Gamepad.current.buttonSouth.wasPressedThisFrame && SecondTent)
-        {
-            barrier.SetActive(false);
-        }
+        // if (Gamepad.current.buttonSouth.wasPressedThisFrame && SecondTent)
+        // {
+        //     barrier.SetActive(false);
+        // }
 
         if (FirstTent)
         {

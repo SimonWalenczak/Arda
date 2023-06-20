@@ -6,10 +6,13 @@ using UnityEngine.InputSystem;
 
 public class DaytimePlayerCtrler : MonoBehaviour
 {
+    [Header("Reference")]
     [HideInInspector] public ArcadeCar arcadeCar;
     [HideInInspector] public bool isDriving = true;
 
+    [Space(10)][Header("Debug")]
     public GameObject AButtonDebug;
+    public CampTuto actualTent;
 
     [Space(10)] [Header("Respawn")] public LayerMask TargetLayer;
     public List<GameObject> Respawns;
@@ -83,8 +86,11 @@ public class DaytimePlayerCtrler : MonoBehaviour
     {
         if (other.CompareTag("TentTrigger"))
         {
-            if (isDriving)
+            if (isDriving && other.GetComponent<Tent>().Enterable)
+            {
                 AButtonDebug.SetActive(true);
+                actualTent = other.GetComponent<CampTuto>();
+            }
 
             if (Gamepad.current.buttonSouth.isPressed && isDriving)
             {
@@ -95,8 +101,8 @@ public class DaytimePlayerCtrler : MonoBehaviour
                     isDriving = false;
                     arcadeCar.controllable = false;
                     other.gameObject.GetComponent<Tent>().GoToTent();
+                    
                 }
-                //print("coucou c'est une tente");            
             }
         }
     }

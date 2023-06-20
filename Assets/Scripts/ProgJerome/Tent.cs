@@ -15,8 +15,9 @@ public class Tent : MonoBehaviour
 
     public bool Enterable = true;
     [HideInInspector] public bool IsEnter = false;
-    
-    //public int TentNum;
+
+
+    [Header("Reference")] public DaytimePlayerCtrler daytimePlayerCtrler;
 
     private void Awake()
     {
@@ -53,6 +54,9 @@ public class Tent : MonoBehaviour
     {
         Fader.DOFade(1f, 1f);
         yield return new WaitForSeconds(1.5f);
+        if (daytimePlayerCtrler.actualTent.SecondTent == true)
+            GetComponent<CampTuto>().barrier.SetActive(false);
+        
         Fader.DOFade(0f, 1f);
         Radiology.alpha = 1;
         RadiologyPhase.Instance.Setup();

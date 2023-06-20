@@ -80,7 +80,7 @@ public class GeneralDialog : MonoBehaviour
             {
                 if (index < _generalTextFirstNight.Count - 1)
                 {
-                    if (index == 8)
+                    if (index == 6)
                     {
                         foreach (var sprite in BodyFaces)
                         {
@@ -88,7 +88,7 @@ public class GeneralDialog : MonoBehaviour
                         }
                     }
 
-                    if (index == 0 || (index >= 6 && index != 9))
+                    if (index == 0 || (index >= 4 && index != 7))
                     {
                         if (_generalTextFirstNight[index].HavePaper == false)
                         {
@@ -110,7 +110,7 @@ public class GeneralDialog : MonoBehaviour
                             }
                         }
                     }
-                    else if (index == 9)
+                    else if (index == 7)
                     {
                         if (_generalTextFirstNight[index].PaperActif == false)
                         {
@@ -346,7 +346,7 @@ public class GeneralDialog : MonoBehaviour
         if (CanTalk)
             DialogGeneral();
 
-        if (GameData.NumberDays == 1 && index == 9)
+        if (GameData.NumberDays == 1 && index == 7)
             DialogChoice();
 
         if (GameData.NumberDays == 2 && index == 8)
@@ -414,43 +414,43 @@ public class GeneralDialog : MonoBehaviour
     private void ExtraDialogue()
     {
         //Météo
-        _generalTextFirstNight[10].DialogText = "Maintenant, les prévisions météorologiques.\n";
+        _generalTextFirstNight[8].DialogText = "Maintenant, les prévisions météorologiques.\n";
         if (GameData.IsRainning)
         {
-            _generalTextFirstNight[10].DialogText +=
+            _generalTextFirstNight[8].DialogText +=
                 "Demain sera une journée pluvieuse, attention au risque de glissage.";
             if (GameData.HasFog)
-                _generalTextFirstNight[10].DialogText +=
+                _generalTextFirstNight[8].DialogText +=
                     " Et vous aurez également le droit à un épais brouillard sur les monts, alors prenez garde.";
             else
-                _generalTextFirstNight[10].DialogText += " Mais vous échapperez tout de même au brouillard de plaine.";
+                _generalTextFirstNight[8].DialogText += " Mais vous échapperez tout de même au brouillard de plaine.";
         }
         else
         {
-            _generalTextFirstNight[10].DialogText += "Demain sera une journée ensoleillée, aucun risque de glissage.";
+            _generalTextFirstNight[8].DialogText += "Demain sera une journée ensoleillée, aucun risque de glissage.";
             if (GameData.HasFog)
-                _generalTextFirstNight[10].DialogText +=
+                _generalTextFirstNight[8].DialogText +=
                     " Néanmoins vous allez avoir le droit à du brouillard, alors ne relachez pas votre vigilance jeune fille.";
             else
-                _generalTextFirstNight[10].DialogText += "";
+                _generalTextFirstNight[8].DialogText += "";
         }
 
         //Combat
-        _generalTextFirstNight[11].DialogText = "Pour ce qui est du combat, voici ce que l'on sait : \n";
+        _generalTextFirstNight[9].DialogText = "Pour ce qui est du combat, voici ce que l'on sait : \n";
         if (GameData.SoftFight && GameData.HardFight == false)
         {
-            _generalTextFirstNight[11].DialogText +=
+            _generalTextFirstNight[9].DialogText +=
                 "Les milices ennemies ne prévoient pas d'assauts, tout comme nous, donc demain sera une journée avec de faibles combats.";
         }
         else if (GameData.HardFight && GameData.SoftFight == false)
         {
-            _generalTextFirstNight[11].DialogText +=
+            _generalTextFirstNight[9].DialogText +=
                 "Les milices ennemies prévoient de forts assauts, tout comme nous, demain sera donc une journée rouge pour nos ennemis. " +
                 "Et je ne l'espère pas pour nous...";
         }
         else if (GameData.SoftFight == false && GameData.HardFight == false)
         {
-            _generalTextFirstNight[11].DialogText +=
+            _generalTextFirstNight[9].DialogText +=
                 "Les milices ennemies comptent nous attaquer avec la même intensité qu'aujourd'hui, donc tenez-vous prête.";
         }
     }
