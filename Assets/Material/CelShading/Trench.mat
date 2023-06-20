@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Trench
-  m_Shader: {fileID: -6465566751694194690, guid: 0515fec6924a5754c927de24acc88308, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: d41d52f095190274f91012c3101bbdf3, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -33,6 +33,18 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_300EB541:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecularMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -47,16 +59,23 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - Vector1_8606F96E: 0
     - _AmbiantStrengh: 0.08
     - _FalloffAmount: 0.59
     - _Float: 0
     - _FresnelSize: 0.46
     - _LightingCutoff: 0.11
+    - _OutlineDepthSensitivity: 0.422
+    - _OutlineNormalsSensitivity: 1
+    - _OutlineThickness: 11.77
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Smoothness: 931.24
     m_Colors:
     - _DifuseColor: {r: 0.679, g: 0.5306471, b: 0.3309412, a: 0}
     - _FresnelColor: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 0}
+    - _MainColor: {r: 0.5377358, g: 0.3792843, b: 0.24603951, a: 0}
+    - _Offset: {r: 0, g: 0, b: 0, a: 0}
     - _SpecularColor: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 0}
+    - _Tiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
