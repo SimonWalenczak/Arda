@@ -37,31 +37,6 @@ public class DataCenterDay : MonoBehaviour
             ResetValuesAfterTuto();
     }
 
-    // private void TapOrLongPress()
-    // {
-    //     if (Gamepad.current.buttonSouth.wasPressedThisFrame)
-    //     {
-    //         isPressed = true;
-    //         pressStartTime = Time.time;
-    //     }
-    //
-    //     if (Gamepad.current.buttonSouth.wasReleasedThisFrame)
-    //     {
-    //         isPressed = false;
-    //         
-    //         if (Time.time - pressStartTime > longPressDuration)
-    //         {
-    //             Debug.Log("Long press detected!");
-    //             isLongPress = true;
-    //         }
-    //         else
-    //         {
-    //             Debug.Log("Tap detected!");
-    //             isLongPress = false;
-    //         }
-    //     }
-    // }
-
     private void ResetValuesAfterTuto()
     {
         GlobalManager.Instance.GaugesValues[0].ActualValue = 0;
@@ -72,7 +47,7 @@ public class DataCenterDay : MonoBehaviour
     {
         CurrentSoldiers.Clear();
 
-        for (int i = 0; i < DataCenterDay.Instance.CurrentSoldiers.Count; i++)
+        for (int i = 0; i < CurrentSoldiers.Count; i++)
             CurrentInfoSoldiers[i].gameObject.SetActive(false);
 
         CurrentTent = null;

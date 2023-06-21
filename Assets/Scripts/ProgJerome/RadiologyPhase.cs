@@ -211,7 +211,10 @@ public class RadiologyPhase : MonoBehaviour
             {
                 foreach (var item in DataCenterDay.Instance.CurrentBullets)
                 {
-                    RemoveBullet(item);
+                    if (item.GetComponent<Bastos>().isDetected)
+                    {
+                        RemoveBullet(item);
+                    }
                 }
 
                 pressTime = 0;
@@ -232,11 +235,17 @@ public class RadiologyPhase : MonoBehaviour
 
     void LeaveTent()
     {
+        for (int i = 0; i < DataCenterDay.Instance.CurrentBullets.Count; i++)
+        {
+            Destroy(DataCenterDay.Instance.CurrentBullets[i]);
+        }
         canMove = false;
         isInteractable = false;
         currentSoldier = 0;
         PlayerManager.GetComponent<DaytimePlayerCtrler>().arcadeCar.controllable = true;
         PlayerManager.GetComponent<DaytimePlayerCtrler>().isDriving = true;
+        DataCenterDay.Instance.CurrentBullets.Clear();
+        DataCenterDay.Instance.BulletsFound = 0;
         DataCenterDay.Instance.CurrentTent.Enterable = false;
         DataCenterDay.Instance.CurrentTent.meshRenderer.enabled = false;
         DataCenterDay.Instance.Clean();
