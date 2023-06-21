@@ -40,7 +40,7 @@ public class Tent : MonoBehaviour
     public void StartInTent()
     {
         IsEnter = true;
-        
+
         DataCenterDay.Instance.CurrentTent = this;
         foreach (var item in Soldiers)
         {
@@ -54,9 +54,12 @@ public class Tent : MonoBehaviour
     {
         Fader.DOFade(1f, 1f);
         yield return new WaitForSeconds(1.5f);
-        if (daytimePlayerCtrler.actualTent.SecondTent == true)
-            GetComponent<CampTuto>().barrier.SetActive(false);
-        
+        if (GameData.NumberDays == 1)
+        {
+            if (daytimePlayerCtrler.actualTent.SecondTent == true)
+                GetComponent<CampTuto>().barrier.SetActive(false);
+        }
+
         Fader.DOFade(0f, 1f);
         Radiology.alpha = 1;
         RadiologyPhase.Instance.Setup();
