@@ -8,6 +8,7 @@ public class CampTuto : MonoBehaviour
     public bool IsSoldier;
     public bool FirstTent;
     public bool SecondTent;
+    public bool ThirthTent;
 
     public GameObject barrier;
     
@@ -45,11 +46,6 @@ public class CampTuto : MonoBehaviour
 
     private void Update()
     {
-        // if (Gamepad.current.buttonSouth.wasPressedThisFrame && SecondTent)
-        // {
-        //     barrier.SetActive(false);
-        // }
-
         if (FirstTent)
         {
             LaunchTuto();

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -7,36 +8,28 @@ public class DayManager : MonoBehaviour
 {
     [SerializeField] TerrainSaver _terrainSaver;
     public bool _isTuto;
-    
-    [Space(10)]
-    [Header("Start")]
-    public int StartHour;
+
+    [Space(10)] [Header("Start")] public int StartHour;
     public int StartMinute;
 
-    [Space(10)]
-    [Header("End")]
-    public int EndHour;
+    [Space(10)] [Header("End")] public int EndHour;
     public int EndMinute;
 
-    [Space(10)]
-    [Header("Control")]
-    public int TimeMultiplier;
+    [Space(10)] [Header("Control")] public int TimeMultiplier;
     [HideInInspector] public float Timer = 0.0f;
 
-    [Space(10)]
-    [Header("Debug")]
-    public int TimeSinceStart;
+    [Space(10)] [Header("Debug")] public int TimeSinceStart;
     public int CurrentHour;
     public int CurrentMinute;
     public float CurrentSeconds = 0;
     private float _timeSinceStart;
 
-    [Space(10)]
-    [Header("UI")]
-    public TextMeshProUGUI TimeOfDay;
+    [Space(10)] [Header("UI")] public TextMeshProUGUI TimeOfDay;
     [SerializeField] private GameObject _fadeOut;
 
     int endSecs;
+
+    [HideInInspector] public bool canActiveTimer;
 
     public static DayManager Instance;
 
@@ -52,16 +45,24 @@ public class DayManager : MonoBehaviour
 
         CurrentHour = StartHour;
         CurrentMinute = StartMinute;
-        
+
         //Détermine le numéro du jour
         GameData.NumberDays = _isTuto ? 1 : 2;
+
+        if (_isTuto == false)
+            canActiveTimer = true;
     }
 
-    void Update()
+    private void Update()
     {
-        
+        if(canActiveTimer)
+            ActiveTimer();
+    }
+
+    private void ActiveTimer()
+    {
         Timer += Time.deltaTime * TimeMultiplier;
-        
+
         _timeSinceStart += Time.deltaTime;
         TimeSinceStart = (int)_timeSinceStart;
 
@@ -70,7 +71,7 @@ public class DayManager : MonoBehaviour
 
         if (CurrentSeconds >= 60)
         {
-            CurrentSeconds -=60;
+            CurrentSeconds -= 60;
             CurrentMinute++;
             if (CurrentMinute >= 60)
             {
@@ -87,7 +88,7 @@ public class DayManager : MonoBehaviour
         {
             TimeOfDay.text = CurrentHour.ToString() + 'h' + CurrentMinute.ToString();
         }
-        
+
 
         if (Timer >= endSecs)
         {

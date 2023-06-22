@@ -58,6 +58,12 @@ public class Tent : MonoBehaviour
         {
             if (daytimePlayerCtrler.actualTent.SecondTent == true)
                 GetComponent<CampTuto>().barrier.SetActive(false);
+
+            if (daytimePlayerCtrler.actualTent.ThirthTent == true)
+            {
+                DayManager.Instance.canActiveTimer = true;
+                DayManager.Instance.TimeOfDay.gameObject.SetActive(true);   
+            }
         }
 
         Fader.DOFade(0f, 1f);
