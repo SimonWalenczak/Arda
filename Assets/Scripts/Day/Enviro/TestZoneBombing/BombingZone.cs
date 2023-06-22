@@ -58,13 +58,6 @@ public class BombingZone : MonoBehaviour
         _bombPerSec = Math.Ceiling(_nbBombMax / _bombingDuration);
         // print(_bombingDuration);
         // print(_bombPerSec);
-
-        if (DayManager.Instance._isTuto == false)
-            _canBombing = true;
-        else
-        {
-            //Condition si le joueur sort de la première tente.
-        }
     }
 
     void Initialize()

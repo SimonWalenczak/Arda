@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -40,16 +41,16 @@ public class UiRadioUpdate : MonoBehaviour
             lastSelected = actualSelected;
             actualSelected = SoldiersPanelOrigin[indexSoldier];
             
-            lastSelected.localPosition = Vector3.Lerp(lastSelected.localPosition, new Vector3(-365, lastSelected.localPosition.y, lastSelected.localPosition.z), 1);
+            lastSelected.localPosition = Vector3.Lerp(lastSelected.localPosition, new Vector3(-500, lastSelected.localPosition.y, lastSelected.localPosition.z), 500 * Time.deltaTime);
             actualSelected.localPosition = Vector3.Lerp(actualSelected.localPosition, new Vector3(-280, actualSelected.localPosition.y, actualSelected.localPosition.z), 1);
         }
-
+        
         if (Gamepad.current.dpad.up.wasPressedThisFrame /*||Gamepad.current.dpad.left.wasPressedThisFrame*/)
         {
             indexSoldier--;
             if (indexSoldier < 0)
                 indexSoldier = DataCenterDay.Instance.CurrentSoldiers.Count - 1;
-
+        
             lastSelected = actualSelected;
             actualSelected = SoldiersPanelOrigin[indexSoldier];
             
