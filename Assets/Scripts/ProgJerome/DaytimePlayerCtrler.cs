@@ -23,6 +23,13 @@ public class DaytimePlayerCtrler : MonoBehaviour
     public float targetAlpha = 0.0f;
     private float initialAlpha;
 
+    public static DaytimePlayerCtrler Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     void Start()
     {
         arcadeCar = GetComponent<ArcadeCar>();
