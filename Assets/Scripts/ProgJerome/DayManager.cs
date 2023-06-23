@@ -97,7 +97,7 @@ public class DayManager : MonoBehaviour
         }
     }
 
-    IEnumerator WaitingForSunSet()
+    public IEnumerator WaitingForSunSet()
     {
         _fadeOut.SetActive(true);
         yield return new WaitForSeconds(3.5f);

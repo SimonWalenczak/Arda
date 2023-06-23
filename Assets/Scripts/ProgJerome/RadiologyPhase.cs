@@ -8,8 +8,10 @@ using UnityEngine.UI;
 
 public class RadiologyPhase : MonoBehaviour
 {
+    public DaytimePlayerCtrler daytimePlayerCtrler;
+ 
     public float longPressDuration = 3f;
-
+ 
     [Header("Radiology Mode")] [SerializeField]
     bool Scan = true;
 
@@ -249,7 +251,14 @@ public class RadiologyPhase : MonoBehaviour
         DataCenterDay.Instance.CurrentTent.Enterable = false;
         DataCenterDay.Instance.CurrentTent.meshRenderer.enabled = false;
         DataCenterDay.Instance.Clean();
-        StartCoroutine(Fading());
+        if (GameData.NumberDays == 2 || (GameData.NumberDays == 1 && daytimePlayerCtrler.actualTent.ThirthTent == false))
+        {
+            StartCoroutine(Fading());
+        }
+        else
+        {
+            StartCoroutine(DayManager.Instance.WaitingForSunSet());
+        }
     }
 
     IEnumerator Fading()
@@ -332,38 +341,4 @@ public class RadiologyPhase : MonoBehaviour
                     .CurrentSoldiers[currentSoldier].Rank));
         }
     }
-
-    //private void TapOrLongPress(GameObject item)
-    //{
-    //    if (Gamepad.current.buttonSouth.wasPressedThisFrame)
-    //    {
-    //        isPressed = true;
-    //        pressStartTime = Time.time;
-
-    //        //Apparaitre roue de chargement
-    //        //Utiliser le fillAmount radial
-    //        slider.GetComponent<TimerBar>().SetTime(Time.time - pressStartTime);
-    //        Debug.Log(Time.time - pressStartTime);
-    //    }
-
-    //    if (Gamepad.current.buttonSouth.wasReleasedThisFrame)
-    //    {
-    //        isPressed = false;
-    //        Destroy(slider);
-    //        isSliderActive = false;
-
-    //        if (Time.time - pressStartTime > longPressDuration)
-    //        {
-    //            Debug.Log("Long press detected!");
-    //            RemoveBullet(item);
-    //        }
-    //        else
-    //        {
-    //            Debug.Log("Tap detected!");
-
-    //            //Reset roue de chargement
-    //            //Disparaitre roue de chargement
-    //        }
-    //    }
-    //}
 }

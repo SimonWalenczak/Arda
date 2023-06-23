@@ -43,17 +43,4 @@ public class CampTuto : MonoBehaviour
             }
         }
     }
-
-    private void Update()
-    {
-        if (FirstTent)
-        {
-            LaunchTuto();
-        }
-    }
-
-    private void LaunchTuto()
-    {
-        print("Lancement du Tuto");
-    }
 }
