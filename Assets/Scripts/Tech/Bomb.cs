@@ -11,6 +11,7 @@ public class Bomb : MonoBehaviour
     [SerializeField] float DetectionDist;
     [SerializeField] float MinutesLost;
     [SerializeField] int GroundLayerNb = 6;
+    [SerializeField] float DiggingCoef = 1;
 
     [HideInInspector] public GameObject MainCamera; 
 
@@ -51,7 +52,7 @@ public class Bomb : MonoBehaviour
 
                 //Debug.Log(cos - sin);
 
-                Heights[x, y] = Heights[x,y] + ((cos - sin) - 1) / smoothness;
+                Heights[x, y] = Heights[x,y] + ((cos - sin) - 1) / smoothness * DiggingCoef;
                 //Heights[x, y] = ((cos - sin)-1) / 350;
                 //Heights[x, y] = cos / 350;
             }
