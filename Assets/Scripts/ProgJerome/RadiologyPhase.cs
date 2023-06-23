@@ -5,6 +5,7 @@ using DG.Tweening;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class RadiologyPhase : MonoBehaviour
 {
@@ -188,6 +189,7 @@ public class RadiologyPhase : MonoBehaviour
         //Fin affichage 
 
         UiRadioUpdate.Instance.ApplyInfoSoldier(currentSoldier);
+        UiRadioUpdate.Instance.SoldiersPanelOrigin.anchoredPosition = UiRadioUpdate.Instance.PositionOrigin;
     }
 
     private void Update()
@@ -346,6 +348,9 @@ public class RadiologyPhase : MonoBehaviour
             //Fin affichage
 
             UiRadioUpdate.Instance.ApplyInfoSoldier(currentSoldier);
+            UiRadioUpdate.Instance.SoldiersPanelOrigin.DOComplete();
+            UiRadioUpdate.Instance.SoldiersPanelOrigin.DOAnchorPosY(
+                UiRadioUpdate.Instance.SoldiersPanelOrigin.anchoredPosition.y + 90, 1);
         }
         else
         {

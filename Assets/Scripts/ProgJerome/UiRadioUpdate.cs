@@ -15,11 +15,17 @@ public class UiRadioUpdate : MonoBehaviour
 
     public static UiRadioUpdate Instance;
 
-    public List<RectTransform> SoldiersPanelOrigin;
-
+    public RectTransform SoldiersPanelOrigin;
+    public Vector2 PositionOrigin;
+    
     private void Awake()
     {
         Instance = this;
+    }
+
+    private void Start()
+    {
+        PositionOrigin = SoldiersPanelOrigin.anchoredPosition;
     }
 
     public void ApplyInfoSoldier(int i)
