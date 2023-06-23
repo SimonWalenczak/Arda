@@ -246,6 +246,7 @@ public class RadiologyPhase : MonoBehaviour
         currentSoldier = 0;
         PlayerManager.GetComponent<DaytimePlayerCtrler>().arcadeCar.controllable = true;
         PlayerManager.GetComponent<DaytimePlayerCtrler>().isDriving = true;
+        PlayerManager.GetComponent<DaytimePlayerCtrler>().UnfreezePosition();
         DataCenterDay.Instance.CurrentBullets.Clear();
         DataCenterDay.Instance.BulletsFound = 0;
         DataCenterDay.Instance.CurrentTent.Enterable = false;

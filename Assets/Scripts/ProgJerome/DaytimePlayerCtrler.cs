@@ -110,12 +110,17 @@ public class DaytimePlayerCtrler : MonoBehaviour
 
                     isDriving = false;
                     arcadeCar.controllable = false;
-                    //rigidbody.FreezeAll();
+                    rigidbody.constraints = RigidbodyConstraints.FreezeAll;
                     other.gameObject.GetComponent<Tent>().GoToTent();
                     
                 }
             }
         }
+    }
+
+    public void UnfreezePosition()
+    {
+        rigidbody.constraints = RigidbodyConstraints.None;
     }
 
     private void OnTriggerExit(Collider other)
