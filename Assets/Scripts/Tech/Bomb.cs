@@ -80,21 +80,24 @@ public class Bomb : MonoBehaviour
             }
             if (hit.collider.tag == "Player")
             {
-                DayManager.Instance.CurrentSeconds += MinutesLost * 60;
-                DayManager.Instance.Timer += MinutesLost * 60;
+                if (DaytimePlayerCtrler.Instance.isDriving)
+                {
+                    DayManager.Instance.CurrentSeconds += MinutesLost * 60;
+                    DayManager.Instance.Timer += MinutesLost * 60;
+                }
             }
         }
     }
 
-    void TriggerCameraShake()
-    {
-        float dist = Vector3.Distance(gameObject.transform.position, MainCamera.transform.position);
-        if (dist <= 75)
-        {
-            CMvcamShale.Instance.ShakeCamera(3f, 1.25f);
-        }
+    //void TriggerCameraShake()
+    //{
+    //    float dist = Vector3.Distance(gameObject.transform.position, MainCamera.transform.position);
+    //    if (dist <= 75)
+    //    {
+    //        CMvcamShale.Instance.ShakeCamera(3f, 1.25f);
+    //    }
 
-    }
+    //}
 
 
     [System.Obsolete]
@@ -128,7 +131,7 @@ public class Bomb : MonoBehaviour
                 Vector3 spawnPos = new Vector3(transform.position.x, transform.position.y-2, transform.position.z);  
                 Instantiate(explosionVfx, spawnPos, transform.rotation);
                 HandleEnviro();
-                TriggerCameraShake();
+                //TriggerCameraShake();
                 EditTerrain(xPos, yPos);
                 hasExploded = true;
                 Destroy(gameObject);
