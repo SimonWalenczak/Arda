@@ -57,7 +57,11 @@ public class Tent : MonoBehaviour
         if (GameData.NumberDays == 1)
         {
             if (daytimePlayerCtrler.actualTent.SecondTent == true)
+            {
                 GetComponent<CampTuto>().barrier.SetActive(false);
+                RadiologyPhase.Instance.InfoSoldatParent.SetActive(true);
+                RadiologyPhase.Instance.FicheDescription.SetActive(true);
+            }
 
             if (daytimePlayerCtrler.actualTent.ThirthTent == true)
             {

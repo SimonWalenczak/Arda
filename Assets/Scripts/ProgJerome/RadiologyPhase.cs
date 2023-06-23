@@ -9,9 +9,9 @@ using UnityEngine.UI;
 public class RadiologyPhase : MonoBehaviour
 {
     public DaytimePlayerCtrler daytimePlayerCtrler;
- 
+
     public float longPressDuration = 3f;
- 
+
     [Header("Radiology Mode")] [SerializeField]
     bool Scan = true;
 
@@ -53,8 +53,16 @@ public class RadiologyPhase : MonoBehaviour
 
     public List<Sprite> bodySoldierPortrait;
 
-    [Space(10)] [Header("Input")] private bool isPressed = false;
-    private float pressTime = 0f;
+    [Space(10)] [Header("Input")] [SerializeField]
+    private bool isPressed = false;
+
+    [SerializeField] private float pressTime = 0f;
+
+    [Space(10)] [Header("Reference")] public GameObject InfoSoldatParent;
+    public GameObject FicheDescription;
+
+    public List<Sprite> Insignes;
+
 
     private void Awake()
     {
@@ -83,11 +91,35 @@ public class RadiologyPhase : MonoBehaviour
         {
             DataCenterDay.Instance.CurrentInfoSoldiers[i].gameObject.SetActive(true);
 
-            DataCenterDay.Instance.CurrentInfoSoldiers[i].NameText.text =
-                DataCenterDay.Instance.CurrentSoldiers[i].Name;
-            DataCenterDay.Instance.CurrentInfoSoldiers[i].AgeText.text = DataCenterDay.Instance.CurrentSoldiers[i].Age;
-            DataCenterDay.Instance.CurrentInfoSoldiers[i].MilitaryRankText.text =
-                DataCenterDay.Instance.CurrentSoldiers[i].Rank.ToString();
+            //Injury Type
+            int totalActualBullet = 0;
+
+            for (int j = 0; j < DataCenterDay.Instance.CurrentSoldiers[i].Bullets.Count; j++)
+            {
+                totalActualBullet += DataCenterDay.Instance.CurrentSoldiers[i].Bullets[j];
+                print(totalActualBullet);
+            }
+
+
+            if (totalActualBullet <= 2)
+                DataCenterDay.Instance.CurrentInfoSoldiers[i].InjuryType.color = Color.green;
+            else if (totalActualBullet <= 4)
+                DataCenterDay.Instance.CurrentInfoSoldiers[i].InjuryType.color = Color.yellow;
+            else
+                DataCenterDay.Instance.CurrentInfoSoldiers[i].InjuryType.color = Color.red;
+
+            totalActualBullet = 0;
+            //Fin
+
+            //Military Rank
+            if (DataCenterDay.Instance.CurrentSoldiers[i].Rank == MilitaryRank.SecondeClasse)
+                DataCenterDay.Instance.CurrentInfoSoldiers[i].Insigne.sprite = Insignes[0];
+            else if (DataCenterDay.Instance.CurrentSoldiers[i].Rank == MilitaryRank.Génie)
+                DataCenterDay.Instance.CurrentInfoSoldiers[i].Insigne.sprite = Insignes[1];
+            else if (DataCenterDay.Instance.CurrentSoldiers[i].Rank == MilitaryRank.Officier)
+                DataCenterDay.Instance.CurrentInfoSoldiers[i].Insigne.sprite = Insignes[2];
+            //Fin
+
 
             switch (DataCenterDay.Instance.CurrentSoldiers[i].Rank)
             {
@@ -241,6 +273,7 @@ public class RadiologyPhase : MonoBehaviour
         {
             Destroy(DataCenterDay.Instance.CurrentBullets[i]);
         }
+
         canMove = false;
         isInteractable = false;
         currentSoldier = 0;
@@ -252,7 +285,8 @@ public class RadiologyPhase : MonoBehaviour
         DataCenterDay.Instance.CurrentTent.Enterable = false;
         DataCenterDay.Instance.CurrentTent.meshRenderer.enabled = false;
         DataCenterDay.Instance.Clean();
-        if (GameData.NumberDays == 2 || (GameData.NumberDays == 1 && daytimePlayerCtrler.actualTent.ThirthTent == false))
+        if (GameData.NumberDays == 2 ||
+            (GameData.NumberDays == 1 && daytimePlayerCtrler.actualTent.ThirthTent == false))
         {
             StartCoroutine(Fading());
         }

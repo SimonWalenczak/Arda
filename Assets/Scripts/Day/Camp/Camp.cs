@@ -183,9 +183,9 @@ public class Camp : MonoBehaviour
         SoldierCard soldierCard = null;
         soldierCard = _playerController.SoldierCardPanel.GetComponent<SoldierCard>();
 
-        soldierCard.NameText.SetText(currentSoldier.Name);
-        soldierCard.AgeText.SetText(currentSoldier.Age);
-        //soldierCard.AchievementsText.SetText(currentSoldier.Achievements);
-        soldierCard.MilitaryRankText.SetText(currentSoldier.MilitaryRank);
+        // soldierCard.NameText.SetText(currentSoldier.Name);
+        // soldierCard.AgeText.SetText(currentSoldier.Age);
+        // //soldierCard.AchievementsText.SetText(currentSoldier.Achievements);
+        // soldierCard.MilitaryRankText.SetText(currentSoldier.MilitaryRank);
     }
 }
