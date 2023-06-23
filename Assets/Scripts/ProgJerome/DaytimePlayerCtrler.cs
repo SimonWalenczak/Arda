@@ -21,13 +21,16 @@ public class DaytimePlayerCtrler : MonoBehaviour
     public CanvasGroup canvasGroup;
     public float fadeDuration = 1.0f;
     public float targetAlpha = 0.0f;
+
     private float initialAlpha;
+    Rigidbody rigidbody;
 
     public static DaytimePlayerCtrler Instance;
 
     private void Awake()
     {
         Instance = this;
+        rigidbody = GetComponent<Rigidbody>();
     }
 
     void Start()
@@ -107,6 +110,7 @@ public class DaytimePlayerCtrler : MonoBehaviour
 
                     isDriving = false;
                     arcadeCar.controllable = false;
+                    //rigidbody.FreezeAll();
                     other.gameObject.GetComponent<Tent>().GoToTent();
                     
                 }
