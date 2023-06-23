@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Barbed Wire
-  m_Shader: {fileID: -6465566751694194690, guid: 490ab7255c7237445bb054b71e64fd59, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: d41d52f095190274f91012c3101bbdf3, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -33,8 +33,20 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_300EB541:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_931183bd4eae4291b3233aff0496b5dc_Texture_1:
         m_Texture: {fileID: 2800000, guid: 946c85ab5ada94b4ea6599f5d6c6d151, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecularMap:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture:
@@ -59,6 +71,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - Vector1_8606F96E: 0
     - _AmbiantStrengh: 0.58
     - _Ammount_Red: 0
     - _FalloffAmount: 0.01
@@ -69,6 +82,9 @@ Material:
     - _Hardness_Mask: 1
     - _Hardness_Red: 0
     - _LightingCutoff: 0.2
+    - _OutlineDepthSensitivity: 1
+    - _OutlineNormalsSensitivity: 1
+    - _OutlineThickness: 3.85
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Range_Mask: 0
@@ -79,8 +95,11 @@ Material:
     - _ColorTest: {r: 1, g: 1, b: 1, a: 0}
     - _DifuseColor: {r: 0.43867922, g: 0.7188054, b: 1, a: 0}
     - _FresnelColor: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 0}
+    - _MainColor: {r: 0.1509434, g: 0.12367521, b: 0.11562265, a: 0}
+    - _Offset: {r: 0, g: 0, b: 0, a: 0}
     - _SpecularColor: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
     - _Teint_Detail: {r: 0.4716981, g: 0.4716981, b: 0.4716981, a: 0}
     - _Tile_Texture: {r: 1, g: 1, b: 1, a: 0}
     - _Tile_Texture_1: {r: 0, g: 0, b: 0, a: 0}
+    - _Tiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
