@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3502919893620154215}
   - component: {fileID: 518763330852081858}
   - component: {fileID: 2366628177377174536}
+  - component: {fileID: 4425154941791523335}
   m_Layer: 0
   m_Name: Hangar small
   m_TagString: Untagged
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4425154941791523335
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4311932459321165277}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 11.436905, y: 9.15106, z: 6.6249084}
+  m_Center: {x: 0, y: 0, z: -1.7170559}
