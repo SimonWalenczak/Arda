@@ -20538,6 +20538,18 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
+    - target: {fileID: 9175358477988290694, guid: d7ef22a83cd2ea247aa347897cb4c84a, type: 3}
+      propertyPath: ShapeModule.angle
+      value: 10.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 9175358477988290694, guid: d7ef22a83cd2ea247aa347897cb4c84a, type: 3}
+      propertyPath: InitialModule.startRotation.scalar
+      value: 3.1415925
+      objectReference: {fileID: 0}
+    - target: {fileID: 9175358477988290694, guid: d7ef22a83cd2ea247aa347897cb4c84a, type: 3}
+      propertyPath: InitialModule.startRotation.minScalar
+      value: -3.1415925
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7ef22a83cd2ea247aa347897cb4c84a, type: 3}
 --- !u!1001 &700993180

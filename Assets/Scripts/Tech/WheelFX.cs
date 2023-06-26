@@ -10,30 +10,54 @@ public class WheelFX : MonoBehaviour
     public List<ParticleSystem> mudRight = new List<ParticleSystem>(); 
 
     float maxSpeedValue;
+    float currentSpeed;
+    float vfxStartSpeed;
 
     private void Awake()
     {
         arcadeCar = GetComponent<ArcadeCar>();
         maxSpeedValue = GetMaxValueFromCurve(arcadeCar.accelerationCurve);
+        var mainModule = mudLeft[0].main;
+        vfxStartSpeed = mainModule.startSpeed.constant;
 
+
+        for (int i = 0; i < mudLeft.Count; i++)
+        {
+            var module = mudLeft[i].main;
+            module.startSpeed = 0;
+        }
+        for (int i = 0; i < mudRight.Count; i++)
+        {
+            var module = mudRight[i].main;
+            module.startSpeed = 0;
+        }
     }
 
     private void Update()
     {
+        currentSpeed = Mathf.Abs(arcadeCar.GetSpeed() * 4);
+        //print("VRRRRRRRR" + currentSpeed);
+
+        float mudStartSpeed = VFXvalue(vfxStartSpeed);
+
         for (int i = 0; i < arcadeCar.axles.Length; i++)
         {
-            if (arcadeCar.axles[i].wheelDataL.isOnGround)
+            if (arcadeCar.axles[i].wheelDataL.isOnGround && currentSpeed > 10)
             {
                 mudLeft[i].Play();
+                var mainModule = mudLeft[i].main;
+                mainModule.startSpeed = mudStartSpeed;
             }
             else
             {
                 mudLeft[i].Stop();
             }
 
-            if (arcadeCar.axles[i].wheelDataR.isOnGround)
+            if (arcadeCar.axles[i].wheelDataR.isOnGround && currentSpeed > 10)
             {
                 mudRight[i].Play();
+                var mainModule = mudRight[i].main;
+                mainModule.startSpeed = mudStartSpeed;
             }
             else
             {
@@ -41,6 +65,16 @@ public class WheelFX : MonoBehaviour
             }
         }
     }
+
+    float VFXvalue(float VFXvalue)
+    {
+        float value;
+
+        value = VFXvalue * currentSpeed / maxSpeedValue;
+
+        return value;
+    }
+
 
     float GetMaxValueFromCurve(AnimationCurve curve)
     {
