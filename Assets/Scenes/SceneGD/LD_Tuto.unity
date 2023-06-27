@@ -2607,6 +2607,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 360581376, guid: a98fc4f365522c04b8ffaebb21e2c9f8, type: 3}
+      propertyPath: m_text
+      value: '(Maintenir)
+
+        Marquer '
+      objectReference: {fileID: 0}
     - target: {fileID: 2565736533364183636, guid: a98fc4f365522c04b8ffaebb21e2c9f8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -32376,6 +32382,10 @@ PrefabInstance:
       value: -600
       objectReference: {fileID: 0}
     - target: {fileID: 8314006830337262616, guid: 74caa12a3b4fff54d8b2e707da180960, type: 3}
+      propertyPath: SoldiersPanelOrigin
+      value: 
+      objectReference: {fileID: 1902715753}
+    - target: {fileID: 8314006830337262616, guid: 74caa12a3b4fff54d8b2e707da180960, type: 3}
       propertyPath: CurrentSoldierNumber
       value: 
       objectReference: {fileID: 98276957}
@@ -45203,6 +45213,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2251888603253636991, guid: a98fc4f365522c04b8ffaebb21e2c9f8, type: 3}
   m_PrefabInstance: {fileID: 98276947}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &1902715753 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2786726201378446434, guid: a98fc4f365522c04b8ffaebb21e2c9f8, type: 3}
+  m_PrefabInstance: {fileID: 98276947}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1903545759
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46873,7 +46888,7 @@ LightingSettings:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   serializedVersion: 4
-  m_GIWorkflowMode: 1
+  m_GIWorkflowMode: 0
   m_EnableBakedLightmaps: 1
   m_EnableRealtimeLightmaps: 0
   m_RealtimeEnvironmentLighting: 1

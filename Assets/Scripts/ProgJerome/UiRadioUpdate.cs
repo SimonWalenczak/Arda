@@ -1,8 +1,5 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.InputSystem;
 
 public class UiRadioUpdate : MonoBehaviour
 {
@@ -30,10 +27,10 @@ public class UiRadioUpdate : MonoBehaviour
 
     public void ApplyInfoSoldier(int i)
     {
-        FirstName.text = "Nom : " + DataCenterDay.Instance.CurrentSoldiers[i].Name.Split(' ')[0];
-        LastName.text = "Prénom : " + DataCenterDay.Instance.CurrentSoldiers[i].Name.Split(' ')[1];
-        Age.text = "Age : " + DataCenterDay.Instance.CurrentSoldiers[i].Age;
-        Rank.text = "Grade : " + DataCenterDay.Instance.CurrentSoldiers[i].Rank;
+        FirstName.text = DataCenterDay.Instance.CurrentSoldiers[i].Name.Split(' ')[0];
+        LastName.text = DataCenterDay.Instance.CurrentSoldiers[i].Name.Split(' ')[1];
+        Age.text = DataCenterDay.Instance.CurrentSoldiers[i].Age;
+        Rank.text = DataCenterDay.Instance.CurrentSoldiers[i].Rank.ToString();
         Achievement.text = DataCenterDay.Instance.CurrentSoldiers[i].Achievements;
     }
 

@@ -103,11 +103,11 @@ public class RadiologyPhase : MonoBehaviour
 
 
             if (totalActualBullet <= 2)
-                DataCenterDay.Instance.CurrentInfoSoldiers[i].InjuryType.color = Color.green;
+                DataCenterDay.Instance.CurrentInfoSoldiers[i].InjuryType.color = DataCenterDay.Instance.colorGreen;
             else if (totalActualBullet <= 4)
-                DataCenterDay.Instance.CurrentInfoSoldiers[i].InjuryType.color = Color.yellow;
+                DataCenterDay.Instance.CurrentInfoSoldiers[i].InjuryType.color = DataCenterDay.Instance.colorOrange;
             else
-                DataCenterDay.Instance.CurrentInfoSoldiers[i].InjuryType.color = Color.red;
+                DataCenterDay.Instance.CurrentInfoSoldiers[i].InjuryType.color = DataCenterDay.Instance.colorRed;
 
             totalActualBullet = 0;
             //Fin
@@ -349,8 +349,17 @@ public class RadiologyPhase : MonoBehaviour
 
             UiRadioUpdate.Instance.ApplyInfoSoldier(currentSoldier);
             UiRadioUpdate.Instance.SoldiersPanelOrigin.DOComplete();
-            UiRadioUpdate.Instance.SoldiersPanelOrigin.DOAnchorPosY(
-                UiRadioUpdate.Instance.SoldiersPanelOrigin.anchoredPosition.y + 90, 1);
+
+            if (GameData.NumberDays == 2)
+            {
+                UiRadioUpdate.Instance.SoldiersPanelOrigin.DOAnchorPosY(
+                    UiRadioUpdate.Instance.SoldiersPanelOrigin.anchoredPosition.y + 90, 1);
+            }
+            else
+            {
+                UiRadioUpdate.Instance.SoldiersPanelOrigin.DOAnchorPosY(
+                    UiRadioUpdate.Instance.SoldiersPanelOrigin.anchoredPosition.y + 220, 1);
+            }
         }
         else
         {

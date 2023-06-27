@@ -19,6 +19,13 @@ public class DataCenterDay : MonoBehaviour
     public Camera MainCamera;
     public Camera MapCam;
 
+
+    [Header("Color Soldiers")] 
+    
+    public Color colorGreen;
+    public Color colorOrange;
+    public Color colorRed;
+    
     // [Space(10)] [Header("Input")] [HideInInspector]
     // public bool isLongPress;
     //
