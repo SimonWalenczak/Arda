@@ -42,7 +42,7 @@ public class WheelFX : MonoBehaviour
 
         for (int i = 0; i < arcadeCar.axles.Length; i++)
         {
-            if (arcadeCar.axles[i].wheelDataL.isOnGround && currentSpeed > 10)
+            if (arcadeCar.axles[i].wheelDataL.isOnGround && currentSpeed > 7)
             {
                 mudLeft[i].Play();
                 var mainModule = mudLeft[i].main;
@@ -53,7 +53,7 @@ public class WheelFX : MonoBehaviour
                 mudLeft[i].Stop();
             }
 
-            if (arcadeCar.axles[i].wheelDataR.isOnGround && currentSpeed > 10)
+            if (arcadeCar.axles[i].wheelDataR.isOnGround && currentSpeed > 7)
             {
                 mudRight[i].Play();
                 var mainModule = mudRight[i].main;
