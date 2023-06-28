@@ -13,6 +13,9 @@ public class WheelFX : MonoBehaviour
     float currentSpeed;
     float vfxStartSpeed;
 
+    List<Quaternion> frontPositionL = new List<Quaternion>();
+    List<Quaternion> frontPositionR = new List<Quaternion>();
+
     private void Awake()
     {
         arcadeCar = GetComponent<ArcadeCar>();
@@ -20,17 +23,18 @@ public class WheelFX : MonoBehaviour
         var mainModule = mudLeft[0].main;
         vfxStartSpeed = mainModule.startSpeed.constant;
 
-
-        for (int i = 0; i < mudLeft.Count; i++)
-        {
-            var module = mudLeft[i].main;
-            module.startSpeed = 0;
-        }
-        for (int i = 0; i < mudRight.Count; i++)
-        {
-            var module = mudRight[i].main;
-            module.startSpeed = 0;
-        }
+        //for (int i = 0; i < mudLeft.Count; i++)
+        //{
+        //    frontPositionL[i] = mudLeft[i].gameObject.transform.rotation;
+        //    var module = mudLeft[i].main;
+        //    module.startSpeed = 0;
+        //}
+        //for (int i = 0; i < mudRight.Count; i++)
+        //{
+        //    frontPositionR[i] = mudRight[i].gameObject.transform.rotation;
+        //    var module = mudRight[i].main;
+        //    module.startSpeed = 0;
+        //}
     }
 
     private void Update()
@@ -95,5 +99,30 @@ public class WheelFX : MonoBehaviour
         return maxValue;
     }
 
+    void Rotation()
+    {
+        if (arcadeCar.GetSpeed() >= 0)
+        {
+            for (int i = 0; i < mudLeft.Count; i++)
+            {
+                mudLeft[i].gameObject.transform.rotation = frontPositionL[i];
+            }
+            for (int i = 0; i < mudRight.Count; i++)
+            {
+                mudRight[i].gameObject.transform.rotation = frontPositionR[i];
+            }
+        }
+        else
+        {
+            for (int i = 0; i < mudLeft.Count; i++)
+            {
+                mudLeft[i].gameObject.transform.rotation = frontPositionL[i] * new Quaternion(0, 180, 0, 0);
+            }
+            for (int i = 0; i < mudRight.Count; i++)
+            {
+                mudRight[i].gameObject.transform.rotation = frontPositionR[i] * new Quaternion(0, 180, 0, 0);
+            }
+        }
+    }
 
 }

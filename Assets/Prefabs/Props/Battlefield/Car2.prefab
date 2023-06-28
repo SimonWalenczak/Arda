@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7836604772161473351}
   - component: {fileID: 5414947212184534925}
   - component: {fileID: 5664418870602054535}
-  - component: {fileID: 1997688776687993789}
   m_Layer: 0
   m_Name: Car2
   m_TagString: Untagged
@@ -98,34 +97,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.0096154, y: 2.0080843, z: 1.882201}
   m_Center: {x: 7.1265186e-16, y: 1.0026364, z: 0.000030487776}
---- !u!114 &1997688776687993789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5775089978953408088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 2040895715
-      Data2: 1156303588
-      Data3: 1553136513
-      Data4: 1025275352
-    Path: event:/snd_car_collision
-  Event: 
-  PlayEvent: 7
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  AllowNonRigidbodyDoppler: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20

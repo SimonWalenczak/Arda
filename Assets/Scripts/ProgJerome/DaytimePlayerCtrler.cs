@@ -25,12 +25,18 @@ public class DaytimePlayerCtrler : MonoBehaviour
     private float initialAlpha;
     Rigidbody rigidbody;
 
+    BoxCollider boxCollider;
+
     public static DaytimePlayerCtrler Instance;
+
+    bool hasCollided = false;
+    float timeSinceCollision = 0;
 
     private void Awake()
     {
         Instance = this;
         rigidbody = GetComponent<Rigidbody>();
+        boxCollider = GetComponent<BoxCollider>();
     }
 
     void Start()
@@ -42,6 +48,19 @@ public class DaytimePlayerCtrler : MonoBehaviour
     public static bool Contains(LayerMask mask, int layer)
     {
         return mask == (mask | (1 << layer));
+    }
+
+    private void Update()
+    {
+        if (hasCollided)
+        {
+            timeSinceCollision += Time.deltaTime;
+            if (timeSinceCollision >= 0.7f)
+            {
+                hasCollided = false;
+                timeSinceCollision = 0;
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -128,6 +147,15 @@ public class DaytimePlayerCtrler : MonoBehaviour
         if (other.CompareTag("TentTrigger"))
         {
             AButtonDebug.SetActive(false);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (!hasCollided)
+        {
+            AudioManager.Instance.PlayOneShot(FMODEvents.Instance.CollisionEvent, gameObject.transform.position);
+            hasCollided = true;
         }
     }
 }
