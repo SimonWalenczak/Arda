@@ -144,10 +144,10 @@ MonoBehaviour:
   Path: Assets/Audio/ArdenteFMODv3/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638236335005801862
+  lastModified: 638236479276517885
   FileSizes:
   - Name: Desktop
-    Value: 20846368
+    Value: 60086720
   Exists: 1
 --- !u!114 &-7602541766821308615
 MonoBehaviour:
@@ -324,10 +324,10 @@ MonoBehaviour:
   Path: Assets/Audio/ArdenteFMODv3/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638236335005821871
+  lastModified: 638236479276567897
   FileSizes:
   - Name: Desktop
-    Value: 2426
+    Value: 2464
   Exists: 1
 --- !u!114 &-1567238221235700357
 MonoBehaviour:
@@ -535,6 +535,7 @@ MonoBehaviour:
   - {fileID: 2254297556526200264}
   - {fileID: 4143524201816889339}
   - {fileID: 5608769048356745456}
+  - {fileID: 2637838125573042348}
   EditorParameters:
   - {fileID: -8063314770382738566}
   - {fileID: 8625893524880338576}
@@ -543,7 +544,7 @@ MonoBehaviour:
   - {fileID: -7973168862053433526}
   StringsBanks:
   - {fileID: -2853555033488284536}
-  cacheTime: 638236335005821871
+  cacheTime: 638236479276567897
   cacheVersion: 131603
 --- !u!114 &831597740467332470
 MonoBehaviour:
@@ -732,6 +733,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 5000
+--- !u!114 &2637838125573042348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music_Adaptive
+  m_EditorClassIdentifier: 
+  Path: event:/Music_Adaptive
+  Guid:
+    Data1: -1955683053
+    Data2: 1161814290
+    Data3: 1628148900
+    Data4: -2136694630
+  Banks:
+  - {fileID: -7973168862053433526}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 306285
 --- !u!114 &3501171648856000461
 MonoBehaviour:
   m_ObjectHideFlags: 0

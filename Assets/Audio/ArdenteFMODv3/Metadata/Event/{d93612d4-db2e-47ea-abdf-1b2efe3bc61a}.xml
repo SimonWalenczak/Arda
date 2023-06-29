@@ -61,7 +61,11 @@
 			<destination>{83d1ebfc-dc0e-46c9-93a5-ca60fe95584c}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{1c2018f9-505e-4504-8b57-8f21ee6a42c2}" />
+	<object class="EventAutomatableProperties" id="{1c2018f9-505e-4504-8b57-8f21ee6a42c2}">
+		<property name="priority">
+			<value>0</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{a43fe52b-398c-44f6-a115-2c334dca603f}" />
 	<object class="GroupTrack" id="{547cfea0-e709-4b60-b17b-8ea3c11179cb}">
 		<relationship name="automationTracks">
@@ -117,7 +121,7 @@
 	</object>
 	<object class="EventMixerMaster" id="{ef9b4cd6-9371-4878-978a-20de6f26fdec}">
 		<property name="volume">
-			<value>-5</value>
+			<value>-32</value>
 		</property>
 		<relationship name="effectChain">
 			<destination>{a993602b-73c3-4145-91b9-2e6b47eea959}</destination>
