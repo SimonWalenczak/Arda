@@ -246,7 +246,22 @@ public class RadiologyPhase : MonoBehaviour
                     case 9:
                         TutoManager.Instance.AlertePanel.SetActive(false);
                         break;
+                    case 11:
+                        break;
+                    case 12:
+                        TutoManager.Instance.choixDirection.JeannePenseeParent.SetActive(false);
+                        TutoManager.Instance.SelectButton.SetActive(true);
+                        DataCenterDay.Instance.CanOpenMap = true;
+                        TutoManager.Instance.IsTextTuto = false;
+                        break;
+                    case 14:
+                        TutoManager.Instance.choixDirection.CloseDialogueJeanne = true;
+                        TutoManager.Instance.SelectButton.SetActive(false);
+                        break;
                 }
+
+                if (TutoManager.Instance.IndexTuto >= 14)
+                    canMove = true;
             }
             else
             {
@@ -268,6 +283,7 @@ public class RadiologyPhase : MonoBehaviour
                 (DayManager.Instance._isTuto && TutoManager.Instance.IndexTuto == 10))
             {
                 LeaveTent();
+                TutoManager.Instance.IndexTuto++;
             }
         }
 

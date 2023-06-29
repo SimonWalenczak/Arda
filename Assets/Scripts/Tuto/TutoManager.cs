@@ -65,6 +65,11 @@ public class TutoManager : MonoBehaviour
                 if (IndexTuto == 4 || IndexTuto == 10)
                 {
                     RadiologyPhase.Instance.LeaveTent();
+                    if (IndexTuto == 10)
+                    {
+                        IndexTuto++; 
+                        IsTextTuto = false;
+                    }
                 }
                 else if (IndexTuto == 7)
                 {

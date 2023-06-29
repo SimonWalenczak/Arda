@@ -15,7 +15,10 @@ public class ChoixDirection : MonoBehaviour
     public float durationInSeconds = 3.0f;
     private float elapsedTime = 0.0f;
     private bool canSlowTime;
+    [SerializeField] private float currentValue;
 
+    public bool CloseDialogueJeanne;
+    
     public static bool Contains(LayerMask mask, int layer)
     {
         return mask == (mask | (1 << layer));
@@ -37,8 +40,13 @@ public class ChoixDirection : MonoBehaviour
 
             float t = Mathf.Clamp01(elapsedTime / durationInSeconds);
 
-            float currentValue = Mathf.Lerp(startValue, endValue, t);
+            currentValue = Mathf.Lerp(startValue, endValue, t);
+
+            Time.timeScale = currentValue;
         }
+
+        if (CloseDialogueJeanne)
+            StartCoroutine(FinalChoice());
     }
 
     IEnumerator MakeChoice()
@@ -49,5 +57,16 @@ public class ChoixDirection : MonoBehaviour
         yield return new WaitForSeconds(durationInSeconds);
         player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
         JeannePenseeParent.SetActive(true);
+        yield return new WaitForSeconds(1);
+        TutoManager.Instance.IsTextTuto = true;
+    }
+
+    IEnumerator FinalChoice()
+    {
+        player.GetComponent<DaytimePlayerCtrler>().arcadeCar.controllable = true;
+        canSlowTime = false;
+        RadiologyPhase.Instance.Fader.DOFade(0f, 1.5f);
+        yield return new WaitForSeconds(1.5f);
+        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
     }
 }
