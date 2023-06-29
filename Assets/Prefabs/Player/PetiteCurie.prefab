@@ -596,6 +596,8 @@ GameObject:
   - component: {fileID: 543450651892717523}
   - component: {fileID: 1180720356544656459}
   - component: {fileID: 451601173213328380}
+  - component: {fileID: 4960000763726900335}
+  - component: {fileID: 6015584988182674749}
   m_Layer: 7
   m_Name: PetiteCurie
   m_TagString: Player
@@ -971,6 +973,50 @@ MonoBehaviour:
   mudRight:
   - {fileID: 8067700380162470854}
   - {fileID: 1436061632062959452}
+--- !u!114 &4960000763726900335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5721050975805965765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de4247cb8c1a7034b8689f1d6998ff8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CarFullEngine: {fileID: 6015584988182674749}
+--- !u!114 &6015584988182674749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5721050975805965765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -467953571
+      Data2: 1336512961
+      Data3: -1094002298
+      Data4: 1834607420
+    Path: event:/snd_car_motor
+  Event: 
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &6520560619786111019
 GameObject:
   m_ObjectHideFlags: 0
