@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{47f30490-f942-49ed-afcd-1d277cf42a47}">
+		<property name="name">
+			<value>VehicleState</value>
+		</property>
+		<relationship name="folder">
+			<destination>{65d9a6d8-7b81-45e8-9dfa-3150a8cc06fb}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{45f60dce-5f97-4458-980c-c56a83b2499c}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{45f60dce-5f97-4458-980c-c56a83b2499c}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>Stopped</value>
+			<value>Moving</value>
+		</property>
+		<property name="initialValue">
+			<value>1</value>
+		</property>
+		<relationship name="automators">
+			<destination>{d725d809-5c69-4050-bd9b-c175192df145}</destination>
+		</relationship>
+	</object>
+	<object class="Automator" id="{d725d809-5c69-4050-bd9b-c175192df145}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>cursorPosition</value>
+		</property>
+		<relationship name="automationCurves">
+			<destination>{b7546170-219f-4f86-9e1d-22c1aa356111}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationCurve" id="{b7546170-219f-4f86-9e1d-22c1aa356111}">
+		<relationship name="parameter">
+			<destination>{dee302cf-b2be-4c8b-9b9f-ac3e47a9cbdf}</destination>
+		</relationship>
+		<relationship name="automationPoints">
+			<destination>{cc5e405e-d5f5-4eb6-b0b5-57456d848ed2}</destination>
+			<destination>{4c430e81-8e15-404c-b1cd-bac0e930fb9d}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationPoint" id="{cc5e405e-d5f5-4eb6-b0b5-57456d848ed2}">
+		<property name="position">
+			<value>0.01001001001001001</value>
+		</property>
+		<property name="value">
+			<value>1</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{4c430e81-8e15-404c-b1cd-bac0e930fb9d}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="value">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

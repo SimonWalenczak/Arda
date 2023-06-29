@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{46882c88-bc7c-46c4-801a-a04a8b000878}">
+		<property name="name">
+			<value>RadioSpeed</value>
+		</property>
+		<relationship name="folder">
+			<destination>{65d9a6d8-7b81-45e8-9dfa-3150a8cc06fb}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{fb76e9d7-1b79-4bd4-9a34-c4cea2f42a96}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{fb76e9d7-1b79-4bd4-9a34-c4cea2f42a96}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{6a10ea04-a56f-4705-a57c-22717c5fcf01}">
+		<property name="name">
+			<value>VehicleMomentum</value>
+		</property>
+		<relationship name="folder">
+			<destination>{65d9a6d8-7b81-45e8-9dfa-3150a8cc06fb}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{dee302cf-b2be-4c8b-9b9f-ac3e47a9cbdf}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{dee302cf-b2be-4c8b-9b9f-ac3e47a9cbdf}">
+		<property name="isGlobal">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="seekSpeed">
+			<value>0.56999999284744263</value>
+		</property>
+		<property name="seekSpeedDescending">
+			<value>0.89999997615814209</value>
+		</property>
+		<property name="seekSpeedAsymmetric">
+			<value>true</value>
+		</property>
+		<property name="isExposedRecursively">
+			<value>false</value>
+		</property>
+	</object>
+</objects>

@@ -41,7 +41,6 @@ public class CarEngine : MonoBehaviour
             normalizedValue = 1;
         }
 
-        AudioManager.Instance.SetParameter(CarFullEngine, "VehicleMomentum", normalizedValue);
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("VehicleMomentum", normalizedValue);
 
     }
