@@ -326,7 +326,7 @@ public class RadiologyPhase : MonoBehaviour
             canMove = false;
             if (DayManager.Instance._isTuto == false ||
                 (DayManager.Instance._isTuto &&
-                 (TutoManager.Instance.IndexTuto == 3 || TutoManager.Instance.IndexTuto == 6)))
+                 (TutoManager.Instance.IndexTuto == 3 || TutoManager.Instance.IndexTuto == 6 || TutoManager.Instance.IndexTuto >= 14)))
             {
                 pressTime += Time.deltaTime;
             }
