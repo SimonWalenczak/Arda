@@ -7,13 +7,9 @@ public class BulletHandler : MonoBehaviour
     [Header("List must be same size and order than bullet spawn zones")]
     public List<Collider2D> BulletZones = new List<Collider2D>();
 
-    [Space(10)]
-    [Header("Bullet Prefab")]
-    public GameObject Bullet;
+    [Space(10)] [Header("Bullet Prefab")] public GameObject Bullet;
 
-    [Space(10)]
-    [Header("Mask")]
-    public GameObject Parent;
+    [Space(10)] [Header("Mask")] public GameObject Parent;
 
     public static BulletHandler Instance;
 
@@ -52,10 +48,19 @@ public class BulletHandler : MonoBehaviour
                         //print(yPos);
 
                         spawnPos = new Vector3(xPos, yPos, 0);
-                        GameObject bullet = Instantiate(Bullet, spawnPos, transform.rotation, Parent.transform);
-                        DataCenterDay.Instance.CurrentBullets.Add(bullet);
+                  
+                        if(DayManager.Instance._isTuto && TutoManager.Instance.IndexTuto == 0)
+                        {
+                            Vector3 maskPos = RadiologyPhase.Instance.Mask.transform.position;
+                            GameObject bullet = Instantiate(Bullet, new Vector3(maskPos.x, maskPos.y, 0), transform.rotation, Parent.transform);
+                            DataCenterDay.Instance.CurrentBullets.Add(bullet);
+                        }
+                        else
+                        {
+                            GameObject bullet = Instantiate(Bullet, spawnPos, transform.rotation, Parent.transform);
+                            DataCenterDay.Instance.CurrentBullets.Add(bullet);
+                        }
                     }
-
 
 
                     //Instantiate(Bullet, spawnPos, Quaternion.Euler(-90f, 0f, 0f));
@@ -68,6 +73,5 @@ public class BulletHandler : MonoBehaviour
                 }
             }
         }
-
     }
 }

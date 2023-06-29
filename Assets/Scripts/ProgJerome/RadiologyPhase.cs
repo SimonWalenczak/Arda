@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -92,6 +93,15 @@ public class RadiologyPhase : MonoBehaviour
         {
             DataCenterDay.Instance.CurrentInfoSoldiers[i].gameObject.SetActive(true);
 
+            if (DayManager.Instance._isTuto)
+            {
+                if (TutoManager.Instance.IndexTuto == 4)
+                {
+                    TutoManager.Instance.IndexTuto = 5;
+                    TutoManager.Instance.TutoCarPanel.SetActive(false);
+                }
+            }
+
             //Injury Type
             int totalActualBullet = 0;
 
@@ -162,7 +172,7 @@ public class RadiologyPhase : MonoBehaviour
         else if (Scan)
         {
             BulletHandler.Instance.SetupBullets(currentSoldier);
-            canMove = true;
+            //canMove = true;
         }
 
         //Affichage Soldat (face + uniforme)
@@ -194,14 +204,73 @@ public class RadiologyPhase : MonoBehaviour
 
     private void Update()
     {
+        //Test Tuto Simon
+        if (Survey)
+        {
+            Mask.SetActive(false);
+        }
+        else if (Scan)
+        {
+            if (DayManager.Instance._isTuto)
+            {
+                switch (TutoManager.Instance.IndexTuto)
+                {
+                    case 0:
+                        Mask.SetActive(false);
+                        canMove = false;
+                        TutoManager.Instance.TutoParent.SetActive(true);
+                        break;
+                    case 1:
+                        Mask.SetActive(true);
+                        break;
+                    case 3:
+                        TutoManager.Instance.IsTextTuto = false;
+                        break;
+                    case 4:
+                        TutoManager.Instance.IsTextTuto = true;
+                        break;
+                    case 5:
+                        canMove = false;
+                        break;
+                    case 6:
+                        canMove = true;
+                        TutoManager.Instance.IsTextTuto = true;
+                        break;
+                    case 7:
+                        if (Gamepad.current.buttonWest.wasPressedThisFrame)
+                            UpdateSoldier();
+                        break;
+                    case 8:
+                        TutoManager.Instance.AlertePanel.SetActive(true);
+                        break;
+                    case 9:
+                        TutoManager.Instance.AlertePanel.SetActive(false);
+                        break;
+                }
+            }
+            else
+            {
+                canMove = true;
+            }
+        }
+        //Fin Test Tuto Simon
+
+
         if (Gamepad.current.buttonWest.wasReleasedThisFrame && isInteractable)
         {
-            UpdateSoldier();
+            if (DayManager.Instance._isTuto == false)
+                UpdateSoldier();
         }
 
         if (Gamepad.current.buttonEast.wasReleasedThisFrame && isInteractable)
         {
-            LeaveTent();
+            if (DayManager.Instance._isTuto == false ||
+                (DayManager.Instance._isTuto && TutoManager.Instance.IndexTuto == 10))
+            {
+                if (DayManager.Instance._isTuto && TutoManager.Instance.IndexTuto == 10)
+                    TutoManager.Instance.endSecondTent = true;
+                LeaveTent();
+            }
         }
 
         if (Gamepad.current.buttonSouth.wasReleasedThisFrame && Survey && isInteractable)
@@ -230,7 +299,7 @@ public class RadiologyPhase : MonoBehaviour
                 {
                     isSliderActive = true;
                     canMove = false;
-                    slider = Instantiate(TimerSlider, Mask.transform.position + new Vector3(10, 0, 0),
+                    slider = Instantiate(TimerSlider, Mask.transform.position + new Vector3(0, 0, 0),
                         Mask.transform.rotation, SliderFolder.transform);
                     slider.GetComponent<TimerBar>().SetValues(longPressDuration);
                 }
@@ -241,7 +310,13 @@ public class RadiologyPhase : MonoBehaviour
         {
             isPressed = true;
             canMove = false;
-            pressTime += Time.deltaTime;
+            if (DayManager.Instance._isTuto == false ||
+                (DayManager.Instance._isTuto &&
+                 (TutoManager.Instance.IndexTuto == 3 || TutoManager.Instance.IndexTuto == 6)))
+            {
+                pressTime += Time.deltaTime;
+            }
+
             slider.GetComponent<TimerBar>().SetTime(pressTime);
             if (pressTime >= longPressDuration)
             {
@@ -250,6 +325,21 @@ public class RadiologyPhase : MonoBehaviour
                     if (item.GetComponent<Bastos>().isDetected)
                     {
                         RemoveBullet(item);
+
+                        if (DayManager.Instance._isTuto)
+                        {
+                            if (TutoManager.Instance.IndexTuto == 3)
+                            {
+                                TutoManager.Instance.IndexTuto = 4;
+                                TutoManager.Instance.IsTextTuto = true;
+                            }
+
+                            if (TutoManager.Instance.IndexTuto == 6)
+                            {
+                                TutoManager.Instance.IndexTuto = 7;
+                                TutoManager.Instance.IsTextTuto = true;
+                            }
+                        }
                     }
                 }
 
@@ -265,11 +355,12 @@ public class RadiologyPhase : MonoBehaviour
             pressTime = 0;
             isSliderActive = false;
             Destroy(slider);
-            canMove = true;
+            if (DayManager.Instance._isTuto == false)
+                canMove = true;
         }
     }
 
-    void LeaveTent()
+    public void LeaveTent()
     {
         for (int i = 0; i < DataCenterDay.Instance.CurrentBullets.Count; i++)
         {
@@ -300,8 +391,20 @@ public class RadiologyPhase : MonoBehaviour
 
     IEnumerator Fading()
     {
+        print("bla");
         Fader.DOFade(1f, 1f);
         yield return new WaitForSeconds(1.5f);
+        if (DayManager.Instance._isTuto)
+        {
+            TutoManager.Instance.TutoParent.SetActive(false);
+            TutoManager.Instance.ButtonDisplayParent.SetActive(false);
+            if (TutoManager.Instance.IndexTuto == 4)
+            {
+                TutoManager.Instance.endFirstTent = true;
+                TutoManager.Instance.TutoCarPanel.SetActive(true);
+            }
+        }
+
         Fader.DOFade(0f, 1f);
         Radiology.alpha = 0;
         yield return null;
@@ -309,7 +412,7 @@ public class RadiologyPhase : MonoBehaviour
 
     void UpdateSoldier()
     {
-        if (currentSoldier < DataCenterDay.Instance.CurrentSoldiers.Count - 1)
+        if (currentSoldier < DataCenterDay.Instance.CurrentSoldiers.Count - 1 || DayManager.Instance._isTuto)
         {
             //print(DataCenterDay.Instance.CurrentSoldiers.Count);
             currentSoldier++;
@@ -374,7 +477,7 @@ public class RadiologyPhase : MonoBehaviour
             DataCenterDay.Instance.CurrentSoldiers[currentSoldier].MinutesConsumed * 60;
         //GlobalManager.Instance.GaugesValues[((int)DataCenterDay.Instance.CurrentSoldiers[currentSoldier].Rank)];
         if (GameData.NumberDays == 2)
-            GlobalManager.Instance.UpdateSucceededValue((int)DataCenterDay.Instance.CurrentSoldiers[currentSoldier]
+            GlobalManager.Instance.UpdateSucceededValue((int) DataCenterDay.Instance.CurrentSoldiers[currentSoldier]
                 .Rank);
         UpdateSoldier();
     }
@@ -386,7 +489,7 @@ public class RadiologyPhase : MonoBehaviour
         if (DataCenterDay.Instance.BulletsFound == DataCenterDay.Instance.CurrentBullets.Count)
         {
             if (GameData.NumberDays == 2)
-                GlobalManager.Instance.UpdateSucceededValue(((int)DataCenterDay.Instance
+                GlobalManager.Instance.UpdateSucceededValue(((int) DataCenterDay.Instance
                     .CurrentSoldiers[currentSoldier].Rank));
         }
     }

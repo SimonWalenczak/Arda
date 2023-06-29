@@ -41,6 +41,11 @@ public class Tent : MonoBehaviour
     {
         IsEnter = true;
 
+        if (daytimePlayerCtrler.actualTent.SecondTent)
+        {
+            TutoManager.Instance.IndexTuto = 5;
+        }
+        
         DataCenterDay.Instance.CurrentTent = this;
         foreach (var item in Soldiers)
         {
