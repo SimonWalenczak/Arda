@@ -123,11 +123,11 @@ public class RadiologyPhase : MonoBehaviour
             //Fin
 
             //Military Rank
-            if (DataCenterDay.Instance.CurrentSoldiers[i].Rank == MilitaryRank.SecondeClasse)
+            if (DataCenterDay.Instance.CurrentSoldiers[i].Rank == MilitaryRank.Infanterie)
                 DataCenterDay.Instance.CurrentInfoSoldiers[i].Insigne.sprite = Insignes[0];
             else if (DataCenterDay.Instance.CurrentSoldiers[i].Rank == MilitaryRank.Génie)
                 DataCenterDay.Instance.CurrentInfoSoldiers[i].Insigne.sprite = Insignes[1];
-            else if (DataCenterDay.Instance.CurrentSoldiers[i].Rank == MilitaryRank.Officier)
+            else if (DataCenterDay.Instance.CurrentSoldiers[i].Rank == MilitaryRank.CorpsFrancs)
                 DataCenterDay.Instance.CurrentInfoSoldiers[i].Insigne.sprite = Insignes[2];
             //Fin
 
@@ -137,10 +137,10 @@ public class RadiologyPhase : MonoBehaviour
                 case MilitaryRank.Génie:
                     DataCenterDay.Instance.CurrentInfoSoldiers[i].Body.sprite = bodySoldierPortrait[0];
                     break;
-                case MilitaryRank.Officier:
+                case MilitaryRank.CorpsFrancs:
                     DataCenterDay.Instance.CurrentInfoSoldiers[i].Body.sprite = bodySoldierPortrait[1];
                     break;
-                case MilitaryRank.SecondeClasse:
+                case MilitaryRank.Infanterie:
                     DataCenterDay.Instance.CurrentInfoSoldiers[i].Body.sprite = bodySoldierPortrait[2];
                     break;
             }
@@ -189,10 +189,10 @@ public class RadiologyPhase : MonoBehaviour
             case MilitaryRank.Génie:
                 SkeletonSoldierSprite.sprite = SkeletonSoldiers[0];
                 break;
-            case MilitaryRank.Officier:
+            case MilitaryRank.CorpsFrancs:
                 SkeletonSoldierSprite.sprite = SkeletonSoldiers[1];
                 break;
-            case MilitaryRank.SecondeClasse:
+            case MilitaryRank.Infanterie:
                 SkeletonSoldierSprite.sprite = SkeletonSoldiers[2];
                 break;
         }
@@ -444,10 +444,10 @@ public class RadiologyPhase : MonoBehaviour
                 case MilitaryRank.Génie:
                     SkeletonSoldierSprite.sprite = SkeletonSoldiers[0];
                     break;
-                case MilitaryRank.Officier:
+                case MilitaryRank.CorpsFrancs:
                     SkeletonSoldierSprite.sprite = SkeletonSoldiers[1];
                     break;
-                case MilitaryRank.SecondeClasse:
+                case MilitaryRank.Infanterie:
                     SkeletonSoldierSprite.sprite = SkeletonSoldiers[2];
                     break;
             }

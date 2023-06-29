@@ -6,8 +6,8 @@ using UnityEngine.Serialization;
 
 public enum MilitaryRank
 {
-    SecondeClasse,
-    Officier,
+    Infanterie,
+    CorpsFrancs,
     Génie
 };
 

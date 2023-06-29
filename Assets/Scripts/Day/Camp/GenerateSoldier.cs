@@ -41,10 +41,10 @@ public class GenerateSoldier : MonoBehaviour
                 case MilitaryRank.Génie:
                     Soldiers[i].Body = BodySprites[0];
                     break;
-                case MilitaryRank.Officier:
+                case MilitaryRank.CorpsFrancs:
                     Soldiers[i].Body = BodySprites[1];
                     break;
-                case MilitaryRank.SecondeClasse:
+                case MilitaryRank.Infanterie:
                     Soldiers[i].Body = BodySprites[2];
                     break;
             }
