@@ -9,7 +9,7 @@ public class TutoManager : MonoBehaviour
     public static TutoManager Instance;
     public ArcadeCar arcadeCar;
     public ChoixDirection choixDirection;
-    
+
     [Header("Tuto Variables")] public int IndexTuto = 0;
     public bool IsTextTuto;
 
@@ -21,11 +21,11 @@ public class TutoManager : MonoBehaviour
     public GameObject TutoCarPanel;
     public GameObject AlertePanel;
     public GameObject SelectButton;
-    
+
     public bool endFirstTent;
     public bool endSecondTent;
     public bool CanMakeChoice;
-    
+
     public void Awake()
     {
         if (Instance == null)
@@ -43,45 +43,48 @@ public class TutoManager : MonoBehaviour
     {
         if (IsTextTuto)
         {
-            if (IndexTuto <= 4 && endFirstTent == false)
+            if (IndexTuto < 14)
             {
-                TutoParent.SetActive(true);
-                TextTutoText.SetText(TextTuto[IndexTuto]);
-            }
-            else if (IndexTuto > 4 && IndexTuto <= 10 && endSecondTent == false)
-            {
-                TutoParent.SetActive(true);
-                TextTutoText.SetText(TextTuto[IndexTuto]);
-            }
-
-            if (Gamepad.current.buttonWest.wasPressedThisFrame)
-            {
-                if (IndexTuto == 7)
-                    IndexTuto = 8;
-            }
-
-            if (Gamepad.current.buttonSouth.wasPressedThisFrame)
-            {
-                if (IndexTuto == 4 || IndexTuto == 10)
+                if (IndexTuto <= 4 && endFirstTent == false)
                 {
-                    RadiologyPhase.Instance.LeaveTent();
-                    if (IndexTuto == 10)
+                    TutoParent.SetActive(true);
+                    TextTutoText.SetText(TextTuto[IndexTuto]);
+                }
+                else if (IndexTuto > 4 && IndexTuto <= 10 && endSecondTent == false)
+                {
+                    TutoParent.SetActive(true);
+                    TextTutoText.SetText(TextTuto[IndexTuto]);
+                }
+
+                if (Gamepad.current.buttonWest.wasPressedThisFrame)
+                {
+                    if (IndexTuto == 7)
+                        IndexTuto = 8;
+                }
+
+                if (Gamepad.current.buttonSouth.wasPressedThisFrame)
+                {
+                    if (IndexTuto == 4 || IndexTuto == 10)
                     {
-                        IndexTuto++; 
-                        IsTextTuto = false;
+                        RadiologyPhase.Instance.LeaveTent();
+                        if (IndexTuto == 10)
+                        {
+                            IndexTuto++;
+                            IsTextTuto = false;
+                        }
                     }
-                }
-                else if (IndexTuto == 7)
-                {
-                    return;
-                }
-                else
-                {
-                    if (IndexTuto != 6)
-                        IndexTuto++;
+                    else if (IndexTuto == 7)
+                    {
+                        return;
+                    }
                     else
                     {
-                        TextTutoText.SetText(TextTuto[7]);
+                        if (IndexTuto != 6)
+                            IndexTuto++;
+                        else
+                        {
+                            TextTutoText.SetText(TextTuto[7]);
+                        }
                     }
                 }
             }

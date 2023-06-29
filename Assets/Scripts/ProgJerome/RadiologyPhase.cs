@@ -257,11 +257,15 @@ public class RadiologyPhase : MonoBehaviour
                     case 14:
                         TutoManager.Instance.choixDirection.CloseDialogueJeanne = true;
                         TutoManager.Instance.SelectButton.SetActive(false);
+                        DayManager.Instance._isTuto = false;
                         break;
                 }
 
-                if (TutoManager.Instance.IndexTuto >= 14)
-                    canMove = true;
+                // if (TutoManager.Instance.IndexTuto >= 14)
+                // {
+                //     canMove = true;
+                //     
+                // }
             }
             else
             {
@@ -273,7 +277,7 @@ public class RadiologyPhase : MonoBehaviour
 
         if (Gamepad.current.buttonWest.wasReleasedThisFrame && isInteractable)
         {
-            if (DayManager.Instance._isTuto == false)
+            if (DayManager.Instance._isTuto == false || (DayManager.Instance._isTuto == false && TutoManager.Instance.IndexTuto >= 14))
                 UpdateSoldier();
         }
 
@@ -397,7 +401,7 @@ public class RadiologyPhase : MonoBehaviour
         {
             StartCoroutine(Fading());
         }
-        else
+        else if( GameData.NumberDays == 1 && daytimePlayerCtrler.actualTent.ThirthTent == true)
         {
             StartCoroutine(DayManager.Instance.WaitingForSunSet());
         }
@@ -431,7 +435,7 @@ public class RadiologyPhase : MonoBehaviour
 
     void UpdateSoldier()
     {
-        if (currentSoldier < DataCenterDay.Instance.CurrentSoldiers.Count - 1 || DayManager.Instance._isTuto)
+        if (currentSoldier < DataCenterDay.Instance.CurrentSoldiers.Count - 1 )
         {
             //print(DataCenterDay.Instance.CurrentSoldiers.Count);
             currentSoldier++;
