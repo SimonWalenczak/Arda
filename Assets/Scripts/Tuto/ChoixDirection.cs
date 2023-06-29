@@ -50,14 +50,4 @@ public class ChoixDirection : MonoBehaviour
         player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
         JeannePenseeParent.SetActive(true);
     }
-    
-    public IEnumerator ChoiceFinish()
-    {
-        player.GetComponent<DaytimePlayerCtrler>().arcadeCar.controllable = true;
-        canSlowTime = false;
-        RadiologyPhase.Instance.Fader.DOFade(1f, 1.5f);
-        yield return new WaitForSeconds(2);
-        DaytimePlayerCtrler.Instance.UnfreezePosition();
-        JeannePenseeParent.SetActive(false);
-    }
 }

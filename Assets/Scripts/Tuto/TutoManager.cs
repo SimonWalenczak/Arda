@@ -20,7 +20,8 @@ public class TutoManager : MonoBehaviour
     public GameObject ButtonBDisplay;
     public GameObject TutoCarPanel;
     public GameObject AlertePanel;
-
+    public GameObject SelectButton;
+    
     public bool endFirstTent;
     public bool endSecondTent;
     public bool CanMakeChoice;
@@ -64,8 +65,6 @@ public class TutoManager : MonoBehaviour
                 if (IndexTuto == 4 || IndexTuto == 10)
                 {
                     RadiologyPhase.Instance.LeaveTent();
-                    if(CanMakeChoice)
-                        StartCoroutine(choixDirection.ChoiceFinish());
                 }
                 else if (IndexTuto == 7)
                 {
