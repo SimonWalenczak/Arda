@@ -119,6 +119,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{4259333c-0105-4dbb-abf8-a3234b6a8a43}">
+		<property name="volume">
+			<value>4</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{2aeb19ce-0f1d-4561-a908-668c005759c2}</destination>
 		</relationship>
@@ -145,7 +148,6 @@
 		<property name="timelockedOffset">
 			<value>80</value>
 		</property>
-		<property name="name" />
 		<relationship name="fadeInCurve">
 			<destination>{4df6723f-4938-4ffa-8f15-09531097273c}</destination>
 		</relationship>
@@ -160,7 +162,6 @@
 		<property name="length">
 			<value>89.107758620689665</value>
 		</property>
-		<property name="name" />
 		<relationship name="audioFile">
 			<destination>{9824bb3f-1f22-4b3e-af41-e919350401e8}</destination>
 		</relationship>
@@ -189,7 +190,6 @@
 		<property name="timelockedOffset">
 			<value>125.21120689655174</value>
 		</property>
-		<property name="name" />
 		<relationship name="fadeInCurve">
 			<destination>{e34c021e-d954-495b-b18f-e9eebfddcc73}</destination>
 		</relationship>
@@ -221,7 +221,6 @@
 		<property name="timelockedOffset">
 			<value>282.17394386238448</value>
 		</property>
-		<property name="name" />
 		<relationship name="fadeInCurve">
 			<destination>{9ffdf64d-808f-42dc-89b5-4b3c26671b22}</destination>
 		</relationship>
@@ -625,7 +624,7 @@
 	</object>
 	<object class="AutomationPoint" id="{cd7ddcd2-ae87-49d0-b625-14abf40042b2}">
 		<property name="position">
-			<value>140</value>
+			<value>132.1012709359606</value>
 		</property>
 		<property name="value">
 			<value>1</value>

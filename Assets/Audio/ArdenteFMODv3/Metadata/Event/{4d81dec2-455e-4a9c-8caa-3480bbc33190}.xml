@@ -5,7 +5,7 @@
 			<value>Bombing Zone (mockup)</value>
 		</property>
 		<property name="outputFormat">
-			<value>5</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{46a8e6b9-3419-4a24-acef-47afa0ed5db7}</destination>
@@ -125,6 +125,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{9b59a8cd-6e5d-4669-ab89-c0ab67912f30}">
+		<property name="volume">
+			<value>2.5</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{4e09a835-2dc5-431f-bbeb-e077f5d2f3d1}</destination>
 		</relationship>
@@ -479,6 +482,7 @@
 	<object class="MixerBusEffectChain" id="{4e09a835-2dc5-431f-bbeb-e077f5d2f3d1}">
 		<relationship name="effects">
 			<destination>{18463b93-622c-4662-b87e-2e2e4ea20527}</destination>
+			<destination>{c7f14028-78f3-4550-9943-428ffa82d0cf}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{154f6e36-323e-4ddd-a1ea-a9a0b2a5eb0b}" />
@@ -658,6 +662,17 @@
 	</object>
 	<object class="MixerBusPanner" id="{3497b219-15af-4a2e-9960-c59e94f61c07}" />
 	<object class="MixerBusFader" id="{18463b93-622c-4662-b87e-2e2e4ea20527}" />
+	<object class="SpatialiserEffect" id="{c7f14028-78f3-4550-9943-428ffa82d0cf}">
+		<property name="distanceRolloffType">
+			<value>4</value>
+		</property>
+		<property name="maximumDistance">
+			<value>10000</value>
+		</property>
+		<property name="overrideRange">
+			<value>true</value>
+		</property>
+	</object>
 	<object class="SingleSound" id="{3a778d87-1f82-482b-abea-6726fa9e17a7}">
 		<relationship name="audioFile">
 			<destination>{aff21c0c-89d7-4624-9a78-9162c741f47b}</destination>
