@@ -267,8 +267,6 @@ public class RadiologyPhase : MonoBehaviour
             if (DayManager.Instance._isTuto == false ||
                 (DayManager.Instance._isTuto && TutoManager.Instance.IndexTuto == 10))
             {
-                if (DayManager.Instance._isTuto && TutoManager.Instance.IndexTuto == 10)
-                    TutoManager.Instance.endSecondTent = true;
                 LeaveTent();
             }
         }
@@ -402,6 +400,11 @@ public class RadiologyPhase : MonoBehaviour
             {
                 TutoManager.Instance.endFirstTent = true;
                 TutoManager.Instance.TutoCarPanel.SetActive(true);
+            }
+
+            if (TutoManager.Instance.IndexTuto == 10)
+            {
+                TutoManager.Instance.endSecondTent = true;
             }
         }
 

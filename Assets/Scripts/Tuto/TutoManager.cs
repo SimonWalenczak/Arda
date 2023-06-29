@@ -8,7 +8,8 @@ public class TutoManager : MonoBehaviour
 {
     public static TutoManager Instance;
     public ArcadeCar arcadeCar;
-
+    public ChoixDirection choixDirection;
+    
     [Header("Tuto Variables")] public int IndexTuto = 0;
     public bool IsTextTuto;
 
@@ -22,6 +23,7 @@ public class TutoManager : MonoBehaviour
 
     public bool endFirstTent;
     public bool endSecondTent;
+    public bool CanMakeChoice;
     
     public void Awake()
     {
@@ -45,7 +47,7 @@ public class TutoManager : MonoBehaviour
                 TutoParent.SetActive(true);
                 TextTutoText.SetText(TextTuto[IndexTuto]);
             }
-            else if (IndexTuto > 4 && IndexTuto < 10 && endSecondTent == false)
+            else if (IndexTuto > 4 && IndexTuto <= 10 && endSecondTent == false)
             {
                 TutoParent.SetActive(true);
                 TextTutoText.SetText(TextTuto[IndexTuto]);
@@ -62,6 +64,8 @@ public class TutoManager : MonoBehaviour
                 if (IndexTuto == 4 || IndexTuto == 10)
                 {
                     RadiologyPhase.Instance.LeaveTent();
+                    if(CanMakeChoice)
+                        StartCoroutine(choixDirection.ChoiceFinish());
                 }
                 else if (IndexTuto == 7)
                 {
